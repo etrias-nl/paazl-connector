@@ -1,0 +1,8 @@
+.DS_Store
+!.gitkeep
+/.idea
+/.phpstorm.meta.php
+composer.lock
+vendor/
+phpunit.xml
+wdsltophp.phar/

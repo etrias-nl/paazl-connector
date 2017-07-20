@@ -1,0 +1,15 @@
+{
+    "name": "etrias/paazl-connector",
+    "description": "Package generated from https://ost.paazl.com/parcelshipperservice/orderRequest.wsdl using wsdltophp/packagegenerator",
+    "require": {
+        "php": ">=5.3.3",
+        "ext-soap": "*",
+        "wsdltophp/packagebase": "~1.0",
+        "meng-tian/async-soap-guzzle": "^0.2.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Etrias\\PaazlConnector\\": "./src/"
+        }
+    }
+}
