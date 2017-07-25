@@ -17,8 +17,13 @@
 Use Etrias\PaazlConnector\ServiceType\Address as AddressServiceType;
 Use Etrias\PaazlConnector\ServiceType\Change as ChangeServiceType;
 Use Etrias\PaazlConnector\ServiceType\Delete as DeleteServiceType;
+Use Etrias\PaazlConnector\ServiceType\Generate as GenerateServiceType;
+Use Etrias\PaazlConnector\ServiceType\Get as GetServiceType;
 Use Etrias\PaazlConnector\ServiceType\Order as OrderServiceType;
+Use Etrias\PaazlConnector\ServiceType\Orders as OrdersServiceType;
 Use Etrias\PaazlConnector\ServiceType\Commit as CommitOrderServiceType;
+Use Etrias\PaazlConnector\ServiceType\Proof as ProofServiceType;
+Use Etrias\PaazlConnector\ServiceType\Rate as RateServiceType;
 Use Etrias\PaazlConnector\ServiceType\Shipping as ShippingServiceType;
 Use Etrias\PaazlConnector\ServiceType\Update as UpdateServiceType;
 
@@ -36,8 +41,13 @@ $wsdlOptions = array(
 $addressServiceType = new AddressServiceType($wsdlOptions, true);
 $changeServiceType = new ChangeServiceType($wsdlOptions, true);
 $deleteServiceType = new DeleteServiceType($wsdlOptions, true);
+$generateServiceType = new GenerateServiceType($wsdlOptions, true);
+$getServiceType = new GetServiceType($wsdlOptions, true);
 $orderServiceType = new OrderServiceType($wsdlOptions, true);
+$ordersServiceType = new OrdersServiceType($wsdlOptions, true);
 $commitServiceType = new CommitOrderServiceType($wsdlOptions, true);
+$proofServiceType = new ProofServiceType($wsdlOptions, true);
+$rateServiceType = new RateServiceType($wsdlOptions, true);
 $shippingServiceType = new ShippingServiceType($wsdlOptions, true);
 $updateServiceType = new UpdateServiceType($wsdlOptions, true);
 
@@ -46,8 +56,13 @@ $paazlService = new \Etrias\PaazlConnector\Service\Paazl(
     $addressServiceType,
     $changeServiceType,
     $deleteServiceType,
+    $generateServiceType,
+    $getServiceType,
     $orderServiceType,
+    $ordersServiceType,
     $commitServiceType,
+    $proofServiceType,
+    $rateServiceType,
     $shippingServiceType,
     $updateServiceType
 );
@@ -110,7 +125,8 @@ $paazlService = new \Etrias\PaazlConnector\Service\Paazl(
 
 //$response = $paazlService->getOrderStatus('ET998');
 
-$response = $paazlService->deleteOrder('ET171');
+//$response = $paazlService->generateExtraImageReturnLabel('ET998', 'AVG');
+$response = $paazlService->getExistingPdfLabels(['ET998' => '05228029546047']);
 
 var_dump($response);
 

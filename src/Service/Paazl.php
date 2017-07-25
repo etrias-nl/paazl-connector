@@ -2,13 +2,19 @@
 
 namespace Etrias\PaazlConnector\Service;
 
+use DateTime;
 use Etrias\PaazlConnector\Processor\ResponseProcessor;
 Use Etrias\PaazlConnector\ServiceType\Address as AddressServiceType;
 Use Etrias\PaazlConnector\ServiceType\Change as ChangeServiceType;
 Use Etrias\PaazlConnector\ServiceType\Delete as DeleteServiceType;
+Use Etrias\PaazlConnector\ServiceType\Generate as GenerateServiceType;
+Use Etrias\PaazlConnector\ServiceType\Get as GetServiceType;
 Use Etrias\PaazlConnector\ServiceType\Order as OrderServiceType;
+Use Etrias\PaazlConnector\ServiceType\Orders as OrdersServiceType;
 Use Etrias\PaazlConnector\ServiceType\Commit as CommitServiceType;
 Use Etrias\PaazlConnector\ServiceType\Update as UpdateServiceType;
+Use Etrias\PaazlConnector\ServiceType\Proof as ProofServiceType;
+Use Etrias\PaazlConnector\ServiceType\Rate as RateServiceType;
 Use Etrias\PaazlConnector\ServiceType\Shipping as ShippingServiceType;
 use Etrias\PaazlConnector\StructType\AddressRequest;
 use Etrias\PaazlConnector\StructType\AddressResponse;
@@ -19,13 +25,42 @@ use Etrias\PaazlConnector\StructType\ChangeShippingMethod;
 use Etrias\PaazlConnector\StructType\CommitOrderRequest;
 use Etrias\PaazlConnector\StructType\DateRangeType;
 use Etrias\PaazlConnector\StructType\DeleteOrderRequest;
+use Etrias\PaazlConnector\StructType\ExistingLabelType;
+use Etrias\PaazlConnector\StructType\GenerateExtraImageLabelRequest;
+use Etrias\PaazlConnector\StructType\GenerateExtraImageLabelResponse;
+use Etrias\PaazlConnector\StructType\GenerateExtraImageReturnLabelResponse;
+use Etrias\PaazlConnector\StructType\GenerateExtraPdfLabelRequest;
+use Etrias\PaazlConnector\StructType\GenerateExtraPdfLabelResponse;
+use Etrias\PaazlConnector\StructType\GenerateExtraPdfReturnLabelRequest;
+use Etrias\PaazlConnector\StructType\GenerateExtraPdfReturnLabelResponse;
+use Etrias\PaazlConnector\StructType\GenerateImageLabelsRequest;
+use Etrias\PaazlConnector\StructType\GenerateImageLabelsResponse;
+use Etrias\PaazlConnector\StructType\GenerateImageReturnLabelsResponse;
+use Etrias\PaazlConnector\StructType\GeneratePdfLabelsRequest;
+use Etrias\PaazlConnector\StructType\GeneratePdfLabelsResponse;
+use Etrias\PaazlConnector\StructType\GeneratePdfReturnLabelsRequest;
+use Etrias\PaazlConnector\StructType\GeneratePdfReturnLabelsResponse;
+use Etrias\PaazlConnector\StructType\GenerateZplLabelsRequest;
+use Etrias\PaazlConnector\StructType\GenerateZplLabelsResponse;
+use Etrias\PaazlConnector\StructType\GetExistingPdfLabelRequest;
+use Etrias\PaazlConnector\StructType\GetExistingPdfLabelsRequest;
+use Etrias\PaazlConnector\StructType\GetExistingPdfLabelsResponse;
+use Etrias\PaazlConnector\StructType\LabelType;
 use Etrias\PaazlConnector\StructType\OrderDetailsRequest;
 use Etrias\PaazlConnector\StructType\OrderDetailsResponse;
 use Etrias\PaazlConnector\StructType\OrderRequest;
 use Etrias\PaazlConnector\StructType\OrderSaveResponseType;
 use Etrias\PaazlConnector\StructType\OrderStatusRequest;
 use Etrias\PaazlConnector\StructType\OrderStatusResponse;
+use Etrias\PaazlConnector\StructType\OrdersToShipRequest;
+use Etrias\PaazlConnector\StructType\OrdersToShipResponse;
+use Etrias\PaazlConnector\StructType\OrderType;
 use Etrias\PaazlConnector\StructType\Products;
+use Etrias\PaazlConnector\StructType\ProofOfDeliveryRequest;
+use Etrias\PaazlConnector\StructType\ProofOfDeliveryResponse;
+use Etrias\PaazlConnector\StructType\RateRequest;
+use Etrias\PaazlConnector\StructType\RateResponse;
+use Etrias\PaazlConnector\StructType\ReturnLabelsOrderType;
 use Etrias\PaazlConnector\StructType\SenderAddress;
 use Etrias\PaazlConnector\StructType\ShippingAddress;
 use Etrias\PaazlConnector\StructType\ShippingMethod;
@@ -65,14 +100,39 @@ class Paazl
      * @var DeleteServiceType
      */
     protected $deleteServiceType;
+    /**
+     * @var OrdersServiceType
+     */
+    protected $ordersServiceType;
+    /**
+     * @var RateServiceType
+     */
+    protected $rateServiceType;
+    /**
+     * @var ProofServiceType
+     */
+    protected $proofServiceType;
+    /**
+     * @var GenerateServiceType
+     */
+    protected $generateServiceType;
+    /**
+     * @var GetServiceType
+     */
+    protected $getServiceType;
 
     /**
      * Constructor
      * @param AddressServiceType $addressServiceType
      * @param ChangeServiceType $changeServiceType
      * @param DeleteServiceType $deleteServiceType
+     * @param GenerateServiceType $generateServiceType
+     * @param GetServiceType $getServiceType
      * @param OrderServiceType $orderServiceType
+     * @param OrdersServiceType $ordersServiceType
      * @param CommitServiceType $commitServiceType
+     * @param ProofServiceType $proofServiceType
+     * @param RateServiceType $rateServiceType
      * @param ShippingServiceType $shippingServiceType
      * @param UpdateServiceType $updateServiceType
      */
@@ -80,8 +140,13 @@ class Paazl
         AddressServiceType $addressServiceType,
         ChangeServiceType $changeServiceType,
         DeleteServiceType $deleteServiceType,
+        GenerateServiceType $generateServiceType,
+        GetServiceType $getServiceType,
         OrderServiceType $orderServiceType,
+        OrdersServiceType $ordersServiceType,
         CommitServiceType $commitServiceType,
+        ProofServiceType $proofServiceType,
+        RateServiceType $rateServiceType,
         ShippingServiceType $shippingServiceType,
         UpdateServiceType $updateServiceType
     )
@@ -93,6 +158,273 @@ class Paazl
         $this->updateServiceType = $updateServiceType;
         $this->changeServiceType = $changeServiceType;
         $this->deleteServiceType = $deleteServiceType;
+        $this->ordersServiceType = $ordersServiceType;
+        $this->rateServiceType = $rateServiceType;
+        $this->proofServiceType = $proofServiceType;
+        $this->generateServiceType = $generateServiceType;
+        $this->getServiceType = $getServiceType;
+    }
+
+    /**
+     * @param array $orderReferences
+     * @param null $printer
+     * @param null $includeMetaData
+     * @param null $batch
+     * @param null $targetWebShop
+     * @return GeneratePdfLabelsResponse
+     */
+    public function generatePdfLabels(array $orderReferences, $printer = null, $includeMetaData = null, $batch = null, $targetWebShop = null)
+    {
+        $orders = [];
+
+        foreach ($orderReferences as $orderReference) {
+            $orders[] = new OrderType(
+                $this->getHash($orderReference),
+                $targetWebShop,
+                $orderReference,
+                null,
+                $batch
+            );
+        }
+
+
+        $request = new GeneratePdfLabelsRequest(
+            $this->generateServiceType->getWebShopId(),
+            $printer,
+            $orders,
+            $includeMetaData
+        );
+
+        $response = $this->generateServiceType->generatePdfLabels($request);
+
+        return $this->processResponse($response, $this->generateServiceType);
+    }
+
+    /**
+     * @param $orderReference
+     * @param null $printer
+     * @param null $includeMetaData
+     * @param null $batch
+     * @param null $targetWebShop
+     * @return GenerateExtraPdfLabelResponse
+     */
+    public function generateExtraPdfLabel($orderReference, $printer = null, $includeMetaData = null, $batch = null, $targetWebShop = null)
+    {
+        $request = new GenerateExtraPdfLabelRequest(
+            $this->getHash($orderReference),
+            $this->generateServiceType->getWebShopId(),
+            $targetWebShop,
+            $orderReference,
+            $printer,
+            $batch,
+            $includeMetaData
+        );
+
+        $response = $this->generateServiceType->generateExtraPdfLabel($request);
+
+        return $this->processResponse($response, $this->generateServiceType);
+    }
+
+    /**
+     * @param array $orderReferences
+     * @param $shippingOption
+     * @param null $printer
+     * @param null $targetWebShop
+     * @return GeneratePdfReturnLabelsResponse
+     */
+    public function generatePdfReturnLabels(array $orderReferences, $shippingOption, $printer = null, $targetWebShop = null)
+    {
+        $orders = [];
+
+        foreach ($orderReferences as $orderReference) {
+            $orders[] = new ReturnLabelsOrderType(
+                $this->getHash($orderReference),
+                $targetWebShop,
+                $orderReference,
+                null,
+                $shippingOption
+            );
+        }
+
+
+        $request = new GeneratePdfReturnLabelsRequest(
+            $printer
+        );
+        $request->setWebshop($this->generateServiceType->getWebShopId());
+        $request->setOrder($orders);
+
+        $response = $this->generateServiceType->generatePdfReturnLabels($request);
+
+        return $this->processResponse($response, $this->generateServiceType);
+    }
+
+
+    /**
+     * @param $orderReference
+     * @param $shippingOption
+     * @param null $printer
+     * @param null $targetWebShop
+     * @return GenerateExtraPdfReturnLabelResponse
+     */
+    public function generateExtraPdfReturnLabel($orderReference, $shippingOption, $printer = null, $targetWebShop = null)
+    {
+        $request = new GenerateExtraPdfReturnLabelRequest($printer);
+        $request->setShippingOption($shippingOption)
+            ->setWebshop($this->generateServiceType->getWebShopId())
+            ->setHash($this->getHash($orderReference))
+            ->setTargetWebshop($targetWebShop)
+            ->setOrderReference($orderReference)
+            ->setShippingOption($shippingOption);
+
+        $response = $this->generateServiceType->generateExtraPdfReturnLabel($request);
+
+        return $this->processResponse($response, $this->generateServiceType);
+    }
+
+    /**
+     * @param array $orderReferences
+     * @param null $includeMetaData
+     * @param null $batch
+     * @param null $targetWebShop
+     * @return GenerateImageLabelsResponse
+     */
+    public function generateImageLabels(array $orderReferences, $includeMetaData = null, $batch = null, $targetWebShop = null)
+    {
+        $orders = [];
+
+        foreach ($orderReferences as $orderReference) {
+            $orders[] = new OrderType(
+                $this->getHash($orderReference),
+                $targetWebShop,
+                $orderReference,
+                null,
+                $batch
+            );
+        }
+
+
+        $request = new GenerateImageLabelsRequest(
+            $this->generateServiceType->getWebShopId(),
+            $orders,
+            $includeMetaData
+        );
+
+        $response = $this->generateServiceType->generateImageLabels($request);
+
+        return $this->processResponse($response, $this->generateServiceType);
+    }
+
+    /**
+     * @param array $orderReferences
+     * @param $shippingOption
+     * @param null $printer
+     * @param null $targetWebShop
+     * @return GenerateImageReturnLabelsResponse
+     */
+    public function generateImageReturnLabels(array $orderReferences, $shippingOption, $printer = null, $targetWebShop = null)
+    {
+        $orders = [];
+
+        foreach ($orderReferences as $orderReference) {
+            $orders[] = new ReturnLabelsOrderType(
+                $this->getHash($orderReference),
+                $targetWebShop,
+                $orderReference,
+                null,
+                $shippingOption
+            );
+        }
+
+
+        $request = new GeneratePdfReturnLabelsRequest(
+            $printer
+        );
+        $request->setWebshop($this->generateServiceType->getWebShopId());
+        $request->setOrder($orders);
+
+        $response = $this->generateServiceType->generateImageReturnLabels($request);
+
+        return $this->processResponse($response, $this->generateServiceType);
+    }
+
+    /**
+     * @param $orderReference
+     * @param $shippingOption
+     * @param null $printer
+     * @param null $targetWebShop
+     * @return GenerateExtraImageReturnLabelResponse
+     */
+    public function generateExtraImageReturnLabel($orderReference, $shippingOption, $printer = null, $targetWebShop = null)
+    {
+        $request = new GenerateExtraPdfReturnLabelRequest($printer);
+        $request->setShippingOption($shippingOption)
+            ->setWebshop($this->generateServiceType->getWebShopId())
+            ->setHash($this->getHash($orderReference))
+            ->setTargetWebshop($targetWebShop)
+            ->setOrderReference($orderReference)
+            ->setShippingOption($shippingOption);
+
+        $response = $this->generateServiceType->generateExtraImageReturnLabel($request);
+
+        return $this->processResponse($response, $this->generateServiceType);
+    }
+
+    /**
+     * @param $orderReference
+     * @param null $includeMetaData
+     * @param null $batch
+     * @param null $targetWebShop
+     * @return GenerateExtraImageLabelResponse
+     */
+    public function generateExtraImageLabel($orderReference, $includeMetaData = null, $batch = null, $targetWebShop = null)
+    {
+        $request = new GenerateExtraImageLabelRequest(
+            $this->getHash($orderReference),
+            $this->addressServiceType->getWebShopId(),
+            $targetWebShop,
+            $orderReference,
+            $batch,
+            $includeMetaData
+        );
+
+        $response = $this->generateServiceType->generateExtraImageLabel($request);
+
+        return $this->processResponse($response, $this->generateServiceType);
+    }
+
+    /**
+     * @param array $orderReferences
+     * @param null $printer
+     * @param null $includeMetaData
+     * @param null $batch
+     * @param null $targetWebShop
+     * @return GenerateZplLabelsResponse
+     */
+    public function generateZplLabels(array $orderReferences, $printer = null, $includeMetaData = null, $batch = null, $targetWebShop = null)
+    {
+        $orders = [];
+
+        foreach ($orderReferences as $orderReference) {
+            $orders[] = new OrderType(
+                $this->getHash($orderReference),
+                $targetWebShop,
+                $orderReference,
+                null,
+                $batch
+            );
+        }
+
+
+        $request = new GenerateZplLabelsRequest(
+            $this->generateServiceType->getWebShopId(),
+            $printer,
+            $orders,
+            $includeMetaData
+        );
+
+        $response = $this->generateServiceType->generateZplLabels($request);
+
+        return $this->processResponse($response, $this->generateServiceType);
     }
 
     /**
@@ -118,7 +450,35 @@ class Paazl
         $response = $this->addressServiceType->address($request);
 
         return $this->processResponse($response, $this->addressServiceType);
+    }
 
+    /**
+     * @param array $barCodes [$orderReference => $barcode]
+     * @param null $printer
+     * @param null $includeMetaData
+     * @return GetExistingPdfLabelsResponse
+     */
+    public function getExistingPdfLabels(array $barCodes, $printer = null, $includeMetaData = null)
+    {
+        $labels = [];
+
+        foreach ($barCodes as $orderReference => $barcode ) {
+            $labels[] = new ExistingLabelType(
+                $this->getHash($orderReference),
+                $this->getServiceType->getWebShopId(),
+                $orderReference,
+                $barcode
+            );
+        }
+
+        $request = new GetExistingPdfLabelsRequest($printer);
+        $request->setLabel($labels)
+            ->setWebshop($this->getServiceType->getWebShopId())
+            ->setIncludeMetaData($includeMetaData);
+
+        $response = $this->getServiceType->getExistingPdfLabels($request);
+
+        return $this->processResponse($response, $this->getServiceType);
     }
 
     /**
@@ -165,6 +525,12 @@ class Paazl
         return $this->processResponse($response, $this->orderServiceType);
     }
 
+    /**
+     * @param $orderReference
+     * @param Products $products
+     * @param null $targetWebShop
+     * @return OrderSaveResponseType
+     */
     public function updateOrder($orderReference, Products $products, $targetWebShop = null)
     {
         $request = new UpdateOrderRequest(
@@ -180,6 +546,22 @@ class Paazl
         return $this->processResponse($response, $this->updateServiceType);
     }
 
+    /**
+     * @param $orderReference
+     * @param null $newOrderReference
+     * @param ChangeShippingMethod|null $shippingMethod
+     * @param ShippingAddress|null $shippingAddress
+     * @param ChangeSenderAddress|null $returnAddress
+     * @param ChangeSenderAddress|null $shipperAddress
+     * @param ChangeProducts|null $products
+     * @param null $totalAmount
+     * @param null $totalAmountCurrency
+     * @param null $language
+     * @param null $customerEmail
+     * @param null $customerPhoneNumber
+     * @param null $targetWebShop
+     * @return OrderSaveResponseType
+     */
     public function changeOrder(
         $orderReference,
         $newOrderReference = null,
@@ -289,6 +671,29 @@ class Paazl
     }
 
     /**
+     * @param DateTime $date
+     * @param null $targetWebShop
+     * @return OrdersToShipResponse
+     */
+    public function getOrdersToShip(DateTime $date = null, $targetWebShop = null)
+    {
+        if ($date === null) {
+            $date = new DateTime();
+        }
+
+        $request = new OrdersToShipRequest(
+            $this->getHash($date->format('Ymd')),
+            $this->ordersServiceType->getWebShopId(),
+            $targetWebShop,
+            $date->format('Y-m-d')
+        );
+
+        $response = $this->ordersServiceType->ordersToShip($request);
+
+        return $this->processResponse($response, $this->ordersServiceType);
+    }
+
+    /**
      * @param $orderReference
      * @param bool|null $includeLabels
      * @param bool|null $getCarrierStatus
@@ -314,6 +719,49 @@ class Paazl
         $response = $this->orderServiceType->orderStatus($request);
 
         return $this->processResponse($response, $this->orderServiceType);
+    }
+
+    /**
+     * @param $barcode
+     * @param null $targetWebShop
+     * @return ProofOfDeliveryResponse
+     */
+    public function getProofOfDelivery($barcode, $targetWebShop = null)
+    {
+        $request = new ProofOfDeliveryRequest(
+            $this->getHash($barcode),
+            $this->commitServiceType->getWebShopId(),
+            $targetWebShop,
+            $barcode
+        );
+
+        $response = $this->proofServiceType->proofOfDelivery($request);
+
+        return $this->processResponse($response, $this->proofServiceType);
+    }
+
+    /**
+     * @param $orderReference
+     * @param null $country
+     * @param null $postalCode
+     * @param null $shippingOption
+     * @param null $targetWebShop
+     * @return RateResponse
+     */
+    public function getRates($orderReference, $country = null, $postalCode = null, $shippingOption = null, $targetWebShop = null)
+    {
+        $request = new RateRequest(
+            $this->getHash($orderReference),
+            $this->rateServiceType->getWebShopId(),
+            $targetWebShop,
+            $orderReference,
+            $country,
+            $postalCode,
+            $shippingOption
+        );
+        $response = $this->rateServiceType->rate($request);
+
+        return $this->processResponse($response, $this->rateServiceType);
     }
 
 
@@ -364,9 +812,9 @@ class Paazl
      *
      * @return string
      */
-    protected function getHash($orderReference)
+    protected function getHash($input)
     {
-        return sha1($this->orderServiceType->getWebShopId() . $this->orderServiceType->getPassword() . $orderReference);
+        return sha1($this->orderServiceType->getWebShopId() . $this->orderServiceType->getPassword() . $input);
     }
 
 }
