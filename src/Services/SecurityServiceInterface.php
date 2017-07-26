@@ -10,7 +10,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Etrias\PaazlConnector\Service;
+namespace Etrias\PaazlConnector\Services;
 
 interface SecurityServiceInterface
 {

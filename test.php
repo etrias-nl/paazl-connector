@@ -47,7 +47,7 @@ $rateServiceType = new RateServiceType($wsdlOptions, true);
 $shippingServiceType = new ShippingServiceType($wsdlOptions, true);
 $updateServiceType = new UpdateServiceType($wsdlOptions, true);
 
-$paazlService = new \Etrias\PaazlConnector\Service\Paazl(
+$paazlService = new \Etrias\PaazlConnector\Services\Paazl(
     $addressServiceType,
     $changeServiceType,
     $deleteServiceType,

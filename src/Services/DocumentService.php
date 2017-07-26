@@ -10,7 +10,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Etrias\PaazlConnector\Service;
+namespace Etrias\PaazlConnector\Services;
 
 use Etrias\PaazlConnector\Processor\Processor;
 use Etrias\PaazlConnector\ServiceType\Service as GeneralServiceType;
