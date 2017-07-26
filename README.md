@@ -1,3 +1,7 @@
+[![Build Status](https://scrutinizer-ci.com/g/etrias-nl/paazl-connector/badges/build.png?b=master)](https://scrutinizer-ci.com/g/etrias-nl/paazl-connector/build-status/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/etrias-nl/paazl-connector/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/etrias-nl/paazl-connector/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/etrias-nl/paazl-connector/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/etrias-nl/paazl-connector/?branch=master)
+
 # Paazl connector
 
 You can use this package to easily make a soap connection to paazl webservice in PHP.
