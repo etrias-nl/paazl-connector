@@ -88,6 +88,13 @@ class ShippingOptionRequest extends AbstractStructBase
      */
     public $deliveryDateRange;
     /**
+     * The sources
+     * Meta informations extracted from the WSDL
+     * - minOccurs: 0
+     * @var \Etrias\PaazlConnector\StructType\Sources
+     */
+    public $sources;
+    /**
      * Constructor method for shippingOptionRequest
      * @uses ShippingOptionRequest::setHash()
      * @uses ShippingOptionRequest::setWebshop()
@@ -101,6 +108,7 @@ class ShippingOptionRequest extends AbstractStructBase
      * @uses ShippingOptionRequest::setShippingOption()
      * @uses ShippingOptionRequest::setDeliveryEstimate()
      * @uses ShippingOptionRequest::setDeliveryDateRange()
+     * @uses ShippingOptionRequest::setSources()
      * @param string $hash
      * @param int $webshop
      * @param int $targetWebshop
@@ -113,8 +121,9 @@ class ShippingOptionRequest extends AbstractStructBase
      * @param string $shippingOption
      * @param bool $deliveryEstimate
      * @param \Etrias\PaazlConnector\StructType\DateRangeType $deliveryDateRange
+     * @param \Etrias\PaazlConnector\StructType\Sources $sources
      */
-    public function __construct($hash = null, $webshop = null, $targetWebshop = null, $orderReference = null, $postcode = null, $country = 'NL', $evening = null, $weekend = null, $extendedDeliveryDateDetails = null, $shippingOption = null, $deliveryEstimate = null, \Etrias\PaazlConnector\StructType\DateRangeType $deliveryDateRange = null)
+    public function __construct($hash = null, $webshop = null, $targetWebshop = null, $orderReference = null, $postcode = null, $country = 'NL', $evening = null, $weekend = null, $extendedDeliveryDateDetails = null, $shippingOption = null, $deliveryEstimate = null, \Etrias\PaazlConnector\StructType\DateRangeType $deliveryDateRange = null, \Etrias\PaazlConnector\StructType\Sources $sources = null)
     {
         $this
             ->setHash($hash)
@@ -128,7 +137,8 @@ class ShippingOptionRequest extends AbstractStructBase
             ->setExtendedDeliveryDateDetails($extendedDeliveryDateDetails)
             ->setShippingOption($shippingOption)
             ->setDeliveryEstimate($deliveryEstimate)
-            ->setDeliveryDateRange($deliveryDateRange);
+            ->setDeliveryDateRange($deliveryDateRange)
+            ->setSources($sources);
     }
     /**
      * Get hash value
@@ -388,6 +398,24 @@ class ShippingOptionRequest extends AbstractStructBase
     public function setDeliveryDateRange(\Etrias\PaazlConnector\StructType\DateRangeType $deliveryDateRange = null)
     {
         $this->deliveryDateRange = $deliveryDateRange;
+        return $this;
+    }
+    /**
+     * Get sources value
+     * @return \Etrias\PaazlConnector\StructType\Sources|null
+     */
+    public function getSources()
+    {
+        return $this->sources;
+    }
+    /**
+     * Set sources value
+     * @param \Etrias\PaazlConnector\StructType\Sources $sources
+     * @return \Etrias\PaazlConnector\StructType\ShippingOptionRequest
+     */
+    public function setSources(\Etrias\PaazlConnector\StructType\Sources $sources = null)
+    {
+        $this->sources = $sources;
         return $this;
     }
     /**

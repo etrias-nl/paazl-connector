@@ -136,6 +136,14 @@ class ShippingOption extends AbstractStructBase
      */
     public $deliveryDates;
     /**
+     * The deliveryDatesBySource
+     * Meta informations extracted from the WSDL
+     * - maxOccurs: unbounded
+     * - minOccurs: 0
+     * @var \Etrias\PaazlConnector\StructType\DeliveryDatesBySourceType[]
+     */
+    public $deliveryDatesBySource;
+    /**
      * The shippingOption
      * @var string
      */
@@ -169,6 +177,7 @@ class ShippingOption extends AbstractStructBase
      * @uses ShippingOption::setAllowsAdditionalShipperNotification()
      * @uses ShippingOption::setServicePoints()
      * @uses ShippingOption::setDeliveryDates()
+     * @uses ShippingOption::setDeliveryDatesBySource()
      * @uses ShippingOption::setShippingOption()
      * @uses ShippingOption::setServicePoint()
      * @param string $type
@@ -190,10 +199,11 @@ class ShippingOption extends AbstractStructBase
      * @param bool $allowsAdditionalShipperNotification
      * @param \Etrias\PaazlConnector\StructType\ServicePointsType $servicePoints
      * @param \Etrias\PaazlConnector\StructType\DeliveryDatesType $deliveryDates
+     * @param \Etrias\PaazlConnector\StructType\DeliveryDatesBySourceType[] $deliveryDatesBySource
      * @param string $shippingOption
      * @param \Etrias\PaazlConnector\StructType\ServicePointType[] $servicePoint
      */
-    public function __construct($type = null, $description = null, $deliverySchemeLineId = null, $distributor = null, $partOfDay = null, $price = null, $priceDiscount = null, $deliveryDayOfWeekRange = null, \Etrias\PaazlConnector\StructType\Time $deliveryWindowStart = null, \Etrias\PaazlConnector\StructType\Time $deliveryWindowEnd = null, $datePreference = null, $cod = null, $insurance = null, $needsServicePointAccountNumber = null, $shipperNotification = null, $needsAdditionalShipperNotification = null, $allowsAdditionalShipperNotification = null, \Etrias\PaazlConnector\StructType\ServicePointsType $servicePoints = null, \Etrias\PaazlConnector\StructType\DeliveryDatesType $deliveryDates = null, $shippingOption = null, array $servicePoint = array())
+    public function __construct($type = null, $description = null, $deliverySchemeLineId = null, $distributor = null, $partOfDay = null, $price = null, $priceDiscount = null, $deliveryDayOfWeekRange = null, \Etrias\PaazlConnector\StructType\Time $deliveryWindowStart = null, \Etrias\PaazlConnector\StructType\Time $deliveryWindowEnd = null, $datePreference = null, $cod = null, $insurance = null, $needsServicePointAccountNumber = null, $shipperNotification = null, $needsAdditionalShipperNotification = null, $allowsAdditionalShipperNotification = null, \Etrias\PaazlConnector\StructType\ServicePointsType $servicePoints = null, \Etrias\PaazlConnector\StructType\DeliveryDatesType $deliveryDates = null, array $deliveryDatesBySource = array(), $shippingOption = null, array $servicePoint = array())
     {
         $this
             ->setType($type)
@@ -215,6 +225,7 @@ class ShippingOption extends AbstractStructBase
             ->setAllowsAdditionalShipperNotification($allowsAdditionalShipperNotification)
             ->setServicePoints($servicePoints)
             ->setDeliveryDates($deliveryDates)
+            ->setDeliveryDatesBySource($deliveryDatesBySource)
             ->setShippingOption($shippingOption)
             ->setServicePoint($servicePoint);
     }
@@ -616,6 +627,46 @@ class ShippingOption extends AbstractStructBase
     public function setDeliveryDates(\Etrias\PaazlConnector\StructType\DeliveryDatesType $deliveryDates = null)
     {
         $this->deliveryDates = $deliveryDates;
+        return $this;
+    }
+    /**
+     * Get deliveryDatesBySource value
+     * @return \Etrias\PaazlConnector\StructType\DeliveryDatesBySourceType[]|null
+     */
+    public function getDeliveryDatesBySource()
+    {
+        return $this->deliveryDatesBySource;
+    }
+    /**
+     * Set deliveryDatesBySource value
+     * @throws \InvalidArgumentException
+     * @param \Etrias\PaazlConnector\StructType\DeliveryDatesBySourceType[] $deliveryDatesBySource
+     * @return \Etrias\PaazlConnector\StructType\ShippingOption
+     */
+    public function setDeliveryDatesBySource(array $deliveryDatesBySource = array())
+    {
+        foreach ($deliveryDatesBySource as $shippingOptionDeliveryDatesBySourceItem) {
+            // validation for constraint: itemType
+            if (!$shippingOptionDeliveryDatesBySourceItem instanceof \Etrias\PaazlConnector\StructType\DeliveryDatesBySourceType) {
+                throw new \InvalidArgumentException(sprintf('The deliveryDatesBySource property can only contain items of \Etrias\PaazlConnector\StructType\DeliveryDatesBySourceType, "%s" given', is_object($shippingOptionDeliveryDatesBySourceItem) ? get_class($shippingOptionDeliveryDatesBySourceItem) : gettype($shippingOptionDeliveryDatesBySourceItem)), __LINE__);
+            }
+        }
+        $this->deliveryDatesBySource = $deliveryDatesBySource;
+        return $this;
+    }
+    /**
+     * Add item to deliveryDatesBySource value
+     * @throws \InvalidArgumentException
+     * @param \Etrias\PaazlConnector\StructType\DeliveryDatesBySourceType $item
+     * @return \Etrias\PaazlConnector\StructType\ShippingOption
+     */
+    public function addToDeliveryDatesBySource(\Etrias\PaazlConnector\StructType\DeliveryDatesBySourceType $item)
+    {
+        // validation for constraint: itemType
+        if (!$item instanceof \Etrias\PaazlConnector\StructType\DeliveryDatesBySourceType) {
+            throw new \InvalidArgumentException(sprintf('The deliveryDatesBySource property can only contain items of \Etrias\PaazlConnector\StructType\DeliveryDatesBySourceType, "%s" given', is_object($item) ? get_class($item) : gettype($item)), __LINE__);
+        }
+        $this->deliveryDatesBySource[] = $item;
         return $this;
     }
     /**

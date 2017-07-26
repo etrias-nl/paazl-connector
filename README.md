@@ -16,6 +16,7 @@ php wsdltophp.phar generate:package \
     --composer-name="etrias/paazl-connector" \
     --composer-settings="require.meng-tian/async-soap-guzzle:^0.2.4" \
     --namespace Etrias\\PaazlConnector \
+    --gathermethods="none" \
     --force
 ```
 

@@ -1,35 +1,28 @@
 <?php
 
-/*
- * This file is part of PHP CS Fixer.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
-
 namespace Etrias\PaazlConnector;
 
 /**
- * Class which returns the class map definition.
+ * Class which returns the class map definition
+ * @package
  */
 class ClassMap
 {
     /**
      * Returns the mapping between the WSDL Structs and generated Structs' classes
-     * This array is sent to the \SoapClient when calling the WS.
-     *
+     * This array is sent to the \SoapClient when calling the WS
      * @return string[]
      */
     final public static function get()
     {
-        return [
+        return array(
             'shippingOptionRequest' => '\\Etrias\\PaazlConnector\\StructType\\ShippingOptionRequest',
             'shippingOptionResponse' => '\\Etrias\\PaazlConnector\\StructType\\ShippingOptionResponse',
             'shippingOptions' => '\\Etrias\\PaazlConnector\\StructType\\ShippingOptions',
             'shippingOption' => '\\Etrias\\PaazlConnector\\StructType\\ShippingOption',
+            'deliveryDatesBySourceType' => '\\Etrias\\PaazlConnector\\StructType\\DeliveryDatesBySourceType',
+            'sources' => '\\Etrias\\PaazlConnector\\StructType\\Sources',
+            'source' => '\\Etrias\\PaazlConnector\\StructType\\Source',
             'activeShippingOptionRequest' => '\\Etrias\\PaazlConnector\\StructType\\ActiveShippingOptionRequest',
             'activeShippingOptionResponse' => '\\Etrias\\PaazlConnector\\StructType\\ActiveShippingOptionResponse',
             'activeShippingOptions' => '\\Etrias\\PaazlConnector\\StructType\\ActiveShippingOptions',
@@ -206,6 +199,6 @@ class ClassMap
             'nonNegativeIntegerRangeType' => '\\Etrias\\PaazlConnector\\StructType\\NonNegativeIntegerRangeType',
             'coordinatesType' => '\\Etrias\\PaazlConnector\\StructType\\CoordinatesType',
             'errorType' => '\\Etrias\\PaazlConnector\\StructType\\ErrorType',
-        ];
+        );
     }
 }

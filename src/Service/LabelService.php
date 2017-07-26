@@ -9,8 +9,7 @@
 namespace Etrias\PaazlConnector\Service;
 
 use Etrias\PaazlConnector\Processor\Processor;
-use Etrias\PaazlConnector\ServiceType\Generate as GenerateServiceType;
-use Etrias\PaazlConnector\ServiceType\Get as GetServiceType;
+use Etrias\PaazlConnector\ServiceType\Service as GeneralServiceType;
 use Etrias\PaazlConnector\StructType\ExistingLabelType;
 use Etrias\PaazlConnector\StructType\GenerateExtraImageLabelRequest;
 use Etrias\PaazlConnector\StructType\GenerateExtraImageLabelResponse;
@@ -53,22 +52,20 @@ class LabelService
      * @var GetServiceType
      */
     protected $getServiceType;
+    /**
+     * @var GeneralServiceType
+     */
+    private $generalServiceType;
 
     /**
      * DocumentService constructor.
-     * @param GenerateServiceType $generateServiceType
-     * @param GetServiceType $getServiceType
+     * @param GeneralServiceType $generalServiceType
      * @param SecurityServiceInterface $securityService
      */
-    public function __construct(
-        GenerateServiceType $generateServiceType,
-        GetServiceType $getServiceType,
-        SecurityServiceInterface $securityService
-    )
+    public function __construct(GeneralServiceType $generalServiceType, SecurityServiceInterface $securityService)
     {
         $this->securityService = $securityService;
-        $this->generateServiceType = $generateServiceType;
-        $this->getServiceType = $getServiceType;
+        $this->generalServiceType = $generalServiceType;
     }
 
 

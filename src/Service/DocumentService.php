@@ -9,13 +9,15 @@
 namespace Etrias\PaazlConnector\Service;
 
 use Etrias\PaazlConnector\Processor\Processor;
-use Etrias\PaazlConnector\ServiceType\Generate as GenerateServiceType;
+use Etrias\PaazlConnector\ServiceType\Service as GeneralServiceType;
 use Etrias\PaazlConnector\StructType\GenerateAdditionalImageDocumentResponse;
 use Etrias\PaazlConnector\StructType\GenerateAdditionalPdfDocumentRequest;
 use Etrias\PaazlConnector\StructType\GenerateAdditionalPdfDocumentResponse;
 use Etrias\PaazlConnector\StructType\GeneratePdfCustomsDocumentsRequest;
 use Etrias\PaazlConnector\StructType\GeneratePdfCustomsDocumentsResponse;
 use Etrias\PaazlConnector\StructType\OrderType;
+use Etrias\PaazlConnector\StructType\ProofOfDeliveryRequest;
+use Etrias\PaazlConnector\StructType\ProofOfDeliveryResponse;
 
 class DocumentService
 {
@@ -26,19 +28,19 @@ class DocumentService
      */
     protected $securityService;
     /**
-     * @var GenerateServiceType
+     * @var GeneralServiceType
      */
-    protected $generateServiceType;
+    protected $generalServiceType;
 
     /**
      * DocumentService constructor.
-     * @param GenerateServiceType $generateServiceType
+     * @param GeneralServiceType $generalServiceType
      * @param SecurityServiceInterface $securityService
      */
-    public function __construct(GenerateServiceType $generateServiceType, SecurityServiceInterface $securityService)
+    public function __construct(GeneralServiceType $generalServiceType, SecurityServiceInterface $securityService)
     {
         $this->securityService = $securityService;
-        $this->generateServiceType = $generateServiceType;
+        $this->generalServiceType = $generalServiceType;
     }
 
     /**
@@ -54,15 +56,15 @@ class DocumentService
     {
         $request = new GenerateAdditionalPdfDocumentRequest($printer);
         $request->setHash($this->securityService->getHash($orderReference))
-            ->setWebshop($this->generateServiceType->getWebShopId())
+            ->setWebshop($this->generalServiceType->getWebShopId())
             ->setTargetWebshop($targetWebShop)
             ->setOrderReference($orderReference)
             ->setBarcode($barcode)
             ->setDocumentType($documentType);
 
-        $response = $this->generateServiceType->generateAdditionalPdfDocument($request);
+        $response = $this->generalServiceType->generateAdditionalPdfDocument($request);
 
-        return $this->processResponse($response, $this->generateServiceType);
+        return $this->processResponse($response, $this->generalServiceType);
     }
 
     /**
@@ -77,15 +79,15 @@ class DocumentService
     {
         $request = new GenerateAdditionalPdfDocumentRequest();
         $request->setHash($this->securityService->getHash($orderReference))
-            ->setWebshop($this->generateServiceType->getWebShopId())
+            ->setWebshop($this->generalServiceType->getWebShopId())
             ->setTargetWebshop($targetWebShop)
             ->setOrderReference($orderReference)
             ->setBarcode($barcode)
             ->setDocumentType($documentType);
 
-        $response = $this->generateServiceType->generateAdditionalImageDocument($request);
+        $response = $this->generalServiceType->generateAdditionalImageDocument($request);
 
-        return $this->processResponse($response, $this->generateServiceType);
+        return $this->processResponse($response, $this->generalServiceType);
     }
 
     /**
@@ -107,12 +109,32 @@ class DocumentService
         }
 
         $request = new GeneratePdfCustomsDocumentsRequest(
-            $this->generateServiceType->getWebShopId(),
+            $this->generalServiceType->getWebShopId(),
             $orders
         );
 
-        $response = $this->generateServiceType->generatePdfCustomsDocuments($request);
+        $response = $this->generalServiceType->generatePdfCustomsDocuments($request);
 
-        return $this->processResponse($response, $this->generateServiceType);
+        return $this->processResponse($response, $this->generalServiceType);
+    }
+
+    /**
+     * @param $barcode
+     * @param null $targetWebShop
+     *
+     * @return ProofOfDeliveryResponse
+     */
+    public function getProofOfDelivery($barcode, $targetWebShop = null)
+    {
+        $request = new ProofOfDeliveryRequest(
+            $this->securityService->getHash($barcode),
+            $this->generalServiceType->getWebShopId(),
+            $targetWebShop,
+            $barcode
+        );
+
+        $response = $this->generalServiceType->proofOfDelivery($request);
+
+        return $this->processResponse($response, $this->generalServiceType);
     }
 }

@@ -55,7 +55,7 @@ class Rate extends AbstractStructBase
      * @uses Rate::setDistributor()
      * @uses Rate::setShippingOption()
      * @uses Rate::setDescription()
-     * @uses Rate::set0()
+     * @uses Rate::setRate()
      * @uses Rate::setRateDiscount()
      * @uses Rate::setTransitDaysRange()
      * @param string $type
@@ -73,7 +73,7 @@ class Rate extends AbstractStructBase
             ->setDistributor($distributor)
             ->setShippingOption($shippingOption)
             ->setDescription($description)
-            ->set0($rate)
+            ->setRate($rate)
             ->setRateDiscount($rateDiscount)
             ->setTransitDaysRange($transitDaysRange);
     }
@@ -169,10 +169,10 @@ class Rate extends AbstractStructBase
         return $this;
     }
     /**
-     * Get 0 value
-     * @return 0
+     * Get rate value
+     * @return float|null
      */
-    public function get0()
+    public function getRate()
     {
         return $this->rate;
     }
@@ -181,7 +181,7 @@ class Rate extends AbstractStructBase
      * @param float $rate
      * @return \Etrias\PaazlConnector\StructType\Rate
      */
-    public function set0($rate = null)
+    public function setRate($rate = null)
     {
         $this->rate = $rate;
         return $this;
