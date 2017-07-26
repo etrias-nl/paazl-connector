@@ -12,8 +12,14 @@
             "Etrias\\PaazlConnector\\": "./src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Etrias\\PaazlConnector\\": "./tests/"
+        }
+    },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.4"
+        "friendsofphp/php-cs-fixer": "^2.4",
+        "phpunit/phpunit": "^6.2"
     },
     "scripts": {
         "fix-style": [
