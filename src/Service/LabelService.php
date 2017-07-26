@@ -89,15 +89,15 @@ class LabelService
         }
 
         $request = new GeneratePdfLabelsRequest(
-            $this->generateServiceType->getWebShopId(),
+            $this->generalServiceType->getWebShopId(),
             $printer,
             $orders,
             $includeMetaData
         );
 
-        $response = $this->generateServiceType->generatePdfLabels($request);
+        $response = $this->generalServiceType->generatePdfLabels($request);
 
-        return $this->processResponse($response, $this->generateServiceType);
+        return $this->processResponse($response, $this->generalServiceType);
     }
 
     /**
@@ -113,7 +113,7 @@ class LabelService
     {
         $request = new GenerateExtraPdfLabelRequest(
             $this->securityService->getHash($orderReference),
-            $this->generateServiceType->getWebShopId(),
+            $this->generalServiceType->getWebShopId(),
             $targetWebShop,
             $orderReference,
             $printer,
@@ -121,9 +121,9 @@ class LabelService
             $includeMetaData
         );
 
-        $response = $this->generateServiceType->generateExtraPdfLabel($request);
+        $response = $this->generalServiceType->generateExtraPdfLabel($request);
 
-        return $this->processResponse($response, $this->generateServiceType);
+        return $this->processResponse($response, $this->generalServiceType);
     }
 
     /**
@@ -151,12 +151,12 @@ class LabelService
         $request = new GeneratePdfReturnLabelsRequest(
             $printer
         );
-        $request->setWebshop($this->generateServiceType->getWebShopId());
+        $request->setWebshop($this->generalServiceType->getWebShopId());
         $request->setOrder($orders);
 
-        $response = $this->generateServiceType->generatePdfReturnLabels($request);
+        $response = $this->generalServiceType->generatePdfReturnLabels($request);
 
-        return $this->processResponse($response, $this->generateServiceType);
+        return $this->processResponse($response, $this->generalServiceType);
     }
 
     /**
@@ -171,15 +171,15 @@ class LabelService
     {
         $request = new GenerateExtraPdfReturnLabelRequest($printer);
         $request->setShippingOption($shippingOption)
-            ->setWebshop($this->generateServiceType->getWebShopId())
+            ->setWebshop($this->generalServiceType->getWebShopId())
             ->setHash($this->securityService->getHash($orderReference))
             ->setTargetWebshop($targetWebShop)
             ->setOrderReference($orderReference)
             ->setShippingOption($shippingOption);
 
-        $response = $this->generateServiceType->generateExtraPdfReturnLabel($request);
+        $response = $this->generalServiceType->generateExtraPdfReturnLabel($request);
 
-        return $this->processResponse($response, $this->generateServiceType);
+        return $this->processResponse($response, $this->generalServiceType);
     }
 
     /**
@@ -205,14 +205,14 @@ class LabelService
         }
 
         $request = new GenerateImageLabelsRequest(
-            $this->generateServiceType->getWebShopId(),
+            $this->generalServiceType->getWebShopId(),
             $orders,
             $includeMetaData
         );
 
-        $response = $this->generateServiceType->generateImageLabels($request);
+        $response = $this->generalServiceType->generateImageLabels($request);
 
-        return $this->processResponse($response, $this->generateServiceType);
+        return $this->processResponse($response, $this->generalServiceType);
     }
 
     /**
@@ -240,12 +240,12 @@ class LabelService
         $request = new GeneratePdfReturnLabelsRequest(
             $printer
         );
-        $request->setWebshop($this->generateServiceType->getWebShopId());
+        $request->setWebshop($this->generalServiceType->getWebShopId());
         $request->setOrder($orders);
 
-        $response = $this->generateServiceType->generateImageReturnLabels($request);
+        $response = $this->generalServiceType->generateImageReturnLabels($request);
 
-        return $this->processResponse($response, $this->generateServiceType);
+        return $this->processResponse($response, $this->generalServiceType);
     }
 
     /**
@@ -260,15 +260,15 @@ class LabelService
     {
         $request = new GenerateExtraPdfReturnLabelRequest($printer);
         $request->setShippingOption($shippingOption)
-            ->setWebshop($this->generateServiceType->getWebShopId())
+            ->setWebshop($this->generalServiceType->getWebShopId())
             ->setHash($this->securityService->getHash($orderReference))
             ->setTargetWebshop($targetWebShop)
             ->setOrderReference($orderReference)
             ->setShippingOption($shippingOption);
 
-        $response = $this->generateServiceType->generateExtraImageReturnLabel($request);
+        $response = $this->generalServiceType->generateExtraImageReturnLabel($request);
 
-        return $this->processResponse($response, $this->generateServiceType);
+        return $this->processResponse($response, $this->generalServiceType);
     }
 
     /**
@@ -283,16 +283,16 @@ class LabelService
     {
         $request = new GenerateExtraImageLabelRequest(
             $this->securityService->getHash($orderReference),
-            $this->generateServiceType->getWebShopId(),
+            $this->generalServiceType->getWebShopId(),
             $targetWebShop,
             $orderReference,
             $batch,
             $includeMetaData
         );
 
-        $response = $this->generateServiceType->generateExtraImageLabel($request);
+        $response = $this->generalServiceType->generateExtraImageLabel($request);
 
-        return $this->processResponse($response, $this->generateServiceType);
+        return $this->processResponse($response, $this->generalServiceType);
     }
 
     /**
@@ -319,15 +319,15 @@ class LabelService
         }
 
         $request = new GenerateZplLabelsRequest(
-            $this->generateServiceType->getWebShopId(),
+            $this->generalServiceType->getWebShopId(),
             $printer,
             $orders,
             $includeMetaData
         );
 
-        $response = $this->generateServiceType->generateZplLabels($request);
+        $response = $this->generalServiceType->generateZplLabels($request);
 
-        return $this->processResponse($response, $this->generateServiceType);
+        return $this->processResponse($response, $this->generalServiceType);
     }
 
     /**
@@ -343,15 +343,15 @@ class LabelService
     {
         $request = new GetExistingPdfLabelRequest($printer);
         $request->setHash($this->securityService->getHash($orderReference))
-            ->setWebshop($this->getServiceType->getWebShopId())
+            ->setWebshop($this->generalServiceType->getWebShopId())
             ->setOrderReference($orderReference)
             ->setBarcode($barCode)
             ->setIncludeMetaData($includeMetaData)
             ->setTargetWebshop($targetWebShop);
 
-        $response = $this->getServiceType->getExistingPdfLabel($request);
+        $response = $this->generalServiceType->getExistingPdfLabel($request);
 
-        return $this->processResponse($response, $this->getServiceType);
+        return $this->processResponse($response, $this->generalServiceType);
     }
 
     /**
@@ -368,7 +368,7 @@ class LabelService
         foreach ($barCodes as $orderReference => $barcode) {
             $labels[] = new ExistingLabelType(
                 $this->securityService->getHash($orderReference),
-                $this->getServiceType->getWebShopId(),
+                $this->generalServiceType->getWebShopId(),
                 $orderReference,
                 $barcode
             );
@@ -376,12 +376,12 @@ class LabelService
 
         $request = new GetExistingPdfLabelsRequest($printer);
         $request->setLabel($labels)
-            ->setWebshop($this->getServiceType->getWebShopId())
+            ->setWebshop($this->generalServiceType->getWebShopId())
             ->setIncludeMetaData($includeMetaData);
 
-        $response = $this->getServiceType->getExistingPdfLabels($request);
+        $response = $this->generalServiceType->getExistingPdfLabels($request);
 
-        return $this->processResponse($response, $this->getServiceType);
+        return $this->processResponse($response, $this->generalServiceType);
     }
 
     /**
@@ -396,15 +396,15 @@ class LabelService
     {
         $request = new GetExistingPdfLabelRequest();
         $request->setHash($this->securityService->getHash($orderReference))
-            ->setWebshop($this->getServiceType->getWebShopId())
+            ->setWebshop($this->generalServiceType->getWebShopId())
             ->setOrderReference($orderReference)
             ->setBarcode($barCode)
             ->setIncludeMetaData($includeMetaData)
             ->setTargetWebshop($targetWebShop);
 
-        $response = $this->getServiceType->getExistingImageLabel($request);
+        $response = $this->generalServiceType->getExistingImageLabel($request);
 
-        return $this->processResponse($response, $this->getServiceType);
+        return $this->processResponse($response, $this->generalServiceType);
     }
 
     /**
@@ -420,7 +420,7 @@ class LabelService
         foreach ($barCodes as $orderReference => $barcode) {
             $labels[] = new ExistingLabelType(
                 $this->securityService->getHash($orderReference),
-                $this->getServiceType->getWebShopId(),
+                $this->generalServiceType->getWebShopId(),
                 $orderReference,
                 $barcode
             );
@@ -428,11 +428,11 @@ class LabelService
 
         $request = new GetExistingPdfLabelsRequest();
         $request->setLabel($labels)
-            ->setWebshop($this->getServiceType->getWebShopId())
+            ->setWebshop($this->generalServiceType->getWebShopId())
             ->setIncludeMetaData($includeMetaData);
 
-        $response = $this->getServiceType->getExistingImageLabels($request);
+        $response = $this->generalServiceType->getExistingImageLabels($request);
 
-        return $this->processResponse($response, $this->getServiceType);
+        return $this->processResponse($response, $this->generalServiceType);
     }
 }
