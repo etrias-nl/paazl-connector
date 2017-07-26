@@ -1,33 +1,43 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\Service;
 
 use DateTime;
 use Etrias\PaazlConnector\Processor\ResponseProcessor;
-Use Etrias\PaazlConnector\ServiceType\Address as AddressServiceType;
-Use Etrias\PaazlConnector\ServiceType\Batch as BatchServiceType;
+use Etrias\PaazlConnector\ServiceType\_List as ListServiceType;
+use Etrias\PaazlConnector\ServiceType\Address as AddressServiceType;
 use Etrias\PaazlConnector\ServiceType\Batch;
-Use Etrias\PaazlConnector\ServiceType\Cancel as CancelServiceType;
-Use Etrias\PaazlConnector\ServiceType\Change as ChangeServiceType;
-Use Etrias\PaazlConnector\ServiceType\Checkout as CheckoutServiceType;
-Use Etrias\PaazlConnector\ServiceType\Close as CloseServiceType;
-Use Etrias\PaazlConnector\ServiceType\Create as CreateServiceType;
-Use Etrias\PaazlConnector\ServiceType\Delete as DeleteServiceType;
-Use Etrias\PaazlConnector\ServiceType\Delivery as DeliveryServiceType;
-Use Etrias\PaazlConnector\ServiceType\Generate as GenerateServiceType;
-Use Etrias\PaazlConnector\ServiceType\Get as GetServiceType;
-Use Etrias\PaazlConnector\ServiceType\_List as ListServiceType;
-Use Etrias\PaazlConnector\ServiceType\Open as OpenServiceType;
-Use Etrias\PaazlConnector\ServiceType\Order as OrderServiceType;
-Use Etrias\PaazlConnector\ServiceType\Orders as OrdersServiceType;
-Use Etrias\PaazlConnector\ServiceType\Pickup as PickupServiceType;
-Use Etrias\PaazlConnector\ServiceType\Commit as CommitServiceType;
-Use Etrias\PaazlConnector\ServiceType\Update as UpdateServiceType;
-Use Etrias\PaazlConnector\ServiceType\Proof as ProofServiceType;
-Use Etrias\PaazlConnector\ServiceType\Rate as RateServiceType;
-Use Etrias\PaazlConnector\ServiceType\Service as ServiceServiceType;
-Use Etrias\PaazlConnector\ServiceType\Shipping as ShippingServiceType;
-Use Etrias\PaazlConnector\ServiceType\Validate as ValidateServiceType;
+use Etrias\PaazlConnector\ServiceType\Batch as BatchServiceType;
+use Etrias\PaazlConnector\ServiceType\Cancel as CancelServiceType;
+use Etrias\PaazlConnector\ServiceType\Change as ChangeServiceType;
+use Etrias\PaazlConnector\ServiceType\Checkout as CheckoutServiceType;
+use Etrias\PaazlConnector\ServiceType\Close as CloseServiceType;
+use Etrias\PaazlConnector\ServiceType\Commit as CommitServiceType;
+use Etrias\PaazlConnector\ServiceType\Create as CreateServiceType;
+use Etrias\PaazlConnector\ServiceType\Delete as DeleteServiceType;
+use Etrias\PaazlConnector\ServiceType\Delivery as DeliveryServiceType;
+use Etrias\PaazlConnector\ServiceType\Generate as GenerateServiceType;
+use Etrias\PaazlConnector\ServiceType\Get as GetServiceType;
+use Etrias\PaazlConnector\ServiceType\Open as OpenServiceType;
+use Etrias\PaazlConnector\ServiceType\Order as OrderServiceType;
+use Etrias\PaazlConnector\ServiceType\Orders as OrdersServiceType;
+use Etrias\PaazlConnector\ServiceType\Pickup as PickupServiceType;
+use Etrias\PaazlConnector\ServiceType\Proof as ProofServiceType;
+use Etrias\PaazlConnector\ServiceType\Rate as RateServiceType;
+use Etrias\PaazlConnector\ServiceType\Service as ServiceServiceType;
+use Etrias\PaazlConnector\ServiceType\Shipping as ShippingServiceType;
+use Etrias\PaazlConnector\ServiceType\Update as UpdateServiceType;
+use Etrias\PaazlConnector\ServiceType\Validate as ValidateServiceType;
 use Etrias\PaazlConnector\StructType\AddressRequest;
 use Etrias\PaazlConnector\StructType\AddressResponse;
 use Etrias\PaazlConnector\StructType\AddressType;
@@ -227,30 +237,31 @@ class Paazl
     protected $validateServiceType;
 
     /**
-     * Constructor
-     * @param AddressServiceType $addressServiceType
-     * @param Batch $batchServiceType
-     * @param CancelServiceType $cancelServiceType
-     * @param ChangeServiceType $changeServiceType
+     * Constructor.
+     *
+     * @param AddressServiceType  $addressServiceType
+     * @param Batch               $batchServiceType
+     * @param CancelServiceType   $cancelServiceType
+     * @param ChangeServiceType   $changeServiceType
      * @param CheckoutServiceType $checkoutServiceType
-     * @param CloseServiceType $closeServiceType
-     * @param CreateServiceType $createServiceType
-     * @param DeleteServiceType $deleteServiceType
+     * @param CloseServiceType    $closeServiceType
+     * @param CreateServiceType   $createServiceType
+     * @param DeleteServiceType   $deleteServiceType
      * @param DeliveryServiceType $deliveryServiceType
      * @param GenerateServiceType $generateServiceType
-     * @param GetServiceType $getServiceType
-     * @param ListServiceType $listServiceType
-     * @param OpenServiceType $openServiceType
-     * @param OrderServiceType $orderServiceType
-     * @param OrdersServiceType $ordersServiceType
-     * @param CommitServiceType $commitServiceType
-     * @param PickupServiceType $pickupServiceType
-     * @param ProofServiceType $proofServiceType
-     * @param RateServiceType $rateServiceType
-     * @param ServiceServiceType $serviceServiceType
+     * @param GetServiceType      $getServiceType
+     * @param ListServiceType     $listServiceType
+     * @param OpenServiceType     $openServiceType
+     * @param OrderServiceType    $orderServiceType
+     * @param OrdersServiceType   $ordersServiceType
+     * @param CommitServiceType   $commitServiceType
+     * @param PickupServiceType   $pickupServiceType
+     * @param ProofServiceType    $proofServiceType
+     * @param RateServiceType     $rateServiceType
+     * @param ServiceServiceType  $serviceServiceType
      * @param ShippingServiceType $shippingServiceType
      * @param ValidateServiceType $validateServiceType
-     * @param UpdateServiceType $updateServiceType
+     * @param UpdateServiceType   $updateServiceType
      */
     public function __construct(
         AddressServiceType $addressServiceType,
@@ -276,8 +287,7 @@ class Paazl
         ShippingServiceType $shippingServiceType,
         ValidateServiceType $validateServiceType,
         UpdateServiceType $updateServiceType
-    )
-    {
+    ) {
         $this->addressServiceType = $addressServiceType;
         $this->orderServiceType = $orderServiceType;
         $this->commitServiceType = $commitServiceType;
@@ -309,6 +319,7 @@ class Paazl
      * @param $documentType
      * @param null $printer
      * @param null $targetWebShop
+     *
      * @return GenerateAdditionalPdfDocumentResponse
      */
     public function generateAdditionalPdfDocument($orderReference, $barcode, $documentType, $printer = null, $targetWebShop = null)
@@ -331,6 +342,7 @@ class Paazl
      * @param $barcode
      * @param $documentType
      * @param null $targetWebShop
+     *
      * @return GenerateAdditionalImageDocumentResponse
      */
     public function generateAdditionalImageDocument($orderReference, $barcode, $documentType, $targetWebShop = null)
@@ -351,6 +363,7 @@ class Paazl
     /**
      * @param array $orderReferences
      * @param $targetWebShop
+     *
      * @return GeneratePdfCustomsDocumentsResponse
      */
     public function generatePdfCustomsDocuments(array $orderReferences, $targetWebShop = null)
@@ -377,10 +390,11 @@ class Paazl
 
     /**
      * @param array $orderReferences
-     * @param null $printer
-     * @param null $includeMetaData
-     * @param null $batch
-     * @param null $targetWebShop
+     * @param null  $printer
+     * @param null  $includeMetaData
+     * @param null  $batch
+     * @param null  $targetWebShop
+     *
      * @return GeneratePdfLabelsResponse
      */
     public function generatePdfLabels(array $orderReferences, $printer = null, $includeMetaData = null, $batch = null, $targetWebShop = null)
@@ -396,7 +410,6 @@ class Paazl
                 $batch
             );
         }
-
 
         $request = new GeneratePdfLabelsRequest(
             $this->generateServiceType->getWebShopId(),
@@ -416,6 +429,7 @@ class Paazl
      * @param null $includeMetaData
      * @param null $batch
      * @param null $targetWebShop
+     *
      * @return GenerateExtraPdfLabelResponse
      */
     public function generateExtraPdfLabel($orderReference, $printer = null, $includeMetaData = null, $batch = null, $targetWebShop = null)
@@ -440,6 +454,7 @@ class Paazl
      * @param $shippingOption
      * @param null $printer
      * @param null $targetWebShop
+     *
      * @return GeneratePdfReturnLabelsResponse
      */
     public function generatePdfReturnLabels(array $orderReferences, $shippingOption, $printer = null, $targetWebShop = null)
@@ -456,7 +471,6 @@ class Paazl
             );
         }
 
-
         $request = new GeneratePdfReturnLabelsRequest(
             $printer
         );
@@ -468,12 +482,12 @@ class Paazl
         return $this->processResponse($response, $this->generateServiceType);
     }
 
-
     /**
      * @param $orderReference
      * @param $shippingOption
      * @param null $printer
      * @param null $targetWebShop
+     *
      * @return GenerateExtraPdfReturnLabelResponse
      */
     public function generateExtraPdfReturnLabel($orderReference, $shippingOption, $printer = null, $targetWebShop = null)
@@ -493,9 +507,10 @@ class Paazl
 
     /**
      * @param array $orderReferences
-     * @param null $includeMetaData
-     * @param null $batch
-     * @param null $targetWebShop
+     * @param null  $includeMetaData
+     * @param null  $batch
+     * @param null  $targetWebShop
+     *
      * @return GenerateImageLabelsResponse
      */
     public function generateImageLabels(array $orderReferences, $includeMetaData = null, $batch = null, $targetWebShop = null)
@@ -511,7 +526,6 @@ class Paazl
                 $batch
             );
         }
-
 
         $request = new GenerateImageLabelsRequest(
             $this->generateServiceType->getWebShopId(),
@@ -529,6 +543,7 @@ class Paazl
      * @param $shippingOption
      * @param null $printer
      * @param null $targetWebShop
+     *
      * @return GenerateImageReturnLabelsResponse
      */
     public function generateImageReturnLabels(array $orderReferences, $shippingOption, $printer = null, $targetWebShop = null)
@@ -544,7 +559,6 @@ class Paazl
                 $shippingOption
             );
         }
-
 
         $request = new GeneratePdfReturnLabelsRequest(
             $printer
@@ -562,6 +576,7 @@ class Paazl
      * @param $shippingOption
      * @param null $printer
      * @param null $targetWebShop
+     *
      * @return GenerateExtraImageReturnLabelResponse
      */
     public function generateExtraImageReturnLabel($orderReference, $shippingOption, $printer = null, $targetWebShop = null)
@@ -584,6 +599,7 @@ class Paazl
      * @param null $includeMetaData
      * @param null $batch
      * @param null $targetWebShop
+     *
      * @return GenerateExtraImageLabelResponse
      */
     public function generateExtraImageLabel($orderReference, $includeMetaData = null, $batch = null, $targetWebShop = null)
@@ -604,10 +620,11 @@ class Paazl
 
     /**
      * @param array $orderReferences
-     * @param null $printer
-     * @param null $includeMetaData
-     * @param null $batch
-     * @param null $targetWebShop
+     * @param null  $printer
+     * @param null  $includeMetaData
+     * @param null  $batch
+     * @param null  $targetWebShop
+     *
      * @return GenerateZplLabelsResponse
      */
     public function generateZplLabels(array $orderReferences, $printer = null, $includeMetaData = null, $batch = null, $targetWebShop = null)
@@ -624,7 +641,6 @@ class Paazl
             );
         }
 
-
         $request = new GenerateZplLabelsRequest(
             $this->generateServiceType->getWebShopId(),
             $printer,
@@ -640,8 +656,9 @@ class Paazl
     /**
      * @param DateTime $startDate
      * @param DateTime $endDate
-     * @param null $distributor
-     * @param null $targetWebShop
+     * @param null     $distributor
+     * @param null     $targetWebShop
+     *
      * @throws RuntimeException
      */
     public function generateShippingManifest(DateTime $startDate, DateTime $endDate, $distributor = null, $targetWebShop = null)
@@ -655,6 +672,7 @@ class Paazl
      * @param $houseNumber
      * @param null $addition
      * @param null $targetWebShop
+     *
      * @return AddressResponse
      */
     public function getAddress($orderReference, $zipCode, $houseNumber, $addition = null, $targetWebShop = null)
@@ -680,6 +698,7 @@ class Paazl
      * @param null $printer
      * @param null $includeMetaData
      * @param null $targetWebShop
+     *
      * @return GetExistingPdfLabelResponse
      */
     public function getExistingPdfLabel($orderReference, $barCode, $printer = null, $includeMetaData = null, $targetWebShop = null)
@@ -698,16 +717,17 @@ class Paazl
     }
 
     /**
-     * @param array $barCodes [$orderReference => $barcode]
-     * @param null $printer
-     * @param null $includeMetaData
+     * @param array $barCodes        [$orderReference => $barcode]
+     * @param null  $printer
+     * @param null  $includeMetaData
+     *
      * @return GetExistingPdfLabelsResponse
      */
     public function getExistingPdfLabels(array $barCodes, $printer = null, $includeMetaData = null)
     {
         $labels = [];
 
-        foreach ($barCodes as $orderReference => $barcode ) {
+        foreach ($barCodes as $orderReference => $barcode) {
             $labels[] = new ExistingLabelType(
                 $this->getHash($orderReference),
                 $this->getServiceType->getWebShopId(),
@@ -731,6 +751,7 @@ class Paazl
      * @param $barCode
      * @param null $includeMetaData
      * @param null $targetWebShop
+     *
      * @return GetExistingImageLabelResponse
      */
     public function getExistingImageLabel($orderReference, $barCode, $includeMetaData = null, $targetWebShop = null)
@@ -749,15 +770,16 @@ class Paazl
     }
 
     /**
-     * @param array $barCodes [$orderReference => $barcode]
-     * @param null $includeMetaData
+     * @param array $barCodes        [$orderReference => $barcode]
+     * @param null  $includeMetaData
+     *
      * @return GetExistingImageLabelsResponse
      */
     public function getExistingImageLabels(array $barCodes, $includeMetaData = null)
     {
         $labels = [];
 
-        foreach ($barCodes as $orderReference => $barcode ) {
+        foreach ($barCodes as $orderReference => $barcode) {
             $labels[] = new ExistingLabelType(
                 $this->getHash($orderReference),
                 $this->getServiceType->getWebShopId(),
@@ -776,12 +798,12 @@ class Paazl
         return $this->processResponse($response, $this->getServiceType);
     }
 
-
     /**
-     * Constructor method for orderDetailsRequest
+     * Constructor method for orderDetailsRequest.
+     *
      * @param string $orderReference
-     * @param int $targetWebShop
-     * @param bool $extendedDetails
+     * @param int    $targetWebShop
+     * @param bool   $extendedDetails
      *
      * @return OrderDetailsResponse
      */
@@ -803,7 +825,8 @@ class Paazl
     /**
      * @param $orderReference
      * @param Products $products
-     * @param null $targetWebShop
+     * @param null     $targetWebShop
+     *
      * @return OrderSaveResponseType
      */
     public function createOrder($orderReference, Products $products, $targetWebShop = null)
@@ -824,7 +847,8 @@ class Paazl
     /**
      * @param $orderReference
      * @param Products $products
-     * @param null $targetWebShop
+     * @param null     $targetWebShop
+     *
      * @return OrderSaveResponseType
      */
     public function updateOrder($orderReference, Products $products, $targetWebShop = null)
@@ -844,18 +868,19 @@ class Paazl
 
     /**
      * @param $orderReference
-     * @param null $newOrderReference
+     * @param null                      $newOrderReference
      * @param ChangeShippingMethod|null $shippingMethod
-     * @param ShippingAddress|null $shippingAddress
-     * @param ChangeSenderAddress|null $returnAddress
-     * @param ChangeSenderAddress|null $shipperAddress
-     * @param ChangeProducts|null $products
-     * @param null $totalAmount
-     * @param null $totalAmountCurrency
-     * @param null $language
-     * @param null $customerEmail
-     * @param null $customerPhoneNumber
-     * @param null $targetWebShop
+     * @param ShippingAddress|null      $shippingAddress
+     * @param ChangeSenderAddress|null  $returnAddress
+     * @param ChangeSenderAddress|null  $shipperAddress
+     * @param ChangeProducts|null       $products
+     * @param null                      $totalAmount
+     * @param null                      $totalAmountCurrency
+     * @param null                      $language
+     * @param null                      $customerEmail
+     * @param null                      $customerPhoneNumber
+     * @param null                      $targetWebShop
+     *
      * @return OrderSaveResponseType
      */
     public function changeOrder(
@@ -899,6 +924,7 @@ class Paazl
     /**
      * @param $orderReference
      * @param null $targetWebShop
+     *
      * @return DeleteOrderResponse
      */
     public function deleteOrder($orderReference, $targetWebShop = null)
@@ -917,17 +943,18 @@ class Paazl
 
     /**
      * @param $orderReference
-     * @param ShippingMethod $shippingMethod
-     * @param ShippingAddress $shippingAddress
-     * @param null $totalAmount
-     * @param null $totalAmountCurrency
-     * @param null $language
-     * @param null $customerEmail
-     * @param null $customerPhoneNumber
+     * @param ShippingMethod     $shippingMethod
+     * @param ShippingAddress    $shippingAddress
+     * @param null               $totalAmount
+     * @param null               $totalAmountCurrency
+     * @param null               $language
+     * @param null               $customerEmail
+     * @param null               $customerPhoneNumber
      * @param SenderAddress|null $returnAddress
      * @param SenderAddress|null $shipperAddress
-     * @param null $pendingOrderReference
-     * @param null $targetWebShop
+     * @param null               $pendingOrderReference
+     * @param null               $targetWebShop
+     *
      * @return OrderSaveResponseType
      */
     public function commitOrder(
@@ -943,8 +970,7 @@ class Paazl
         SenderAddress $shipperAddress = null,
         $pendingOrderReference = null,
         $targetWebShop = null
-    )
-    {
+    ) {
         if ($pendingOrderReference === null) {
             $pendingOrderReference = $orderReference;
         }
@@ -974,6 +1000,7 @@ class Paazl
     /**
      * @param $orderReference
      * @param null $targetWebShop
+     *
      * @return CheckoutResponse
      */
     public function getCheckoutUrl($orderReference, $targetWebShop = null)
@@ -993,6 +1020,7 @@ class Paazl
     /**
      * @param $orderReference
      * @param null $targetWebShop
+     *
      * @return CheckoutStatusResponse
      */
     public function getCheckoutStatus($orderReference, $targetWebShop = null)
@@ -1011,7 +1039,8 @@ class Paazl
 
     /**
      * @param DateTime $date
-     * @param null $targetWebShop
+     * @param null     $targetWebShop
+     *
      * @return OrdersToShipResponse
      */
     public function getOrdersToShip(DateTime $date = null, $targetWebShop = null)
@@ -1036,7 +1065,8 @@ class Paazl
      * @param $orderReference
      * @param bool|null $includeLabels
      * @param bool|null $getCarrierStatus
-     * @param null $targetWebShop
+     * @param null      $targetWebShop
+     *
      * @return OrderStatusResponse
      */
     public function getOrderStatus(
@@ -1044,8 +1074,7 @@ class Paazl
         $includeLabels = null,
         $getCarrierStatus = null,
         $targetWebShop = null
-    )
-    {
+    ) {
         $request = new OrderStatusRequest(
             $this->getHash($orderReference),
             $this->commitServiceType->getWebShopId(),
@@ -1065,6 +1094,7 @@ class Paazl
      * @param null $pickupCountry
      * @param null $deliveryCountry
      * @param null $targetWebShop
+     *
      * @return PickupRequestDetailsResponse
      */
     public function getPickupRequestOptions($internalReference, $pickupCountry = null, $deliveryCountry = null, $targetWebShop = null)
@@ -1094,13 +1124,14 @@ class Paazl
      * @param $pickupName
      * @param AddressType $pickupAddress
      * @param $pickupPhoneNumber
-     * @param null $pickupEmailAddress
+     * @param null             $pickupEmailAddress
      * @param AddressType|null $deliveryAddress
-     * @param null $deliveryEmailAddress
-     * @param null $additionalInstruction
-     * @param null $orderReference
-     * @param null $contract
-     * @param null $targetWebShop
+     * @param null             $deliveryEmailAddress
+     * @param null             $additionalInstruction
+     * @param null             $orderReference
+     * @param null             $contract
+     * @param null             $targetWebShop
+     *
      * @return CreatePickupRequestResponse
      */
     public function createPickupRequest(
@@ -1121,8 +1152,7 @@ class Paazl
         $orderReference = null,
         $contract = null,
         $targetWebShop = null
-    )
-    {
+    ) {
         if ($pickupWindowStart->format('Y-m-d') !== $pickupWindowEnd->format('Y-m-d')) {
             throw new InvalidArgumentException('pickupWindowStart and pickupWindowEnd should be on the same day');
         }
@@ -1157,7 +1187,8 @@ class Paazl
 
     /**
      * @param StoreDetailsType[] $stores
-     * @param null $targetWebShop
+     * @param null               $targetWebShop
+     *
      * @return ChangeStoresResponseType
      */
     public function createStores(array $stores, $targetWebShop = null)
@@ -1186,7 +1217,8 @@ class Paazl
 
     /**
      * @param StoreDetailsType[] $stores
-     * @param null $targetWebShop
+     * @param null               $targetWebShop
+     *
      * @return ChangeStoresResponseType
      */
     public function updateStores(array $stores, $targetWebShop = null)
@@ -1215,7 +1247,8 @@ class Paazl
 
     /**
      * @param array $storeCodes
-     * @param null $targetWebShop
+     * @param null  $targetWebShop
+     *
      * @return DeleteStoresResponse
      */
     public function deleteStores(array $storeCodes, $targetWebShop = null)
@@ -1239,9 +1272,10 @@ class Paazl
 
     /**
      * @param DateTime $changedSince
-     * @param null $page
-     * @param null $carrierStatus
-     * @param null $targetWebShop
+     * @param null     $page
+     * @param null     $carrierStatus
+     * @param null     $targetWebShop
+     *
      * @return ListOrdersResponse
      */
     public function listOrders(DateTime $changedSince, $page = null, $carrierStatus = null, $targetWebShop = null)
@@ -1263,6 +1297,7 @@ class Paazl
 
     /**
      * @param null $targetWebShop
+     *
      * @return ListStoresResponse
      */
     public function listStores($targetWebShop = null)
@@ -1292,6 +1327,7 @@ class Paazl
      * @param null $senderCity
      * @param null $senderPostcode
      * @param null $targetWebShop
+     *
      * @return DeliveryEstimateResponse
      */
     public function getDeliveryEstimate(
@@ -1335,6 +1371,7 @@ class Paazl
      * @param $distributor
      * @param $externalReference
      * @param null $targetWebShop
+     *
      * @return PickupRequestDetailsResponse
      */
     public function getPickupRequestDetails($internalReference, $distributor, $externalReference, $targetWebShop = null)
@@ -1358,6 +1395,7 @@ class Paazl
      * @param $distributor
      * @param $externalReference
      * @param null $targetWebShop
+     *
      * @return PickupRequestStatusResponse
      */
     public function getPickupRequestStatus($internalReference, $distributor, $externalReference, $targetWebShop = null)
@@ -1381,6 +1419,7 @@ class Paazl
      * @param $distributor
      * @param $externalReference
      * @param null $targetWebShop
+     *
      * @return CancelPickupRequestResponse
      */
     public function cancelPickupRequest($internalReference, $distributor, $externalReference, $targetWebShop = null)
@@ -1400,8 +1439,9 @@ class Paazl
     }
 
     /**
-     * @param array $barCodes [$orderReference => $barcode]
-     * @param null $targetWebShop
+     * @param array $barCodes      [$orderReference => $barcode]
+     * @param null  $targetWebShop
+     *
      * @return CancelShipmentsResponse
      */
     public function cancelShipments(array $barCodes, $targetWebShop = null)
@@ -1430,6 +1470,7 @@ class Paazl
     /**
      * @param $barcode
      * @param null $targetWebShop
+     *
      * @return ProofOfDeliveryResponse
      */
     public function getProofOfDelivery($barcode, $targetWebShop = null)
@@ -1452,6 +1493,7 @@ class Paazl
      * @param null $postalCode
      * @param null $shippingOption
      * @param null $targetWebShop
+     *
      * @return RateResponse
      */
     public function getRates($orderReference, $country = null, $postalCode = null, $shippingOption = null, $targetWebShop = null)
@@ -1475,6 +1517,7 @@ class Paazl
      * @param null $shippingOption
      * @param null $country
      * @param null $targetWebShop
+     *
      * @return OpenBatchResponse
      */
     public function openBatch(
@@ -1482,14 +1525,13 @@ class Paazl
         $shippingOption = null,
         $country = null,
         $targetWebShop = null
-    )
-    {
+    ) {
         $today = new DateTime();
-        $hashInput = join('', [
+        $hashInput = implode('', [
             $distributor,
             $shippingOption,
             $country,
-            $today->format('Ymd')
+            $today->format('Ymd'),
         ]);
 
         $request = new OpenBatchRequest(
@@ -1509,6 +1551,7 @@ class Paazl
     /**
      * @param $batchId
      * @param null $targetWebShop
+     *
      * @return CloseBatchResponse
      */
     public function closeBatch($batchId, $targetWebShop = null)
@@ -1528,6 +1571,7 @@ class Paazl
     /**
      * @param $batchId
      * @param null $targetWebShop
+     *
      * @return BatchStatusResponse
      */
     public function getBatchStatus($batchId, $targetWebShop = null)
@@ -1544,9 +1588,9 @@ class Paazl
         return $this->processResponse($response, $this->batchServiceType);
     }
 
-
     /**
      * @param null $targetWebShop
+     *
      * @return ListOpenBatchesResponse
      */
     public function listOpenBatches($targetWebShop = null)
@@ -1564,15 +1608,16 @@ class Paazl
     }
 
     /**
-     * @param null $country
-     * @param null $postcode
+     * @param null                 $country
+     * @param null                 $postcode
      * @param CoordinatesType|null $southWest
      * @param CoordinatesType|null $northEast
-     * @param null $limit
-     * @param null $shippingOption
-     * @param null $evening
-     * @param null $weekend
-     * @param null $targetWebShop
+     * @param null                 $limit
+     * @param null                 $shippingOption
+     * @param null                 $evening
+     * @param null                 $weekend
+     * @param null                 $targetWebShop
+     *
      * @return ServicePointsResponse
      */
     public function getServicePoints(
@@ -1585,9 +1630,7 @@ class Paazl
         $evening = null,
         $weekend = null,
         $targetWebShop = null
-    )
-    {
-
+    ) {
         $hashInput = '';
 
         if ($country !== null) {
@@ -1629,25 +1672,25 @@ class Paazl
     /**
      * @param $orderReference
      * @param DateRangeType|null $deliveryDateRange
-     * @param string $country
-     * @param null $postcode
-     * @param bool $extendedDeliveryDateDetails
-     * @param null $shippingOption
-     * @param null $deliveryEstimate
+     * @param string             $country
+     * @param null               $postcode
+     * @param bool               $extendedDeliveryDateDetails
+     * @param null               $shippingOption
+     * @param null               $deliveryEstimate
      * @param $targetWebShop
+     *
      * @return ShippingOptionResponse
      */
     public function getShippingOptions(
         $orderReference,
-        $country = 'NL',
+        $country,
         DateRangeType $deliveryDateRange = null,
-        $postcode = null,
-        $extendedDeliveryDateDetails = false,
-        $shippingOption = null,
-        $deliveryEstimate = null,
+        $postcode,
+        $extendedDeliveryDateDetails,
+        $shippingOption,
+        $deliveryEstimate,
         $targetWebShop
-    )
-    {
+    ) {
         $request = new ShippingOptionRequest(
             $this->getHash($orderReference),
             $this->shippingServiceType->getWebShopId(),
@@ -1673,14 +1716,15 @@ class Paazl
      * @param $pendingOrderReference
      * @param $totalAmount
      * @param $totalAmountCurrency
-     * @param ShippingMethod $shippingMethod
-     * @param ShippingAddress $shippingAddress
-     * @param null $customerEmail
-     * @param null $language
-     * @param null $customerPhoneNumber
+     * @param ShippingMethod     $shippingMethod
+     * @param ShippingAddress    $shippingAddress
+     * @param null               $customerEmail
+     * @param null               $language
+     * @param null               $customerPhoneNumber
      * @param SenderAddress|null $shipperAddress
      * @param SenderAddress|null $returnAddress
-     * @param null $targetWebShop
+     * @param null               $targetWebShop
+     *
      * @return ValidateOrderResponseType
      */
     public function validateOrder(
@@ -1696,8 +1740,7 @@ class Paazl
         SenderAddress $shipperAddress = null,
         SenderAddress $returnAddress = null,
         $targetWebShop = null
-    )
-    {
+    ) {
         $request = new ValidateOrderRequest(
             $this->getHash($pendingOrderReference),
             $this->shippingServiceType->getWebShopId(),
@@ -1727,7 +1770,6 @@ class Paazl
      */
     protected function getHash($input)
     {
-        return sha1($this->orderServiceType->getWebShopId() . $this->orderServiceType->getPassword() . $input);
+        return sha1($this->orderServiceType->getWebShopId().$this->orderServiceType->getPassword().$input);
     }
-
 }

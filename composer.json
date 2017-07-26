@@ -11,5 +11,13 @@
         "psr-4": {
             "Etrias\\PaazlConnector\\": "./src/"
         }
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.4"
+    },
+    "scripts": {
+        "fix-style": [
+            "vendor/bin/php-cs-fixer fix --diff --show-progress run-in"
+        ]
     }
 }

@@ -1,42 +1,38 @@
 <?php
-/**
- * This file aims to show you how to use this generated package.
- * In addition, the goal is to show which methods are available and the fist needed parameter(s)
- * You have to use an associative array such as:
- * - the key must be a constant beginning with WSDL_ from AbstractSoapClientbase class each generated ServiceType class extends this class
- * - the value must be the corresponding key value (each option matches a {@link http://www.php.net/manual/en/soapclient.soapclient.php} option)
- * $options = array(
- * \WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_URL => 'https://ost.paazl.com/parcelshipperservice/orderRequest.wsdl',
- * \WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_TRACE => true,
- * \WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_LOGIN => 'you_secret_login',
- * \WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_PASSWORD => 'you_secret_password',
- * );
- * etc....
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */
 
-Use Etrias\PaazlConnector\ServiceType\Address as AddressServiceType;
-Use Etrias\PaazlConnector\ServiceType\Change as ChangeServiceType;
-Use Etrias\PaazlConnector\ServiceType\Delete as DeleteServiceType;
-Use Etrias\PaazlConnector\ServiceType\Generate as GenerateServiceType;
-Use Etrias\PaazlConnector\ServiceType\Get as GetServiceType;
-Use Etrias\PaazlConnector\ServiceType\Order as OrderServiceType;
-Use Etrias\PaazlConnector\ServiceType\Orders as OrdersServiceType;
-Use Etrias\PaazlConnector\ServiceType\Commit as CommitOrderServiceType;
-Use Etrias\PaazlConnector\ServiceType\Proof as ProofServiceType;
-Use Etrias\PaazlConnector\ServiceType\Rate as RateServiceType;
-Use Etrias\PaazlConnector\ServiceType\Shipping as ShippingServiceType;
-Use Etrias\PaazlConnector\ServiceType\Update as UpdateServiceType;
+use Etrias\PaazlConnector\ServiceType\Address as AddressServiceType;
+use Etrias\PaazlConnector\ServiceType\Change as ChangeServiceType;
+use Etrias\PaazlConnector\ServiceType\Commit as CommitOrderServiceType;
+use Etrias\PaazlConnector\ServiceType\Delete as DeleteServiceType;
+use Etrias\PaazlConnector\ServiceType\Generate as GenerateServiceType;
+use Etrias\PaazlConnector\ServiceType\Get as GetServiceType;
+use Etrias\PaazlConnector\ServiceType\Order as OrderServiceType;
+use Etrias\PaazlConnector\ServiceType\Orders as OrdersServiceType;
+use Etrias\PaazlConnector\ServiceType\Proof as ProofServiceType;
+use Etrias\PaazlConnector\ServiceType\Rate as RateServiceType;
+use Etrias\PaazlConnector\ServiceType\Shipping as ShippingServiceType;
+use Etrias\PaazlConnector\ServiceType\Update as UpdateServiceType;
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__.'/vendor/autoload.php';
 /**
- * Minimal options
+ * Minimal options.
  */
-$wsdlOptions = array(
+$wsdlOptions = [
     \WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_URL => \Etrias\PaazlConnector\SoapClient::WSDL_STAGING,
     \WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_CLASSMAP => \Etrias\PaazlConnector\ClassMap::get(),
     \WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_LOGIN => '677',
     \WsdlToPhp\PackageBase\AbstractSoapClientBase::WSDL_PASSWORD => 'hermanus',
-);
+];
 
 $addressServiceType = new AddressServiceType($wsdlOptions, true);
 $changeServiceType = new ChangeServiceType($wsdlOptions, true);
@@ -50,7 +46,6 @@ $proofServiceType = new ProofServiceType($wsdlOptions, true);
 $rateServiceType = new RateServiceType($wsdlOptions, true);
 $shippingServiceType = new ShippingServiceType($wsdlOptions, true);
 $updateServiceType = new UpdateServiceType($wsdlOptions, true);
-
 
 $paazlService = new \Etrias\PaazlConnector\Service\Paazl(
     $addressServiceType,
@@ -133,10 +128,10 @@ var_dump($response);
 die();
 
 /**
- * Samples for Change ServiceType
+ * Samples for Change ServiceType.
  */
 $change = new \Etrias\PaazlConnector\ServiceType\Change($options);
-/**
+/*
  * Sample call for changeOrder operation/method
  */
 if ($change->changeOrder(new \Etrias\PaazlConnector\StructType\ChangeOrderRequest()) !== false) {
@@ -145,10 +140,10 @@ if ($change->changeOrder(new \Etrias\PaazlConnector\StructType\ChangeOrderReques
     print_r($change->getLastError());
 }
 /**
- * Samples for Order ServiceType
+ * Samples for Order ServiceType.
  */
 $order = new \Etrias\PaazlConnector\ServiceType\Order($options);
-/**
+/*
  * Sample call for orderDetails operation/method
  */
 if ($order->orderDetails(new \Etrias\PaazlConnector\StructType\OrderDetailsRequest()) !== false) {
@@ -156,7 +151,7 @@ if ($order->orderDetails(new \Etrias\PaazlConnector\StructType\OrderDetailsReque
 } else {
     print_r($order->getLastError());
 }
-/**
+/*
  * Sample call for order operation/method
  */
 if ($order->order(new \Etrias\PaazlConnector\StructType\OrderRequest()) !== false) {
@@ -164,7 +159,7 @@ if ($order->order(new \Etrias\PaazlConnector\StructType\OrderRequest()) !== fals
 } else {
     print_r($order->getLastError());
 }
-/**
+/*
  * Sample call for orderStatus operation/method
  */
 if ($order->orderStatus(new \Etrias\PaazlConnector\StructType\OrderStatusRequest()) !== false) {
@@ -173,10 +168,10 @@ if ($order->orderStatus(new \Etrias\PaazlConnector\StructType\OrderStatusRequest
     print_r($order->getLastError());
 }
 /**
- * Samples for Google ServiceType
+ * Samples for Google ServiceType.
  */
 $google = new \Etrias\PaazlConnector\ServiceType\Google($options);
-/**
+/*
  * Sample call for googleMapSearchstring operation/method
  */
 if ($google->googleMapSearchstring(new \Etrias\PaazlConnector\StructType\GoogleMapSearchstringRequest()) !== false) {
@@ -185,10 +180,10 @@ if ($google->googleMapSearchstring(new \Etrias\PaazlConnector\StructType\GoogleM
     print_r($google->getLastError());
 }
 /**
- * Samples for Delivery ServiceType
+ * Samples for Delivery ServiceType.
  */
 $delivery = new \Etrias\PaazlConnector\ServiceType\Delivery($options);
-/**
+/*
  * Sample call for deliveryEstimate operation/method
  */
 if ($delivery->deliveryEstimate(new \Etrias\PaazlConnector\StructType\DeliveryEstimateRequest()) !== false) {
@@ -197,10 +192,10 @@ if ($delivery->deliveryEstimate(new \Etrias\PaazlConnector\StructType\DeliveryEs
     print_r($delivery->getLastError());
 }
 /**
- * Samples for Batch ServiceType
+ * Samples for Batch ServiceType.
  */
 $batch = new \Etrias\PaazlConnector\ServiceType\Batch($options);
-/**
+/*
  * Sample call for batchStatus operation/method
  */
 if ($batch->batchStatus(new \Etrias\PaazlConnector\StructType\BatchStatusRequest()) !== false) {
@@ -209,10 +204,10 @@ if ($batch->batchStatus(new \Etrias\PaazlConnector\StructType\BatchStatusRequest
     print_r($batch->getLastError());
 }
 /**
- * Samples for Get ServiceType
+ * Samples for Get ServiceType.
  */
 $get = new \Etrias\PaazlConnector\ServiceType\Get($options);
-/**
+/*
  * Sample call for getExistingZplLabel operation/method
  */
 if ($get->getExistingZplLabel(new \Etrias\PaazlConnector\StructType\GetExistingZplLabelRequest()) !== false) {
@@ -220,7 +215,7 @@ if ($get->getExistingZplLabel(new \Etrias\PaazlConnector\StructType\GetExistingZ
 } else {
     print_r($get->getLastError());
 }
-/**
+/*
  * Sample call for getExistingPdfLabel operation/method
  */
 if ($get->getExistingPdfLabel(new \Etrias\PaazlConnector\StructType\GetExistingPdfLabelRequest()) !== false) {
@@ -228,7 +223,7 @@ if ($get->getExistingPdfLabel(new \Etrias\PaazlConnector\StructType\GetExistingP
 } else {
     print_r($get->getLastError());
 }
-/**
+/*
  * Sample call for getExistingPdfLabels operation/method
  */
 if ($get->getExistingPdfLabels(new \Etrias\PaazlConnector\StructType\GetExistingPdfLabelsRequest()) !== false) {
@@ -236,7 +231,7 @@ if ($get->getExistingPdfLabels(new \Etrias\PaazlConnector\StructType\GetExisting
 } else {
     print_r($get->getLastError());
 }
-/**
+/*
  * Sample call for getExistingImageLabel operation/method
  */
 if ($get->getExistingImageLabel(new \Etrias\PaazlConnector\StructType\GetExistingLabelType()) !== false) {
@@ -244,7 +239,7 @@ if ($get->getExistingImageLabel(new \Etrias\PaazlConnector\StructType\GetExistin
 } else {
     print_r($get->getLastError());
 }
-/**
+/*
  * Sample call for getExistingImageLabels operation/method
  */
 if ($get->getExistingImageLabels(new \Etrias\PaazlConnector\StructType\GetExistingLabelsType()) !== false) {
@@ -252,7 +247,7 @@ if ($get->getExistingImageLabels(new \Etrias\PaazlConnector\StructType\GetExisti
 } else {
     print_r($get->getLastError());
 }
-/**
+/*
  * Sample call for getExistingZplLabels operation/method
  */
 if ($get->getExistingZplLabels(new \Etrias\PaazlConnector\StructType\GetExistingZplLabelsRequest()) !== false) {
@@ -261,10 +256,10 @@ if ($get->getExistingZplLabels(new \Etrias\PaazlConnector\StructType\GetExisting
     print_r($get->getLastError());
 }
 /**
- * Samples for Generate ServiceType
+ * Samples for Generate ServiceType.
  */
 $generate = new \Etrias\PaazlConnector\ServiceType\Generate($options);
-/**
+/*
  * Sample call for generateAdditionalImageDocument operation/method
  */
 if ($generate->generateAdditionalImageDocument(new \Etrias\PaazlConnector\StructType\GenerateAdditionalDocumentType()) !== false) {
@@ -272,7 +267,7 @@ if ($generate->generateAdditionalImageDocument(new \Etrias\PaazlConnector\Struct
 } else {
     print_r($generate->getLastError());
 }
-/**
+/*
  * Sample call for generatePdfLabels operation/method
  */
 if ($generate->generatePdfLabels(new \Etrias\PaazlConnector\StructType\GeneratePdfLabelsRequest()) !== false) {
@@ -280,7 +275,7 @@ if ($generate->generatePdfLabels(new \Etrias\PaazlConnector\StructType\GenerateP
 } else {
     print_r($generate->getLastError());
 }
-/**
+/*
  * Sample call for generatePdfCustomsDocuments operation/method
  */
 if ($generate->generatePdfCustomsDocuments(new \Etrias\PaazlConnector\StructType\GeneratePdfCustomsDocumentsRequest()) !== false) {
@@ -288,7 +283,7 @@ if ($generate->generatePdfCustomsDocuments(new \Etrias\PaazlConnector\StructType
 } else {
     print_r($generate->getLastError());
 }
-/**
+/*
  * Sample call for generateZplLabels operation/method
  */
 if ($generate->generateZplLabels(new \Etrias\PaazlConnector\StructType\GenerateZplLabelsRequest()) !== false) {
@@ -296,7 +291,7 @@ if ($generate->generateZplLabels(new \Etrias\PaazlConnector\StructType\GenerateZ
 } else {
     print_r($generate->getLastError());
 }
-/**
+/*
  * Sample call for generateExtraPdfReturnLabel operation/method
  */
 if ($generate->generateExtraPdfReturnLabel(new \Etrias\PaazlConnector\StructType\GenerateExtraPdfReturnLabelRequest()) !== false) {
@@ -304,7 +299,7 @@ if ($generate->generateExtraPdfReturnLabel(new \Etrias\PaazlConnector\StructType
 } else {
     print_r($generate->getLastError());
 }
-/**
+/*
  * Sample call for generateImageReturnLabels operation/method
  */
 if ($generate->generateImageReturnLabels(new \Etrias\PaazlConnector\StructType\GenerateReturnLabelsType()) !== false) {
@@ -312,7 +307,7 @@ if ($generate->generateImageReturnLabels(new \Etrias\PaazlConnector\StructType\G
 } else {
     print_r($generate->getLastError());
 }
-/**
+/*
  * Sample call for generateImageLabels operation/method
  */
 if ($generate->generateImageLabels(new \Etrias\PaazlConnector\StructType\GenerateImageLabelsRequest()) !== false) {
@@ -320,7 +315,7 @@ if ($generate->generateImageLabels(new \Etrias\PaazlConnector\StructType\Generat
 } else {
     print_r($generate->getLastError());
 }
-/**
+/*
  * Sample call for generateExtraImageLabel operation/method
  */
 if ($generate->generateExtraImageLabel(new \Etrias\PaazlConnector\StructType\GenerateExtraImageLabelRequest()) !== false) {
@@ -328,7 +323,7 @@ if ($generate->generateExtraImageLabel(new \Etrias\PaazlConnector\StructType\Gen
 } else {
     print_r($generate->getLastError());
 }
-/**
+/*
  * Sample call for generateExtraPdfLabel operation/method
  */
 if ($generate->generateExtraPdfLabel(new \Etrias\PaazlConnector\StructType\GenerateExtraPdfLabelRequest()) !== false) {
@@ -336,7 +331,7 @@ if ($generate->generateExtraPdfLabel(new \Etrias\PaazlConnector\StructType\Gener
 } else {
     print_r($generate->getLastError());
 }
-/**
+/*
  * Sample call for generateAdditionalPdfDocument operation/method
  */
 if ($generate->generateAdditionalPdfDocument(new \Etrias\PaazlConnector\StructType\GenerateAdditionalPdfDocumentRequest()) !== false) {
@@ -344,7 +339,7 @@ if ($generate->generateAdditionalPdfDocument(new \Etrias\PaazlConnector\StructTy
 } else {
     print_r($generate->getLastError());
 }
-/**
+/*
  * Sample call for generateLabels operation/method
  */
 if ($generate->generateLabels(new \Etrias\PaazlConnector\StructType\GenerateLabelsRequest()) !== false) {
@@ -352,7 +347,7 @@ if ($generate->generateLabels(new \Etrias\PaazlConnector\StructType\GenerateLabe
 } else {
     print_r($generate->getLastError());
 }
-/**
+/*
  * Sample call for generateExtraImageReturnLabel operation/method
  */
 if ($generate->generateExtraImageReturnLabel(new \Etrias\PaazlConnector\StructType\GenerateReturnLabelType()) !== false) {
@@ -360,7 +355,7 @@ if ($generate->generateExtraImageReturnLabel(new \Etrias\PaazlConnector\StructTy
 } else {
     print_r($generate->getLastError());
 }
-/**
+/*
  * Sample call for generateShippingManifest operation/method
  */
 if ($generate->generateShippingManifest(new \Etrias\PaazlConnector\StructType\GenerateShippingManifestRequest()) !== false) {
@@ -368,7 +363,7 @@ if ($generate->generateShippingManifest(new \Etrias\PaazlConnector\StructType\Ge
 } else {
     print_r($generate->getLastError());
 }
-/**
+/*
  * Sample call for generatePdfReturnLabels operation/method
  */
 if ($generate->generatePdfReturnLabels(new \Etrias\PaazlConnector\StructType\GeneratePdfReturnLabelsRequest()) !== false) {
@@ -377,10 +372,10 @@ if ($generate->generatePdfReturnLabels(new \Etrias\PaazlConnector\StructType\Gen
     print_r($generate->getLastError());
 }
 /**
- * Samples for Commit ServiceType
+ * Samples for Commit ServiceType.
  */
 $commit = new \Etrias\PaazlConnector\ServiceType\Commit($options);
-/**
+/*
  * Sample call for commitOrder operation/method
  */
 if ($commit->commitOrder(new \Etrias\PaazlConnector\StructType\CommitOrderRequest()) !== false) {
@@ -389,10 +384,10 @@ if ($commit->commitOrder(new \Etrias\PaazlConnector\StructType\CommitOrderReques
     print_r($commit->getLastError());
 }
 /**
- * Samples for Active ServiceType
+ * Samples for Active ServiceType.
  */
 $active = new \Etrias\PaazlConnector\ServiceType\Active($options);
-/**
+/*
  * Sample call for activeShippingOption operation/method
  */
 if ($active->activeShippingOption(new \Etrias\PaazlConnector\StructType\ActiveShippingOptionRequest()) !== false) {
@@ -401,10 +396,10 @@ if ($active->activeShippingOption(new \Etrias\PaazlConnector\StructType\ActiveSh
     print_r($active->getLastError());
 }
 /**
- * Samples for Cancel ServiceType
+ * Samples for Cancel ServiceType.
  */
 $cancel = new \Etrias\PaazlConnector\ServiceType\Cancel($options);
-/**
+/*
  * Sample call for cancelShipments operation/method
  */
 if ($cancel->cancelShipments(new \Etrias\PaazlConnector\StructType\CancelShipmentsRequest()) !== false) {
@@ -412,7 +407,7 @@ if ($cancel->cancelShipments(new \Etrias\PaazlConnector\StructType\CancelShipmen
 } else {
     print_r($cancel->getLastError());
 }
-/**
+/*
  * Sample call for cancelPickupRequest operation/method
  */
 if ($cancel->cancelPickupRequest(new \Etrias\PaazlConnector\StructType\PickupRequestQueryType()) !== false) {
@@ -421,10 +416,10 @@ if ($cancel->cancelPickupRequest(new \Etrias\PaazlConnector\StructType\PickupReq
     print_r($cancel->getLastError());
 }
 /**
- * Samples for Address ServiceType
+ * Samples for Address ServiceType.
  */
 $address = new \Etrias\PaazlConnector\ServiceType\Address($options);
-/**
+/*
  * Sample call for address operation/method
  */
 if ($address->address(new \Etrias\PaazlConnector\StructType\AddressRequest()) !== false) {
@@ -433,10 +428,10 @@ if ($address->address(new \Etrias\PaazlConnector\StructType\AddressRequest()) !=
     print_r($address->getLastError());
 }
 /**
- * Samples for Create ServiceType
+ * Samples for Create ServiceType.
  */
 $create = new \Etrias\PaazlConnector\ServiceType\Create($options);
-/**
+/*
  * Sample call for createPickupRequest operation/method
  */
 if ($create->createPickupRequest(new \Etrias\PaazlConnector\StructType\CreatePickupRequestRequest()) !== false) {
@@ -444,7 +439,7 @@ if ($create->createPickupRequest(new \Etrias\PaazlConnector\StructType\CreatePic
 } else {
     print_r($create->getLastError());
 }
-/**
+/*
  * Sample call for createStores operation/method
  */
 if ($create->createStores(new \Etrias\PaazlConnector\StructType\ChangeStoresRequestType()) !== false) {
@@ -453,10 +448,10 @@ if ($create->createStores(new \Etrias\PaazlConnector\StructType\ChangeStoresRequ
     print_r($create->getLastError());
 }
 /**
- * Samples for Proof ServiceType
+ * Samples for Proof ServiceType.
  */
 $proof = new \Etrias\PaazlConnector\ServiceType\Proof($options);
-/**
+/*
  * Sample call for proofOfDelivery operation/method
  */
 if ($proof->proofOfDelivery(new \Etrias\PaazlConnector\StructType\ProofOfDeliveryRequest()) !== false) {
@@ -465,10 +460,10 @@ if ($proof->proofOfDelivery(new \Etrias\PaazlConnector\StructType\ProofOfDeliver
     print_r($proof->getLastError());
 }
 /**
- * Samples for Service ServiceType
+ * Samples for Service ServiceType.
  */
 $service = new \Etrias\PaazlConnector\ServiceType\Service($options);
-/**
+/*
  * Sample call for servicePoints operation/method
  */
 if ($service->servicePoints(new \Etrias\PaazlConnector\StructType\ServicePointsRequest()) !== false) {
@@ -477,10 +472,10 @@ if ($service->servicePoints(new \Etrias\PaazlConnector\StructType\ServicePointsR
     print_r($service->getLastError());
 }
 /**
- * Samples for List ServiceType
+ * Samples for List ServiceType.
  */
 $list = new \Etrias\PaazlConnector\ServiceType\_List($options);
-/**
+/*
  * Sample call for listOrders operation/method
  */
 if ($list->listOrders(new \Etrias\PaazlConnector\StructType\ListOrdersRequest()) !== false) {
@@ -488,7 +483,7 @@ if ($list->listOrders(new \Etrias\PaazlConnector\StructType\ListOrdersRequest())
 } else {
     print_r($list->getLastError());
 }
-/**
+/*
  * Sample call for listOpenBatches operation/method
  */
 if ($list->listOpenBatches(new \Etrias\PaazlConnector\StructType\ListOpenBatchesRequest()) !== false) {
@@ -496,7 +491,7 @@ if ($list->listOpenBatches(new \Etrias\PaazlConnector\StructType\ListOpenBatches
 } else {
     print_r($list->getLastError());
 }
-/**
+/*
  * Sample call for listStores operation/method
  */
 if ($list->listStores(new \Etrias\PaazlConnector\StructType\ListStoresRequest()) !== false) {
@@ -505,10 +500,10 @@ if ($list->listStores(new \Etrias\PaazlConnector\StructType\ListStoresRequest())
     print_r($list->getLastError());
 }
 /**
- * Samples for Pickup ServiceType
+ * Samples for Pickup ServiceType.
  */
 $pickup = new \Etrias\PaazlConnector\ServiceType\Pickup($options);
-/**
+/*
  * Sample call for pickupRequestDetails operation/method
  */
 if ($pickup->pickupRequestDetails(new \Etrias\PaazlConnector\StructType\PickupRequestQueryType()) !== false) {
@@ -516,7 +511,7 @@ if ($pickup->pickupRequestDetails(new \Etrias\PaazlConnector\StructType\PickupRe
 } else {
     print_r($pickup->getLastError());
 }
-/**
+/*
  * Sample call for pickupRequestStatus operation/method
  */
 if ($pickup->pickupRequestStatus(new \Etrias\PaazlConnector\StructType\PickupRequestQueryType()) !== false) {
@@ -524,7 +519,7 @@ if ($pickup->pickupRequestStatus(new \Etrias\PaazlConnector\StructType\PickupReq
 } else {
     print_r($pickup->getLastError());
 }
-/**
+/*
  * Sample call for pickupRequestOptions operation/method
  */
 if ($pickup->pickupRequestOptions(new \Etrias\PaazlConnector\StructType\PickupRequestOptionsRequest()) !== false) {
@@ -533,10 +528,10 @@ if ($pickup->pickupRequestOptions(new \Etrias\PaazlConnector\StructType\PickupRe
     print_r($pickup->getLastError());
 }
 /**
- * Samples for Orders ServiceType
+ * Samples for Orders ServiceType.
  */
 $orders = new \Etrias\PaazlConnector\ServiceType\Orders($options);
-/**
+/*
  * Sample call for ordersToShip operation/method
  */
 if ($orders->ordersToShip(new \Etrias\PaazlConnector\StructType\OrdersToShipRequest()) !== false) {
@@ -545,10 +540,10 @@ if ($orders->ordersToShip(new \Etrias\PaazlConnector\StructType\OrdersToShipRequ
     print_r($orders->getLastError());
 }
 /**
- * Samples for Close ServiceType
+ * Samples for Close ServiceType.
  */
 $close = new \Etrias\PaazlConnector\ServiceType\Close($options);
-/**
+/*
  * Sample call for closeBatch operation/method
  */
 if ($close->closeBatch(new \Etrias\PaazlConnector\StructType\CloseBatchRequest()) !== false) {
@@ -557,10 +552,10 @@ if ($close->closeBatch(new \Etrias\PaazlConnector\StructType\CloseBatchRequest()
     print_r($close->getLastError());
 }
 /**
- * Samples for Open ServiceType
+ * Samples for Open ServiceType.
  */
 $open = new \Etrias\PaazlConnector\ServiceType\Open($options);
-/**
+/*
  * Sample call for openBatch operation/method
  */
 if ($open->openBatch(new \Etrias\PaazlConnector\StructType\OpenBatchRequest()) !== false) {
@@ -569,10 +564,10 @@ if ($open->openBatch(new \Etrias\PaazlConnector\StructType\OpenBatchRequest()) !
     print_r($open->getLastError());
 }
 /**
- * Samples for Checkout ServiceType
+ * Samples for Checkout ServiceType.
  */
 $checkout = new \Etrias\PaazlConnector\ServiceType\Checkout($options);
-/**
+/*
  * Sample call for checkoutStatus operation/method
  */
 if ($checkout->checkoutStatus(new \Etrias\PaazlConnector\StructType\BaseCheckoutRequestType()) !== false) {
@@ -580,7 +575,7 @@ if ($checkout->checkoutStatus(new \Etrias\PaazlConnector\StructType\BaseCheckout
 } else {
     print_r($checkout->getLastError());
 }
-/**
+/*
  * Sample call for checkout operation/method
  */
 if ($checkout->checkout(new \Etrias\PaazlConnector\StructType\BaseCheckoutRequestType()) !== false) {
@@ -589,10 +584,10 @@ if ($checkout->checkout(new \Etrias\PaazlConnector\StructType\BaseCheckoutReques
     print_r($checkout->getLastError());
 }
 /**
- * Samples for Delete ServiceType
+ * Samples for Delete ServiceType.
  */
 $delete = new \Etrias\PaazlConnector\ServiceType\Delete($options);
-/**
+/*
  * Sample call for deleteStores operation/method
  */
 if ($delete->deleteStores(new \Etrias\PaazlConnector\StructType\DeleteStoresRequest()) !== false) {
@@ -600,7 +595,7 @@ if ($delete->deleteStores(new \Etrias\PaazlConnector\StructType\DeleteStoresRequ
 } else {
     print_r($delete->getLastError());
 }
-/**
+/*
  * Sample call for deleteOrder operation/method
  */
 if ($delete->deleteOrder(new \Etrias\PaazlConnector\StructType\DeleteOrderRequest()) !== false) {
@@ -609,10 +604,10 @@ if ($delete->deleteOrder(new \Etrias\PaazlConnector\StructType\DeleteOrderReques
     print_r($delete->getLastError());
 }
 /**
- * Samples for Shipping ServiceType
+ * Samples for Shipping ServiceType.
  */
 $shipping = new \Etrias\PaazlConnector\ServiceType\Shipping($options);
-/**
+/*
  * Sample call for shippingOption operation/method
  */
 if ($shipping->shippingOption(new \Etrias\PaazlConnector\StructType\ShippingOptionRequest()) !== false) {
@@ -621,10 +616,10 @@ if ($shipping->shippingOption(new \Etrias\PaazlConnector\StructType\ShippingOpti
     print_r($shipping->getLastError());
 }
 /**
- * Samples for Update ServiceType
+ * Samples for Update ServiceType.
  */
 $update = new \Etrias\PaazlConnector\ServiceType\Update($options);
-/**
+/*
  * Sample call for updateOrder operation/method
  */
 if ($update->updateOrder(new \Etrias\PaazlConnector\StructType\UpdateOrderRequest()) !== false) {
@@ -632,7 +627,7 @@ if ($update->updateOrder(new \Etrias\PaazlConnector\StructType\UpdateOrderReques
 } else {
     print_r($update->getLastError());
 }
-/**
+/*
  * Sample call for updateStores operation/method
  */
 if ($update->updateStores(new \Etrias\PaazlConnector\StructType\ChangeStoresRequestType()) !== false) {
@@ -641,10 +636,10 @@ if ($update->updateStores(new \Etrias\PaazlConnector\StructType\ChangeStoresRequ
     print_r($update->getLastError());
 }
 /**
- * Samples for Validate ServiceType
+ * Samples for Validate ServiceType.
  */
 $validate = new \Etrias\PaazlConnector\ServiceType\Validate($options);
-/**
+/*
  * Sample call for validateOrder operation/method
  */
 if ($validate->validateOrder(new \Etrias\PaazlConnector\StructType\ValidateOrderRequest()) !== false) {
@@ -653,10 +648,10 @@ if ($validate->validateOrder(new \Etrias\PaazlConnector\StructType\ValidateOrder
     print_r($validate->getLastError());
 }
 /**
- * Samples for Trigger ServiceType
+ * Samples for Trigger ServiceType.
  */
 $trigger = new \Etrias\PaazlConnector\ServiceType\Trigger($options);
-/**
+/*
  * Sample call for triggerCarrierRegistration operation/method
  */
 if ($trigger->triggerCarrierRegistration(new \Etrias\PaazlConnector\StructType\TriggerCarrierRegistrationRequest()) !== false) {
@@ -665,10 +660,10 @@ if ($trigger->triggerCarrierRegistration(new \Etrias\PaazlConnector\StructType\T
     print_r($trigger->getLastError());
 }
 /**
- * Samples for Rate ServiceType
+ * Samples for Rate ServiceType.
  */
 $rate = new \Etrias\PaazlConnector\ServiceType\Rate($options);
-/**
+/*
  * Sample call for rate operation/method
  */
 if ($rate->rate(new \Etrias\PaazlConnector\StructType\RateRequest()) !== false) {

@@ -1,21 +1,31 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector;
 
 /**
- * Class which returns the class map definition
- * @package
+ * Class which returns the class map definition.
  */
 class ClassMap
 {
     /**
      * Returns the mapping between the WSDL Structs and generated Structs' classes
-     * This array is sent to the \SoapClient when calling the WS
+     * This array is sent to the \SoapClient when calling the WS.
+     *
      * @return string[]
      */
     final public static function get()
     {
-        return array(
+        return [
             'shippingOptionRequest' => '\\Etrias\\PaazlConnector\\StructType\\ShippingOptionRequest',
             'shippingOptionResponse' => '\\Etrias\\PaazlConnector\\StructType\\ShippingOptionResponse',
             'shippingOptions' => '\\Etrias\\PaazlConnector\\StructType\\ShippingOptions',
@@ -196,6 +206,6 @@ class ClassMap
             'nonNegativeIntegerRangeType' => '\\Etrias\\PaazlConnector\\StructType\\NonNegativeIntegerRangeType',
             'coordinatesType' => '\\Etrias\\PaazlConnector\\StructType\\CoordinatesType',
             'errorType' => '\\Etrias\\PaazlConnector\\StructType\\ErrorType',
-        );
+        ];
     }
 }

@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector;
 
 use Etrias\PaazlConnector\Exceptions\AmbiguousDeliveryEstimateRequestException;
@@ -63,13 +73,12 @@ use Etrias\PaazlConnector\Exceptions\UpstreamServerException;
 use Etrias\PaazlConnector\Exceptions\WeightIsZeroException;
 
 /**
- * Class which returns the class map definition
- * @package
+ * Class which returns the class map definition.
  */
 class ExceptionMap
 {
     /**
-     * Returns the mapping between the error codes and exception classes
+     * Returns the mapping between the error codes and exception classes.
      *
      * @return string[]
      */
@@ -134,12 +143,13 @@ class ExceptionMap
             '1055' => NotAvailableProofOfDeliveryDocumentException::class,
             '1056' => InvalidDateRangeException::class,
             '1057' => OrderChangedByConcurrentRequestException::class,
-            '1058' => UnsupportedOperationException::class
+            '1058' => UnsupportedOperationException::class,
         ];
     }
 
     /**
      * @param $code
+     *
      * @return PaazlException
      */
     public static function getException($code)
@@ -150,6 +160,6 @@ class ExceptionMap
             $exceptionName = PaazlException::class;
         }
 
-        return new $exceptionName;
+        return new $exceptionName();
     }
 }
