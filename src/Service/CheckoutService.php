@@ -16,6 +16,7 @@ use Etrias\PaazlConnector\Processor\Processor;
 use Etrias\PaazlConnector\ServiceType\Service as GeneralServiceType;
 use Etrias\PaazlConnector\StructType\BaseCheckoutRequestType;
 use Etrias\PaazlConnector\StructType\CheckoutResponse;
+use Etrias\PaazlConnector\StructType\CheckoutStatusResponse;
 
 class CheckoutService
 {

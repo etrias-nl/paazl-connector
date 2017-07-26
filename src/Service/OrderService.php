@@ -47,30 +47,6 @@ class OrderService
      */
     protected $securityService;
     /**
-     * @var OrderServiceType
-     */
-    protected $orderServiceType;
-    /**
-     * @var UpdateServiceType
-     */
-    protected $updateServiceType;
-    /**
-     * @var ChangeServiceType
-     */
-    protected $changeServiceType;
-    /**
-     * @var DeleteServiceType
-     */
-    protected $deleteServiceType;
-    /**
-     * @var CommitServiceType
-     */
-    protected $commitServiceType;
-    /**
-     * @var ListServiceType
-     */
-    protected $listServiceType;
-    /**
      * @var GeneralServiceType
      */
     private $generalServiceType;

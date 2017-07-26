@@ -52,7 +52,7 @@ class SoapClient extends AbstractSoapClientBase
         $this->webShopId = $wsdlOptions[self::WSDL_LOGIN];
         $this->password = $wsdlOptions[self::WSDL_PASSWORD];
 
-        return parent::__construct($wsdlOptions, $resetSoapClient);
+        parent::__construct($wsdlOptions, $resetSoapClient);
     }
 
     /**

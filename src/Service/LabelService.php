@@ -49,14 +49,6 @@ class LabelService
      */
     protected $securityService;
     /**
-     * @var GenerateServiceType
-     */
-    protected $generateServiceType;
-    /**
-     * @var GetServiceType
-     */
-    protected $getServiceType;
-    /**
      * @var GeneralServiceType
      */
     private $generalServiceType;

@@ -22,6 +22,7 @@ use Etrias\PaazlConnector\StructType\CreatePickupRequestResponse;
 use Etrias\PaazlConnector\StructType\PickupRequestDetailsResponse;
 use Etrias\PaazlConnector\StructType\PickupRequestOptionsRequest;
 use Etrias\PaazlConnector\StructType\PickupRequestQueryType;
+use Etrias\PaazlConnector\StructType\PickupRequestStatusResponse;
 use InvalidArgumentException;
 
 class PickupService
