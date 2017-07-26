@@ -18,6 +18,7 @@ use Etrias\PaazlConnector\ServiceType\Service as GeneralServiceType;
 use Etrias\PaazlConnector\StructType\ChangeOrderRequest;
 use Etrias\PaazlConnector\StructType\ChangeProducts;
 use Etrias\PaazlConnector\StructType\ChangeSenderAddress;
+use Etrias\PaazlConnector\StructType\ChangeShippingAddress;
 use Etrias\PaazlConnector\StructType\ChangeShippingMethod;
 use Etrias\PaazlConnector\StructType\CommitOrderRequest;
 use Etrias\PaazlConnector\StructType\DeleteOrderRequest;
@@ -152,7 +153,7 @@ class OrderService
         $orderReference,
         $newOrderReference = null,
         ChangeShippingMethod $shippingMethod = null,
-        ShippingAddress $shippingAddress = null,
+        ChangeShippingAddress $shippingAddress = null,
         ChangeSenderAddress $returnAddress = null,
         ChangeSenderAddress $shipperAddress = null,
         ChangeProducts $products = null,
