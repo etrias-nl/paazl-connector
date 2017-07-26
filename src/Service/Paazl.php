@@ -654,14 +654,9 @@ class Paazl
     }
 
     /**
-     * @param DateTime $startDate
-     * @param DateTime $endDate
-     * @param null     $distributor
-     * @param null     $targetWebShop
-     *
      * @throws RuntimeException
      */
-    public function generateShippingManifest(DateTime $startDate, DateTime $endDate, $distributor = null, $targetWebShop = null)
+    public function generateShippingManifest()
     {
         throw new RuntimeException('Not Implemented');
     }

@@ -15,7 +15,7 @@ namespace Etrias\PaazlConnector\Processor;
 use Etrias\PaazlConnector\ExceptionMap;
 use Etrias\PaazlConnector\Exceptions\PaazlException;
 use Etrias\PaazlConnector\SoapClient;
-use Etrias\PaazlConnector\StructType\AbstractStructBase;
+use WsdlToPhp\PackageBase\AbstractStructBase;
 
 trait ResponseProcessor
 {
