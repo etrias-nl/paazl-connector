@@ -17,13 +17,13 @@ use Etrias\PaazlConnector\Exceptions\PaazlException;
 use Etrias\PaazlConnector\SoapClient;
 use WsdlToPhp\PackageBase\AbstractStructBase;
 
-trait ResponseProcessor
+trait Processor
 {
     /**
      * @param $response
      * @param SoapClient $soapClient
-     *
      * @return mixed
+     * @throws PaazlException
      */
     public function processResponse($response, SoapClient $soapClient)
     {
