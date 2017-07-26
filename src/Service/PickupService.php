@@ -1,9 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: heiligbrood
- * Date: 26-07-17
- * Time: 19:56
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */
 
 namespace Etrias\PaazlConnector\Service;
@@ -12,17 +16,9 @@ use DateTime;
 use Etrias\PaazlConnector\Processor\Processor;
 use Etrias\PaazlConnector\ServiceType\Service as GeneralServiceType;
 use Etrias\PaazlConnector\StructType\AddressType;
-use Etrias\PaazlConnector\StructType\BaseCheckoutRequestType;
 use Etrias\PaazlConnector\StructType\CancelPickupRequestResponse;
-use Etrias\PaazlConnector\StructType\CheckoutResponse;
 use Etrias\PaazlConnector\StructType\CreatePickupRequestRequest;
 use Etrias\PaazlConnector\StructType\CreatePickupRequestResponse;
-use Etrias\PaazlConnector\StructType\GenerateAdditionalImageDocumentResponse;
-use Etrias\PaazlConnector\StructType\GenerateAdditionalPdfDocumentRequest;
-use Etrias\PaazlConnector\StructType\GenerateAdditionalPdfDocumentResponse;
-use Etrias\PaazlConnector\StructType\GeneratePdfCustomsDocumentsRequest;
-use Etrias\PaazlConnector\StructType\GeneratePdfCustomsDocumentsResponse;
-use Etrias\PaazlConnector\StructType\OrderType;
 use Etrias\PaazlConnector\StructType\PickupRequestDetailsResponse;
 use Etrias\PaazlConnector\StructType\PickupRequestOptionsRequest;
 use Etrias\PaazlConnector\StructType\PickupRequestQueryType;
@@ -43,7 +39,8 @@ class PickupService
 
     /**
      * DocumentService constructor.
-     * @param GeneralServiceType $generalServiceType
+     *
+     * @param GeneralServiceType       $generalServiceType
      * @param SecurityServiceInterface $securityService
      */
     public function __construct(GeneralServiceType $generalServiceType, SecurityServiceInterface $securityService)
@@ -219,5 +216,4 @@ class PickupService
 
         return $this->processResponse($response, $this->generalServiceType);
     }
-
 }

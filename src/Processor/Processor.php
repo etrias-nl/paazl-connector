@@ -22,8 +22,10 @@ trait Processor
     /**
      * @param $response
      * @param SoapClient $soapClient
-     * @return mixed
+     *
      * @throws PaazlException
+     *
+     * @return mixed
      */
     public function processResponse($response, SoapClient $soapClient)
     {
