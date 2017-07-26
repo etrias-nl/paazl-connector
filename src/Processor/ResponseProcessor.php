@@ -22,7 +22,8 @@ trait ResponseProcessor
     public function processResponse($response, SoapClient $soapClient)
     {
         if ($response === false) {
-            throw end($soapClient->getLastError());
+            $errors = $soapClient->getLastError();
+            throw end($errors);
         }
 
         if ($response->getError()) {

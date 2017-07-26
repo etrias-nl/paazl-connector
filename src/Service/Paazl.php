@@ -26,6 +26,9 @@ use Etrias\PaazlConnector\StructType\CommitOrderRequest;
 use Etrias\PaazlConnector\StructType\DateRangeType;
 use Etrias\PaazlConnector\StructType\DeleteOrderRequest;
 use Etrias\PaazlConnector\StructType\ExistingLabelType;
+use Etrias\PaazlConnector\StructType\GenerateAdditionalImageDocumentResponse;
+use Etrias\PaazlConnector\StructType\GenerateAdditionalPdfDocumentRequest;
+use Etrias\PaazlConnector\StructType\GenerateAdditionalPdfDocumentResponse;
 use Etrias\PaazlConnector\StructType\GenerateExtraImageLabelRequest;
 use Etrias\PaazlConnector\StructType\GenerateExtraImageLabelResponse;
 use Etrias\PaazlConnector\StructType\GenerateExtraImageReturnLabelResponse;
@@ -36,13 +39,19 @@ use Etrias\PaazlConnector\StructType\GenerateExtraPdfReturnLabelResponse;
 use Etrias\PaazlConnector\StructType\GenerateImageLabelsRequest;
 use Etrias\PaazlConnector\StructType\GenerateImageLabelsResponse;
 use Etrias\PaazlConnector\StructType\GenerateImageReturnLabelsResponse;
+use Etrias\PaazlConnector\StructType\GeneratePdfCustomsDocumentsRequest;
+use Etrias\PaazlConnector\StructType\GeneratePdfCustomsDocumentsResponse;
 use Etrias\PaazlConnector\StructType\GeneratePdfLabelsRequest;
 use Etrias\PaazlConnector\StructType\GeneratePdfLabelsResponse;
 use Etrias\PaazlConnector\StructType\GeneratePdfReturnLabelsRequest;
 use Etrias\PaazlConnector\StructType\GeneratePdfReturnLabelsResponse;
+use Etrias\PaazlConnector\StructType\GenerateShippingManifestRequest;
 use Etrias\PaazlConnector\StructType\GenerateZplLabelsRequest;
 use Etrias\PaazlConnector\StructType\GenerateZplLabelsResponse;
+use Etrias\PaazlConnector\StructType\GetExistingImageLabelResponse;
+use Etrias\PaazlConnector\StructType\GetExistingImageLabelsResponse;
 use Etrias\PaazlConnector\StructType\GetExistingPdfLabelRequest;
+use Etrias\PaazlConnector\StructType\GetExistingPdfLabelResponse;
 use Etrias\PaazlConnector\StructType\GetExistingPdfLabelsRequest;
 use Etrias\PaazlConnector\StructType\GetExistingPdfLabelsResponse;
 use Etrias\PaazlConnector\StructType\LabelType;
@@ -67,6 +76,7 @@ use Etrias\PaazlConnector\StructType\ShippingMethod;
 use Etrias\PaazlConnector\StructType\ShippingOptionRequest;
 use Etrias\PaazlConnector\StructType\ShippingOptionResponse;
 use Etrias\PaazlConnector\StructType\UpdateOrderRequest;
+use RuntimeException;
 
 class Paazl
 {
@@ -163,6 +173,79 @@ class Paazl
         $this->proofServiceType = $proofServiceType;
         $this->generateServiceType = $generateServiceType;
         $this->getServiceType = $getServiceType;
+    }
+
+    /**
+     * @param $orderReference
+     * @param $barcode
+     * @param $documentType
+     * @param null $printer
+     * @param null $targetWebShop
+     * @return GenerateAdditionalPdfDocumentResponse
+     */
+    public function generateAdditionalPdfDocument($orderReference, $barcode, $documentType, $printer = null, $targetWebShop = null)
+    {
+        $request = new GenerateAdditionalPdfDocumentRequest($printer);
+        $request->setHash($this->getHash($orderReference))
+            ->setWebshop($this->generateServiceType->getWebShopId())
+            ->setTargetWebshop($targetWebShop)
+            ->setOrderReference($orderReference)
+            ->setBarcode($barcode)
+            ->setDocumentType($documentType);
+
+        $response = $this->generateServiceType->generateAdditionalPdfDocument($request);
+
+        return $this->processResponse($response, $this->generateServiceType);
+    }
+
+    /**
+     * @param $orderReference
+     * @param $barcode
+     * @param $documentType
+     * @param null $targetWebShop
+     * @return GenerateAdditionalImageDocumentResponse
+     */
+    public function generateAdditionalImageDocument($orderReference, $barcode, $documentType, $targetWebShop = null)
+    {
+        $request = new GenerateAdditionalPdfDocumentRequest();
+        $request->setHash($this->getHash($orderReference))
+            ->setWebshop($this->generateServiceType->getWebShopId())
+            ->setTargetWebshop($targetWebShop)
+            ->setOrderReference($orderReference)
+            ->setBarcode($barcode)
+            ->setDocumentType($documentType);
+
+        $response = $this->generateServiceType->generateAdditionalImageDocument($request);
+
+        return $this->processResponse($response, $this->generateServiceType);
+    }
+
+
+    /**
+     * @param array $orderReferences
+     * @param $targetWebShop
+     * @return GeneratePdfCustomsDocumentsResponse
+     */
+    public function generatePdfCustomsDocuments(array $orderReferences, $targetWebShop = null)
+    {
+        $orders = [];
+
+        foreach ($orderReferences as $orderReference) {
+            $orders[] = new OrderType(
+                $this->getHash($orderReference),
+                $targetWebShop,
+                $orderReference
+            );
+        }
+
+        $request = new GeneratePdfCustomsDocumentsRequest(
+            $this->generateServiceType->getWebShopId(),
+            $orders
+        );
+
+        $response = $this->generateServiceType->generatePdfCustomsDocuments($request);
+
+        return $this->processResponse($response, $this->generateServiceType);
     }
 
     /**
@@ -428,6 +511,18 @@ class Paazl
     }
 
     /**
+     * @param DateTime $startDate
+     * @param DateTime $endDate
+     * @param null $distributor
+     * @param null $targetWebShop
+     * @throws RuntimeException
+     */
+    public function generateShippingManifest(DateTime $startDate, DateTime $endDate, $distributor = null, $targetWebShop = null)
+    {
+        throw new RuntimeException('Not Implemented');
+    }
+
+    /**
      * @param $orderReference
      * @param $zipCode
      * @param $houseNumber
@@ -450,6 +545,29 @@ class Paazl
         $response = $this->addressServiceType->address($request);
 
         return $this->processResponse($response, $this->addressServiceType);
+    }
+
+    /**
+     * @param $orderReference
+     * @param $barCode
+     * @param null $printer
+     * @param null $includeMetaData
+     * @param null $targetWebShop
+     * @return GetExistingPdfLabelResponse
+     */
+    public function getExistingPdfLabel($orderReference, $barCode, $printer = null, $includeMetaData = null, $targetWebShop = null)
+    {
+        $request = new GetExistingPdfLabelRequest($printer);
+        $request->setHash($this->getHash($orderReference))
+            ->setWebshop($this->getServiceType->getWebShopId())
+            ->setOrderReference($orderReference)
+            ->setBarcode($barCode)
+            ->setIncludeMetaData($includeMetaData)
+            ->setTargetWebshop($targetWebShop);
+
+        $response = $this->getServiceType->getExistingPdfLabel($request);
+
+        return $this->processResponse($response, $this->getServiceType);
     }
 
     /**
@@ -480,6 +598,57 @@ class Paazl
 
         return $this->processResponse($response, $this->getServiceType);
     }
+
+    /**
+     * @param $orderReference
+     * @param $barCode
+     * @param null $includeMetaData
+     * @param null $targetWebShop
+     * @return GetExistingImageLabelResponse
+     */
+    public function getExistingImageLabel($orderReference, $barCode, $includeMetaData = null, $targetWebShop = null)
+    {
+        $request = new GetExistingPdfLabelRequest();
+        $request->setHash($this->getHash($orderReference))
+            ->setWebshop($this->getServiceType->getWebShopId())
+            ->setOrderReference($orderReference)
+            ->setBarcode($barCode)
+            ->setIncludeMetaData($includeMetaData)
+            ->setTargetWebshop($targetWebShop);
+
+        $response = $this->getServiceType->getExistingImageLabel($request);
+
+        return $this->processResponse($response, $this->getServiceType);
+    }
+
+    /**
+     * @param array $barCodes [$orderReference => $barcode]
+     * @param null $includeMetaData
+     * @return GetExistingImageLabelsResponse
+     */
+    public function getExistingImageLabels(array $barCodes, $includeMetaData = null)
+    {
+        $labels = [];
+
+        foreach ($barCodes as $orderReference => $barcode ) {
+            $labels[] = new ExistingLabelType(
+                $this->getHash($orderReference),
+                $this->getServiceType->getWebShopId(),
+                $orderReference,
+                $barcode
+            );
+        }
+
+        $request = new GetExistingPdfLabelsRequest();
+        $request->setLabel($labels)
+            ->setWebshop($this->getServiceType->getWebShopId())
+            ->setIncludeMetaData($includeMetaData);
+
+        $response = $this->getServiceType->getExistingImageLabels($request);
+
+        return $this->processResponse($response, $this->getServiceType);
+    }
+
 
     /**
      * Constructor method for orderDetailsRequest
