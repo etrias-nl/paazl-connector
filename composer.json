@@ -5,7 +5,10 @@
         "php": ">=5.3.3",
         "ext-soap": "*",
         "wsdltophp/packagebase": "~1.0",
-        "meng-tian/async-soap-guzzle": "^0.2.4"
+        "phpro/soap-client": "^0.5.0",
+        "http-interop/http-factory": "^0.2.0",
+        "guzzlehttp/guzzle": "^6.2",
+        "http-interop/http-factory-guzzle": "^0.1.0"
     },
     "autoload": {
         "psr-4": {
@@ -19,7 +22,8 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.4",
-        "phpunit/phpunit": "^6.2"
+        "phpunit/phpunit": "^6.2",
+        "zendframework/zend-code": "^3.0.4"
     },
     "scripts": {
         "fix-style": [
