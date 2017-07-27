@@ -12,23 +12,24 @@
 
 namespace Etrias\PaazlConnector\Services;
 
+use Etrias\PaazlConnector\Client\PaazlClientInterface;
 use Etrias\PaazlConnector\SoapClient;
 
 class SecurityService implements SecurityServiceInterface
 {
     /**
-     * @var SoapClient
+     * @var PaazlClientInterface
      */
-    protected $soapClient;
+    protected $client;
 
     /**
      * SecurityService constructor.
      *
-     * @param SoapClient $soapClient
+     * @param PaazlClientInterface $client
      */
-    public function __construct(SoapClient $soapClient)
+    public function __construct(PaazlClientInterface $client)
     {
-        $this->soapClient = $soapClient;
+        $this->client = $client;
     }
 
     /**
@@ -36,6 +37,6 @@ class SecurityService implements SecurityServiceInterface
      */
     public function getHash($input)
     {
-        return sha1($this->soapClient->getWebShopId().$this->soapClient->getPassword().$input);
+        return sha1($this->client->getWebShopId().$this->client->getPassword().$input);
     }
 }

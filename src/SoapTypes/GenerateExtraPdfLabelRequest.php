@@ -1,0 +1,221 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+
+use Phpro\SoapClient\Type\RequestInterface;
+
+class GenerateExtraPdfLabelRequest implements RequestInterface
+{
+
+    /**
+     * @var string
+     */
+    protected $hash = null;
+
+    /**
+     * @var int
+     */
+    protected $webshop = null;
+
+    /**
+     * @var int
+     */
+    protected $targetWebshop = null;
+
+    /**
+     * @var string
+     */
+    protected $orderReference = null;
+
+    /**
+     * @var labelProducts
+     */
+    protected $labelProducts = null;
+
+    /**
+     * @var printerType
+     */
+    protected $printer = null;
+
+    /**
+     * @var string
+     */
+    protected $batch = null;
+
+    /**
+     * @var bool
+     */
+    protected $includeMetaData = null;
+
+    /**
+     * Constructor
+     *
+     * @var string $hash
+     * @var int $webshop
+     * @var int $targetWebshop
+     * @var string $orderReference
+     * @var labelProducts $labelProducts
+     * @var printerType $printer
+     * @var string $batch
+     * @var bool $includeMetaData
+     */
+    public function __construct($hash, $webshop, $targetWebshop, $orderReference, $labelProducts, $printer, $batch, $includeMetaData)
+    {
+        $this->hash = $hash;
+        $this->webshop = $webshop;
+        $this->targetWebshop = $targetWebshop;
+        $this->orderReference = $orderReference;
+        $this->labelProducts = $labelProducts;
+        $this->printer = $printer;
+        $this->batch = $batch;
+        $this->includeMetaData = $includeMetaData;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHash()
+    {
+        return $this->hash;
+    }
+
+    /**
+     * @param string $hash
+     * @return $this
+     */
+    public function setHash($hash)
+    {
+        $this->hash = $hash;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWebshop()
+    {
+        return $this->webshop;
+    }
+
+    /**
+     * @param int $webshop
+     * @return $this
+     */
+    public function setWebshop($webshop)
+    {
+        $this->webshop = $webshop;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTargetWebshop()
+    {
+        return $this->targetWebshop;
+    }
+
+    /**
+     * @param int $targetWebshop
+     * @return $this
+     */
+    public function setTargetWebshop($targetWebshop)
+    {
+        $this->targetWebshop = $targetWebshop;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOrderReference()
+    {
+        return $this->orderReference;
+    }
+
+    /**
+     * @param string $orderReference
+     * @return $this
+     */
+    public function setOrderReference($orderReference)
+    {
+        $this->orderReference = $orderReference;
+        return $this;
+    }
+
+    /**
+     * @return labelProducts
+     */
+    public function getLabelProducts()
+    {
+        return $this->labelProducts;
+    }
+
+    /**
+     * @param labelProducts $labelProducts
+     * @return $this
+     */
+    public function setLabelProducts($labelProducts)
+    {
+        $this->labelProducts = $labelProducts;
+        return $this;
+    }
+
+    /**
+     * @return printerType
+     */
+    public function getPrinter()
+    {
+        return $this->printer;
+    }
+
+    /**
+     * @param printerType $printer
+     * @return $this
+     */
+    public function setPrinter($printer)
+    {
+        $this->printer = $printer;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBatch()
+    {
+        return $this->batch;
+    }
+
+    /**
+     * @param string $batch
+     * @return $this
+     */
+    public function setBatch($batch)
+    {
+        $this->batch = $batch;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIncludeMetaData()
+    {
+        return $this->includeMetaData;
+    }
+
+    /**
+     * @param bool $includeMetaData
+     * @return $this
+     */
+    public function setIncludeMetaData($includeMetaData)
+    {
+        $this->includeMetaData = $includeMetaData;
+        return $this;
+    }
+
+
+}
+

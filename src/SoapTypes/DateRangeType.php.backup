@@ -1,0 +1,52 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class DateRangeType
+{
+
+    /**
+     * @var \DateTime
+     */
+    protected $lowerBound = null;
+
+    /**
+     * @var \DateTime
+     */
+    protected $upperBound = null;
+
+    /**
+     * @return \DateTime
+     */
+    public function getLowerBound()
+    {
+        return $this->lowerBound;
+    }
+
+    /**
+     * @param \DateTime $lowerBound
+     */
+    public function setLowerBound($lowerBound)
+    {
+        $this->lowerBound = $lowerBound;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpperBound()
+    {
+        return $this->upperBound;
+    }
+
+    /**
+     * @param \DateTime $upperBound
+     */
+    public function setUpperBound($upperBound)
+    {
+        $this->upperBound = $upperBound;
+    }
+
+
+}
+

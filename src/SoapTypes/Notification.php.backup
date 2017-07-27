@@ -1,0 +1,52 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class Notification
+{
+
+    /**
+     * @var string
+     */
+    protected $emailAddress = null;
+
+    /**
+     * @var string
+     */
+    protected $phoneNumber = null;
+
+    /**
+     * @return string
+     */
+    public function getEmailAddress()
+    {
+        return $this->emailAddress;
+    }
+
+    /**
+     * @param string $emailAddress
+     */
+    public function setEmailAddress($emailAddress)
+    {
+        $this->emailAddress = $emailAddress;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
+    }
+
+    /**
+     * @param string $phoneNumber
+     */
+    public function setPhoneNumber($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
+    }
+
+
+}
+

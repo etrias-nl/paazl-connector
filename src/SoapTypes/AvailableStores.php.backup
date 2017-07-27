@@ -1,0 +1,31 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class AvailableStores
+{
+
+    /**
+     * @var store
+     */
+    protected $store = null;
+
+    /**
+     * @return store
+     */
+    public function getStore()
+    {
+        return $this->store;
+    }
+
+    /**
+     * @param store $store
+     */
+    public function setStore($store)
+    {
+        $this->store = $store;
+    }
+
+
+}
+

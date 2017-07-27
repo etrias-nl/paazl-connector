@@ -12,6 +12,7 @@
 
 namespace Etrias\PaazlConnector\Services;
 
+use Etrias\PaazlConnector\Client\PaazlClientInterface;
 use Etrias\PaazlConnector\Processor\Processor;
 use Etrias\PaazlConnector\ServiceType\Service as GeneralServiceType;
 use Etrias\PaazlConnector\StructType\ExistingLabelType;
@@ -42,27 +43,25 @@ use Etrias\PaazlConnector\StructType\ReturnLabelsOrderType;
 
 class LabelService
 {
-    use Processor;
-
+    /**
+     * @var PaazlClientInterface
+     */
+    protected $client;
     /**
      * @var SecurityServiceInterface
      */
-    protected $securityService;
-    /**
-     * @var GeneralServiceType
-     */
-    private $generalServiceType;
+    protected $security;
 
     /**
      * DocumentService constructor.
      *
-     * @param GeneralServiceType       $generalServiceType
-     * @param SecurityServiceInterface $securityService
+     * @param PaazlClientInterface       $client
+     * @param SecurityServiceInterface $security
      */
-    public function __construct(GeneralServiceType $generalServiceType, SecurityServiceInterface $securityService)
+    public function __construct(PaazlClientInterface $client, SecurityServiceInterface $security)
     {
-        $this->securityService = $securityService;
-        $this->generalServiceType = $generalServiceType;
+        $this->security = $security;
+        $this->client = $client;
     }
 
     /**

@@ -1,0 +1,94 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class PickupRequestStatusEntryType
+{
+
+    /**
+     * @var \DateTime
+     */
+    protected $timestamp = null;
+
+    /**
+     * @var pickupRequestStatusType
+     */
+    protected $status = null;
+
+    /**
+     * @var string
+     */
+    protected $code = null;
+
+    /**
+     * @var string
+     */
+    protected $description = null;
+
+    /**
+     * @return \DateTime
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * @param \DateTime $timestamp
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+    }
+
+    /**
+     * @return pickupRequestStatusType
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param pickupRequestStatusType $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+
+}
+

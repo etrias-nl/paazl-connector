@@ -10,6 +10,8 @@
  * with this source code in the file LICENSE.
  */
 
+use Etrias\PaazlConnector\Client\PaazlClientInterface;
+use Etrias\PaazlConnector\GuzzleSoapClient;
 use Etrias\PaazlConnector\ServiceType\Address as AddressServiceType;
 use Etrias\PaazlConnector\ServiceType\Change as ChangeServiceType;
 use Etrias\PaazlConnector\ServiceType\Commit as CommitOrderServiceType;
@@ -22,8 +24,76 @@ use Etrias\PaazlConnector\ServiceType\Proof as ProofServiceType;
 use Etrias\PaazlConnector\ServiceType\Rate as RateServiceType;
 use Etrias\PaazlConnector\ServiceType\Shipping as ShippingServiceType;
 use Etrias\PaazlConnector\ServiceType\Update as UpdateServiceType;
+use Phpro\SoapClient\ClientBuilder;
+use Phpro\SoapClient\Soap\TypeConverter\DateTimeTypeConverter;
 
 require_once __DIR__.'/vendor/autoload.php';
+
+
+$guzzleClient = new \GuzzleHttp\Client();
+
+$clientFactory = new \Phpro\SoapClient\ClientFactory(GuzzleSoapClient::class);
+$soapOptions = [
+    'trace' => true
+];
+
+$clientBuilder = new ClientBuilder($clientFactory, \Etrias\PaazlConnector\SoapClient::WSDL_STAGING, $soapOptions);
+$clientBuilder->withClassMaps(require 'src/ClassMapCollection.php');
+$clientBuilder->withHandler(\Phpro\SoapClient\Soap\Handler\GuzzleHandle::createForClient($guzzleClient));
+
+
+/**@var $soapClient PaazlClientInterface */
+$soapClient = $clientBuilder->build();
+$soapClient->setWebShopId('677')
+    ->setPassword('hermanus');
+
+
+
+
+//$response = $soapClient->address(
+//    new \Etrias\PaazlConnector\SoapTypes\AddressRequest(
+//        'hash',
+//        '677',
+//        null,
+//        'ET170',
+//        '5121SW',
+//        '11',
+//        null
+//    )
+//);
+//
+//var_dump($response);
+
+//var_dump($client->debugLastSoapRequest());
+
+$securityService = new \Etrias\PaazlConnector\Services\SecurityService($soapClient);
+$listService = new \Etrias\PaazlConnector\Services\ListService($soapClient, $securityService);
+
+$response = $listService->getAddress('ET171', '5121SW', '11');
+var_dump($response);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+die();
+
+
+
 /**
  * Minimal options.
  */

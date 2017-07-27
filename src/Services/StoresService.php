@@ -13,41 +13,38 @@
 namespace Etrias\PaazlConnector\Services;
 
 use DateTime;
-use Etrias\PaazlConnector\Processor\Processor;
-use Etrias\PaazlConnector\ServiceType\Service as GeneralServiceType;
-use Etrias\PaazlConnector\StructType\ChangeStoreDetailsType;
-use Etrias\PaazlConnector\StructType\ChangeStoresRequestType;
-use Etrias\PaazlConnector\StructType\ChangeStoresResponseType;
-use Etrias\PaazlConnector\StructType\DeleteStoresRequest;
-use Etrias\PaazlConnector\StructType\DeleteStoresResponse;
-use Etrias\PaazlConnector\StructType\DeleteStoreType;
-use Etrias\PaazlConnector\StructType\ListStoresRequest;
-use Etrias\PaazlConnector\StructType\ListStoresResponse;
-use Etrias\PaazlConnector\StructType\StoreDetailsType;
+use Etrias\PaazlConnector\Client\PaazlClientInterface;
+use Etrias\PaazlConnector\SoapTypes\ChangeStoreDetailsType;
+use Etrias\PaazlConnector\SoapTypes\ChangeStoresRequestType;
+use Etrias\PaazlConnector\SoapTypes\ChangeStoresResponseType;
+use Etrias\PaazlConnector\SoapTypes\DeleteStoresRequest;
+use Etrias\PaazlConnector\SoapTypes\DeleteStoresResponse;
+use Etrias\PaazlConnector\SoapTypes\DeleteStoreType;
+use Etrias\PaazlConnector\SoapTypes\ListStoresRequest;
+use Etrias\PaazlConnector\SoapTypes\ListStoresResponse;
+use Etrias\PaazlConnector\SoapTypes\StoreDetailsType;
 
 class StoresService
 {
-    use Processor;
-
+    /**
+     * @var PaazlClientInterface
+     */
+    protected $client;
     /**
      * @var SecurityServiceInterface
      */
-    protected $securityService;
-    /**
-     * @var GeneralServiceType
-     */
-    protected $generalServiceType;
+    protected $security;
 
     /**
      * DocumentService constructor.
      *
-     * @param GeneralServiceType       $generalServiceType
-     * @param SecurityServiceInterface $securityService
+     * @param PaazlClientInterface       $client
+     * @param SecurityServiceInterface $security
      */
-    public function __construct(GeneralServiceType $generalServiceType, SecurityServiceInterface $securityService)
+    public function __construct(PaazlClientInterface $client, SecurityServiceInterface $security)
     {
-        $this->securityService = $securityService;
-        $this->generalServiceType = $generalServiceType;
+        $this->security = $security;
+        $this->client = $client;
     }
 
     /**
@@ -60,7 +57,7 @@ class StoresService
     {
         $changeStores = [];
         foreach ($stores as $store) {
-            $changeStore = new ChangeStoreDetailsType($this->securityService->getHash($store->getCode()));
+            $changeStore = new ChangeStoreDetailsType($this->security->getHash($store->getCode()));
             $changeStore->setName($store->getName())
                 ->setAddress($store->getAddress())
                 ->setBusinessHours($store->getBusinessHours())
@@ -70,14 +67,12 @@ class StoresService
         }
 
         $request = new ChangeStoresRequestType(
-            $this->generalServiceType->getWebShopId(),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $changeStores
         );
 
-        $response = $this->generalServiceType->createStores($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->createStores($request);
     }
 
     /**
@@ -90,7 +85,7 @@ class StoresService
     {
         $changeStores = [];
         foreach ($stores as $store) {
-            $changeStore = new ChangeStoreDetailsType($this->securityService->getHash($store->getCode()));
+            $changeStore = new ChangeStoreDetailsType($this->security->getHash($store->getCode()));
             $changeStore->setName($store->getName())
                 ->setAddress($store->getAddress())
                 ->setBusinessHours($store->getBusinessHours())
@@ -100,14 +95,12 @@ class StoresService
         }
 
         $request = new ChangeStoresRequestType(
-            $this->generalServiceType->getWebShopId(),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $changeStores
         );
 
-        $response = $this->generalServiceType->updateStores($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->updateStores($request);
     }
 
     /**
@@ -125,14 +118,12 @@ class StoresService
         }
 
         $request = new DeleteStoresRequest(
-            $this->generalServiceType->getWebShopId(),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $stores
         );
 
-        $response = $this->generalServiceType->deleteStores($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->deleteStores($request);
     }
 
     /**
@@ -144,13 +135,11 @@ class StoresService
     {
         $today = new DateTime();
         $request = new ListStoresRequest(
-            $this->securityService->getHash($today->format('Ymd')),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($today->format('Ymd')),
+            $this->client->getWebShopId(),
             $targetWebShop
         );
 
-        $response = $this->generalServiceType->listStores($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->listStores($request);
     }
 }

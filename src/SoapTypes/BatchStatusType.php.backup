@@ -1,0 +1,31 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class BatchStatusType
+{
+
+    /**
+     * @var batchStatusOrderType
+     */
+    protected $order = null;
+
+    /**
+     * @return batchStatusOrderType
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * @param batchStatusOrderType $order
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
+    }
+
+
+}
+

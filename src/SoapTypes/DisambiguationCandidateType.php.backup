@@ -1,0 +1,73 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class DisambiguationCandidateType
+{
+
+    /**
+     * @var string
+     */
+    protected $shippingOption = null;
+
+    /**
+     * @var string
+     */
+    protected $distributor = null;
+
+    /**
+     * @var deliveryEstimateDestination
+     */
+    protected $candidate = null;
+
+    /**
+     * @return string
+     */
+    public function getShippingOption()
+    {
+        return $this->shippingOption;
+    }
+
+    /**
+     * @param string $shippingOption
+     */
+    public function setShippingOption($shippingOption)
+    {
+        $this->shippingOption = $shippingOption;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDistributor()
+    {
+        return $this->distributor;
+    }
+
+    /**
+     * @param string $distributor
+     */
+    public function setDistributor($distributor)
+    {
+        $this->distributor = $distributor;
+    }
+
+    /**
+     * @return deliveryEstimateDestination
+     */
+    public function getCandidate()
+    {
+        return $this->candidate;
+    }
+
+    /**
+     * @param deliveryEstimateDestination $candidate
+     */
+    public function setCandidate($candidate)
+    {
+        $this->candidate = $candidate;
+    }
+
+
+}
+

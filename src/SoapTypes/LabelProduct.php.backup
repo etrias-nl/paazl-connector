@@ -1,0 +1,178 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class LabelProduct
+{
+
+    /**
+     * @var positiveInteger
+     */
+    protected $quantity = null;
+
+    /**
+     * @var nonNegativeDecimal
+     */
+    protected $weight = null;
+
+    /**
+     * @var nonNegativeInteger
+     */
+    protected $width = null;
+
+    /**
+     * @var nonNegativeInteger
+     */
+    protected $height = null;
+
+    /**
+     * @var nonNegativeInteger
+     */
+    protected $length = null;
+
+    /**
+     * @var nonNegativeDecimal
+     */
+    protected $volume = null;
+
+    /**
+     * @var string
+     */
+    protected $code = null;
+
+    /**
+     * @var string
+     */
+    protected $description = null;
+
+    /**
+     * @return positiveInteger
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param positiveInteger $quantity
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+    }
+
+    /**
+     * @return nonNegativeDecimal
+     */
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+
+    /**
+     * @param nonNegativeDecimal $weight
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+    }
+
+    /**
+     * @return nonNegativeInteger
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+
+    /**
+     * @param nonNegativeInteger $width
+     */
+    public function setWidth($width)
+    {
+        $this->width = $width;
+    }
+
+    /**
+     * @return nonNegativeInteger
+     */
+    public function getHeight()
+    {
+        return $this->height;
+    }
+
+    /**
+     * @param nonNegativeInteger $height
+     */
+    public function setHeight($height)
+    {
+        $this->height = $height;
+    }
+
+    /**
+     * @return nonNegativeInteger
+     */
+    public function getLength()
+    {
+        return $this->length;
+    }
+
+    /**
+     * @param nonNegativeInteger $length
+     */
+    public function setLength($length)
+    {
+        $this->length = $length;
+    }
+
+    /**
+     * @return nonNegativeDecimal
+     */
+    public function getVolume()
+    {
+        return $this->volume;
+    }
+
+    /**
+     * @param nonNegativeDecimal $volume
+     */
+    public function setVolume($volume)
+    {
+        $this->volume = $volume;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+
+}
+

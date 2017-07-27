@@ -1,0 +1,76 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+
+use Phpro\SoapClient\Type\RequestInterface;
+
+class GenerateImageLabelsRequest implements RequestInterface
+{
+
+    /**
+     * @var int
+     */
+    protected $webshop = null;
+
+    /**
+     * @var orderType
+     */
+    protected $order = null;
+
+    /**
+     * @var bool
+     */
+    protected $includeMetaData = null;
+
+    /**
+     * @return int
+     */
+    public function getWebshop()
+    {
+        return $this->webshop;
+    }
+
+    /**
+     * @param int $webshop
+     */
+    public function setWebshop($webshop)
+    {
+        $this->webshop = $webshop;
+    }
+
+    /**
+     * @return orderType
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * @param orderType $order
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIncludeMetaData()
+    {
+        return $this->includeMetaData;
+    }
+
+    /**
+     * @param bool $includeMetaData
+     */
+    public function setIncludeMetaData($includeMetaData)
+    {
+        $this->includeMetaData = $includeMetaData;
+    }
+
+
+}
+

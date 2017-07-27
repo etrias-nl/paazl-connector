@@ -1,0 +1,94 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class ServicePointExtraDetails
+{
+
+    /**
+     * @var string
+     */
+    protected $pictureUrl = null;
+
+    /**
+     * @var string
+     */
+    protected $locationHints = null;
+
+    /**
+     * @var string
+     */
+    protected $remarks = null;
+
+    /**
+     * @var servicePointExtraDetailsStatus
+     */
+    protected $status = null;
+
+    /**
+     * @return string
+     */
+    public function getPictureUrl()
+    {
+        return $this->pictureUrl;
+    }
+
+    /**
+     * @param string $pictureUrl
+     */
+    public function setPictureUrl($pictureUrl)
+    {
+        $this->pictureUrl = $pictureUrl;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLocationHints()
+    {
+        return $this->locationHints;
+    }
+
+    /**
+     * @param string $locationHints
+     */
+    public function setLocationHints($locationHints)
+    {
+        $this->locationHints = $locationHints;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRemarks()
+    {
+        return $this->remarks;
+    }
+
+    /**
+     * @param string $remarks
+     */
+    public function setRemarks($remarks)
+    {
+        $this->remarks = $remarks;
+    }
+
+    /**
+     * @return servicePointExtraDetailsStatus
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param servicePointExtraDetailsStatus $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+
+}
+

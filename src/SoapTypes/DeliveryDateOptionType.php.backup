@@ -1,0 +1,73 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class DeliveryDateOptionType
+{
+
+    /**
+     * @var \DateTime
+     */
+    protected $pickupDate = null;
+
+    /**
+     * @var \DateTime
+     */
+    protected $deliveryDate = null;
+
+    /**
+     * @var timeRangeType
+     */
+    protected $deliveryTimeRange = null;
+
+    /**
+     * @return \DateTime
+     */
+    public function getPickupDate()
+    {
+        return $this->pickupDate;
+    }
+
+    /**
+     * @param \DateTime $pickupDate
+     */
+    public function setPickupDate($pickupDate)
+    {
+        $this->pickupDate = $pickupDate;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDeliveryDate()
+    {
+        return $this->deliveryDate;
+    }
+
+    /**
+     * @param \DateTime $deliveryDate
+     */
+    public function setDeliveryDate($deliveryDate)
+    {
+        $this->deliveryDate = $deliveryDate;
+    }
+
+    /**
+     * @return timeRangeType
+     */
+    public function getDeliveryTimeRange()
+    {
+        return $this->deliveryTimeRange;
+    }
+
+    /**
+     * @param timeRangeType $deliveryTimeRange
+     */
+    public function setDeliveryTimeRange($deliveryTimeRange)
+    {
+        $this->deliveryTimeRange = $deliveryTimeRange;
+    }
+
+
+}
+

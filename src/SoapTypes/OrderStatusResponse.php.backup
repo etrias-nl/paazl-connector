@@ -1,0 +1,55 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+
+use Phpro\SoapClient\Type\ResultInterface;
+
+class OrderStatusResponse implements ResultInterface
+{
+
+    /**
+     * @var errorType
+     */
+    protected $error = null;
+
+    /**
+     * @var orderStatusContainerType
+     */
+    protected $orderStatus = null;
+
+    /**
+     * @return errorType
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * @param errorType $error
+     */
+    public function setError($error)
+    {
+        $this->error = $error;
+    }
+
+    /**
+     * @return orderStatusContainerType
+     */
+    public function getOrderStatus()
+    {
+        return $this->orderStatus;
+    }
+
+    /**
+     * @param orderStatusContainerType $orderStatus
+     */
+    public function setOrderStatus($orderStatus)
+    {
+        $this->orderStatus = $orderStatus;
+    }
+
+
+}
+

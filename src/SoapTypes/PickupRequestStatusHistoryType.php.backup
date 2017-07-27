@@ -1,0 +1,31 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class PickupRequestStatusHistoryType
+{
+
+    /**
+     * @var pickupRequestStatusEntryType
+     */
+    protected $statusEntry = null;
+
+    /**
+     * @return pickupRequestStatusEntryType
+     */
+    public function getStatusEntry()
+    {
+        return $this->statusEntry;
+    }
+
+    /**
+     * @param pickupRequestStatusEntryType $statusEntry
+     */
+    public function setStatusEntry($statusEntry)
+    {
+        $this->statusEntry = $statusEntry;
+    }
+
+
+}
+

@@ -1,0 +1,115 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class OrdersType
+{
+
+    /**
+     * @var nonNegativeInteger
+     */
+    protected $page = null;
+
+    /**
+     * @var bool
+     */
+    protected $hasNextPage = null;
+
+    /**
+     * @var int
+     */
+    protected $webshop = null;
+
+    /**
+     * @var string
+     */
+    protected $webshopName = null;
+
+    /**
+     * @var order
+     */
+    protected $order = null;
+
+    /**
+     * @return nonNegativeInteger
+     */
+    public function getPage()
+    {
+        return $this->page;
+    }
+
+    /**
+     * @param nonNegativeInteger $page
+     */
+    public function setPage($page)
+    {
+        $this->page = $page;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getHasNextPage()
+    {
+        return $this->hasNextPage;
+    }
+
+    /**
+     * @param bool $hasNextPage
+     */
+    public function setHasNextPage($hasNextPage)
+    {
+        $this->hasNextPage = $hasNextPage;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWebshop()
+    {
+        return $this->webshop;
+    }
+
+    /**
+     * @param int $webshop
+     */
+    public function setWebshop($webshop)
+    {
+        $this->webshop = $webshop;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWebshopName()
+    {
+        return $this->webshopName;
+    }
+
+    /**
+     * @param string $webshopName
+     */
+    public function setWebshopName($webshopName)
+    {
+        $this->webshopName = $webshopName;
+    }
+
+    /**
+     * @return order
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * @param order $order
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
+    }
+
+
+}
+

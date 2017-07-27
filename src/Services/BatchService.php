@@ -13,40 +13,37 @@
 namespace Etrias\PaazlConnector\Services;
 
 use DateTime;
-use Etrias\PaazlConnector\Processor\Processor;
-use Etrias\PaazlConnector\ServiceType\Service as GeneralServiceType;
-use Etrias\PaazlConnector\StructType\BatchStatusRequest;
-use Etrias\PaazlConnector\StructType\BatchStatusResponse;
-use Etrias\PaazlConnector\StructType\CloseBatchRequest;
-use Etrias\PaazlConnector\StructType\CloseBatchResponse;
-use Etrias\PaazlConnector\StructType\ListOpenBatchesRequest;
-use Etrias\PaazlConnector\StructType\ListOpenBatchesResponse;
-use Etrias\PaazlConnector\StructType\OpenBatchRequest;
-use Etrias\PaazlConnector\StructType\OpenBatchResponse;
+use Etrias\PaazlConnector\Client\PaazlClientInterface;
+use Etrias\PaazlConnector\SoapTypes\BatchStatusRequest;
+use Etrias\PaazlConnector\SoapTypes\BatchStatusResponse;
+use Etrias\PaazlConnector\SoapTypes\CloseBatchRequest;
+use Etrias\PaazlConnector\SoapTypes\CloseBatchResponse;
+use Etrias\PaazlConnector\SoapTypes\ListOpenBatchesRequest;
+use Etrias\PaazlConnector\SoapTypes\ListOpenBatchesResponse;
+use Etrias\PaazlConnector\SoapTypes\OpenBatchRequest;
+use Etrias\PaazlConnector\SoapTypes\OpenBatchResponse;
 
 class BatchService
 {
-    use Processor;
-
+    /**
+     * @var PaazlClientInterface
+     */
+    protected $client;
     /**
      * @var SecurityServiceInterface
      */
-    protected $securityService;
-    /**
-     * @var GeneralServiceType
-     */
-    protected $generalServiceType;
+    protected $security;
 
     /**
      * DocumentService constructor.
      *
-     * @param GeneralServiceType       $generalServiceType
-     * @param SecurityServiceInterface $securityService
+     * @param PaazlClientInterface       $client
+     * @param SecurityServiceInterface $security
      */
-    public function __construct(GeneralServiceType $generalServiceType, SecurityServiceInterface $securityService)
+    public function __construct(PaazlClientInterface $client, SecurityServiceInterface $security)
     {
-        $this->securityService = $securityService;
-        $this->generalServiceType = $generalServiceType;
+        $this->security = $security;
+        $this->client = $client;
     }
 
     /**
@@ -72,17 +69,15 @@ class BatchService
         ]);
 
         $request = new OpenBatchRequest(
-            $this->securityService->getHash($hashInput),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($hashInput),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $distributor,
             $shippingOption,
             $country
         );
 
-        $response = $this->generalServiceType->openBatch($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->openBatch($request);
     }
 
     /**
@@ -94,15 +89,13 @@ class BatchService
     public function closeBatch($batchId, $targetWebShop = null)
     {
         $request = new CloseBatchRequest(
-            $this->securityService->getHash($batchId),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($batchId),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $batchId
         );
 
-        $response = $this->generalServiceType->closeBatch($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->closeBatch($request);
     }
 
     /**
@@ -114,15 +107,13 @@ class BatchService
     public function getBatchStatus($batchId, $targetWebShop = null)
     {
         $request = new BatchStatusRequest(
-            $this->securityService->getHash($batchId),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($batchId),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $batchId
         );
 
-        $response = $this->generalServiceType->batchStatus($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->batchStatus($request);
     }
 
     /**
@@ -134,13 +125,11 @@ class BatchService
     {
         $today = new DateTime();
         $request = new ListOpenBatchesRequest(
-            $this->securityService->getHash($today->format('Ymd')),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($today->format('Ymd')),
+            $this->client->getWebShopId(),
             $targetWebShop
         );
 
-        $response = $this->generalServiceType->listOpenBatches($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->listOpenBatches($request);
     }
 }

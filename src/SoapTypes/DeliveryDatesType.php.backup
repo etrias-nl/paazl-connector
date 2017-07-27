@@ -1,0 +1,52 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class DeliveryDatesType
+{
+
+    /**
+     * @var \DateTime
+     */
+    protected $deliveryDate = null;
+
+    /**
+     * @var deliveryDateOptionType
+     */
+    protected $deliveryDateOption = null;
+
+    /**
+     * @return \DateTime
+     */
+    public function getDeliveryDate()
+    {
+        return $this->deliveryDate;
+    }
+
+    /**
+     * @param \DateTime $deliveryDate
+     */
+    public function setDeliveryDate($deliveryDate)
+    {
+        $this->deliveryDate = $deliveryDate;
+    }
+
+    /**
+     * @return deliveryDateOptionType
+     */
+    public function getDeliveryDateOption()
+    {
+        return $this->deliveryDateOption;
+    }
+
+    /**
+     * @param deliveryDateOptionType $deliveryDateOption
+     */
+    public function setDeliveryDateOption($deliveryDateOption)
+    {
+        $this->deliveryDateOption = $deliveryDateOption;
+    }
+
+
+}
+

@@ -1,0 +1,76 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+
+use Phpro\SoapClient\Type\ResultInterface;
+
+class ShippingOptionResponse implements ResultInterface
+{
+
+    /**
+     * @var errorType
+     */
+    protected $error = null;
+
+    /**
+     * @var string
+     */
+    protected $deliveryMatrix = null;
+
+    /**
+     * @var shippingOptions
+     */
+    protected $shippingOptions = null;
+
+    /**
+     * @return errorType
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * @param errorType $error
+     */
+    public function setError($error)
+    {
+        $this->error = $error;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDeliveryMatrix()
+    {
+        return $this->deliveryMatrix;
+    }
+
+    /**
+     * @param string $deliveryMatrix
+     */
+    public function setDeliveryMatrix($deliveryMatrix)
+    {
+        $this->deliveryMatrix = $deliveryMatrix;
+    }
+
+    /**
+     * @return shippingOptions
+     */
+    public function getShippingOptions()
+    {
+        return $this->shippingOptions;
+    }
+
+    /**
+     * @param shippingOptions $shippingOptions
+     */
+    public function setShippingOptions($shippingOptions)
+    {
+        $this->shippingOptions = $shippingOptions;
+    }
+
+
+}
+

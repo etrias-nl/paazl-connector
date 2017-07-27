@@ -1,0 +1,55 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+
+use Phpro\SoapClient\Type\ResultInterface;
+
+class ListOrdersResponse implements ResultInterface
+{
+
+    /**
+     * @var errorType
+     */
+    protected $error = null;
+
+    /**
+     * @var ordersType
+     */
+    protected $orders = null;
+
+    /**
+     * @return errorType
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * @param errorType $error
+     */
+    public function setError($error)
+    {
+        $this->error = $error;
+    }
+
+    /**
+     * @return ordersType
+     */
+    public function getOrders()
+    {
+        return $this->orders;
+    }
+
+    /**
+     * @param ordersType $orders
+     */
+    public function setOrders($orders)
+    {
+        $this->orders = $orders;
+    }
+
+
+}
+

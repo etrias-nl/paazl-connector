@@ -1,0 +1,52 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class StringRangeType
+{
+
+    /**
+     * @var string
+     */
+    protected $lowerBound = null;
+
+    /**
+     * @var string
+     */
+    protected $upperBound = null;
+
+    /**
+     * @return string
+     */
+    public function getLowerBound()
+    {
+        return $this->lowerBound;
+    }
+
+    /**
+     * @param string $lowerBound
+     */
+    public function setLowerBound($lowerBound)
+    {
+        $this->lowerBound = $lowerBound;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUpperBound()
+    {
+        return $this->upperBound;
+    }
+
+    /**
+     * @param string $upperBound
+     */
+    public function setUpperBound($upperBound)
+    {
+        $this->upperBound = $upperBound;
+    }
+
+
+}
+

@@ -1,0 +1,52 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class OrderSaveResponseType
+{
+
+    /**
+     * @var errorType
+     */
+    protected $error = null;
+
+    /**
+     * @var string
+     */
+    protected $succes = null;
+
+    /**
+     * @return errorType
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * @param errorType $error
+     */
+    public function setError($error)
+    {
+        $this->error = $error;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSucces()
+    {
+        return $this->succes;
+    }
+
+    /**
+     * @param string $succes
+     */
+    public function setSucces($succes)
+    {
+        $this->succes = $succes;
+    }
+
+
+}
+

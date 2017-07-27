@@ -1,0 +1,76 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+
+use Phpro\SoapClient\Type\ResultInterface;
+
+class GeneratePdfLabelsResponse implements ResultInterface
+{
+
+    /**
+     * @var errorType
+     */
+    protected $error = null;
+
+    /**
+     * @var base64Binary
+     */
+    protected $labels = null;
+
+    /**
+     * @var labelMetaDataType
+     */
+    protected $metaData = null;
+
+    /**
+     * @return errorType
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * @param errorType $error
+     */
+    public function setError($error)
+    {
+        $this->error = $error;
+    }
+
+    /**
+     * @return base64Binary
+     */
+    public function getLabels()
+    {
+        return $this->labels;
+    }
+
+    /**
+     * @param base64Binary $labels
+     */
+    public function setLabels($labels)
+    {
+        $this->labels = $labels;
+    }
+
+    /**
+     * @return labelMetaDataType
+     */
+    public function getMetaData()
+    {
+        return $this->metaData;
+    }
+
+    /**
+     * @param labelMetaDataType $metaData
+     */
+    public function setMetaData($metaData)
+    {
+        $this->metaData = $metaData;
+    }
+
+
+}
+

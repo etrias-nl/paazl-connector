@@ -1,0 +1,31 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class ShippingLabels
+{
+
+    /**
+     * @var triggerBarcodeResponseType
+     */
+    protected $shippingLabel = null;
+
+    /**
+     * @return triggerBarcodeResponseType
+     */
+    public function getShippingLabel()
+    {
+        return $this->shippingLabel;
+    }
+
+    /**
+     * @param triggerBarcodeResponseType $shippingLabel
+     */
+    public function setShippingLabel($shippingLabel)
+    {
+        $this->shippingLabel = $shippingLabel;
+    }
+
+
+}
+

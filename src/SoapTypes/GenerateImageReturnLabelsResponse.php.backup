@@ -1,0 +1,55 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+
+use Phpro\SoapClient\Type\ResultInterface;
+
+class GenerateImageReturnLabelsResponse implements ResultInterface
+{
+
+    /**
+     * @var errorType
+     */
+    protected $error = null;
+
+    /**
+     * @var returnLabelType
+     */
+    protected $label = null;
+
+    /**
+     * @return errorType
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * @param errorType $error
+     */
+    public function setError($error)
+    {
+        $this->error = $error;
+    }
+
+    /**
+     * @return returnLabelType
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    /**
+     * @param returnLabelType $label
+     */
+    public function setLabel($label)
+    {
+        $this->label = $label;
+    }
+
+
+}
+

@@ -1,0 +1,241 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class ServicePointType
+{
+
+    /**
+     * @var string
+     */
+    protected $code = null;
+
+    /**
+     * @var string
+     */
+    protected $name = null;
+
+    /**
+     * @var string
+     */
+    protected $address = null;
+
+    /**
+     * @var string
+     */
+    protected $postcode = null;
+
+    /**
+     * @var string
+     */
+    protected $city = null;
+
+    /**
+     * @var string
+     */
+    protected $province = null;
+
+    /**
+     * @var string
+     */
+    protected $country = null;
+
+    /**
+     * @var coordinatesType
+     */
+    protected $coordinates = null;
+
+    /**
+     * @var float
+     */
+    protected $distance = null;
+
+    /**
+     * @var businessHoursType
+     */
+    protected $businessHours = null;
+
+    /**
+     * @var servicePointExtraDetails
+     */
+    protected $extraDetails = null;
+
+    /**
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param string $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPostcode()
+    {
+        return $this->postcode;
+    }
+
+    /**
+     * @param string $postcode
+     */
+    public function setPostcode($postcode)
+    {
+        $this->postcode = $postcode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param string $city
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProvince()
+    {
+        return $this->province;
+    }
+
+    /**
+     * @param string $province
+     */
+    public function setProvince($province)
+    {
+        $this->province = $province;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param string $country
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+    }
+
+    /**
+     * @return coordinatesType
+     */
+    public function getCoordinates()
+    {
+        return $this->coordinates;
+    }
+
+    /**
+     * @param coordinatesType $coordinates
+     */
+    public function setCoordinates($coordinates)
+    {
+        $this->coordinates = $coordinates;
+    }
+
+    /**
+     * @return float
+     */
+    public function getDistance()
+    {
+        return $this->distance;
+    }
+
+    /**
+     * @param float $distance
+     */
+    public function setDistance($distance)
+    {
+        $this->distance = $distance;
+    }
+
+    /**
+     * @return businessHoursType
+     */
+    public function getBusinessHours()
+    {
+        return $this->businessHours;
+    }
+
+    /**
+     * @param businessHoursType $businessHours
+     */
+    public function setBusinessHours($businessHours)
+    {
+        $this->businessHours = $businessHours;
+    }
+
+    /**
+     * @return servicePointExtraDetails
+     */
+    public function getExtraDetails()
+    {
+        return $this->extraDetails;
+    }
+
+    /**
+     * @param servicePointExtraDetails $extraDetails
+     */
+    public function setExtraDetails($extraDetails)
+    {
+        $this->extraDetails = $extraDetails;
+    }
+
+
+}
+

@@ -1,0 +1,52 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class DeliveryDatesBySourceType
+{
+
+    /**
+     * @var source
+     */
+    protected $source = null;
+
+    /**
+     * @var deliveryDatesType
+     */
+    protected $deliveryDates = null;
+
+    /**
+     * @return source
+     */
+    public function getSource()
+    {
+        return $this->source;
+    }
+
+    /**
+     * @param source $source
+     */
+    public function setSource($source)
+    {
+        $this->source = $source;
+    }
+
+    /**
+     * @return deliveryDatesType
+     */
+    public function getDeliveryDates()
+    {
+        return $this->deliveryDates;
+    }
+
+    /**
+     * @param deliveryDatesType $deliveryDates
+     */
+    public function setDeliveryDates($deliveryDates)
+    {
+        $this->deliveryDates = $deliveryDates;
+    }
+
+
+}
+

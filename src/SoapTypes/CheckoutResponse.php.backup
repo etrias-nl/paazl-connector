@@ -1,0 +1,55 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+
+use Phpro\SoapClient\Type\ResultInterface;
+
+class CheckoutResponse implements ResultInterface
+{
+
+    /**
+     * @var errorType
+     */
+    protected $error = null;
+
+    /**
+     * @var anyURI
+     */
+    protected $url = null;
+
+    /**
+     * @return errorType
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * @param errorType $error
+     */
+    public function setError($error)
+    {
+        $this->error = $error;
+    }
+
+    /**
+     * @return anyURI
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param anyURI $url
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
+
+
+}
+

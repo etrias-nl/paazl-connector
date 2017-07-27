@@ -1,0 +1,139 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+
+use Phpro\SoapClient\Type\RequestInterface;
+
+class OpenBatchRequest implements RequestInterface
+{
+
+    /**
+     * @var string
+     */
+    protected $hash = null;
+
+    /**
+     * @var int
+     */
+    protected $webshop = null;
+
+    /**
+     * @var int
+     */
+    protected $targetWebshop = null;
+
+    /**
+     * @var string
+     */
+    protected $distributor = null;
+
+    /**
+     * @var string
+     */
+    protected $shippingOption = null;
+
+    /**
+     * @var string
+     */
+    protected $country = null;
+
+    /**
+     * @return string
+     */
+    public function getHash()
+    {
+        return $this->hash;
+    }
+
+    /**
+     * @param string $hash
+     */
+    public function setHash($hash)
+    {
+        $this->hash = $hash;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWebshop()
+    {
+        return $this->webshop;
+    }
+
+    /**
+     * @param int $webshop
+     */
+    public function setWebshop($webshop)
+    {
+        $this->webshop = $webshop;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTargetWebshop()
+    {
+        return $this->targetWebshop;
+    }
+
+    /**
+     * @param int $targetWebshop
+     */
+    public function setTargetWebshop($targetWebshop)
+    {
+        $this->targetWebshop = $targetWebshop;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDistributor()
+    {
+        return $this->distributor;
+    }
+
+    /**
+     * @param string $distributor
+     */
+    public function setDistributor($distributor)
+    {
+        $this->distributor = $distributor;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShippingOption()
+    {
+        return $this->shippingOption;
+    }
+
+    /**
+     * @param string $shippingOption
+     */
+    public function setShippingOption($shippingOption)
+    {
+        $this->shippingOption = $shippingOption;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param string $country
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+    }
+
+
+}
+

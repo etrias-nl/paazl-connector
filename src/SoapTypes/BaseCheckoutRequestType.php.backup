@@ -1,0 +1,94 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class BaseCheckoutRequestType
+{
+
+    /**
+     * @var string
+     */
+    protected $hash = null;
+
+    /**
+     * @var int
+     */
+    protected $webshop = null;
+
+    /**
+     * @var int
+     */
+    protected $targetWebshop = null;
+
+    /**
+     * @var string
+     */
+    protected $orderReference = null;
+
+    /**
+     * @return string
+     */
+    public function getHash()
+    {
+        return $this->hash;
+    }
+
+    /**
+     * @param string $hash
+     */
+    public function setHash($hash)
+    {
+        $this->hash = $hash;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWebshop()
+    {
+        return $this->webshop;
+    }
+
+    /**
+     * @param int $webshop
+     */
+    public function setWebshop($webshop)
+    {
+        $this->webshop = $webshop;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTargetWebshop()
+    {
+        return $this->targetWebshop;
+    }
+
+    /**
+     * @param int $targetWebshop
+     */
+    public function setTargetWebshop($targetWebshop)
+    {
+        $this->targetWebshop = $targetWebshop;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOrderReference()
+    {
+        return $this->orderReference;
+    }
+
+    /**
+     * @param string $orderReference
+     */
+    public function setOrderReference($orderReference)
+    {
+        $this->orderReference = $orderReference;
+    }
+
+
+}
+

@@ -1,0 +1,73 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class BusinessHoursType
+{
+
+    /**
+     * @var dayType
+     */
+    protected $day = null;
+
+    /**
+     * @var time
+     */
+    protected $from = null;
+
+    /**
+     * @var time
+     */
+    protected $until = null;
+
+    /**
+     * @return dayType
+     */
+    public function getDay()
+    {
+        return $this->day;
+    }
+
+    /**
+     * @param dayType $day
+     */
+    public function setDay($day)
+    {
+        $this->day = $day;
+    }
+
+    /**
+     * @return time
+     */
+    public function getFrom()
+    {
+        return $this->from;
+    }
+
+    /**
+     * @param time $from
+     */
+    public function setFrom($from)
+    {
+        $this->from = $from;
+    }
+
+    /**
+     * @return time
+     */
+    public function getUntil()
+    {
+        return $this->until;
+    }
+
+    /**
+     * @param time $until
+     */
+    public function setUntil($until)
+    {
+        $this->until = $until;
+    }
+
+
+}
+

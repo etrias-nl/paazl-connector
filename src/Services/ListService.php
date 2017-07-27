@@ -12,42 +12,38 @@
 
 namespace Etrias\PaazlConnector\Services;
 
-use Etrias\PaazlConnector\Processor\Processor;
-use Etrias\PaazlConnector\ServiceType\Service as GeneralServiceType;
-use Etrias\PaazlConnector\StructType\AddressRequest;
-use Etrias\PaazlConnector\StructType\AddressResponse;
-use Etrias\PaazlConnector\StructType\CoordinatesType;
-use Etrias\PaazlConnector\StructType\DeliveryEstimateRequest;
-use Etrias\PaazlConnector\StructType\DeliveryEstimateResponse;
-use Etrias\PaazlConnector\StructType\RateRequest;
-use Etrias\PaazlConnector\StructType\RateResponse;
-use Etrias\PaazlConnector\StructType\ServicePointsRequest;
-use Etrias\PaazlConnector\StructType\ServicePointsResponse;
+use Etrias\PaazlConnector\Client\PaazlClientInterface;
+use Etrias\PaazlConnector\SoapTypes\AddressRequest;
+use Etrias\PaazlConnector\SoapTypes\AddressResponse;
+use Etrias\PaazlConnector\SoapTypes\CoordinatesType;
+use Etrias\PaazlConnector\SoapTypes\DeliveryEstimateRequest;
+use Etrias\PaazlConnector\SoapTypes\RateRequest;
+use Etrias\PaazlConnector\SoapTypes\RateResponse;
+use Etrias\PaazlConnector\SoapTypes\ServicePointsRequest;
+use Etrias\PaazlConnector\SoapTypes\ServicePointsResponse;
 use RuntimeException;
 
 class ListService
 {
-    use Processor;
-
+    /**
+     * @var PaazlClientInterface
+     */
+    protected $client;
     /**
      * @var SecurityServiceInterface
      */
-    protected $securityService;
-    /**
-     * @var GeneralServiceType
-     */
-    protected $generalServiceType;
+    protected $security;
 
     /**
      * DocumentService constructor.
      *
-     * @param GeneralServiceType       $generalServiceType
-     * @param SecurityServiceInterface $securityService
+     * @param PaazlClientInterface       $client
+     * @param SecurityServiceInterface $security
      */
-    public function __construct(GeneralServiceType $generalServiceType, SecurityServiceInterface $securityService)
+    public function __construct(PaazlClientInterface $client, SecurityServiceInterface $security)
     {
-        $this->securityService = $securityService;
-        $this->generalServiceType = $generalServiceType;
+        $this->security = $security;
+        $this->client = $client;
     }
 
     /**
@@ -62,8 +58,8 @@ class ListService
     public function getAddress($orderReference, $zipCode, $houseNumber, $addition = null, $targetWebShop = null)
     {
         $request = new AddressRequest(
-            $this->securityService->getHash($orderReference),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($orderReference),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $orderReference,
             $zipCode,
@@ -71,9 +67,7 @@ class ListService
             $addition
         );
 
-        $response = $this->generalServiceType->address($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->address($request);
     }
 
     /**
@@ -107,8 +101,8 @@ class ListService
         $targetWebShop = null)
     {
         $request = new DeliveryEstimateRequest(
-            $this->securityService->getHash($orderReference),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($orderReference),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $orderReference,
             $shippingOption,
@@ -123,9 +117,7 @@ class ListService
             $consigneePostcode
         );
 
-        $response = $this->generalServiceType->deliveryEstimate($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->deliveryEstimate($request);
     }
 
     /**
@@ -140,17 +132,16 @@ class ListService
     public function getRates($orderReference, $country = null, $postalCode = null, $shippingOption = null, $targetWebShop = null)
     {
         $request = new RateRequest(
-            $this->securityService->getHash($orderReference),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($orderReference),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $orderReference,
             $country,
             $postalCode,
             $shippingOption
         );
-        $response = $this->generalServiceType->rate($request);
 
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->rate($request);
     }
 
     /**
@@ -196,8 +187,8 @@ class ListService
         }
 
         $request = new ServicePointsRequest(
-            $this->securityService->getHash($hashInput),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($hashInput),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $shippingOption,
             $evening,
@@ -209,8 +200,6 @@ class ListService
             $northEast
         );
 
-        $response = $this->generalServiceType->servicePoints($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->servicePoints($request);
     }
 }

@@ -1,0 +1,598 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class ShippingMethod
+{
+
+    /**
+     * @var deliveryTypeType
+     */
+    protected $type = null;
+
+    /**
+     * @var string
+     */
+    protected $distributor = null;
+
+    /**
+     * @var string
+     */
+    protected $contract = null;
+
+    /**
+     * @var string
+     */
+    protected $identifier = null;
+
+    /**
+     * @var string
+     */
+    protected $option = null;
+
+    /**
+     * @var returnContractType
+     */
+    protected $returnContract = null;
+
+    /**
+     * @var string
+     */
+    protected $servicepointAccountNumber = null;
+
+    /**
+     * @var string
+     */
+    protected $servicepointNotificationEmail = null;
+
+    /**
+     * @var string
+     */
+    protected $servicepointNotificationMobile = null;
+
+    /**
+     * @var float
+     */
+    protected $price = null;
+
+    /**
+     * @var shippingPaymentType
+     */
+    protected $shippingPaymentType = null;
+
+    /**
+     * @var string
+     */
+    protected $billingAccountNumber = null;
+
+    /**
+     * @var string
+     */
+    protected $invoiceNumber = null;
+
+    /**
+     * @var nonNegativeDecimal
+     */
+    protected $packagingWeight = null;
+
+    /**
+     * @var customsValue
+     */
+    protected $customsValue = null;
+
+    /**
+     * @var currencyCode
+     */
+    protected $customsValueCurrency = null;
+
+    /**
+     * @var dutiesPaymentType
+     */
+    protected $dutiesPaymentType = null;
+
+    /**
+     * @var string
+     */
+    protected $dutiesAccountNumber = null;
+
+    /**
+     * @var nonNegativeDecimal
+     */
+    protected $orderWeight = null;
+
+    /**
+     * @var int
+     */
+    protected $assuredAmount = null;
+
+    /**
+     * @var currencyCode
+     */
+    protected $assuredAmountCurrency = null;
+
+    /**
+     * @var int
+     */
+    protected $collo = null;
+
+    /**
+     * @var positiveInteger
+     */
+    protected $packageCount = null;
+
+    /**
+     * @var int
+     */
+    protected $maxLabels = null;
+
+    /**
+     * @var packagingTypeType
+     */
+    protected $packagingType = null;
+
+    /**
+     * @var \DateTime
+     */
+    protected $preferredDeliveryDate = null;
+
+    /**
+     * @var bool
+     */
+    protected $preferredDateChosen = null;
+
+    /**
+     * @var string
+     */
+    protected $description = null;
+
+    /**
+     * @return deliveryTypeType
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param deliveryTypeType $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDistributor()
+    {
+        return $this->distributor;
+    }
+
+    /**
+     * @param string $distributor
+     */
+    public function setDistributor($distributor)
+    {
+        $this->distributor = $distributor;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContract()
+    {
+        return $this->contract;
+    }
+
+    /**
+     * @param string $contract
+     */
+    public function setContract($contract)
+    {
+        $this->contract = $contract;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIdentifier()
+    {
+        return $this->identifier;
+    }
+
+    /**
+     * @param string $identifier
+     */
+    public function setIdentifier($identifier)
+    {
+        $this->identifier = $identifier;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOption()
+    {
+        return $this->option;
+    }
+
+    /**
+     * @param string $option
+     */
+    public function setOption($option)
+    {
+        $this->option = $option;
+    }
+
+    /**
+     * @return returnContractType
+     */
+    public function getReturnContract()
+    {
+        return $this->returnContract;
+    }
+
+    /**
+     * @param returnContractType $returnContract
+     */
+    public function setReturnContract($returnContract)
+    {
+        $this->returnContract = $returnContract;
+    }
+
+    /**
+     * @return string
+     */
+    public function getServicepointAccountNumber()
+    {
+        return $this->servicepointAccountNumber;
+    }
+
+    /**
+     * @param string $servicepointAccountNumber
+     */
+    public function setServicepointAccountNumber($servicepointAccountNumber)
+    {
+        $this->servicepointAccountNumber = $servicepointAccountNumber;
+    }
+
+    /**
+     * @return string
+     */
+    public function getServicepointNotificationEmail()
+    {
+        return $this->servicepointNotificationEmail;
+    }
+
+    /**
+     * @param string $servicepointNotificationEmail
+     */
+    public function setServicepointNotificationEmail($servicepointNotificationEmail)
+    {
+        $this->servicepointNotificationEmail = $servicepointNotificationEmail;
+    }
+
+    /**
+     * @return string
+     */
+    public function getServicepointNotificationMobile()
+    {
+        return $this->servicepointNotificationMobile;
+    }
+
+    /**
+     * @param string $servicepointNotificationMobile
+     */
+    public function setServicepointNotificationMobile($servicepointNotificationMobile)
+    {
+        $this->servicepointNotificationMobile = $servicepointNotificationMobile;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param float $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
+    /**
+     * @return shippingPaymentType
+     */
+    public function getShippingPaymentType()
+    {
+        return $this->shippingPaymentType;
+    }
+
+    /**
+     * @param shippingPaymentType $shippingPaymentType
+     */
+    public function setShippingPaymentType($shippingPaymentType)
+    {
+        $this->shippingPaymentType = $shippingPaymentType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBillingAccountNumber()
+    {
+        return $this->billingAccountNumber;
+    }
+
+    /**
+     * @param string $billingAccountNumber
+     */
+    public function setBillingAccountNumber($billingAccountNumber)
+    {
+        $this->billingAccountNumber = $billingAccountNumber;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInvoiceNumber()
+    {
+        return $this->invoiceNumber;
+    }
+
+    /**
+     * @param string $invoiceNumber
+     */
+    public function setInvoiceNumber($invoiceNumber)
+    {
+        $this->invoiceNumber = $invoiceNumber;
+    }
+
+    /**
+     * @return nonNegativeDecimal
+     */
+    public function getPackagingWeight()
+    {
+        return $this->packagingWeight;
+    }
+
+    /**
+     * @param nonNegativeDecimal $packagingWeight
+     */
+    public function setPackagingWeight($packagingWeight)
+    {
+        $this->packagingWeight = $packagingWeight;
+    }
+
+    /**
+     * @return customsValue
+     */
+    public function getCustomsValue()
+    {
+        return $this->customsValue;
+    }
+
+    /**
+     * @param customsValue $customsValue
+     */
+    public function setCustomsValue($customsValue)
+    {
+        $this->customsValue = $customsValue;
+    }
+
+    /**
+     * @return currencyCode
+     */
+    public function getCustomsValueCurrency()
+    {
+        return $this->customsValueCurrency;
+    }
+
+    /**
+     * @param currencyCode $customsValueCurrency
+     */
+    public function setCustomsValueCurrency($customsValueCurrency)
+    {
+        $this->customsValueCurrency = $customsValueCurrency;
+    }
+
+    /**
+     * @return dutiesPaymentType
+     */
+    public function getDutiesPaymentType()
+    {
+        return $this->dutiesPaymentType;
+    }
+
+    /**
+     * @param dutiesPaymentType $dutiesPaymentType
+     */
+    public function setDutiesPaymentType($dutiesPaymentType)
+    {
+        $this->dutiesPaymentType = $dutiesPaymentType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDutiesAccountNumber()
+    {
+        return $this->dutiesAccountNumber;
+    }
+
+    /**
+     * @param string $dutiesAccountNumber
+     */
+    public function setDutiesAccountNumber($dutiesAccountNumber)
+    {
+        $this->dutiesAccountNumber = $dutiesAccountNumber;
+    }
+
+    /**
+     * @return nonNegativeDecimal
+     */
+    public function getOrderWeight()
+    {
+        return $this->orderWeight;
+    }
+
+    /**
+     * @param nonNegativeDecimal $orderWeight
+     */
+    public function setOrderWeight($orderWeight)
+    {
+        $this->orderWeight = $orderWeight;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAssuredAmount()
+    {
+        return $this->assuredAmount;
+    }
+
+    /**
+     * @param int $assuredAmount
+     */
+    public function setAssuredAmount($assuredAmount)
+    {
+        $this->assuredAmount = $assuredAmount;
+    }
+
+    /**
+     * @return currencyCode
+     */
+    public function getAssuredAmountCurrency()
+    {
+        return $this->assuredAmountCurrency;
+    }
+
+    /**
+     * @param currencyCode $assuredAmountCurrency
+     */
+    public function setAssuredAmountCurrency($assuredAmountCurrency)
+    {
+        $this->assuredAmountCurrency = $assuredAmountCurrency;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCollo()
+    {
+        return $this->collo;
+    }
+
+    /**
+     * @param int $collo
+     */
+    public function setCollo($collo)
+    {
+        $this->collo = $collo;
+    }
+
+    /**
+     * @return positiveInteger
+     */
+    public function getPackageCount()
+    {
+        return $this->packageCount;
+    }
+
+    /**
+     * @param positiveInteger $packageCount
+     */
+    public function setPackageCount($packageCount)
+    {
+        $this->packageCount = $packageCount;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMaxLabels()
+    {
+        return $this->maxLabels;
+    }
+
+    /**
+     * @param int $maxLabels
+     */
+    public function setMaxLabels($maxLabels)
+    {
+        $this->maxLabels = $maxLabels;
+    }
+
+    /**
+     * @return packagingTypeType
+     */
+    public function getPackagingType()
+    {
+        return $this->packagingType;
+    }
+
+    /**
+     * @param packagingTypeType $packagingType
+     */
+    public function setPackagingType($packagingType)
+    {
+        $this->packagingType = $packagingType;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getPreferredDeliveryDate()
+    {
+        return $this->preferredDeliveryDate;
+    }
+
+    /**
+     * @param \DateTime $preferredDeliveryDate
+     */
+    public function setPreferredDeliveryDate($preferredDeliveryDate)
+    {
+        $this->preferredDeliveryDate = $preferredDeliveryDate;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getPreferredDateChosen()
+    {
+        return $this->preferredDateChosen;
+    }
+
+    /**
+     * @param bool $preferredDateChosen
+     */
+    public function setPreferredDateChosen($preferredDateChosen)
+    {
+        $this->preferredDateChosen = $preferredDateChosen;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+
+}
+

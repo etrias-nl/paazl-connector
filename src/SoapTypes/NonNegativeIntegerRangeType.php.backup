@@ -1,0 +1,52 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class NonNegativeIntegerRangeType
+{
+
+    /**
+     * @var nonNegativeInteger
+     */
+    protected $lowerBound = null;
+
+    /**
+     * @var nonNegativeInteger
+     */
+    protected $upperBound = null;
+
+    /**
+     * @return nonNegativeInteger
+     */
+    public function getLowerBound()
+    {
+        return $this->lowerBound;
+    }
+
+    /**
+     * @param nonNegativeInteger $lowerBound
+     */
+    public function setLowerBound($lowerBound)
+    {
+        $this->lowerBound = $lowerBound;
+    }
+
+    /**
+     * @return nonNegativeInteger
+     */
+    public function getUpperBound()
+    {
+        return $this->upperBound;
+    }
+
+    /**
+     * @param nonNegativeInteger $upperBound
+     */
+    public function setUpperBound($upperBound)
+    {
+        $this->upperBound = $upperBound;
+    }
+
+
+}
+

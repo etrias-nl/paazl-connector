@@ -1,0 +1,31 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class TriggerBarcodeRequestType
+{
+
+    /**
+     * @var string
+     */
+    protected $barcode = null;
+
+    /**
+     * @return string
+     */
+    public function getBarcode()
+    {
+        return $this->barcode;
+    }
+
+    /**
+     * @param string $barcode
+     */
+    public function setBarcode($barcode)
+    {
+        $this->barcode = $barcode;
+    }
+
+
+}
+

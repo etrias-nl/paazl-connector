@@ -1,0 +1,115 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class ServicePointDetailsType
+{
+
+    /**
+     * @var string
+     */
+    protected $code = null;
+
+    /**
+     * @var string
+     */
+    protected $name = null;
+
+    /**
+     * @var string
+     */
+    protected $notificationEmail = null;
+
+    /**
+     * @var string
+     */
+    protected $notificationMobile = null;
+
+    /**
+     * @var addressType
+     */
+    protected $address = null;
+
+    /**
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNotificationEmail()
+    {
+        return $this->notificationEmail;
+    }
+
+    /**
+     * @param string $notificationEmail
+     */
+    public function setNotificationEmail($notificationEmail)
+    {
+        $this->notificationEmail = $notificationEmail;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNotificationMobile()
+    {
+        return $this->notificationMobile;
+    }
+
+    /**
+     * @param string $notificationMobile
+     */
+    public function setNotificationMobile($notificationMobile)
+    {
+        $this->notificationMobile = $notificationMobile;
+    }
+
+    /**
+     * @return addressType
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param addressType $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+
+
+}
+

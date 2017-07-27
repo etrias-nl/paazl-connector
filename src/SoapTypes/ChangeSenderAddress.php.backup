@@ -1,0 +1,199 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class ChangeSenderAddress
+{
+
+    /**
+     * @var string
+     */
+    protected $addresseeLine = null;
+
+    /**
+     * @var string
+     */
+    protected $street = null;
+
+    /**
+     * @var string
+     */
+    protected $housenumber = null;
+
+    /**
+     * @var string
+     */
+    protected $addition = null;
+
+    /**
+     * @var string
+     */
+    protected $zipcode = null;
+
+    /**
+     * @var string
+     */
+    protected $city = null;
+
+    /**
+     * @var string
+     */
+    protected $province = null;
+
+    /**
+     * @var string
+     */
+    protected $country = null;
+
+    /**
+     * @var string
+     */
+    protected $additionalAddressLine = null;
+
+    /**
+     * @return string
+     */
+    public function getAddresseeLine()
+    {
+        return $this->addresseeLine;
+    }
+
+    /**
+     * @param string $addresseeLine
+     */
+    public function setAddresseeLine($addresseeLine)
+    {
+        $this->addresseeLine = $addresseeLine;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStreet()
+    {
+        return $this->street;
+    }
+
+    /**
+     * @param string $street
+     */
+    public function setStreet($street)
+    {
+        $this->street = $street;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHousenumber()
+    {
+        return $this->housenumber;
+    }
+
+    /**
+     * @param string $housenumber
+     */
+    public function setHousenumber($housenumber)
+    {
+        $this->housenumber = $housenumber;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAddition()
+    {
+        return $this->addition;
+    }
+
+    /**
+     * @param string $addition
+     */
+    public function setAddition($addition)
+    {
+        $this->addition = $addition;
+    }
+
+    /**
+     * @return string
+     */
+    public function getZipcode()
+    {
+        return $this->zipcode;
+    }
+
+    /**
+     * @param string $zipcode
+     */
+    public function setZipcode($zipcode)
+    {
+        $this->zipcode = $zipcode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param string $city
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProvince()
+    {
+        return $this->province;
+    }
+
+    /**
+     * @param string $province
+     */
+    public function setProvince($province)
+    {
+        $this->province = $province;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param string $country
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAdditionalAddressLine()
+    {
+        return $this->additionalAddressLine;
+    }
+
+    /**
+     * @param string $additionalAddressLine
+     */
+    public function setAdditionalAddressLine($additionalAddressLine)
+    {
+        $this->additionalAddressLine = $additionalAddressLine;
+    }
+
+
+}
+

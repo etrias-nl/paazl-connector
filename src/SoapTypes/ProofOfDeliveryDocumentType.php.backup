@@ -1,0 +1,52 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class ProofOfDeliveryDocumentType
+{
+
+    /**
+     * @var documentType
+     */
+    protected $documentType = null;
+
+    /**
+     * @var base64Binary
+     */
+    protected $document = null;
+
+    /**
+     * @return documentType
+     */
+    public function getDocumentType()
+    {
+        return $this->documentType;
+    }
+
+    /**
+     * @param documentType $documentType
+     */
+    public function setDocumentType($documentType)
+    {
+        $this->documentType = $documentType;
+    }
+
+    /**
+     * @return base64Binary
+     */
+    public function getDocument()
+    {
+        return $this->document;
+    }
+
+    /**
+     * @param base64Binary $document
+     */
+    public function setDocument($document)
+    {
+        $this->document = $document;
+    }
+
+
+}
+

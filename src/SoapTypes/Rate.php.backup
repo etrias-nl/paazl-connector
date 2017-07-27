@@ -1,0 +1,157 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class Rate
+{
+
+    /**
+     * @var deliveryTypeType
+     */
+    protected $type = null;
+
+    /**
+     * @var string
+     */
+    protected $distributor = null;
+
+    /**
+     * @var string
+     */
+    protected $shippingOption = null;
+
+    /**
+     * @var string
+     */
+    protected $description = null;
+
+    /**
+     * @var float
+     */
+    protected $rate = null;
+
+    /**
+     * @var float
+     */
+    protected $rateDiscount = null;
+
+    /**
+     * @var nonNegativeIntegerRangeType
+     */
+    protected $transitDaysRange = null;
+
+    /**
+     * @return deliveryTypeType
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param deliveryTypeType $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDistributor()
+    {
+        return $this->distributor;
+    }
+
+    /**
+     * @param string $distributor
+     */
+    public function setDistributor($distributor)
+    {
+        $this->distributor = $distributor;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShippingOption()
+    {
+        return $this->shippingOption;
+    }
+
+    /**
+     * @param string $shippingOption
+     */
+    public function setShippingOption($shippingOption)
+    {
+        $this->shippingOption = $shippingOption;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return float
+     */
+    public function getRate()
+    {
+        return $this->rate;
+    }
+
+    /**
+     * @param float $rate
+     */
+    public function setRate($rate)
+    {
+        $this->rate = $rate;
+    }
+
+    /**
+     * @return float
+     */
+    public function getRateDiscount()
+    {
+        return $this->rateDiscount;
+    }
+
+    /**
+     * @param float $rateDiscount
+     */
+    public function setRateDiscount($rateDiscount)
+    {
+        $this->rateDiscount = $rateDiscount;
+    }
+
+    /**
+     * @return nonNegativeIntegerRangeType
+     */
+    public function getTransitDaysRange()
+    {
+        return $this->transitDaysRange;
+    }
+
+    /**
+     * @param nonNegativeIntegerRangeType $transitDaysRange
+     */
+    public function setTransitDaysRange($transitDaysRange)
+    {
+        $this->transitDaysRange = $transitDaysRange;
+    }
+
+
+}
+

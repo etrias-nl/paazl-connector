@@ -1,0 +1,409 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class Product
+{
+
+    /**
+     * @var positiveInteger
+     */
+    protected $quantity = null;
+
+    /**
+     * @var positiveInteger
+     */
+    protected $packagesPerUnit = null;
+
+    /**
+     * @var matrix
+     */
+    protected $matrix = null;
+
+    /**
+     * @var nonNegativeDecimal
+     */
+    protected $weight = null;
+
+    /**
+     * @var nonNegativeInteger
+     */
+    protected $width = null;
+
+    /**
+     * @var nonNegativeInteger
+     */
+    protected $height = null;
+
+    /**
+     * @var nonNegativeInteger
+     */
+    protected $length = null;
+
+    /**
+     * @var nonNegativeDecimal
+     */
+    protected $volume = null;
+
+    /**
+     * @var string
+     */
+    protected $code = null;
+
+    /**
+     * @var string
+     */
+    protected $description = null;
+
+    /**
+     * @var string
+     */
+    protected $countryOfManufacture = null;
+
+    /**
+     * @var nonNegativeDecimal
+     */
+    protected $unitPrice = null;
+
+    /**
+     * @var currencyCode
+     */
+    protected $unitPriceCurrency = null;
+
+    /**
+     * @var string
+     */
+    protected $hsTariffCode = null;
+
+    /**
+     * @var directionType
+     */
+    protected $direction = null;
+
+    /**
+     * @var nonNegativeInteger
+     */
+    protected $processingDays = null;
+
+    /**
+     * @var bool
+     */
+    protected $promotionAbsolute = null;
+
+    /**
+     * @var float
+     */
+    protected $promotion = null;
+
+    /**
+     * @var availableStores
+     */
+    protected $availableStores = null;
+
+    /**
+     * @return positiveInteger
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param positiveInteger $quantity
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+    }
+
+    /**
+     * @return positiveInteger
+     */
+    public function getPackagesPerUnit()
+    {
+        return $this->packagesPerUnit;
+    }
+
+    /**
+     * @param positiveInteger $packagesPerUnit
+     */
+    public function setPackagesPerUnit($packagesPerUnit)
+    {
+        $this->packagesPerUnit = $packagesPerUnit;
+    }
+
+    /**
+     * @return matrix
+     */
+    public function getMatrix()
+    {
+        return $this->matrix;
+    }
+
+    /**
+     * @param matrix $matrix
+     */
+    public function setMatrix($matrix)
+    {
+        $this->matrix = $matrix;
+    }
+
+    /**
+     * @return nonNegativeDecimal
+     */
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+
+    /**
+     * @param nonNegativeDecimal $weight
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+    }
+
+    /**
+     * @return nonNegativeInteger
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+
+    /**
+     * @param nonNegativeInteger $width
+     */
+    public function setWidth($width)
+    {
+        $this->width = $width;
+    }
+
+    /**
+     * @return nonNegativeInteger
+     */
+    public function getHeight()
+    {
+        return $this->height;
+    }
+
+    /**
+     * @param nonNegativeInteger $height
+     */
+    public function setHeight($height)
+    {
+        $this->height = $height;
+    }
+
+    /**
+     * @return nonNegativeInteger
+     */
+    public function getLength()
+    {
+        return $this->length;
+    }
+
+    /**
+     * @param nonNegativeInteger $length
+     */
+    public function setLength($length)
+    {
+        $this->length = $length;
+    }
+
+    /**
+     * @return nonNegativeDecimal
+     */
+    public function getVolume()
+    {
+        return $this->volume;
+    }
+
+    /**
+     * @param nonNegativeDecimal $volume
+     */
+    public function setVolume($volume)
+    {
+        $this->volume = $volume;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountryOfManufacture()
+    {
+        return $this->countryOfManufacture;
+    }
+
+    /**
+     * @param string $countryOfManufacture
+     */
+    public function setCountryOfManufacture($countryOfManufacture)
+    {
+        $this->countryOfManufacture = $countryOfManufacture;
+    }
+
+    /**
+     * @return nonNegativeDecimal
+     */
+    public function getUnitPrice()
+    {
+        return $this->unitPrice;
+    }
+
+    /**
+     * @param nonNegativeDecimal $unitPrice
+     */
+    public function setUnitPrice($unitPrice)
+    {
+        $this->unitPrice = $unitPrice;
+    }
+
+    /**
+     * @return currencyCode
+     */
+    public function getUnitPriceCurrency()
+    {
+        return $this->unitPriceCurrency;
+    }
+
+    /**
+     * @param currencyCode $unitPriceCurrency
+     */
+    public function setUnitPriceCurrency($unitPriceCurrency)
+    {
+        $this->unitPriceCurrency = $unitPriceCurrency;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHsTariffCode()
+    {
+        return $this->hsTariffCode;
+    }
+
+    /**
+     * @param string $hsTariffCode
+     */
+    public function setHsTariffCode($hsTariffCode)
+    {
+        $this->hsTariffCode = $hsTariffCode;
+    }
+
+    /**
+     * @return directionType
+     */
+    public function getDirection()
+    {
+        return $this->direction;
+    }
+
+    /**
+     * @param directionType $direction
+     */
+    public function setDirection($direction)
+    {
+        $this->direction = $direction;
+    }
+
+    /**
+     * @return nonNegativeInteger
+     */
+    public function getProcessingDays()
+    {
+        return $this->processingDays;
+    }
+
+    /**
+     * @param nonNegativeInteger $processingDays
+     */
+    public function setProcessingDays($processingDays)
+    {
+        $this->processingDays = $processingDays;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getPromotionAbsolute()
+    {
+        return $this->promotionAbsolute;
+    }
+
+    /**
+     * @param bool $promotionAbsolute
+     */
+    public function setPromotionAbsolute($promotionAbsolute)
+    {
+        $this->promotionAbsolute = $promotionAbsolute;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPromotion()
+    {
+        return $this->promotion;
+    }
+
+    /**
+     * @param float $promotion
+     */
+    public function setPromotion($promotion)
+    {
+        $this->promotion = $promotion;
+    }
+
+    /**
+     * @return availableStores
+     */
+    public function getAvailableStores()
+    {
+        return $this->availableStores;
+    }
+
+    /**
+     * @param availableStores $availableStores
+     */
+    public function setAvailableStores($availableStores)
+    {
+        $this->availableStores = $availableStores;
+    }
+
+
+}
+

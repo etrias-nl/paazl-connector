@@ -1,0 +1,76 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+
+use Phpro\SoapClient\Type\ResultInterface;
+
+class ProofOfDeliveryResponse implements ResultInterface
+{
+
+    /**
+     * @var errorType
+     */
+    protected $error = null;
+
+    /**
+     * @var string
+     */
+    protected $signedBy = null;
+
+    /**
+     * @var proofOfDeliveryDocumentType
+     */
+    protected $proofOfDeliveryDocument = null;
+
+    /**
+     * @return errorType
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * @param errorType $error
+     */
+    public function setError($error)
+    {
+        $this->error = $error;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSignedBy()
+    {
+        return $this->signedBy;
+    }
+
+    /**
+     * @param string $signedBy
+     */
+    public function setSignedBy($signedBy)
+    {
+        $this->signedBy = $signedBy;
+    }
+
+    /**
+     * @return proofOfDeliveryDocumentType
+     */
+    public function getProofOfDeliveryDocument()
+    {
+        return $this->proofOfDeliveryDocument;
+    }
+
+    /**
+     * @param proofOfDeliveryDocumentType $proofOfDeliveryDocument
+     */
+    public function setProofOfDeliveryDocument($proofOfDeliveryDocument)
+    {
+        $this->proofOfDeliveryDocument = $proofOfDeliveryDocument;
+    }
+
+
+}
+

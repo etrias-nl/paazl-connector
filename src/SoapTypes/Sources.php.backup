@@ -1,0 +1,31 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class Sources
+{
+
+    /**
+     * @var source
+     */
+    protected $source = null;
+
+    /**
+     * @return source
+     */
+    public function getSource()
+    {
+        return $this->source;
+    }
+
+    /**
+     * @param source $source
+     */
+    public function setSource($source)
+    {
+        $this->source = $source;
+    }
+
+
+}
+

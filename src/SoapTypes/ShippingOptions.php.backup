@@ -1,0 +1,31 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class ShippingOptions
+{
+
+    /**
+     * @var shippingOption
+     */
+    protected $shippingOption = null;
+
+    /**
+     * @return shippingOption
+     */
+    public function getShippingOption()
+    {
+        return $this->shippingOption;
+    }
+
+    /**
+     * @param shippingOption $shippingOption
+     */
+    public function setShippingOption($shippingOption)
+    {
+        $this->shippingOption = $shippingOption;
+    }
+
+
+}
+

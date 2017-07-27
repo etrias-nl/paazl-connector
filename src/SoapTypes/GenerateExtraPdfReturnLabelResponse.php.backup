@@ -1,0 +1,55 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+
+use Phpro\SoapClient\Type\ResultInterface;
+
+class GenerateExtraPdfReturnLabelResponse implements ResultInterface
+{
+
+    /**
+     * @var errorType
+     */
+    protected $error = null;
+
+    /**
+     * @var base64Binary
+     */
+    protected $label = null;
+
+    /**
+     * @return errorType
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * @param errorType $error
+     */
+    public function setError($error)
+    {
+        $this->error = $error;
+    }
+
+    /**
+     * @return base64Binary
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    /**
+     * @param base64Binary $label
+     */
+    public function setLabel($label)
+    {
+        $this->label = $label;
+    }
+
+
+}
+

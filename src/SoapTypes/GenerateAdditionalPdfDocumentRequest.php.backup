@@ -1,0 +1,34 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+
+use Phpro\SoapClient\Type\RequestInterface;
+
+class GenerateAdditionalPdfDocumentRequest implements RequestInterface
+{
+
+    /**
+     * @var printerType
+     */
+    protected $printer = null;
+
+    /**
+     * @return printerType
+     */
+    public function getPrinter()
+    {
+        return $this->printer;
+    }
+
+    /**
+     * @param printerType $printer
+     */
+    public function setPrinter($printer)
+    {
+        $this->printer = $printer;
+    }
+
+
+}
+

@@ -1,0 +1,244 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+
+use Phpro\SoapClient\Type\RequestInterface;
+
+class ServicePointsRequest implements RequestInterface
+{
+
+    /**
+     * @var string
+     */
+    protected $hash = null;
+
+    /**
+     * @var int
+     */
+    protected $webshop = null;
+
+    /**
+     * @var int
+     */
+    protected $targetWebshop = null;
+
+    /**
+     * @var string
+     */
+    protected $shippingOption = null;
+
+    /**
+     * @var bool
+     */
+    protected $evening = null;
+
+    /**
+     * @var bool
+     */
+    protected $weekend = null;
+
+    /**
+     * @var string
+     */
+    protected $country = null;
+
+    /**
+     * @var string
+     */
+    protected $postcode = null;
+
+    /**
+     * @var nonNegativeInteger
+     */
+    protected $limit = null;
+
+    /**
+     * @var coordinatesType
+     */
+    protected $southWest = null;
+
+    /**
+     * @var coordinatesType
+     */
+    protected $northEast = null;
+
+    /**
+     * @return string
+     */
+    public function getHash()
+    {
+        return $this->hash;
+    }
+
+    /**
+     * @param string $hash
+     */
+    public function setHash($hash)
+    {
+        $this->hash = $hash;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWebshop()
+    {
+        return $this->webshop;
+    }
+
+    /**
+     * @param int $webshop
+     */
+    public function setWebshop($webshop)
+    {
+        $this->webshop = $webshop;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTargetWebshop()
+    {
+        return $this->targetWebshop;
+    }
+
+    /**
+     * @param int $targetWebshop
+     */
+    public function setTargetWebshop($targetWebshop)
+    {
+        $this->targetWebshop = $targetWebshop;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShippingOption()
+    {
+        return $this->shippingOption;
+    }
+
+    /**
+     * @param string $shippingOption
+     */
+    public function setShippingOption($shippingOption)
+    {
+        $this->shippingOption = $shippingOption;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getEvening()
+    {
+        return $this->evening;
+    }
+
+    /**
+     * @param bool $evening
+     */
+    public function setEvening($evening)
+    {
+        $this->evening = $evening;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getWeekend()
+    {
+        return $this->weekend;
+    }
+
+    /**
+     * @param bool $weekend
+     */
+    public function setWeekend($weekend)
+    {
+        $this->weekend = $weekend;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param string $country
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPostcode()
+    {
+        return $this->postcode;
+    }
+
+    /**
+     * @param string $postcode
+     */
+    public function setPostcode($postcode)
+    {
+        $this->postcode = $postcode;
+    }
+
+    /**
+     * @return nonNegativeInteger
+     */
+    public function getLimit()
+    {
+        return $this->limit;
+    }
+
+    /**
+     * @param nonNegativeInteger $limit
+     */
+    public function setLimit($limit)
+    {
+        $this->limit = $limit;
+    }
+
+    /**
+     * @return coordinatesType
+     */
+    public function getSouthWest()
+    {
+        return $this->southWest;
+    }
+
+    /**
+     * @param coordinatesType $southWest
+     */
+    public function setSouthWest($southWest)
+    {
+        $this->southWest = $southWest;
+    }
+
+    /**
+     * @return coordinatesType
+     */
+    public function getNorthEast()
+    {
+        return $this->northEast;
+    }
+
+    /**
+     * @param coordinatesType $northEast
+     */
+    public function setNorthEast($northEast)
+    {
+        $this->northEast = $northEast;
+    }
+
+
+}
+

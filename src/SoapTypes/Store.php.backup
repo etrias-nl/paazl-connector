@@ -1,0 +1,52 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class Store
+{
+
+    /**
+     * @var string
+     */
+    protected $storeCode = null;
+
+    /**
+     * @var positiveInteger
+     */
+    protected $quantity = null;
+
+    /**
+     * @return string
+     */
+    public function getStoreCode()
+    {
+        return $this->storeCode;
+    }
+
+    /**
+     * @param string $storeCode
+     */
+    public function setStoreCode($storeCode)
+    {
+        $this->storeCode = $storeCode;
+    }
+
+    /**
+     * @return positiveInteger
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param positiveInteger $quantity
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+    }
+
+
+}
+

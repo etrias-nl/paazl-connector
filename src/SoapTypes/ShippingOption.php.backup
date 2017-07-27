@@ -1,0 +1,73 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class ShippingOption
+{
+
+    /**
+     * @var string
+     */
+    protected $distributor = null;
+
+    /**
+     * @var string
+     */
+    protected $shippingOption = null;
+
+    /**
+     * @var servicePointType
+     */
+    protected $servicePoint = null;
+
+    /**
+     * @return string
+     */
+    public function getDistributor()
+    {
+        return $this->distributor;
+    }
+
+    /**
+     * @param string $distributor
+     */
+    public function setDistributor($distributor)
+    {
+        $this->distributor = $distributor;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShippingOption()
+    {
+        return $this->shippingOption;
+    }
+
+    /**
+     * @param string $shippingOption
+     */
+    public function setShippingOption($shippingOption)
+    {
+        $this->shippingOption = $shippingOption;
+    }
+
+    /**
+     * @return servicePointType
+     */
+    public function getServicePoint()
+    {
+        return $this->servicePoint;
+    }
+
+    /**
+     * @param servicePointType $servicePoint
+     */
+    public function setServicePoint($servicePoint)
+    {
+        $this->servicePoint = $servicePoint;
+    }
+
+
+}
+

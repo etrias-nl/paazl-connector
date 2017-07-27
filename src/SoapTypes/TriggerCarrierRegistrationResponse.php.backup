@@ -1,0 +1,55 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+
+use Phpro\SoapClient\Type\ResultInterface;
+
+class TriggerCarrierRegistrationResponse implements ResultInterface
+{
+
+    /**
+     * @var errorType
+     */
+    protected $error = null;
+
+    /**
+     * @var shippingLabels
+     */
+    protected $shippingLabels = null;
+
+    /**
+     * @return errorType
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * @param errorType $error
+     */
+    public function setError($error)
+    {
+        $this->error = $error;
+    }
+
+    /**
+     * @return shippingLabels
+     */
+    public function getShippingLabels()
+    {
+        return $this->shippingLabels;
+    }
+
+    /**
+     * @param shippingLabels $shippingLabels
+     */
+    public function setShippingLabels($shippingLabels)
+    {
+        $this->shippingLabels = $shippingLabels;
+    }
+
+
+}
+

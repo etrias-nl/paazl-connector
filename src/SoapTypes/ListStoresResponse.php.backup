@@ -1,0 +1,55 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+
+use Phpro\SoapClient\Type\ResultInterface;
+
+class ListStoresResponse implements ResultInterface
+{
+
+    /**
+     * @var errorType
+     */
+    protected $error = null;
+
+    /**
+     * @var storeDetailsType
+     */
+    protected $store = null;
+
+    /**
+     * @return errorType
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * @param errorType $error
+     */
+    public function setError($error)
+    {
+        $this->error = $error;
+    }
+
+    /**
+     * @return storeDetailsType
+     */
+    public function getStore()
+    {
+        return $this->store;
+    }
+
+    /**
+     * @param storeDetailsType $store
+     */
+    public function setStore($store)
+    {
+        $this->store = $store;
+    }
+
+
+}
+

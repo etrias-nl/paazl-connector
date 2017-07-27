@@ -1,0 +1,52 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class BatchStatusOrderType
+{
+
+    /**
+     * @var batchStatusLabelType
+     */
+    protected $label = null;
+
+    /**
+     * @var string
+     */
+    protected $reference = null;
+
+    /**
+     * @return batchStatusLabelType
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    /**
+     * @param batchStatusLabelType $label
+     */
+    public function setLabel($label)
+    {
+        $this->label = $label;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReference()
+    {
+        return $this->reference;
+    }
+
+    /**
+     * @param string $reference
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+    }
+
+
+}
+

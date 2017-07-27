@@ -1,0 +1,55 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+
+use Phpro\SoapClient\Type\ResultInterface;
+
+class OrdersToShipResponse implements ResultInterface
+{
+
+    /**
+     * @var errorType
+     */
+    protected $error = null;
+
+    /**
+     * @var orderToShipType
+     */
+    protected $order = null;
+
+    /**
+     * @return errorType
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * @param errorType $error
+     */
+    public function setError($error)
+    {
+        $this->error = $error;
+    }
+
+    /**
+     * @return orderToShipType
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * @param orderToShipType $order
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
+    }
+
+
+}
+

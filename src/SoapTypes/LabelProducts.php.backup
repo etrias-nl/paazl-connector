@@ -1,0 +1,52 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class LabelProducts
+{
+
+    /**
+     * @var labelProduct
+     */
+    protected $labelProduct = null;
+
+    /**
+     * @var labelProductsModeType
+     */
+    protected $mode = null;
+
+    /**
+     * @return labelProduct
+     */
+    public function getLabelProduct()
+    {
+        return $this->labelProduct;
+    }
+
+    /**
+     * @param labelProduct $labelProduct
+     */
+    public function setLabelProduct($labelProduct)
+    {
+        $this->labelProduct = $labelProduct;
+    }
+
+    /**
+     * @return labelProductsModeType
+     */
+    public function getMode()
+    {
+        return $this->mode;
+    }
+
+    /**
+     * @param labelProductsModeType $mode
+     */
+    public function setMode($mode)
+    {
+        $this->mode = $mode;
+    }
+
+
+}
+

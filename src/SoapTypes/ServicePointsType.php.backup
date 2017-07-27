@@ -1,0 +1,31 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class ServicePointsType
+{
+
+    /**
+     * @var servicePoint
+     */
+    protected $servicePoint = null;
+
+    /**
+     * @return servicePoint
+     */
+    public function getServicePoint()
+    {
+        return $this->servicePoint;
+    }
+
+    /**
+     * @param servicePoint $servicePoint
+     */
+    public function setServicePoint($servicePoint)
+    {
+        $this->servicePoint = $servicePoint;
+    }
+
+
+}
+

@@ -1,0 +1,517 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+
+use Phpro\SoapClient\Type\ResultInterface;
+
+class PickupRequestDetailsResponse implements ResultInterface
+{
+
+    /**
+     * @var errorType
+     */
+    protected $error = null;
+
+    /**
+     * @var \DateTime
+     */
+    protected $createDate = null;
+
+    /**
+     * @var string
+     */
+    protected $internalReference = null;
+
+    /**
+     * @var string
+     */
+    protected $externalReference = null;
+
+    /**
+     * @var int
+     */
+    protected $webshop = null;
+
+    /**
+     * @var string
+     */
+    protected $contract = null;
+
+    /**
+     * @var string
+     */
+    protected $pickupRequestOption = null;
+
+    /**
+     * @var string
+     */
+    protected $distributor = null;
+
+    /**
+     * @var string
+     */
+    protected $orderReference = null;
+
+    /**
+     * @var int
+     */
+    protected $pieceCount = null;
+
+    /**
+     * @var \DateTime
+     */
+    protected $pickupDate = null;
+
+    /**
+     * @var time
+     */
+    protected $pickupWindowStart = null;
+
+    /**
+     * @var time
+     */
+    protected $pickupWindowEnd = null;
+
+    /**
+     * @var string
+     */
+    protected $pickupCompanyName = null;
+
+    /**
+     * @var string
+     */
+    protected $pickupContactName = null;
+
+    /**
+     * @var addressType
+     */
+    protected $pickupAddress = null;
+
+    /**
+     * @var bool
+     */
+    protected $residentialPickup = null;
+
+    /**
+     * @var string
+     */
+    protected $pickupPhoneNumber = null;
+
+    /**
+     * @var string
+     */
+    protected $pickupEmailAddress = null;
+
+    /**
+     * @var addressType
+     */
+    protected $deliveryAddress = null;
+
+    /**
+     * @var string
+     */
+    protected $deliveryEmailAddress = null;
+
+    /**
+     * @var pickupRequestStatusType
+     */
+    protected $status = null;
+
+    /**
+     * @var \DateTime
+     */
+    protected $statusDate = null;
+
+    /**
+     * @var string
+     */
+    protected $additionalInstruction = null;
+
+    /**
+     * @return errorType
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * @param errorType $error
+     */
+    public function setError($error)
+    {
+        $this->error = $error;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreateDate()
+    {
+        return $this->createDate;
+    }
+
+    /**
+     * @param \DateTime $createDate
+     */
+    public function setCreateDate($createDate)
+    {
+        $this->createDate = $createDate;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInternalReference()
+    {
+        return $this->internalReference;
+    }
+
+    /**
+     * @param string $internalReference
+     */
+    public function setInternalReference($internalReference)
+    {
+        $this->internalReference = $internalReference;
+    }
+
+    /**
+     * @return string
+     */
+    public function getExternalReference()
+    {
+        return $this->externalReference;
+    }
+
+    /**
+     * @param string $externalReference
+     */
+    public function setExternalReference($externalReference)
+    {
+        $this->externalReference = $externalReference;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWebshop()
+    {
+        return $this->webshop;
+    }
+
+    /**
+     * @param int $webshop
+     */
+    public function setWebshop($webshop)
+    {
+        $this->webshop = $webshop;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContract()
+    {
+        return $this->contract;
+    }
+
+    /**
+     * @param string $contract
+     */
+    public function setContract($contract)
+    {
+        $this->contract = $contract;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPickupRequestOption()
+    {
+        return $this->pickupRequestOption;
+    }
+
+    /**
+     * @param string $pickupRequestOption
+     */
+    public function setPickupRequestOption($pickupRequestOption)
+    {
+        $this->pickupRequestOption = $pickupRequestOption;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDistributor()
+    {
+        return $this->distributor;
+    }
+
+    /**
+     * @param string $distributor
+     */
+    public function setDistributor($distributor)
+    {
+        $this->distributor = $distributor;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOrderReference()
+    {
+        return $this->orderReference;
+    }
+
+    /**
+     * @param string $orderReference
+     */
+    public function setOrderReference($orderReference)
+    {
+        $this->orderReference = $orderReference;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPieceCount()
+    {
+        return $this->pieceCount;
+    }
+
+    /**
+     * @param int $pieceCount
+     */
+    public function setPieceCount($pieceCount)
+    {
+        $this->pieceCount = $pieceCount;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getPickupDate()
+    {
+        return $this->pickupDate;
+    }
+
+    /**
+     * @param \DateTime $pickupDate
+     */
+    public function setPickupDate($pickupDate)
+    {
+        $this->pickupDate = $pickupDate;
+    }
+
+    /**
+     * @return time
+     */
+    public function getPickupWindowStart()
+    {
+        return $this->pickupWindowStart;
+    }
+
+    /**
+     * @param time $pickupWindowStart
+     */
+    public function setPickupWindowStart($pickupWindowStart)
+    {
+        $this->pickupWindowStart = $pickupWindowStart;
+    }
+
+    /**
+     * @return time
+     */
+    public function getPickupWindowEnd()
+    {
+        return $this->pickupWindowEnd;
+    }
+
+    /**
+     * @param time $pickupWindowEnd
+     */
+    public function setPickupWindowEnd($pickupWindowEnd)
+    {
+        $this->pickupWindowEnd = $pickupWindowEnd;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPickupCompanyName()
+    {
+        return $this->pickupCompanyName;
+    }
+
+    /**
+     * @param string $pickupCompanyName
+     */
+    public function setPickupCompanyName($pickupCompanyName)
+    {
+        $this->pickupCompanyName = $pickupCompanyName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPickupContactName()
+    {
+        return $this->pickupContactName;
+    }
+
+    /**
+     * @param string $pickupContactName
+     */
+    public function setPickupContactName($pickupContactName)
+    {
+        $this->pickupContactName = $pickupContactName;
+    }
+
+    /**
+     * @return addressType
+     */
+    public function getPickupAddress()
+    {
+        return $this->pickupAddress;
+    }
+
+    /**
+     * @param addressType $pickupAddress
+     */
+    public function setPickupAddress($pickupAddress)
+    {
+        $this->pickupAddress = $pickupAddress;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getResidentialPickup()
+    {
+        return $this->residentialPickup;
+    }
+
+    /**
+     * @param bool $residentialPickup
+     */
+    public function setResidentialPickup($residentialPickup)
+    {
+        $this->residentialPickup = $residentialPickup;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPickupPhoneNumber()
+    {
+        return $this->pickupPhoneNumber;
+    }
+
+    /**
+     * @param string $pickupPhoneNumber
+     */
+    public function setPickupPhoneNumber($pickupPhoneNumber)
+    {
+        $this->pickupPhoneNumber = $pickupPhoneNumber;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPickupEmailAddress()
+    {
+        return $this->pickupEmailAddress;
+    }
+
+    /**
+     * @param string $pickupEmailAddress
+     */
+    public function setPickupEmailAddress($pickupEmailAddress)
+    {
+        $this->pickupEmailAddress = $pickupEmailAddress;
+    }
+
+    /**
+     * @return addressType
+     */
+    public function getDeliveryAddress()
+    {
+        return $this->deliveryAddress;
+    }
+
+    /**
+     * @param addressType $deliveryAddress
+     */
+    public function setDeliveryAddress($deliveryAddress)
+    {
+        $this->deliveryAddress = $deliveryAddress;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDeliveryEmailAddress()
+    {
+        return $this->deliveryEmailAddress;
+    }
+
+    /**
+     * @param string $deliveryEmailAddress
+     */
+    public function setDeliveryEmailAddress($deliveryEmailAddress)
+    {
+        $this->deliveryEmailAddress = $deliveryEmailAddress;
+    }
+
+    /**
+     * @return pickupRequestStatusType
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param pickupRequestStatusType $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getStatusDate()
+    {
+        return $this->statusDate;
+    }
+
+    /**
+     * @param \DateTime $statusDate
+     */
+    public function setStatusDate($statusDate)
+    {
+        $this->statusDate = $statusDate;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAdditionalInstruction()
+    {
+        return $this->additionalInstruction;
+    }
+
+    /**
+     * @param string $additionalInstruction
+     */
+    public function setAdditionalInstruction($additionalInstruction)
+    {
+        $this->additionalInstruction = $additionalInstruction;
+    }
+
+
+}
+

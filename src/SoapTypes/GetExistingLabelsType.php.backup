@@ -1,0 +1,73 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class GetExistingLabelsType
+{
+
+    /**
+     * @var int
+     */
+    protected $webshop = null;
+
+    /**
+     * @var existingLabelType
+     */
+    protected $label = null;
+
+    /**
+     * @var bool
+     */
+    protected $includeMetaData = null;
+
+    /**
+     * @return int
+     */
+    public function getWebshop()
+    {
+        return $this->webshop;
+    }
+
+    /**
+     * @param int $webshop
+     */
+    public function setWebshop($webshop)
+    {
+        $this->webshop = $webshop;
+    }
+
+    /**
+     * @return existingLabelType
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    /**
+     * @param existingLabelType $label
+     */
+    public function setLabel($label)
+    {
+        $this->label = $label;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIncludeMetaData()
+    {
+        return $this->includeMetaData;
+    }
+
+    /**
+     * @param bool $includeMetaData
+     */
+    public function setIncludeMetaData($includeMetaData)
+    {
+        $this->includeMetaData = $includeMetaData;
+    }
+
+
+}
+

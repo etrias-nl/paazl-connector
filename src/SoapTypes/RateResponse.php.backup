@@ -1,0 +1,55 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+
+use Phpro\SoapClient\Type\ResultInterface;
+
+class RateResponse implements ResultInterface
+{
+
+    /**
+     * @var errorType
+     */
+    protected $error = null;
+
+    /**
+     * @var rate
+     */
+    protected $rate = null;
+
+    /**
+     * @return errorType
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * @param errorType $error
+     */
+    public function setError($error)
+    {
+        $this->error = $error;
+    }
+
+    /**
+     * @return rate
+     */
+    public function getRate()
+    {
+        return $this->rate;
+    }
+
+    /**
+     * @param rate $rate
+     */
+    public function setRate($rate)
+    {
+        $this->rate = $rate;
+    }
+
+
+}
+

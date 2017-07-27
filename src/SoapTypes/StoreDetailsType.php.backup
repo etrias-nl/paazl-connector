@@ -1,0 +1,115 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class StoreDetailsType
+{
+
+    /**
+     * @var string
+     */
+    protected $code = null;
+
+    /**
+     * @var string
+     */
+    protected $name = null;
+
+    /**
+     * @var addressType
+     */
+    protected $address = null;
+
+    /**
+     * @var coordinatesType
+     */
+    protected $coordinates = null;
+
+    /**
+     * @var businessHoursType
+     */
+    protected $businessHours = null;
+
+    /**
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return addressType
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param addressType $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @return coordinatesType
+     */
+    public function getCoordinates()
+    {
+        return $this->coordinates;
+    }
+
+    /**
+     * @param coordinatesType $coordinates
+     */
+    public function setCoordinates($coordinates)
+    {
+        $this->coordinates = $coordinates;
+    }
+
+    /**
+     * @return businessHoursType
+     */
+    public function getBusinessHours()
+    {
+        return $this->businessHours;
+    }
+
+    /**
+     * @param businessHoursType $businessHours
+     */
+    public function setBusinessHours($businessHours)
+    {
+        $this->businessHours = $businessHours;
+    }
+
+
+}
+

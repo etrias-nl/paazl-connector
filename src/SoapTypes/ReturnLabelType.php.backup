@@ -1,0 +1,52 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class ReturnLabelType
+{
+
+    /**
+     * @var labelType
+     */
+    protected $_ = null;
+
+    /**
+     * @var string
+     */
+    protected $returnOrderReference = null;
+
+    /**
+     * @return labelType
+     */
+    public function get_()
+    {
+        return $this->_;
+    }
+
+    /**
+     * @param labelType $_
+     */
+    public function set_($_)
+    {
+        $this->_ = $_;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReturnOrderReference()
+    {
+        return $this->returnOrderReference;
+    }
+
+    /**
+     * @param string $returnOrderReference
+     */
+    public function setReturnOrderReference($returnOrderReference)
+    {
+        $this->returnOrderReference = $returnOrderReference;
+    }
+
+
+}
+

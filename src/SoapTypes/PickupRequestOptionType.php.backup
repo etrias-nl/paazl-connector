@@ -1,0 +1,94 @@
+<?php
+
+namespace Etrias\PaazlConnector\SoapTypes;
+
+class PickupRequestOptionType
+{
+
+    /**
+     * @var string
+     */
+    protected $identifier = null;
+
+    /**
+     * @var string
+     */
+    protected $description = null;
+
+    /**
+     * @var string
+     */
+    protected $distributor = null;
+
+    /**
+     * @var string
+     */
+    protected $option = null;
+
+    /**
+     * @return string
+     */
+    public function getIdentifier()
+    {
+        return $this->identifier;
+    }
+
+    /**
+     * @param string $identifier
+     */
+    public function setIdentifier($identifier)
+    {
+        $this->identifier = $identifier;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDistributor()
+    {
+        return $this->distributor;
+    }
+
+    /**
+     * @param string $distributor
+     */
+    public function setDistributor($distributor)
+    {
+        $this->distributor = $distributor;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOption()
+    {
+        return $this->option;
+    }
+
+    /**
+     * @param string $option
+     */
+    public function setOption($option)
+    {
+        $this->option = $option;
+    }
+
+
+}
+
