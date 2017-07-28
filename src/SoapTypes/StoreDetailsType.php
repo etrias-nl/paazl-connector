@@ -39,7 +39,7 @@ class StoreDetailsType
      * @var coordinatesType $coordinates
      * @var businessHoursType $businessHours
      */
-    public function __construct($code, $name, $address, $coordinates, $businessHours)
+    public function __construct($code, $name, $address, coordinatesType $coordinates = null, businessHoursType $businessHours = null)
     {
         $this->code = $code;
         $this->name = $name;

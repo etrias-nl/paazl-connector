@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <phpunit
+            backupStaticAttributes="false"
+            cacheTokens="false"
+            colors="false"
+            convertErrorsToExceptions="true"
+            convertNoticesToExceptions="true"
+            convertWarningsToExceptions="true"
+            forceCoversAnnotation="false"
+            mapTestClassNameToCoveredClassName="false"
+            processIsolation="false"
+            stopOnError="false"
+            stopOnFailure="false"
+            stopOnIncomplete="false"
+            stopOnSkipped="false"
+            strict="false"
+            verbose="false"
+    >
+    <php>
+        <const name="WEB_SHOP_ID" value="677"/>
+        <const name="PASSWORD" value="hermanus"/>
+    </php>
+
+    <testsuites>
+        <testsuite name="Functional">
+            <directory>tests/Functional</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+        </whitelist>
+    </filter>
+</phpunit>

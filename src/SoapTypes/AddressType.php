@@ -63,7 +63,7 @@ class AddressType
      * @var string $province
      * @var string $country
      */
-    public function __construct($street, $housenumber, $addition, $address, $additionalAddressLine, $postcode, $city, $province, $country)
+    public function __construct($street, $housenumber, $addition = null, $address = null, $additionalAddressLine = null, $postcode, $city, $province = null, $country)
     {
         $this->street = $street;
         $this->housenumber = $housenumber;

@@ -27,7 +27,7 @@ class BusinessHoursType
      * @var time $from
      * @var time $until
      */
-    public function __construct($day, $from, $until)
+    public function __construct($day = null, $from = null, $until = null)
     {
         $this->day = $day;
         $this->from = $from;

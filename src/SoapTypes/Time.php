@@ -45,7 +45,7 @@ class Time
      * @var string $openTillAfternoon
      * @var string $openTillMorning
      */
-    public function __construct($day, $alwaysOpen, $openFromAfternoon, $openFromMorning, $openTillAfternoon, $openTillMorning)
+    public function __construct($day = null, $alwaysOpen = null, $openFromAfternoon = null, $openFromMorning = null, $openTillAfternoon = null, $openTillMorning = null)
     {
         $this->day = $day;
         $this->alwaysOpen = $alwaysOpen;
