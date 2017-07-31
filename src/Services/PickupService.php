@@ -15,15 +15,14 @@ namespace Etrias\PaazlConnector\Services;
 use DateTime;
 use Etrias\PaazlConnector\Client\PaazlClientInterface;
 use Etrias\PaazlConnector\Processor\Processor;
-use Etrias\PaazlConnector\ServiceType\Service as GeneralServiceType;
-use Etrias\PaazlConnector\StructType\AddressType;
-use Etrias\PaazlConnector\StructType\CancelPickupRequestResponse;
-use Etrias\PaazlConnector\StructType\CreatePickupRequestRequest;
-use Etrias\PaazlConnector\StructType\CreatePickupRequestResponse;
-use Etrias\PaazlConnector\StructType\PickupRequestDetailsResponse;
-use Etrias\PaazlConnector\StructType\PickupRequestOptionsRequest;
-use Etrias\PaazlConnector\StructType\PickupRequestQueryType;
-use Etrias\PaazlConnector\StructType\PickupRequestStatusResponse;
+use Etrias\PaazlConnector\SoapTypes\AddressType;
+use Etrias\PaazlConnector\SoapTypes\CancelPickupRequestResponse;
+use Etrias\PaazlConnector\SoapTypes\CreatePickupRequestRequest;
+use Etrias\PaazlConnector\SoapTypes\CreatePickupRequestResponse;
+use Etrias\PaazlConnector\SoapTypes\PickupRequestDetailsResponse;
+use Etrias\PaazlConnector\SoapTypes\PickupRequestOptionsRequest;
+use Etrias\PaazlConnector\SoapTypes\PickupRequestQueryType;
+use Etrias\PaazlConnector\SoapTypes\PickupRequestStatusResponse;
 use InvalidArgumentException;
 
 class PickupService
@@ -60,17 +59,15 @@ class PickupService
     public function getPickupRequestOptions($internalReference, $pickupCountry = null, $deliveryCountry = null, $targetWebShop = null)
     {
         $request = new PickupRequestOptionsRequest(
-            $this->securityService->getHash($internalReference),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($internalReference),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $internalReference,
             $pickupCountry,
             $deliveryCountry
         );
 
-        $response = $this->generalServiceType->pickupRequestOptions($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->pickupRequestOptions($request);
     }
 
     /**
@@ -100,9 +97,9 @@ class PickupService
         $pieceCount,
         DateTime $pickupWindowStart,
         DateTime $pickupWindowEnd,
-        $pickupCompanyName,
-        $pickupContactName,
-        $pickupName,
+        $pickupCompanyName = null,
+        $pickupContactName = null,
+        $pickupName = null,
         AddressType $pickupAddress,
         $pickupPhoneNumber,
         $pickupEmailAddress = null,
@@ -118,15 +115,15 @@ class PickupService
         }
 
         $request = new CreatePickupRequestRequest(
-            $this->securityService->getHash($internalReference),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($internalReference),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $internalReference,
             $contract,
             $pickupRequestOption,
             $orderReference,
             $pieceCount,
-            $pickupWindowStart->format('Y-m-d'),
+            $pickupWindowStart,
             $pickupWindowStart->format('H:i:s'),
             $pickupWindowEnd->format('H:i:s'),
             $pickupCompanyName,
@@ -140,9 +137,7 @@ class PickupService
             $additionalInstruction
         );
 
-        $response = $this->generalServiceType->createPickupRequest($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->createPickupRequest($request);
     }
 
     /**
@@ -156,17 +151,15 @@ class PickupService
     public function getPickupRequestDetails($internalReference, $distributor, $externalReference, $targetWebShop = null)
     {
         $request = new PickupRequestQueryType(
-            $this->securityService->getHash($internalReference),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($internalReference),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $internalReference,
             $distributor,
             $externalReference
         );
 
-        $response = $this->generalServiceType->pickupRequestDetails($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->pickupRequestDetails($request);
     }
 
     /**
@@ -180,17 +173,15 @@ class PickupService
     public function getPickupRequestStatus($internalReference, $distributor, $externalReference, $targetWebShop = null)
     {
         $request = new PickupRequestQueryType(
-            $this->securityService->getHash($internalReference),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($internalReference),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $internalReference,
             $distributor,
             $externalReference
         );
 
-        $response = $this->generalServiceType->pickupRequestStatus($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->pickupRequestStatus($request);
     }
 
     /**
@@ -204,16 +195,14 @@ class PickupService
     public function cancelPickupRequest($internalReference, $distributor, $externalReference, $targetWebShop = null)
     {
         $request = new PickupRequestQueryType(
-            $this->securityService->getHash($internalReference),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($internalReference),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $internalReference,
             $distributor,
             $externalReference
         );
 
-        $response = $this->generalServiceType->cancelPickupRequest($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->cancelPickupRequest($request);
     }
 }

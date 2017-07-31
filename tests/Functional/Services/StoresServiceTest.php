@@ -19,10 +19,14 @@ use Etrias\PaazlConnector\SoapTypes\AddressResponse;
 use Etrias\PaazlConnector\SoapTypes\AddressType;
 use Etrias\PaazlConnector\SoapTypes\BatchStatusResponse;
 use Etrias\PaazlConnector\SoapTypes\BusinessHoursType;
+use Etrias\PaazlConnector\SoapTypes\ChangeStoresRequestType;
+use Etrias\PaazlConnector\SoapTypes\ChangeStoresResponseType;
 use Etrias\PaazlConnector\SoapTypes\CloseBatchResponse;
 use Etrias\PaazlConnector\SoapTypes\CoordinatesType;
+use Etrias\PaazlConnector\SoapTypes\DeleteStoresResponse;
 use Etrias\PaazlConnector\SoapTypes\DeliveryEstimateResponse;
 use Etrias\PaazlConnector\SoapTypes\ListOpenBatchesResponse;
+use Etrias\PaazlConnector\SoapTypes\ListStoresResponse;
 use Etrias\PaazlConnector\SoapTypes\OpenBatchResponse;
 use Etrias\PaazlConnector\SoapTypes\RateResponse;
 use Etrias\PaazlConnector\SoapTypes\ServicePointsResponse;
@@ -52,12 +56,61 @@ class StoresServiceTest extends AbstractServiceTest
                 'new_store',
                 'Naam van de store',
                 new AddressType(
-
+                    'street',
+                    'housenumber',
+                    'a',
+                    'address',
+                    'addressline',
+                    'postcode',
+                    'Utrecht',
+                    'Zuid-Holland',
+                    'NL'
                 ),
                 new CoordinatesType(	52.092876, 	5.104480),
                null
             )
             ];
+
+        $response = $this->storesService->createStores($stores);
+        $this->assertInstanceOf(ChangeStoresResponseType::class, $response);
+    }
+
+    public function testUpdateStores()
+    {
+        $stores = [
+            new StoreDetailsType(
+                'new_store',
+                'Naam van de store',
+                new AddressType(
+                    'street',
+                    'housenumber',
+                    'a',
+                    'address',
+                    'addressline',
+                    'postcode',
+                    'Utrecht',
+                    'Zuid-Holland',
+                    'NL'
+                ),
+                new CoordinatesType(	52.092876, 	5.104480),
+                null
+            )
+        ];
+
+        $response = $this->storesService->updateStores($stores);
+        $this->assertInstanceOf(ChangeStoresResponseType::class, $response);
+    }
+
+    public function testDeleteStores()
+    {
+        $response = $this->storesService->deleteStores(['new_store', 'new_store_2']);
+        $this->assertInstanceOf(DeleteStoresResponse::class, $response);
+    }
+
+    public function testListStores()
+    {
+        $response = $this->storesService->listStores();
+        $this->assertInstanceOf(ListStoresResponse::class, $response);
     }
 
 

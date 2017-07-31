@@ -6,14 +6,14 @@ class Products
 {
 
     /**
-     * @var product
+     * @var Product
      */
     protected $product = null;
 
     /**
      * Constructor
      *
-     * @var product $product
+     * @var Product $product
      */
     public function __construct($product)
     {
@@ -21,7 +21,7 @@ class Products
     }
 
     /**
-     * @return product
+     * @return Product
      */
     public function getProduct()
     {
@@ -29,7 +29,7 @@ class Products
     }
 
     /**
-     * @param product $product
+     * @param Product $product
      * @return $this
      */
     public function setProduct($product)

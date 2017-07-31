@@ -40,9 +40,9 @@ class OrderRequest implements RequestInterface
      * @var int $webshop
      * @var int $targetWebshop
      * @var string $orderReference
-     * @var products $products
+     * @var Product[] $products
      */
-    public function __construct($hash, $webshop, $targetWebshop, $orderReference, $products)
+    public function __construct($hash, $webshop, $targetWebshop, $orderReference, array $products)
     {
         $this->hash = $hash;
         $this->webshop = $webshop;
@@ -124,7 +124,7 @@ class OrderRequest implements RequestInterface
     }
 
     /**
-     * @return products
+     * @return Product[]
      */
     public function getProducts()
     {
@@ -132,10 +132,10 @@ class OrderRequest implements RequestInterface
     }
 
     /**
-     * @param products $products
+     * @param Product[] $products
      * @return $this
      */
-    public function setProducts($products)
+    public function setProducts(array $products)
     {
         $this->products = $products;
         return $this;

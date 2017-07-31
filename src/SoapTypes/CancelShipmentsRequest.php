@@ -22,12 +22,12 @@ class CancelShipmentsRequest implements RequestInterface
      * Constructor
      *
      * @var int $webshop
-     * @var existingLabelType $label
+     * @var existingLabelType[] $label
      */
-    public function __construct($webshop, $label)
+    public function __construct($webshop, array $labels)
     {
         $this->webshop = $webshop;
-        $this->label = $label;
+        $this->label = $labels;
     }
 
     /**
@@ -49,20 +49,20 @@ class CancelShipmentsRequest implements RequestInterface
     }
 
     /**
-     * @return existingLabelType
+     * @return existingLabelType[]
      */
-    public function getLabel()
+    public function getLabels()
     {
         return $this->label;
     }
 
     /**
-     * @param existingLabelType $label
+     * @param existingLabelType[] $labels
      * @return $this
      */
-    public function setLabel($label)
+    public function setLabels(array $labels)
     {
-        $this->label = $label;
+        $this->label = $labels;
         return $this;
     }
 

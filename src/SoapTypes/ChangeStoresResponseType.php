@@ -2,7 +2,9 @@
 
 namespace Etrias\PaazlConnector\SoapTypes;
 
-class ChangeStoresResponseType
+use Phpro\SoapClient\Type\ResultInterface;
+
+class ChangeStoresResponseType implements ResultInterface
 {
 
     /**

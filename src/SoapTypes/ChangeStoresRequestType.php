@@ -2,7 +2,9 @@
 
 namespace Etrias\PaazlConnector\SoapTypes;
 
-class ChangeStoresRequestType
+use Phpro\SoapClient\Type\RequestInterface;
+
+class ChangeStoresRequestType implements RequestInterface
 {
 
     /**
@@ -16,7 +18,7 @@ class ChangeStoresRequestType
     protected $targetWebshop = null;
 
     /**
-     * @var changeStoreDetailsType
+     * @var changeStoreDetailsType[]
      */
     protected $store = null;
 
@@ -25,13 +27,13 @@ class ChangeStoresRequestType
      *
      * @var int $webshop
      * @var int $targetWebshop
-     * @var changeStoreDetailsType $store
+     * @var changeStoreDetailsType[] $stores
      */
-    public function __construct($webshop, $targetWebshop, $store)
+    public function __construct($webshop, $targetWebshop, array $stores)
     {
         $this->webshop = $webshop;
         $this->targetWebshop = $targetWebshop;
-        $this->store = $store;
+        $this->store = $stores;
     }
 
     /**
@@ -71,20 +73,20 @@ class ChangeStoresRequestType
     }
 
     /**
-     * @return changeStoreDetailsType
+     * @return changeStoreDetailsType[]
      */
-    public function getStore()
+    public function getStores()
     {
         return $this->store;
     }
 
     /**
-     * @param changeStoreDetailsType $store
+     * @param changeStoreDetailsType[] $stores
      * @return $this
      */
-    public function setStore($store)
+    public function setStores($stores)
     {
-        $this->store = $store;
+        $this->store = $stores;
         return $this;
     }
 

@@ -2,7 +2,9 @@
 
 namespace Etrias\PaazlConnector\SoapTypes;
 
-class GenerateAdditionalDocumentType
+use Phpro\SoapClient\Type\RequestInterface;
+
+class GenerateAdditionalDocumentType implements RequestInterface
 {
 
     /**

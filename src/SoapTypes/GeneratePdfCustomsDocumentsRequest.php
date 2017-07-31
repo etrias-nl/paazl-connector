@@ -22,12 +22,12 @@ class GeneratePdfCustomsDocumentsRequest implements RequestInterface
      * Constructor
      *
      * @var int $webshop
-     * @var orderType $order
+     * @var orderType[] $orders
      */
-    public function __construct($webshop, $order)
+    public function __construct($webshop, array $orders)
     {
         $this->webshop = $webshop;
-        $this->order = $order;
+        $this->order = $orders;
     }
 
     /**
@@ -51,18 +51,18 @@ class GeneratePdfCustomsDocumentsRequest implements RequestInterface
     /**
      * @return orderType
      */
-    public function getOrder()
+    public function getOrders()
     {
         return $this->order;
     }
 
     /**
-     * @param orderType $order
+     * @param orderType[] $orders
      * @return $this
      */
-    public function setOrder($order)
+    public function setOrders($orders)
     {
-        $this->order = $order;
+        $this->order = $orders;
         return $this;
     }
 

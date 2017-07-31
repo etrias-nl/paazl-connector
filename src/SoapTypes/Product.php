@@ -103,27 +103,47 @@ class Product
     /**
      * Constructor
      *
-     * @var positiveInteger $quantity
-     * @var positiveInteger $packagesPerUnit
-     * @var matrix $matrix
-     * @var nonNegativeDecimal $weight
-     * @var nonNegativeInteger $width
-     * @var nonNegativeInteger $height
-     * @var nonNegativeInteger $length
-     * @var nonNegativeDecimal $volume
-     * @var string $code
-     * @var string $description
-     * @var string $countryOfManufacture
-     * @var nonNegativeDecimal $unitPrice
-     * @var currencyCode $unitPriceCurrency
-     * @var string $hsTariffCode
-     * @var directionType $direction
-     * @var nonNegativeInteger $processingDays
-     * @var bool $promotionAbsolute
-     * @var float $promotion
-     * @var availableStores $availableStores
+     * @var positiveInteger|null $quantity
+     * @var positiveInteger|null $packagesPerUnit
+     * @var matrix|null $matrix
+     * @var nonNegativeDecimal|null $weight
+     * @var nonNegativeInteger|null $width
+     * @var nonNegativeInteger|null $height
+     * @var nonNegativeInteger|null $length
+     * @var nonNegativeDecimal|null $volume
+     * @var string|null $code
+     * @var string|null $description
+     * @var string|null $countryOfManufacture
+     * @var nonNegativeDecimal|null $unitPrice
+     * @var currencyCode|null $unitPriceCurrency
+     * @var string|null $hsTariffCode
+     * @var directionType|null $direction
+     * @var nonNegativeInteger|null $processingDays
+     * @var bool|null $promotionAbsolute
+     * @var float|null $promotion
+     * @var availableStores|null $availableStores
      */
-    public function __construct($quantity, $packagesPerUnit, $matrix, $weight, $width, $height, $length, $volume, $code, $description, $countryOfManufacture, $unitPrice, $unitPriceCurrency, $hsTariffCode, $direction, $processingDays, $promotionAbsolute, $promotion, $availableStores)
+    public function __construct(
+        $quantity = null,
+        $packagesPerUnit = null,
+        $matrix = null,
+        $weight = null,
+        $width = null,
+        $height = null,
+        $length = null,
+        $volume = null,
+        $code = null,
+        $description = null,
+        $countryOfManufacture = null,
+        $unitPrice = null,
+        $unitPriceCurrency = null,
+        $hsTariffCode = null,
+        $direction = null,
+        $processingDays = null,
+        $promotionAbsolute = null,
+        $promotion = null,
+        $availableStores = null
+    )
     {
         $this->quantity = $quantity;
         $this->packagesPerUnit = $packagesPerUnit;

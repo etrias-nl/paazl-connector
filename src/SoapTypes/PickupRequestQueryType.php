@@ -2,7 +2,9 @@
 
 namespace Etrias\PaazlConnector\SoapTypes;
 
-class PickupRequestQueryType
+use Phpro\SoapClient\Type\RequestInterface;
+
+class PickupRequestQueryType implements RequestInterface
 {
 
     /**

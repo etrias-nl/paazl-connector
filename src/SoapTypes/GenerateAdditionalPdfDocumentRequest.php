@@ -2,10 +2,7 @@
 
 namespace Etrias\PaazlConnector\SoapTypes;
 
-
-use Phpro\SoapClient\Type\RequestInterface;
-
-class GenerateAdditionalPdfDocumentRequest implements RequestInterface
+class GenerateAdditionalPdfDocumentRequest extends GenerateAdditionalDocumentType
 {
 
     /**
@@ -16,10 +13,17 @@ class GenerateAdditionalPdfDocumentRequest implements RequestInterface
     /**
      * Constructor
      *
-     * @var printerType $printer
+     * @param string $hash
+     * @param int $webShop
+     * @param int $targetWebShop
+     * @param string $orderReference
+     * @param string $barcode
+     * @param additionalDocumentType $documentType
+     * @param printerType $printer
      */
-    public function __construct($printer)
+    public function __construct($hash, $webShop, $targetWebShop, $orderReference, $barcode, $documentType, $printer)
     {
+        parent::__construct($hash, $webShop, $targetWebShop, $orderReference, $barcode, $documentType);
         $this->printer = $printer;
     }
 

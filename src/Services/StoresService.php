@@ -57,12 +57,14 @@ class StoresService
     {
         $changeStores = [];
         foreach ($stores as $store) {
-            $changeStore = new ChangeStoreDetailsType($this->security->getHash($store->getCode()));
-            $changeStore->setName($store->getName())
-                ->setAddress($store->getAddress())
-                ->setBusinessHours($store->getBusinessHours())
-                ->setCode($store->getCode())
-                ->setCoordinates($store->getCoordinates());
+            $changeStore = new ChangeStoreDetailsType(
+                $this->security->getHash($store->getCode()),
+                $store->getCode(),
+                $store->getName(),
+                $store->getAddress(),
+                $store->getCoordinates(),
+                $store->getBusinessHours()
+                );
             $changeStores[] = $changeStore;
         }
 
@@ -85,12 +87,14 @@ class StoresService
     {
         $changeStores = [];
         foreach ($stores as $store) {
-            $changeStore = new ChangeStoreDetailsType($this->security->getHash($store->getCode()));
-            $changeStore->setName($store->getName())
-                ->setAddress($store->getAddress())
-                ->setBusinessHours($store->getBusinessHours())
-                ->setCode($store->getCode())
-                ->setCoordinates($store->getCoordinates());
+            $changeStore = new ChangeStoreDetailsType(
+                $this->security->getHash($store->getCode()),
+                $store->getCode(),
+                $store->getName(),
+                $store->getAddress(),
+                $store->getCoordinates(),
+                $store->getBusinessHours()
+            );
             $changeStores[] = $changeStore;
         }
 
@@ -114,7 +118,7 @@ class StoresService
         $stores = [];
 
         foreach ($storeCodes as $storeCode) {
-            $stores[] = new DeleteStoreType($this->securityService->getHash($storeCode), $storeCode);
+            $stores[] = new DeleteStoreType($this->security->getHash($storeCode), $storeCode);
         }
 
         $request = new DeleteStoresRequest(

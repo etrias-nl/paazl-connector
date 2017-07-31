@@ -13,26 +13,26 @@ class Sources
     /**
      * Constructor
      *
-     * @var source $source
+     * @var source $sources
      */
-    public function __construct($source)
+    public function __construct(array $sources)
     {
-        $this->source = $source;
+        $this->source = $sources;
     }
 
     /**
      * @return source
      */
-    public function getSource()
+    public function getSources()
     {
         return $this->source;
     }
 
     /**
-     * @param source $source
+     * @param source $sources
      * @return $this
      */
-    public function setSource($source)
+    public function setSources($sources)
     {
         $this->source = $source;
         return $this;

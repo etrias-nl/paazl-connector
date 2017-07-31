@@ -28,13 +28,13 @@ class DeleteStoresRequest implements RequestInterface
      *
      * @var int $webshop
      * @var int $targetWebshop
-     * @var deleteStoreType $store
+     * @var deleteStoreType[] $store
      */
-    public function __construct($webshop, $targetWebshop, $store)
+    public function __construct($webshop, $targetWebshop, array $stores)
     {
         $this->webshop = $webshop;
         $this->targetWebshop = $targetWebshop;
-        $this->store = $store;
+        $this->store = $stores;
     }
 
     /**
@@ -74,18 +74,18 @@ class DeleteStoresRequest implements RequestInterface
     }
 
     /**
-     * @return deleteStoreType
+     * @return deleteStoreType[]
      */
-    public function getStore()
+    public function getStores()
     {
         return $this->store;
     }
 
     /**
-     * @param deleteStoreType $store
+     * @param deleteStoreType[] $store
      * @return $this
      */
-    public function setStore($store)
+    public function setStores(array $store)
     {
         $this->store = $store;
         return $this;

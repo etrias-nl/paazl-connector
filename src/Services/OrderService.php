@@ -14,31 +14,30 @@ namespace Etrias\PaazlConnector\Services;
 
 use DateTime;
 use Etrias\PaazlConnector\Client\PaazlClientInterface;
-use Etrias\PaazlConnector\Processor\Processor;
-use Etrias\PaazlConnector\ServiceType\Service as GeneralServiceType;
-use Etrias\PaazlConnector\StructType\ChangeOrderRequest;
-use Etrias\PaazlConnector\StructType\ChangeProducts;
-use Etrias\PaazlConnector\StructType\ChangeSenderAddress;
-use Etrias\PaazlConnector\StructType\ChangeShippingAddress;
-use Etrias\PaazlConnector\StructType\ChangeShippingMethod;
-use Etrias\PaazlConnector\StructType\CommitOrderRequest;
-use Etrias\PaazlConnector\StructType\DeleteOrderRequest;
-use Etrias\PaazlConnector\StructType\DeleteOrderResponse;
-use Etrias\PaazlConnector\StructType\ListOrdersRequest;
-use Etrias\PaazlConnector\StructType\ListOrdersResponse;
-use Etrias\PaazlConnector\StructType\OrderDetailsRequest;
-use Etrias\PaazlConnector\StructType\OrderDetailsResponse;
-use Etrias\PaazlConnector\StructType\OrderRequest;
-use Etrias\PaazlConnector\StructType\OrderSaveResponseType;
-use Etrias\PaazlConnector\StructType\OrderStatusRequest;
-use Etrias\PaazlConnector\StructType\OrderStatusResponse;
-use Etrias\PaazlConnector\StructType\Products;
-use Etrias\PaazlConnector\StructType\SenderAddress;
-use Etrias\PaazlConnector\StructType\ShippingAddress;
-use Etrias\PaazlConnector\StructType\ShippingMethod;
-use Etrias\PaazlConnector\StructType\UpdateOrderRequest;
-use Etrias\PaazlConnector\StructType\ValidateOrderRequest;
-use Etrias\PaazlConnector\StructType\ValidateOrderResponseType;
+use Etrias\PaazlConnector\SoapTypes\ChangeOrderRequest;
+use Etrias\PaazlConnector\SoapTypes\ChangeProducts;
+use Etrias\PaazlConnector\SoapTypes\ChangeSenderAddress;
+use Etrias\PaazlConnector\SoapTypes\ChangeShippingAddress;
+use Etrias\PaazlConnector\SoapTypes\ChangeShippingMethod;
+use Etrias\PaazlConnector\SoapTypes\CommitOrderRequest;
+use Etrias\PaazlConnector\SoapTypes\DeleteOrderRequest;
+use Etrias\PaazlConnector\SoapTypes\ListOrdersRequest;
+use Etrias\PaazlConnector\SoapTypes\ListOrdersResponse;
+use Etrias\PaazlConnector\SoapTypes\OrderDetailsRequest;
+use Etrias\PaazlConnector\SoapTypes\OrderDetailsResponse;
+use Etrias\PaazlConnector\SoapTypes\OrderRequest;
+use Etrias\PaazlConnector\SoapTypes\OrderSaveResponseType;
+use Etrias\PaazlConnector\SoapTypes\OrderStatusRequest;
+use Etrias\PaazlConnector\SoapTypes\OrderStatusResponse;
+use Etrias\PaazlConnector\SoapTypes\Product;
+use Etrias\PaazlConnector\SoapTypes\Products;
+use Etrias\PaazlConnector\SoapTypes\SenderAddress;
+use Etrias\PaazlConnector\SoapTypes\ShippingAddress;
+use Etrias\PaazlConnector\SoapTypes\ShippingMethod;
+use Etrias\PaazlConnector\SoapTypes\UpdateOrderRequest;
+use Etrias\PaazlConnector\SoapTypes\ValidateOrderRequest;
+use Etrias\PaazlConnector\SoapTypes\ValidateOrderResponseType;
+
 
 class OrderService
 {
@@ -75,38 +74,34 @@ class OrderService
     public function getOrderDetails($orderReference, $targetWebShop = null, $extendedDetails = null)
     {
         $request = new OrderDetailsRequest(
-            $this->securityService->getHash($orderReference),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($orderReference),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $orderReference,
             $extendedDetails
         );
 
-        $response = $this->generalServiceType->orderDetails($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->orderDetails($request);
     }
 
     /**
      * @param $orderReference
-     * @param Products $products
+     * @param Product[] $products
      * @param null     $targetWebShop
      *
      * @return OrderSaveResponseType
      */
-    public function createOrder($orderReference, Products $products, $targetWebShop = null)
+    public function createOrder($orderReference, array $products, $targetWebShop = null)
     {
         $request = new OrderRequest(
-            $this->securityService->getHash($orderReference),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($orderReference),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $orderReference,
             $products
         );
 
-        $response = $this->generalServiceType->order($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->order($request);
     }
 
     /**
@@ -119,23 +114,21 @@ class OrderService
     public function updateOrder($orderReference, Products $products, $targetWebShop = null)
     {
         $request = new UpdateOrderRequest(
-            $this->securityService->getHash($orderReference),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($orderReference),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $orderReference,
             $products
         );
 
-        $response = $this->generalServiceType->updateorder($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->updateorder($request);
     }
 
     /**
      * @param $orderReference
      * @param null                      $newOrderReference
      * @param ChangeShippingMethod|null $shippingMethod
-     * @param ShippingAddress|null      $shippingAddress
+     * @param ChangeShippingAddress|null      $shippingAddress
      * @param ChangeSenderAddress|null  $returnAddress
      * @param ChangeSenderAddress|null  $shipperAddress
      * @param ChangeProducts|null       $products
@@ -164,8 +157,8 @@ class OrderService
         $targetWebShop = null
     ) {
         $request = new ChangeOrderRequest(
-            $this->securityService->getHash($orderReference),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($orderReference),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $orderReference,
             $newOrderReference,
@@ -181,9 +174,7 @@ class OrderService
             $products
         );
 
-        $response = $this->generalServiceType->changeOrder($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->changeOrder($request);
     }
 
     /**
@@ -217,8 +208,8 @@ class OrderService
         $targetWebShop = null
     ) {
         $request = new ValidateOrderRequest(
-            $this->securityService->getHash($pendingOrderReference),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($pendingOrderReference),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $orderReference,
             $pendingOrderReference,
@@ -233,9 +224,7 @@ class OrderService
             $shippingAddress
         );
 
-        $response = $this->generalServiceType->validateOrder($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->validateOrder($request);
     }
 
     /**
@@ -273,8 +262,8 @@ class OrderService
         }
 
         $request = new CommitOrderRequest(
-            $this->securityService->getHash($pendingOrderReference),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($pendingOrderReference),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $orderReference,
             $pendingOrderReference,
@@ -289,9 +278,7 @@ class OrderService
             $shippingAddress
         );
 
-        $response = $this->generalServiceType->commitOrder($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->commitOrder($request);
     }
 
     /**
@@ -303,15 +290,13 @@ class OrderService
     public function deleteOrder($orderReference, $targetWebShop = null)
     {
         $request = new DeleteOrderRequest(
-            $this->securityService->getHash($orderReference),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($orderReference),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $orderReference
         );
 
-        $response = $this->generalServiceType->deleteOrder($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->deleteOrder($request);
     }
 
     /**
@@ -329,17 +314,15 @@ class OrderService
         $targetWebShop = null
     ) {
         $request = new OrderStatusRequest(
-            $this->securityService->getHash($orderReference),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($orderReference),
+            $this->client->getWebShopId(),
             $targetWebShop,
             $orderReference,
             $includeLabels,
             $getCarrierStatus
         );
 
-        $response = $this->generalServiceType->orderStatus($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->orderStatus($request);
     }
 
     /**
@@ -354,16 +337,14 @@ class OrderService
     {
         $today = new DateTime();
         $request = new ListOrdersRequest(
-            $this->securityService->getHash($today->format('Ymd')),
-            $this->generalServiceType->getWebShopId(),
+            $this->security->getHash($today->format('Ymd')),
+            $this->client->getWebShopId(),
             $targetWebShop,
-            $changedSince->format('Y-m-d'),
+            $changedSince,
             $page,
             $carrierStatus
         );
 
-        $response = $this->generalServiceType->listOrders($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->listOrders($request);
     }
 }
