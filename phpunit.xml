@@ -30,6 +30,10 @@
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">src</directory>
+            <exclude>
+                <directory suffix=".php">src/SoapTypes</directory>
+            </exclude>
         </whitelist>
+
     </filter>
 </phpunit>

@@ -19,7 +19,7 @@ class GeneratePdfLabelsRequest implements RequestInterface
     protected $printer = null;
 
     /**
-     * @var orderType
+     * @var orderType[]
      */
     protected $order = null;
 
@@ -33,14 +33,14 @@ class GeneratePdfLabelsRequest implements RequestInterface
      *
      * @var int $webshop
      * @var printerType $printer
-     * @var orderType $order
+     * @var orderType[] $order
      * @var bool $includeMetaData
      */
-    public function __construct($webshop, $printer, $order, $includeMetaData)
+    public function __construct($webshop, $printer, array $orders, $includeMetaData = null)
     {
         $this->webshop = $webshop;
         $this->printer = $printer;
-        $this->order = $order;
+        $this->order = $orders;
         $this->includeMetaData = $includeMetaData;
     }
 
@@ -81,20 +81,20 @@ class GeneratePdfLabelsRequest implements RequestInterface
     }
 
     /**
-     * @return orderType
+     * @return orderType[]
      */
-    public function getOrder()
+    public function getOrders()
     {
         return $this->order;
     }
 
     /**
-     * @param orderType $order
+     * @param orderType[] $orders
      * @return $this
      */
-    public function setOrder($order)
+    public function setOrders($orders)
     {
-        $this->order = $order;
+        $this->order = $orders;
         return $this;
     }
 
