@@ -17,8 +17,8 @@
             verbose="false"
     >
     <php>
-        <const name="WEB_SHOP_ID" value=""/>
-        <const name="PASSWORD" value=""/>
+        <env name="WEB_SHOP_ID" value="677"/>
+        <env name="PASSWORD" value="hermanus"/>
     </php>
 
     <testsuites>

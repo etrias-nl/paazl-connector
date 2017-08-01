@@ -44,8 +44,8 @@ abstract class AbstractServiceTest extends TestCase
 
         $this->soapClient = $clientBuilder->build();
         $this->soapClient
-            ->setWebShopId(WEB_SHOP_ID)
-            ->setPassword(PASSWORD);
+            ->setWebShopId($_ENV['WEB_SHOP_ID'])
+            ->setPassword($_ENV['PASSWORD']);
 
         $this->securityService = new SecurityService($this->soapClient);
     }

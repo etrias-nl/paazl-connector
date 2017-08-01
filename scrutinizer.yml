@@ -33,9 +33,6 @@ checks:
 filter:
     paths:
         - "src/*"
-    excluded_paths:
-        - "src/*Type/"
-        - "src/ClassMap.php"
 coding_style:
     php: {  }
 build:
