@@ -11,7 +11,7 @@ class GenerateReturnLabelsType
     protected $webshop = null;
 
     /**
-     * @var returnLabelsOrderType
+     * @var returnLabelsOrderType[]
      */
     protected $order = null;
 
@@ -19,7 +19,7 @@ class GenerateReturnLabelsType
      * Constructor
      *
      * @var int $webshop
-     * @var returnLabelsOrderType $order
+     * @var returnLabelsOrderType[] $order
      */
     public function __construct($webshop, $order)
     {
@@ -46,18 +46,18 @@ class GenerateReturnLabelsType
     }
 
     /**
-     * @return returnLabelsOrderType
+     * @return returnLabelsOrderType[]
      */
-    public function getOrder()
+    public function getOrders()
     {
         return $this->order;
     }
 
     /**
-     * @param returnLabelsOrderType $order
+     * @param returnLabelsOrderType[] $order
      * @return $this
      */
-    public function setOrder($order)
+    public function setOrders($order)
     {
         $this->order = $order;
         return $this;

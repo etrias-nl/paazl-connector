@@ -14,12 +14,12 @@ class GenerateZplLabelsRequest implements RequestInterface
     protected $webshop = null;
 
     /**
-     * @var printerType
+     * @var string
      */
     protected $printer = null;
 
     /**
-     * @var orderType
+     * @var orderType[]
      */
     protected $order = null;
 
@@ -33,14 +33,14 @@ class GenerateZplLabelsRequest implements RequestInterface
      *
      * @var int $webshop
      * @var printerType $printer
-     * @var orderType $order
+     * @var orderType[] $order
      * @var bool $includeMetaData
      */
-    public function __construct($webshop, $printer, $order, $includeMetaData)
+    public function __construct($webshop, $printer, array $orders, $includeMetaData)
     {
         $this->webshop = $webshop;
         $this->printer = $printer;
-        $this->order = $order;
+        $this->order = $orders;
         $this->includeMetaData = $includeMetaData;
     }
 
@@ -63,7 +63,7 @@ class GenerateZplLabelsRequest implements RequestInterface
     }
 
     /**
-     * @return printerType
+     * @return string
      */
     public function getPrinter()
     {
@@ -71,7 +71,7 @@ class GenerateZplLabelsRequest implements RequestInterface
     }
 
     /**
-     * @param printerType $printer
+     * @param string $printer
      * @return $this
      */
     public function setPrinter($printer)
@@ -81,20 +81,20 @@ class GenerateZplLabelsRequest implements RequestInterface
     }
 
     /**
-     * @return orderType
+     * @return orderType[]
      */
-    public function getOrder()
+    public function getOrders()
     {
         return $this->order;
     }
 
     /**
-     * @param orderType $order
+     * @param orderType[] $orders
      * @return $this
      */
-    public function setOrder($order)
+    public function setOrders(array $orders)
     {
-        $this->order = $order;
+        $this->order = $orders;
         return $this;
     }
 

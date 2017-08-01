@@ -128,6 +128,36 @@ class GuzzleSoapClientTest extends TestCase
         $this->assertSame($resultMock, $response);
     }
 
+    public function testMagicCallWithMixedResult()
+    {
+        $client = $this->getMockBuilder(GuzzleSoapClient::class)
+            ->setMethods(['call', 'processResponse'])
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $innerResultMock = $this->getMockForAbstractClass(PaazlResultInterface::class);
+
+        $resultMock = $this->getMockBuilder(MixedResult::class)
+            ->disableOriginalConstructor()
+            ->setMethods(['getResult'])
+            ->getMock();
+        $resultMock->expects($this->once())
+            ->method('getResult')
+            ->willReturn($innerResultMock);
+
+        $client->expects($this->once())
+            ->method('call')
+            ->willReturn($resultMock);
+        $client->expects($this->once())
+            ->method('processResponse')
+            ->willReturn($resultMock);
+
+        $requestMock = $this->getMockForAbstractClass(RequestInterface::class);
+
+        $response = $client->__call('functionName', [$requestMock]);
+        $this->assertSame($resultMock, $response);
+    }
+
     public function testSetAndGetWebShopId()
     {
         $soapclient = $this->getMockBuilder(SoapClient::class)

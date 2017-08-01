@@ -16,12 +16,14 @@ use Etrias\PaazlConnector\Client\PaazlClientInterface;
 use Etrias\PaazlConnector\SoapTypes\ExistingLabelType;
 use Etrias\PaazlConnector\SoapTypes\GenerateExtraImageLabelRequest;
 use Etrias\PaazlConnector\SoapTypes\GenerateExtraImageLabelResponse;
+use Etrias\PaazlConnector\SoapTypes\GenerateExtraImageReturnLabelRequest;
 use Etrias\PaazlConnector\SoapTypes\GenerateExtraImageReturnLabelResponse;
 use Etrias\PaazlConnector\SoapTypes\GenerateExtraPdfLabelRequest;
 use Etrias\PaazlConnector\SoapTypes\GenerateExtraPdfReturnLabelRequest;
 use Etrias\PaazlConnector\SoapTypes\GenerateExtraPdfReturnLabelResponse;
 use Etrias\PaazlConnector\SoapTypes\GenerateImageLabelsRequest;
 use Etrias\PaazlConnector\SoapTypes\GenerateImageLabelsResponse;
+use Etrias\PaazlConnector\SoapTypes\GenerateImageReturnLabelsRequest;
 use Etrias\PaazlConnector\SoapTypes\GenerateImageReturnLabelsResponse;
 use Etrias\PaazlConnector\SoapTypes\GeneratePdfLabelsRequest;
 use Etrias\PaazlConnector\SoapTypes\GeneratePdfLabelsResponse;
@@ -29,12 +31,15 @@ use Etrias\PaazlConnector\SoapTypes\GeneratePdfReturnLabelsRequest;
 use Etrias\PaazlConnector\SoapTypes\GeneratePdfReturnLabelsResponse;
 use Etrias\PaazlConnector\SoapTypes\GenerateZplLabelsRequest;
 use Etrias\PaazlConnector\SoapTypes\GenerateZplLabelsResponse;
+use Etrias\PaazlConnector\SoapTypes\GetExistingImageLabelRequest;
 use Etrias\PaazlConnector\SoapTypes\GetExistingImageLabelResponse;
+use Etrias\PaazlConnector\SoapTypes\GetExistingImageLabelsRequest;
 use Etrias\PaazlConnector\SoapTypes\GetExistingImageLabelsResponse;
 use Etrias\PaazlConnector\SoapTypes\GetExistingPdfLabelRequest;
 use Etrias\PaazlConnector\SoapTypes\GetExistingPdfLabelResponse;
 use Etrias\PaazlConnector\SoapTypes\GetExistingPdfLabelsRequest;
 use Etrias\PaazlConnector\SoapTypes\GetExistingPdfLabelsResponse;
+use Etrias\PaazlConnector\SoapTypes\LabelType;
 use Etrias\PaazlConnector\SoapTypes\OrderType;
 use Etrias\PaazlConnector\SoapTypes\ReturnLabelsOrderType;
 
@@ -110,6 +115,7 @@ class LabelService
             $this->client->getWebShopId(),
             $targetWebShop,
             $orderReference,
+            null,
             $printer,
             $batch,
             $includeMetaData
@@ -126,7 +132,7 @@ class LabelService
      *
      * @return GeneratePdfReturnLabelsResponse
      */
-    public function generatePdfReturnLabels(array $orderReferences, $shippingOption, $printer = null, $targetWebShop = null)
+    public function generatePdfReturnLabels(array $orderReferences, $shippingOption = null, $printer = null, $targetWebShop = null)
     {
         $orders = [];
 
@@ -141,10 +147,10 @@ class LabelService
         }
 
         $request = new GeneratePdfReturnLabelsRequest(
+            $this->client->getWebShopId(),
+            $orders,
             $printer
         );
-        $request->setWebshop($this->client->getWebShopId());
-        $request->setOrder($orders);
 
         return $this->client->generatePdfReturnLabels($request);
     }
@@ -159,13 +165,15 @@ class LabelService
      */
     public function generateExtraPdfReturnLabel($orderReference, $shippingOption, $printer = null, $targetWebShop = null)
     {
-        $request = new GenerateExtraPdfReturnLabelRequest($printer);
-        $request->setShippingOption($shippingOption)
-            ->setWebshop($this->client->getWebShopId())
-            ->setHash($this->security->getHash($orderReference))
-            ->setTargetWebshop($targetWebShop)
-            ->setOrderReference($orderReference)
-            ->setShippingOption($shippingOption);
+        $request = new GenerateExtraPdfReturnLabelRequest(
+            $this->security->getHash($orderReference),
+            $this->client->getWebShopId(),
+            $targetWebShop,
+            $orderReference,
+            null,
+            $shippingOption,
+            $printer
+        );
 
         return $this->client->generateExtraPdfReturnLabel($request);
     }
@@ -187,7 +195,7 @@ class LabelService
                 $this->security->getHash($orderReference),
                 $targetWebShop,
                 $orderReference,
-                null,
+                [],
                 $batch
             );
         }
@@ -198,9 +206,7 @@ class LabelService
             $includeMetaData
         );
 
-        $response = $this->client->generateImageLabels($request);
-
-        return $this->processResponse($response, $this->generalServiceType);
+        return $this->client->generateImageLabels($request);
     }
 
     /**
@@ -225,11 +231,10 @@ class LabelService
             );
         }
 
-        $request = new GeneratePdfReturnLabelsRequest(
-            $printer
+        $request = new GenerateImageReturnLabelsRequest(
+            $this->client->getWebShopId(),
+            $orders
         );
-        $request->setWebshop($this->client->getWebShopId());
-        $request->setOrder($orders);
 
         return $this->client->generateImageReturnLabels($request);
     }
@@ -242,15 +247,16 @@ class LabelService
      *
      * @return GenerateExtraImageReturnLabelResponse
      */
-    public function generateExtraImageReturnLabel($orderReference, $shippingOption, $printer = null, $targetWebShop = null)
+    public function generateExtraImageReturnLabel($orderReference, $shippingOption, $targetWebShop = null)
     {
-        $request = new GenerateExtraPdfReturnLabelRequest($printer);
-        $request->setShippingOption($shippingOption)
-            ->setWebshop($this->client->getWebShopId())
-            ->setHash($this->security->getHash($orderReference))
-            ->setTargetWebshop($targetWebShop)
-            ->setOrderReference($orderReference)
-            ->setShippingOption($shippingOption);
+        $request = new GenerateExtraImageReturnLabelRequest(
+            $this->security->getHash($orderReference),
+            $this->client->getWebShopId(),
+            $targetWebShop,
+            $orderReference,
+            null,
+            $shippingOption
+        );
 
         return $this->client->generateExtraImageReturnLabel($request);
     }
@@ -270,6 +276,7 @@ class LabelService
             $this->client->getWebShopId(),
             $targetWebShop,
             $orderReference,
+            null,
             $batch,
             $includeMetaData
         );
@@ -321,41 +328,44 @@ class LabelService
      */
     public function getExistingPdfLabel($orderReference, $barCode, $printer = null, $includeMetaData = null, $targetWebShop = null)
     {
-        $request = new GetExistingPdfLabelRequest($printer);
-        $request->setHash($this->security->getHash($orderReference))
-            ->setWebshop($this->client->getWebShopId())
-            ->setOrderReference($orderReference)
-            ->setBarcode($barCode)
-            ->setIncludeMetaData($includeMetaData)
-            ->setTargetWebshop($targetWebShop);
+        $request = new GetExistingPdfLabelRequest(
+            $this->security->getHash($orderReference),
+            $this->client->getWebShopId(),
+            $targetWebShop,
+            $orderReference,
+            $barCode,
+            $includeMetaData,
+            $printer
+        );
 
         return $this->client->getExistingPdfLabel($request);
     }
 
     /**
-     * @param array $barCodes        [$orderReference => $barcode]
+     * @param LabelType[] $labelTypes
      * @param null  $printer
      * @param null  $includeMetaData
      *
      * @return GetExistingPdfLabelsResponse
      */
-    public function getExistingPdfLabels(array $barCodes, $printer = null, $includeMetaData = null)
+    public function getExistingPdfLabels(array $labelTypes, $printer = null, $includeMetaData = null)
     {
         $labels = [];
 
-        foreach ($barCodes as $orderReference => $barcode) {
+        foreach ($labelTypes as $label) {
             $labels[] = new ExistingLabelType(
-                $this->security->getHash($orderReference),
+                $this->security->getHash($label->getOrderReference()),
                 $this->client->getWebShopId(),
-                $orderReference,
-                $barcode
+                $label->getOrderReference(),
+                $label->getBarcode()
             );
         }
 
-        $request = new GetExistingPdfLabelsRequest($printer);
-        $request->setLabel($labels)
-            ->setWebshop($this->client->getWebShopId())
-            ->setIncludeMetaData($includeMetaData);
+        $request = new GetExistingPdfLabelsRequest(
+            $this->client->getWebShopId(),
+            $labels,
+            $includeMetaData,
+            $printer);
 
         return $this->client->getExistingPdfLabels($request);
     }
@@ -370,40 +380,40 @@ class LabelService
      */
     public function getExistingImageLabel($orderReference, $barCode, $includeMetaData = null, $targetWebShop = null)
     {
-        $request = new GetExistingPdfLabelRequest();
-        $request->setHash($this->security->getHash($orderReference))
-            ->setWebshop($this->client->getWebShopId())
-            ->setOrderReference($orderReference)
-            ->setBarcode($barCode)
-            ->setIncludeMetaData($includeMetaData)
-            ->setTargetWebshop($targetWebShop);
-
+        $request = new GetExistingImageLabelRequest(
+            $this->security->getHash($orderReference),
+            $this->client->getWebShopId(),
+            $targetWebShop,
+            $orderReference,
+            $barCode,
+            $includeMetaData);
         return $this->client->getExistingImageLabel($request);
     }
 
     /**
-     * @param array $barCodes        [$orderReference => $barcode]
+     * @param LabelType[] $labelTypes
      * @param null  $includeMetaData
      *
-     * @return GetExistingImageLabelsResponse
+     * @return GetExistingPdfLabelsResponse
      */
-    public function getExistingImageLabels(array $barCodes, $includeMetaData = null)
+    public function getExistingImageLabels(array $labelTypes, $includeMetaData = null)
     {
         $labels = [];
 
-        foreach ($barCodes as $orderReference => $barcode) {
+        foreach ($labelTypes as $label) {
             $labels[] = new ExistingLabelType(
-                $this->security->getHash($orderReference),
+                $this->security->getHash($label->getOrderReference()),
                 $this->client->getWebShopId(),
-                $orderReference,
-                $barcode
+                $label->getOrderReference(),
+                $label->getBarcode()
             );
         }
 
-        $request = new GetExistingPdfLabelsRequest();
-        $request->setLabel($labels)
-            ->setWebshop($this->client->getWebShopId())
-            ->setIncludeMetaData($includeMetaData);
+        $request = new GetExistingImageLabelsRequest(
+            $this->client->getWebShopId(),
+            $labels,
+            $includeMetaData
+        );
 
         return $this->client->getExistingImageLabels($request);
     }

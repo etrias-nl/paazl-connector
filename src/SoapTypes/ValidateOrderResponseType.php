@@ -2,7 +2,9 @@
 
 namespace Etrias\PaazlConnector\SoapTypes;
 
-class ValidateOrderResponseType
+use Etrias\PaazlConnector\Result\PaazlResultInterface;
+
+class ValidateOrderResponseType implements PaazlResultInterface
 {
 
     /**

@@ -40,9 +40,9 @@ class UpdateOrderRequest implements RequestInterface
      * @var int $webshop
      * @var int $targetWebshop
      * @var string $orderReference
-     * @var products $products
+     * @var products[] $products
      */
-    public function __construct($hash, $webshop, $targetWebshop, $orderReference, $products)
+    public function __construct($hash, $webshop, $targetWebshop, $orderReference, array $products)
     {
         $this->hash = $hash;
         $this->webshop = $webshop;

@@ -14,9 +14,9 @@ class GenerateImageLabelsRequest implements RequestInterface
     protected $webshop = null;
 
     /**
-     * @var orderType
+     * @var orderType[]
      */
-    protected $order = null;
+    protected $order = [];
 
     /**
      * @var bool
@@ -27,13 +27,13 @@ class GenerateImageLabelsRequest implements RequestInterface
      * Constructor
      *
      * @var int $webshop
-     * @var orderType $order
+     * @var orderType[] $order
      * @var bool $includeMetaData
      */
-    public function __construct($webshop, $order, $includeMetaData)
+    public function __construct($webshop, array $orders = [], $includeMetaData)
     {
         $this->webshop = $webshop;
-        $this->order = $order;
+        $this->order = $orders;
         $this->includeMetaData = $includeMetaData;
     }
 
@@ -58,18 +58,18 @@ class GenerateImageLabelsRequest implements RequestInterface
     /**
      * @return orderType
      */
-    public function getOrder()
+    public function getOrders()
     {
         return $this->order;
     }
 
     /**
-     * @param orderType $order
+     * @param orderType[] $orders
      * @return $this
      */
-    public function setOrder($order)
+    public function setOrders($orders)
     {
-        $this->order = $order;
+        $this->order = $orders;
         return $this;
     }
 

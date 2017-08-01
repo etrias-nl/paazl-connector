@@ -5,26 +5,29 @@ namespace Etrias\PaazlConnector\SoapTypes;
 
 use Phpro\SoapClient\Type\RequestInterface;
 
-class GeneratePdfReturnLabelsRequest implements RequestInterface
+class GeneratePdfReturnLabelsRequest extends GenerateReturnLabelsType implements RequestInterface
 {
 
     /**
-     * @var printerType
+     * @var string
      */
     protected $printer = null;
 
     /**
      * Constructor
      *
-     * @var printerType $printer
+     * @param int $webShop
+     * @param returnLabelsOrderType[] $order
+     * @var string $printer
      */
-    public function __construct($printer)
+    public function __construct($webShop, $order, $printer)
     {
+        parent::__construct($webShop, $order);
         $this->printer = $printer;
     }
 
     /**
-     * @return printerType
+     * @return string
      */
     public function getPrinter()
     {
@@ -32,7 +35,7 @@ class GeneratePdfReturnLabelsRequest implements RequestInterface
     }
 
     /**
-     * @param printerType $printer
+     * @param string $printer
      * @return $this
      */
     public function setPrinter($printer)

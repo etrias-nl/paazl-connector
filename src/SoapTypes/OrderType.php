@@ -36,10 +36,10 @@ class OrderType
      * @var string $hash
      * @var int $targetWebshop
      * @var string $orderReference
-     * @var labelProducts[] $labelProducts
+     * @var labelProducts $labelProducts
      * @var string $batch
      */
-    public function __construct($hash, $targetWebshop, $orderReference, array $labelProducts = [], $batch = null)
+    public function __construct($hash, $targetWebshop, $orderReference, $labelProducts = null, $batch = null)
     {
         $this->hash = $hash;
         $this->targetWebshop = $targetWebshop;

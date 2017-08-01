@@ -22,6 +22,7 @@ use Etrias\PaazlConnector\Result\PaazlResultInterface;
 use Etrias\PaazlConnector\SoapTypes\AddressRequest;
 use Etrias\PaazlConnector\SoapTypes\AddressResponse;
 use Phpro\SoapClient\Client;
+use Phpro\SoapClient\Type\MixedResult;
 
 /**
  * Class SoapClient.
@@ -42,6 +43,9 @@ class GuzzleSoapClient extends Client implements PaazlClientInterface
     public function __call($name, $arguments) {
         $response = $this->call($name, $arguments[0]);
 
+        if ($response instanceof MixedResult) {
+            $response = $response->getResult();
+        }
         return $this->processResponse($response);
     }
 

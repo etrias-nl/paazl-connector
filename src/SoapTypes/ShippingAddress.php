@@ -93,7 +93,22 @@ class ShippingAddress
      * @var bool $localAddressValidation
      * @var string $additionalInstruction
      */
-    public function __construct($accountNumber, $customerName, $companyName, $nameOther, $street, $housenumber, $addition, $additionalAddressLine, $zipcode, $city, $province, $country, $localAddressValidation, $additionalInstruction)
+    public function __construct(
+        $accountNumber = null,
+        $customerName,
+        $companyName = null,
+        $nameOther = null,
+        $street,
+        $housenumber,
+        $addition = null,
+        $additionalAddressLine = null,
+        $zipcode,
+        $city,
+        $province = null,
+        $country = null,
+        $localAddressValidation = null,
+        $additionalInstruction = null
+    )
     {
         $this->accountNumber = $accountNumber;
         $this->customerName = $customerName;

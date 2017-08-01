@@ -11,7 +11,7 @@ class GetExistingLabelsType
     protected $webshop = null;
 
     /**
-     * @var existingLabelType
+     * @var existingLabelType[]
      */
     protected $label = null;
 
@@ -24,7 +24,7 @@ class GetExistingLabelsType
      * Constructor
      *
      * @var int $webshop
-     * @var existingLabelType $label
+     * @var existingLabelType[] $label
      * @var bool $includeMetaData
      */
     public function __construct($webshop, $label, $includeMetaData)
@@ -53,7 +53,7 @@ class GetExistingLabelsType
     }
 
     /**
-     * @return existingLabelType
+     * @return existingLabelType[]
      */
     public function getLabel()
     {
@@ -61,7 +61,7 @@ class GetExistingLabelsType
     }
 
     /**
-     * @param existingLabelType $label
+     * @param existingLabelType[] $label
      * @return $this
      */
     public function setLabel($label)

@@ -106,12 +106,12 @@ class OrderService
 
     /**
      * @param $orderReference
-     * @param Products $products
+     * @param Products[] $products
      * @param null     $targetWebShop
      *
      * @return OrderSaveResponseType
      */
-    public function updateOrder($orderReference, Products $products, $targetWebShop = null)
+    public function updateOrder($orderReference, array $products, $targetWebShop = null)
     {
         $request = new UpdateOrderRequest(
             $this->security->getHash($orderReference),

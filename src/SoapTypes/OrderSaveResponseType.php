@@ -2,7 +2,9 @@
 
 namespace Etrias\PaazlConnector\SoapTypes;
 
-class OrderSaveResponseType
+use Etrias\PaazlConnector\Result\PaazlResultInterface;
+
+class OrderSaveResponseType implements PaazlResultInterface
 {
 
     /**
