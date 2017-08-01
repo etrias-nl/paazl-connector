@@ -18,13 +18,10 @@ namespace Etrias\PaazlConnector;
 */
 use Etrias\PaazlConnector\Client\PaazlClientInterface;
 use Etrias\PaazlConnector\Exceptions\PaazlException;
+use Etrias\PaazlConnector\Result\PaazlResultInterface;
 use Etrias\PaazlConnector\SoapTypes\AddressRequest;
 use Etrias\PaazlConnector\SoapTypes\AddressResponse;
 use Phpro\SoapClient\Client;
-use Phpro\SoapClient\Type\RequestInterface;
-use Phpro\SoapClient\Type\ResultInterface;
-use Psr\Http\Message\ResponseInterface;
-use WsdlToPhp\PackageBase\AbstractSoapClientBase;
 
 /**
  * Class SoapClient.
@@ -48,39 +45,52 @@ class GuzzleSoapClient extends Client implements PaazlClientInterface
         return $this->processResponse($response);
     }
 
-    public function getWebShopId(): string
+    /**
+     * @inheritdoc
+     */
+    public function getWebShopId()
     {
         return $this->webShopId;
     }
 
-    public function setWebShopId(string $webShopId): PaazlClientInterface
+    /**
+     * @inheritdoc
+     */
+    public function setWebShopId(string $webShopId)
     {
         $this->webShopId = $webShopId;
 
         return $this;
     }
 
-    public function getPassword(): string
+    /**
+     * @inheritdoc
+     */
+    public function getPassword()
     {
         return $this->password;
     }
 
-    public function setPassword(string $password): PaazlClientInterface
+    /**
+     * @inheritdoc
+     */
+    public function setPassword(string $password)
     {
         $this->password = $password;
 
         return $this;
     }
 
-    protected function processResponse(ResultInterface $response)
+    /**
+     * @param PaazlResultInterface $response
+     * @return PaazlResultInterface
+     * @throws PaazlException
+     */
+    public function processResponse(PaazlResultInterface $response)
     {
         if ($response->getError()) {
             $exceptionName = ExceptionMap::getException($response->getError()->getCode());
             throw new $exceptionName();
-        }
-
-        if (!($response instanceof ResultInterface)) {
-            throw new PaazlException('Response is not a ResultInterface');
         }
 
         return $response;

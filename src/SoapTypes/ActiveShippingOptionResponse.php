@@ -3,9 +3,9 @@
 namespace Etrias\PaazlConnector\SoapTypes;
 
 
-use Phpro\SoapClient\Type\ResultInterface;
+use Etrias\PaazlConnector\Result\PaazlResultInterface;
 
-class ActiveShippingOptionResponse implements ResultInterface
+class ActiveShippingOptionResponse implements PaazlResultInterface
 {
 
     /**

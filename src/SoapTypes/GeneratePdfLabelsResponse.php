@@ -3,9 +3,9 @@
 namespace Etrias\PaazlConnector\SoapTypes;
 
 
-use Phpro\SoapClient\Type\ResultInterface;
+use Etrias\PaazlConnector\Result\PaazlResultInterface;
 
-class GeneratePdfLabelsResponse implements ResultInterface
+class GeneratePdfLabelsResponse implements PaazlResultInterface
 {
 
     /**

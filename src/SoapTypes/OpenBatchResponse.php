@@ -3,9 +3,9 @@
 namespace Etrias\PaazlConnector\SoapTypes;
 
 
-use Phpro\SoapClient\Type\ResultInterface;
+use Etrias\PaazlConnector\Result\PaazlResultInterface;
 
-class OpenBatchResponse implements ResultInterface
+class OpenBatchResponse implements PaazlResultInterface
 {
 
     /**

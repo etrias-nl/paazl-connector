@@ -3,9 +3,9 @@
 namespace Etrias\PaazlConnector\SoapTypes;
 
 
-use Phpro\SoapClient\Type\ResultInterface;
+use Etrias\PaazlConnector\Result\PaazlResultInterface;
 
-class CreatePickupRequestResponse implements ResultInterface
+class CreatePickupRequestResponse implements PaazlResultInterface
 {
 
     /**

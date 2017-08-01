@@ -3,9 +3,9 @@
 namespace Etrias\PaazlConnector\SoapTypes;
 
 
-use Phpro\SoapClient\Type\ResultInterface;
+use Etrias\PaazlConnector\Result\PaazlResultInterface;
 
-class GenerateExtraImageReturnLabelResponse implements ResultInterface
+class GenerateExtraImageReturnLabelResponse implements PaazlResultInterface
 {
 
     /**

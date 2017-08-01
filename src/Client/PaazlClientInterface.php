@@ -21,11 +21,25 @@ interface PaazlClientInterface
     const WSDL_STAGING = 'https://staging.paazl.com/parcelshipperservice/orderRequest.wsdl';
 
 
-    public function setWebShopId(string $webShopId): PaazlClientInterface;
+    /**
+     * @param string $webShopId
+     * @return $this
+     */
+    public function setWebShopId(string $webShopId);
 
-    public function setPassword(string $password): PaazlClientInterface;
+    /**
+     * @param string $password
+     * @return $this
+     */
+    public function setPassword(string $password);
 
-    public function getWebShopId() :string;
+    /**
+     * @return string
+     */
+    public function getWebShopId();
 
-    public function getPassword(): string;
+    /**
+     * @return string
+     */
+    public function getPassword();
 }

@@ -3,9 +3,9 @@
 namespace Etrias\PaazlConnector\SoapTypes;
 
 
-use Phpro\SoapClient\Type\ResultInterface;
+use Etrias\PaazlConnector\Result\PaazlResultInterface;
 
-class DeleteOrderResponse implements ResultInterface
+class DeleteOrderResponse implements PaazlResultInterface
 {
 
     /**
