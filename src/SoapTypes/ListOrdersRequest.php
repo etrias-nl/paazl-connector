@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Phpro\SoapClient\Type\RequestInterface;
 
 class ListOrdersRequest implements RequestInterface
 {
-
     /**
      * @var string
      */
@@ -39,14 +47,21 @@ class ListOrdersRequest implements RequestInterface
     protected $carrierStatus = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $hash
-     * @var int $webshop
-     * @var int $targetWebshop
-     * @var \DateTime $changedSince
+     * @var string
+     * @var int                $webshop
+     * @var int                $targetWebshop
+     * @var \DateTime          $changedSince
      * @var nonNegativeInteger $page
-     * @var bool $carrierStatus
+     * @var bool               $carrierStatus
+     *
+     * @param mixed $hash
+     * @param mixed $webshop
+     * @param mixed $targetWebshop
+     * @param mixed $changedSince
+     * @param mixed $page
+     * @param mixed $carrierStatus
      */
     public function __construct($hash, $webshop, $targetWebshop, $changedSince, $page, $carrierStatus)
     {
@@ -68,11 +83,13 @@ class ListOrdersRequest implements RequestInterface
 
     /**
      * @param string $hash
+     *
      * @return $this
      */
     public function setHash($hash)
     {
         $this->hash = $hash;
+
         return $this;
     }
 
@@ -86,11 +103,13 @@ class ListOrdersRequest implements RequestInterface
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -104,11 +123,13 @@ class ListOrdersRequest implements RequestInterface
 
     /**
      * @param int $targetWebshop
+     *
      * @return $this
      */
     public function setTargetWebshop($targetWebshop)
     {
         $this->targetWebshop = $targetWebshop;
+
         return $this;
     }
 
@@ -122,11 +143,13 @@ class ListOrdersRequest implements RequestInterface
 
     /**
      * @param \DateTime $changedSince
+     *
      * @return $this
      */
     public function setChangedSince($changedSince)
     {
         $this->changedSince = $changedSince;
+
         return $this;
     }
 
@@ -140,11 +163,13 @@ class ListOrdersRequest implements RequestInterface
 
     /**
      * @param nonNegativeInteger $page
+     *
      * @return $this
      */
     public function setPage($page)
     {
         $this->page = $page;
+
         return $this;
     }
 
@@ -158,14 +183,13 @@ class ListOrdersRequest implements RequestInterface
 
     /**
      * @param bool $carrierStatus
+     *
      * @return $this
      */
     public function setCarrierStatus($carrierStatus)
     {
         $this->carrierStatus = $carrierStatus;
+
         return $this;
     }
-
-
 }
-

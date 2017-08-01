@@ -1,17 +1,19 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: cprinse
- * Date: 27-7-17
- * Time: 15:43
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */
 
 namespace Tests\Etrias\PaazlConnector\Functional\Services;
 
 use Etrias\PaazlConnector\Services\OrderService;
 use Etrias\PaazlConnector\Services\ShippingService;
-use Etrias\PaazlConnector\SoapTypes\ChangeOrderRequest;
-use Etrias\PaazlConnector\SoapTypes\CommitOrderResponse;
 use Etrias\PaazlConnector\SoapTypes\DeleteOrderResponse;
 use Etrias\PaazlConnector\SoapTypes\DeliveryTypeType;
 use Etrias\PaazlConnector\SoapTypes\ListOrdersResponse;
@@ -22,16 +24,17 @@ use Etrias\PaazlConnector\SoapTypes\Product;
 use Etrias\PaazlConnector\SoapTypes\ShippingAddress;
 use Etrias\PaazlConnector\SoapTypes\ShippingMethod;
 use Etrias\PaazlConnector\SoapTypes\ShippingOption;
-use Etrias\PaazlConnector\SoapTypes\ValidateOrderResponse;
 use Etrias\PaazlConnector\SoapTypes\ValidateOrderResponseType;
 
-
+/**
+ * @coversNothing
+ */
 class OrderServiceTest extends AbstractServiceTest
 {
-    /** @var  string */
+    /** @var string */
     protected static $reference;
 
-    /** @var  string */
+    /** @var string */
     protected static $newReference;
 
     /**
@@ -46,8 +49,8 @@ class OrderServiceTest extends AbstractServiceTest
 
     public static function setUpBeforeClass()
     {
-        self::$reference = 'TEST00'.rand();
-        self::$newReference = 'new_reference_'.rand();
+        self::$reference = 'TEST00'.random_int(0, 999);
+        self::$newReference = 'new_reference_'.random_int(0, 999);
     }
 
     public function setUp()
@@ -77,7 +80,7 @@ class OrderServiceTest extends AbstractServiceTest
                     12,
                     13,
                     1
-                )
+                ),
             ]
         );
         $this->assertInstanceOf(OrderSaveResponseType::class, $response);
@@ -97,7 +100,7 @@ class OrderServiceTest extends AbstractServiceTest
                 12,
                 13,
                 1
-            )
+            ),
             ]
         );
 
@@ -212,6 +215,4 @@ class OrderServiceTest extends AbstractServiceTest
         $response = $this->orderService->deleteOrder(self::$newReference);
         $this->assertInstanceOf(DeleteOrderResponse::class, $response);
     }
-
-
 }

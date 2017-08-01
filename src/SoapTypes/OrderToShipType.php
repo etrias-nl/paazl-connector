@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class OrderToShipType
 {
-
     /**
      * @var int
      */
@@ -26,12 +35,17 @@ class OrderToShipType
     protected $deliveryDate = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var int $webshop
-     * @var string $orderReference
-     * @var string $distributor
+     * @var int
+     * @var string    $orderReference
+     * @var string    $distributor
      * @var \DateTime $deliveryDate
+     *
+     * @param mixed $webshop
+     * @param mixed $orderReference
+     * @param mixed $distributor
+     * @param mixed $deliveryDate
      */
     public function __construct($webshop, $orderReference, $distributor, $deliveryDate)
     {
@@ -51,11 +65,13 @@ class OrderToShipType
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -69,11 +85,13 @@ class OrderToShipType
 
     /**
      * @param string $orderReference
+     *
      * @return $this
      */
     public function setOrderReference($orderReference)
     {
         $this->orderReference = $orderReference;
+
         return $this;
     }
 
@@ -87,11 +105,13 @@ class OrderToShipType
 
     /**
      * @param string $distributor
+     *
      * @return $this
      */
     public function setDistributor($distributor)
     {
         $this->distributor = $distributor;
+
         return $this;
     }
 
@@ -105,14 +125,13 @@ class OrderToShipType
 
     /**
      * @param \DateTime $deliveryDate
+     *
      * @return $this
      */
     public function setDeliveryDate($deliveryDate)
     {
         $this->deliveryDate = $deliveryDate;
+
         return $this;
     }
-
-
 }
-

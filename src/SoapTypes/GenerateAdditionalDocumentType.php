@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 use Phpro\SoapClient\Type\RequestInterface;
 
 class GenerateAdditionalDocumentType implements RequestInterface
 {
-
     /**
      * @var string
      */
@@ -38,14 +47,21 @@ class GenerateAdditionalDocumentType implements RequestInterface
     protected $documentType = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $hash
-     * @var int $webshop
-     * @var int $targetWebshop
-     * @var string $orderReference
-     * @var string $barcode
+     * @var string
+     * @var int                    $webshop
+     * @var int                    $targetWebshop
+     * @var string                 $orderReference
+     * @var string                 $barcode
      * @var additionalDocumentType $documentType
+     *
+     * @param mixed $hash
+     * @param mixed $webshop
+     * @param mixed $targetWebshop
+     * @param mixed $orderReference
+     * @param mixed $barcode
+     * @param mixed $documentType
      */
     public function __construct($hash, $webshop, $targetWebshop, $orderReference, $barcode, $documentType)
     {
@@ -67,11 +83,13 @@ class GenerateAdditionalDocumentType implements RequestInterface
 
     /**
      * @param string $hash
+     *
      * @return $this
      */
     public function setHash($hash)
     {
         $this->hash = $hash;
+
         return $this;
     }
 
@@ -85,11 +103,13 @@ class GenerateAdditionalDocumentType implements RequestInterface
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -103,11 +123,13 @@ class GenerateAdditionalDocumentType implements RequestInterface
 
     /**
      * @param int $targetWebshop
+     *
      * @return $this
      */
     public function setTargetWebshop($targetWebshop)
     {
         $this->targetWebshop = $targetWebshop;
+
         return $this;
     }
 
@@ -121,11 +143,13 @@ class GenerateAdditionalDocumentType implements RequestInterface
 
     /**
      * @param string $orderReference
+     *
      * @return $this
      */
     public function setOrderReference($orderReference)
     {
         $this->orderReference = $orderReference;
+
         return $this;
     }
 
@@ -139,11 +163,13 @@ class GenerateAdditionalDocumentType implements RequestInterface
 
     /**
      * @param string $barcode
+     *
      * @return $this
      */
     public function setBarcode($barcode)
     {
         $this->barcode = $barcode;
+
         return $this;
     }
 
@@ -157,14 +183,13 @@ class GenerateAdditionalDocumentType implements RequestInterface
 
     /**
      * @param additionalDocumentType $documentType
+     *
      * @return $this
      */
     public function setDocumentType($documentType)
     {
         $this->documentType = $documentType;
+
         return $this;
     }
-
-
 }
-

@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Phpro\SoapClient\Type\RequestInterface;
 
 class ServicePointsRequest implements RequestInterface
 {
-
     /**
      * @var string
      */
@@ -64,19 +72,31 @@ class ServicePointsRequest implements RequestInterface
     protected $northEast = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $hash
-     * @var int $webshop
-     * @var int $targetWebshop
-     * @var string $shippingOption
-     * @var bool $evening
-     * @var bool $weekend
-     * @var string $country
-     * @var string $postcode
+     * @var string
+     * @var int                $webshop
+     * @var int                $targetWebshop
+     * @var string             $shippingOption
+     * @var bool               $evening
+     * @var bool               $weekend
+     * @var string             $country
+     * @var string             $postcode
      * @var nonNegativeInteger $limit
-     * @var coordinatesType $southWest
-     * @var coordinatesType $northEast
+     * @var coordinatesType    $southWest
+     * @var coordinatesType    $northEast
+     *
+     * @param mixed $hash
+     * @param mixed $webshop
+     * @param mixed $targetWebshop
+     * @param mixed $shippingOption
+     * @param mixed $evening
+     * @param mixed $weekend
+     * @param mixed $country
+     * @param mixed $postcode
+     * @param mixed $limit
+     * @param mixed $southWest
+     * @param mixed $northEast
      */
     public function __construct($hash, $webshop, $targetWebshop, $shippingOption, $evening, $weekend, $country, $postcode, $limit, $southWest, $northEast)
     {
@@ -103,11 +123,13 @@ class ServicePointsRequest implements RequestInterface
 
     /**
      * @param string $hash
+     *
      * @return $this
      */
     public function setHash($hash)
     {
         $this->hash = $hash;
+
         return $this;
     }
 
@@ -121,11 +143,13 @@ class ServicePointsRequest implements RequestInterface
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -139,11 +163,13 @@ class ServicePointsRequest implements RequestInterface
 
     /**
      * @param int $targetWebshop
+     *
      * @return $this
      */
     public function setTargetWebshop($targetWebshop)
     {
         $this->targetWebshop = $targetWebshop;
+
         return $this;
     }
 
@@ -157,11 +183,13 @@ class ServicePointsRequest implements RequestInterface
 
     /**
      * @param string $shippingOption
+     *
      * @return $this
      */
     public function setShippingOption($shippingOption)
     {
         $this->shippingOption = $shippingOption;
+
         return $this;
     }
 
@@ -175,11 +203,13 @@ class ServicePointsRequest implements RequestInterface
 
     /**
      * @param bool $evening
+     *
      * @return $this
      */
     public function setEvening($evening)
     {
         $this->evening = $evening;
+
         return $this;
     }
 
@@ -193,11 +223,13 @@ class ServicePointsRequest implements RequestInterface
 
     /**
      * @param bool $weekend
+     *
      * @return $this
      */
     public function setWeekend($weekend)
     {
         $this->weekend = $weekend;
+
         return $this;
     }
 
@@ -211,11 +243,13 @@ class ServicePointsRequest implements RequestInterface
 
     /**
      * @param string $country
+     *
      * @return $this
      */
     public function setCountry($country)
     {
         $this->country = $country;
+
         return $this;
     }
 
@@ -229,11 +263,13 @@ class ServicePointsRequest implements RequestInterface
 
     /**
      * @param string $postcode
+     *
      * @return $this
      */
     public function setPostcode($postcode)
     {
         $this->postcode = $postcode;
+
         return $this;
     }
 
@@ -247,11 +283,13 @@ class ServicePointsRequest implements RequestInterface
 
     /**
      * @param nonNegativeInteger $limit
+     *
      * @return $this
      */
     public function setLimit($limit)
     {
         $this->limit = $limit;
+
         return $this;
     }
 
@@ -265,11 +303,13 @@ class ServicePointsRequest implements RequestInterface
 
     /**
      * @param coordinatesType $southWest
+     *
      * @return $this
      */
     public function setSouthWest($southWest)
     {
         $this->southWest = $southWest;
+
         return $this;
     }
 
@@ -283,14 +323,13 @@ class ServicePointsRequest implements RequestInterface
 
     /**
      * @param coordinatesType $northEast
+     *
      * @return $this
      */
     public function setNorthEast($northEast)
     {
         $this->northEast = $northEast;
+
         return $this;
     }
-
-
 }
-

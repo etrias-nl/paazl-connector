@@ -1,48 +1,26 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: cprinse
- * Date: 27-7-17
- * Time: 15:43
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */
 
 namespace Tests\Etrias\PaazlConnector\Functional\Services;
 
-
-use Etrias\PaazlConnector\Client\PaazlClientInterface;
 use Etrias\PaazlConnector\Exceptions\NoPickupRequestOptionsAvailableException;
 use Etrias\PaazlConnector\Exceptions\NoSuchPickupRequestException;
 use Etrias\PaazlConnector\Exceptions\NoSuchPickupRequestOptionException;
-use Etrias\PaazlConnector\GuzzleSoapClient;
-use Etrias\PaazlConnector\Services\BatchService;
-use Etrias\PaazlConnector\Services\ListService;
 use Etrias\PaazlConnector\Services\PickupService;
-use Etrias\PaazlConnector\Services\SecurityService;
-use Etrias\PaazlConnector\Services\StoresService;
-use Etrias\PaazlConnector\SoapTypes\AddressResponse;
 use Etrias\PaazlConnector\SoapTypes\AddressType;
-use Etrias\PaazlConnector\SoapTypes\BatchStatusResponse;
-use Etrias\PaazlConnector\SoapTypes\BusinessHoursType;
-use Etrias\PaazlConnector\SoapTypes\ChangeStoresRequestType;
-use Etrias\PaazlConnector\SoapTypes\ChangeStoresResponseType;
-use Etrias\PaazlConnector\SoapTypes\CloseBatchResponse;
-use Etrias\PaazlConnector\SoapTypes\CoordinatesType;
-use Etrias\PaazlConnector\SoapTypes\CreatePickupRequestResponse;
-use Etrias\PaazlConnector\SoapTypes\DeleteStoresResponse;
-use Etrias\PaazlConnector\SoapTypes\DeliveryEstimateResponse;
-use Etrias\PaazlConnector\SoapTypes\ListOpenBatchesResponse;
-use Etrias\PaazlConnector\SoapTypes\ListStoresResponse;
-use Etrias\PaazlConnector\SoapTypes\OpenBatchResponse;
-use Etrias\PaazlConnector\SoapTypes\PickupRequestOptionsResponse;
-use Etrias\PaazlConnector\SoapTypes\RateResponse;
-use Etrias\PaazlConnector\SoapTypes\ServicePointsResponse;
-use Etrias\PaazlConnector\SoapTypes\StoreDetailsType;
-use Etrias\PaazlConnector\SoapTypes\Time;
-use GuzzleHttp\Client;
-use Phpro\SoapClient\ClientBuilder;
-use Phpro\SoapClient\ClientFactory;
-use Phpro\SoapClient\Soap\Handler\GuzzleHandle;
 
+/**
+ * @coversNothing
+ */
 class PickupServiceTest extends AbstractServiceTest
 {
     /**

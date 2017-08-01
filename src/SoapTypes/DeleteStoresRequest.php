@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Phpro\SoapClient\Type\RequestInterface;
 
 class DeleteStoresRequest implements RequestInterface
 {
-
     /**
      * @var int
      */
@@ -24,11 +32,14 @@ class DeleteStoresRequest implements RequestInterface
     protected $store = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var int $webshop
-     * @var int $targetWebshop
+     * @var int
+     * @var int               $targetWebshop
      * @var deleteStoreType[] $store
+     *
+     * @param mixed $webshop
+     * @param mixed $targetWebshop
      */
     public function __construct($webshop, $targetWebshop, array $stores)
     {
@@ -47,11 +58,13 @@ class DeleteStoresRequest implements RequestInterface
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -65,11 +78,13 @@ class DeleteStoresRequest implements RequestInterface
 
     /**
      * @param int $targetWebshop
+     *
      * @return $this
      */
     public function setTargetWebshop($targetWebshop)
     {
         $this->targetWebshop = $targetWebshop;
+
         return $this;
     }
 
@@ -83,14 +98,13 @@ class DeleteStoresRequest implements RequestInterface
 
     /**
      * @param deleteStoreType[] $store
+     *
      * @return $this
      */
     public function setStores(array $store)
     {
         $this->store = $store;
+
         return $this;
     }
-
-
 }
-

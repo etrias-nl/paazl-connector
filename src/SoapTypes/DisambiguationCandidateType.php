@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class DisambiguationCandidateType
 {
-
     /**
      * @var string
      */
@@ -21,11 +30,15 @@ class DisambiguationCandidateType
     protected $candidate = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $shippingOption
-     * @var string $distributor
+     * @var string
+     * @var string                      $distributor
      * @var deliveryEstimateDestination $candidate
+     *
+     * @param mixed $shippingOption
+     * @param mixed $distributor
+     * @param mixed $candidate
      */
     public function __construct($shippingOption, $distributor, $candidate)
     {
@@ -44,11 +57,13 @@ class DisambiguationCandidateType
 
     /**
      * @param string $shippingOption
+     *
      * @return $this
      */
     public function setShippingOption($shippingOption)
     {
         $this->shippingOption = $shippingOption;
+
         return $this;
     }
 
@@ -62,11 +77,13 @@ class DisambiguationCandidateType
 
     /**
      * @param string $distributor
+     *
      * @return $this
      */
     public function setDistributor($distributor)
     {
         $this->distributor = $distributor;
+
         return $this;
     }
 
@@ -80,14 +97,13 @@ class DisambiguationCandidateType
 
     /**
      * @param deliveryEstimateDestination $candidate
+     *
      * @return $this
      */
     public function setCandidate($candidate)
     {
         $this->candidate = $candidate;
+
         return $this;
     }
-
-
 }
-

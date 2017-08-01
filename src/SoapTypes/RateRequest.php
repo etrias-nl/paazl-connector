@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Phpro\SoapClient\Type\RequestInterface;
 
 class RateRequest implements RequestInterface
 {
-
     /**
      * @var string
      */
@@ -44,15 +52,23 @@ class RateRequest implements RequestInterface
     protected $shippingOption = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $hash
-     * @var int $webshop
-     * @var int $targetWebshop
+     * @var string
+     * @var int    $webshop
+     * @var int    $targetWebshop
      * @var string $orderReference
      * @var string $country
      * @var string $postalCode
      * @var string $shippingOption
+     *
+     * @param mixed $hash
+     * @param mixed $webshop
+     * @param mixed $targetWebshop
+     * @param mixed $orderReference
+     * @param mixed $country
+     * @param mixed $postalCode
+     * @param mixed $shippingOption
      */
     public function __construct($hash, $webshop, $targetWebshop, $orderReference, $country, $postalCode, $shippingOption)
     {
@@ -75,11 +91,13 @@ class RateRequest implements RequestInterface
 
     /**
      * @param string $hash
+     *
      * @return $this
      */
     public function setHash($hash)
     {
         $this->hash = $hash;
+
         return $this;
     }
 
@@ -93,11 +111,13 @@ class RateRequest implements RequestInterface
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -111,11 +131,13 @@ class RateRequest implements RequestInterface
 
     /**
      * @param int $targetWebshop
+     *
      * @return $this
      */
     public function setTargetWebshop($targetWebshop)
     {
         $this->targetWebshop = $targetWebshop;
+
         return $this;
     }
 
@@ -129,11 +151,13 @@ class RateRequest implements RequestInterface
 
     /**
      * @param string $orderReference
+     *
      * @return $this
      */
     public function setOrderReference($orderReference)
     {
         $this->orderReference = $orderReference;
+
         return $this;
     }
 
@@ -147,11 +171,13 @@ class RateRequest implements RequestInterface
 
     /**
      * @param string $country
+     *
      * @return $this
      */
     public function setCountry($country)
     {
         $this->country = $country;
+
         return $this;
     }
 
@@ -165,11 +191,13 @@ class RateRequest implements RequestInterface
 
     /**
      * @param string $postalCode
+     *
      * @return $this
      */
     public function setPostalCode($postalCode)
     {
         $this->postalCode = $postalCode;
+
         return $this;
     }
 
@@ -183,14 +211,13 @@ class RateRequest implements RequestInterface
 
     /**
      * @param string $shippingOption
+     *
      * @return $this
      */
     public function setShippingOption($shippingOption)
     {
         $this->shippingOption = $shippingOption;
+
         return $this;
     }
-
-
 }
-

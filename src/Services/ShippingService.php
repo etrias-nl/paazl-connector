@@ -41,7 +41,7 @@ class ShippingService
     /**
      * DocumentService constructor.
      *
-     * @param PaazlClientInterface       $client
+     * @param PaazlClientInterface     $client
      * @param SecurityServiceInterface $security
      */
     public function __construct(PaazlClientInterface $client, SecurityServiceInterface $security)
@@ -82,7 +82,7 @@ class ShippingService
 
     /**
      * @param CancelShipmentType[] $barCodes
-     * @param null  $targetWebShop
+     * @param null                 $targetWebShop
      *
      * @return CancelShipmentsResponse
      */
@@ -109,13 +109,14 @@ class ShippingService
 
     /**
      * @param $orderReference
-     * @param string $country
+     * @param string             $country
      * @param DateRangeType|null $deliveryDateRange
-     * @param null $postcode
-     * @param bool $extendedDeliveryDateDetails
-     * @param null $shippingOption
-     * @param Source[] $sources
+     * @param null               $postcode
+     * @param bool               $extendedDeliveryDateDetails
+     * @param null               $shippingOption
+     * @param Source[]           $sources
      * @param $targetWebShop
+     *
      * @return ShippingOptionResponse
      */
     public function getShippingOptions(
@@ -128,7 +129,6 @@ class ShippingService
         array $sources = [],
         $targetWebShop = null
     ) {
-
         $sources = new Sources($sources);
 
         $request = new ShippingOptionRequest(

@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class ShippingLabel
 {
-
     /**
      * @var \DateTime
      */
@@ -56,18 +65,29 @@ class ShippingLabel
     protected $carrierStatus = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var \DateTime $createdDate
-     * @var \DateTime $scannedDate
-     * @var \DateTime $deliveredDate
-     * @var \DateTime $deliveredbbDate
-     * @var labelStatusType $currentStatus
-     * @var string $labelCode
-     * @var string $trackingNumber
-     * @var anyURI $trackTraceUrl
-     * @var string $batch
+     * @var \DateTime
+     * @var \DateTime                $scannedDate
+     * @var \DateTime                $deliveredDate
+     * @var \DateTime                $deliveredbbDate
+     * @var labelStatusType          $currentStatus
+     * @var string                   $labelCode
+     * @var string                   $trackingNumber
+     * @var anyURI                   $trackTraceUrl
+     * @var string                   $batch
      * @var carrierStatusHistoryType $carrierStatus
+     *
+     * @param mixed $createdDate
+     * @param mixed $scannedDate
+     * @param mixed $deliveredDate
+     * @param mixed $deliveredbbDate
+     * @param mixed $currentStatus
+     * @param mixed $labelCode
+     * @param mixed $trackingNumber
+     * @param mixed $trackTraceUrl
+     * @param mixed $batch
+     * @param mixed $carrierStatus
      */
     public function __construct($createdDate, $scannedDate, $deliveredDate, $deliveredbbDate, $currentStatus, $labelCode, $trackingNumber, $trackTraceUrl, $batch, $carrierStatus)
     {
@@ -93,11 +113,13 @@ class ShippingLabel
 
     /**
      * @param \DateTime $createdDate
+     *
      * @return $this
      */
     public function setCreatedDate($createdDate)
     {
         $this->createdDate = $createdDate;
+
         return $this;
     }
 
@@ -111,11 +133,13 @@ class ShippingLabel
 
     /**
      * @param \DateTime $scannedDate
+     *
      * @return $this
      */
     public function setScannedDate($scannedDate)
     {
         $this->scannedDate = $scannedDate;
+
         return $this;
     }
 
@@ -129,11 +153,13 @@ class ShippingLabel
 
     /**
      * @param \DateTime $deliveredDate
+     *
      * @return $this
      */
     public function setDeliveredDate($deliveredDate)
     {
         $this->deliveredDate = $deliveredDate;
+
         return $this;
     }
 
@@ -147,11 +173,13 @@ class ShippingLabel
 
     /**
      * @param \DateTime $deliveredbbDate
+     *
      * @return $this
      */
     public function setDeliveredbbDate($deliveredbbDate)
     {
         $this->deliveredbbDate = $deliveredbbDate;
+
         return $this;
     }
 
@@ -165,11 +193,13 @@ class ShippingLabel
 
     /**
      * @param labelStatusType $currentStatus
+     *
      * @return $this
      */
     public function setCurrentStatus($currentStatus)
     {
         $this->currentStatus = $currentStatus;
+
         return $this;
     }
 
@@ -183,11 +213,13 @@ class ShippingLabel
 
     /**
      * @param string $labelCode
+     *
      * @return $this
      */
     public function setLabelCode($labelCode)
     {
         $this->labelCode = $labelCode;
+
         return $this;
     }
 
@@ -201,11 +233,13 @@ class ShippingLabel
 
     /**
      * @param string $trackingNumber
+     *
      * @return $this
      */
     public function setTrackingNumber($trackingNumber)
     {
         $this->trackingNumber = $trackingNumber;
+
         return $this;
     }
 
@@ -219,11 +253,13 @@ class ShippingLabel
 
     /**
      * @param anyURI $trackTraceUrl
+     *
      * @return $this
      */
     public function setTrackTraceUrl($trackTraceUrl)
     {
         $this->trackTraceUrl = $trackTraceUrl;
+
         return $this;
     }
 
@@ -237,11 +273,13 @@ class ShippingLabel
 
     /**
      * @param string $batch
+     *
      * @return $this
      */
     public function setBatch($batch)
     {
         $this->batch = $batch;
+
         return $this;
     }
 
@@ -255,14 +293,13 @@ class ShippingLabel
 
     /**
      * @param carrierStatusHistoryType $carrierStatus
+     *
      * @return $this
      */
     public function setCarrierStatus($carrierStatus)
     {
         $this->carrierStatus = $carrierStatus;
+
         return $this;
     }
-
-
 }
-

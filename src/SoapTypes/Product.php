@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class Product
 {
-
     /**
      * @var positiveInteger
      */
@@ -101,27 +110,47 @@ class Product
     protected $availableStores = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var positiveInteger|null $quantity
-     * @var positiveInteger|null $packagesPerUnit
-     * @var matrix|null $matrix
+     * @var positiveInteger|null
+     * @var positiveInteger|null    $packagesPerUnit
+     * @var matrix|null             $matrix
      * @var nonNegativeDecimal|null $weight
      * @var nonNegativeInteger|null $width
      * @var nonNegativeInteger|null $height
      * @var nonNegativeInteger|null $length
      * @var nonNegativeDecimal|null $volume
-     * @var string|null $code
-     * @var string|null $description
-     * @var string|null $countryOfManufacture
+     * @var string|null             $code
+     * @var string|null             $description
+     * @var string|null             $countryOfManufacture
      * @var nonNegativeDecimal|null $unitPrice
-     * @var currencyCode|null $unitPriceCurrency
-     * @var string|null $hsTariffCode
-     * @var directionType|null $direction
+     * @var currencyCode|null       $unitPriceCurrency
+     * @var string|null             $hsTariffCode
+     * @var directionType|null      $direction
      * @var nonNegativeInteger|null $processingDays
-     * @var bool|null $promotionAbsolute
-     * @var float|null $promotion
-     * @var availableStores|null $availableStores
+     * @var bool|null               $promotionAbsolute
+     * @var float|null              $promotion
+     * @var availableStores|null    $availableStores
+     *
+     * @param null|mixed $quantity
+     * @param null|mixed $packagesPerUnit
+     * @param null|mixed $matrix
+     * @param null|mixed $weight
+     * @param null|mixed $width
+     * @param null|mixed $height
+     * @param null|mixed $length
+     * @param null|mixed $volume
+     * @param null|mixed $code
+     * @param null|mixed $description
+     * @param null|mixed $countryOfManufacture
+     * @param null|mixed $unitPrice
+     * @param null|mixed $unitPriceCurrency
+     * @param null|mixed $hsTariffCode
+     * @param null|mixed $direction
+     * @param null|mixed $processingDays
+     * @param null|mixed $promotionAbsolute
+     * @param null|mixed $promotion
+     * @param null|mixed $availableStores
      */
     public function __construct(
         $quantity = null,
@@ -143,8 +172,7 @@ class Product
         $promotionAbsolute = null,
         $promotion = null,
         $availableStores = null
-    )
-    {
+    ) {
         $this->quantity = $quantity;
         $this->packagesPerUnit = $packagesPerUnit;
         $this->matrix = $matrix;
@@ -176,11 +204,13 @@ class Product
 
     /**
      * @param positiveInteger $quantity
+     *
      * @return $this
      */
     public function setQuantity($quantity)
     {
         $this->quantity = $quantity;
+
         return $this;
     }
 
@@ -194,11 +224,13 @@ class Product
 
     /**
      * @param positiveInteger $packagesPerUnit
+     *
      * @return $this
      */
     public function setPackagesPerUnit($packagesPerUnit)
     {
         $this->packagesPerUnit = $packagesPerUnit;
+
         return $this;
     }
 
@@ -212,11 +244,13 @@ class Product
 
     /**
      * @param matrix $matrix
+     *
      * @return $this
      */
     public function setMatrix($matrix)
     {
         $this->matrix = $matrix;
+
         return $this;
     }
 
@@ -230,11 +264,13 @@ class Product
 
     /**
      * @param nonNegativeDecimal $weight
+     *
      * @return $this
      */
     public function setWeight($weight)
     {
         $this->weight = $weight;
+
         return $this;
     }
 
@@ -248,11 +284,13 @@ class Product
 
     /**
      * @param nonNegativeInteger $width
+     *
      * @return $this
      */
     public function setWidth($width)
     {
         $this->width = $width;
+
         return $this;
     }
 
@@ -266,11 +304,13 @@ class Product
 
     /**
      * @param nonNegativeInteger $height
+     *
      * @return $this
      */
     public function setHeight($height)
     {
         $this->height = $height;
+
         return $this;
     }
 
@@ -284,11 +324,13 @@ class Product
 
     /**
      * @param nonNegativeInteger $length
+     *
      * @return $this
      */
     public function setLength($length)
     {
         $this->length = $length;
+
         return $this;
     }
 
@@ -302,11 +344,13 @@ class Product
 
     /**
      * @param nonNegativeDecimal $volume
+     *
      * @return $this
      */
     public function setVolume($volume)
     {
         $this->volume = $volume;
+
         return $this;
     }
 
@@ -320,11 +364,13 @@ class Product
 
     /**
      * @param string $code
+     *
      * @return $this
      */
     public function setCode($code)
     {
         $this->code = $code;
+
         return $this;
     }
 
@@ -338,11 +384,13 @@ class Product
 
     /**
      * @param string $description
+     *
      * @return $this
      */
     public function setDescription($description)
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -356,11 +404,13 @@ class Product
 
     /**
      * @param string $countryOfManufacture
+     *
      * @return $this
      */
     public function setCountryOfManufacture($countryOfManufacture)
     {
         $this->countryOfManufacture = $countryOfManufacture;
+
         return $this;
     }
 
@@ -374,11 +424,13 @@ class Product
 
     /**
      * @param nonNegativeDecimal $unitPrice
+     *
      * @return $this
      */
     public function setUnitPrice($unitPrice)
     {
         $this->unitPrice = $unitPrice;
+
         return $this;
     }
 
@@ -392,11 +444,13 @@ class Product
 
     /**
      * @param currencyCode $unitPriceCurrency
+     *
      * @return $this
      */
     public function setUnitPriceCurrency($unitPriceCurrency)
     {
         $this->unitPriceCurrency = $unitPriceCurrency;
+
         return $this;
     }
 
@@ -410,11 +464,13 @@ class Product
 
     /**
      * @param string $hsTariffCode
+     *
      * @return $this
      */
     public function setHsTariffCode($hsTariffCode)
     {
         $this->hsTariffCode = $hsTariffCode;
+
         return $this;
     }
 
@@ -428,11 +484,13 @@ class Product
 
     /**
      * @param directionType $direction
+     *
      * @return $this
      */
     public function setDirection($direction)
     {
         $this->direction = $direction;
+
         return $this;
     }
 
@@ -446,11 +504,13 @@ class Product
 
     /**
      * @param nonNegativeInteger $processingDays
+     *
      * @return $this
      */
     public function setProcessingDays($processingDays)
     {
         $this->processingDays = $processingDays;
+
         return $this;
     }
 
@@ -464,11 +524,13 @@ class Product
 
     /**
      * @param bool $promotionAbsolute
+     *
      * @return $this
      */
     public function setPromotionAbsolute($promotionAbsolute)
     {
         $this->promotionAbsolute = $promotionAbsolute;
+
         return $this;
     }
 
@@ -482,11 +544,13 @@ class Product
 
     /**
      * @param float $promotion
+     *
      * @return $this
      */
     public function setPromotion($promotion)
     {
         $this->promotion = $promotion;
+
         return $this;
     }
 
@@ -500,14 +564,13 @@ class Product
 
     /**
      * @param availableStores $availableStores
+     *
      * @return $this
      */
     public function setAvailableStores($availableStores)
     {
         $this->availableStores = $availableStores;
+
         return $this;
     }
-
-
 }
-

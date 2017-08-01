@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class GenerateReturnLabelType
 {
-
     /**
      * @var string
      */
@@ -36,14 +45,21 @@ class GenerateReturnLabelType
     protected $shippingOption = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $hash
-     * @var int $webshop
-     * @var int $targetWebshop
-     * @var string $orderReference
+     * @var string
+     * @var int           $webshop
+     * @var int           $targetWebshop
+     * @var string        $orderReference
      * @var labelProducts $labelProducts
-     * @var string $shippingOption
+     * @var string        $shippingOption
+     *
+     * @param mixed $hash
+     * @param mixed $webshop
+     * @param mixed $targetWebshop
+     * @param mixed $orderReference
+     * @param mixed $labelProducts
+     * @param mixed $shippingOption
      */
     public function __construct($hash, $webshop, $targetWebshop, $orderReference, $labelProducts, $shippingOption)
     {
@@ -65,11 +81,13 @@ class GenerateReturnLabelType
 
     /**
      * @param string $hash
+     *
      * @return $this
      */
     public function setHash($hash)
     {
         $this->hash = $hash;
+
         return $this;
     }
 
@@ -83,11 +101,13 @@ class GenerateReturnLabelType
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -101,11 +121,13 @@ class GenerateReturnLabelType
 
     /**
      * @param int $targetWebshop
+     *
      * @return $this
      */
     public function setTargetWebshop($targetWebshop)
     {
         $this->targetWebshop = $targetWebshop;
+
         return $this;
     }
 
@@ -119,11 +141,13 @@ class GenerateReturnLabelType
 
     /**
      * @param string $orderReference
+     *
      * @return $this
      */
     public function setOrderReference($orderReference)
     {
         $this->orderReference = $orderReference;
+
         return $this;
     }
 
@@ -137,11 +161,13 @@ class GenerateReturnLabelType
 
     /**
      * @param labelProducts $labelProducts
+     *
      * @return $this
      */
     public function setLabelProducts($labelProducts)
     {
         $this->labelProducts = $labelProducts;
+
         return $this;
     }
 
@@ -155,14 +181,13 @@ class GenerateReturnLabelType
 
     /**
      * @param string $shippingOption
+     *
      * @return $this
      */
     public function setShippingOption($shippingOption)
     {
         $this->shippingOption = $shippingOption;
+
         return $this;
     }
-
-
 }
-

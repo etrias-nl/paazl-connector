@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Phpro\SoapClient\Type\RequestInterface;
 
 class GenerateZplLabelsRequest implements RequestInterface
 {
-
     /**
      * @var int
      */
@@ -29,12 +37,16 @@ class GenerateZplLabelsRequest implements RequestInterface
     protected $includeMetaData = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var int $webshop
+     * @var int
      * @var printerType $printer
      * @var orderType[] $order
-     * @var bool $includeMetaData
+     * @var bool        $includeMetaData
+     *
+     * @param mixed $webshop
+     * @param mixed $printer
+     * @param mixed $includeMetaData
      */
     public function __construct($webshop, $printer, array $orders, $includeMetaData)
     {
@@ -54,11 +66,13 @@ class GenerateZplLabelsRequest implements RequestInterface
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -72,11 +86,13 @@ class GenerateZplLabelsRequest implements RequestInterface
 
     /**
      * @param string $printer
+     *
      * @return $this
      */
     public function setPrinter($printer)
     {
         $this->printer = $printer;
+
         return $this;
     }
 
@@ -90,11 +106,13 @@ class GenerateZplLabelsRequest implements RequestInterface
 
     /**
      * @param orderType[] $orders
+     *
      * @return $this
      */
     public function setOrders(array $orders)
     {
         $this->order = $orders;
+
         return $this;
     }
 
@@ -108,14 +126,13 @@ class GenerateZplLabelsRequest implements RequestInterface
 
     /**
      * @param bool $includeMetaData
+     *
      * @return $this
      */
     public function setIncludeMetaData($includeMetaData)
     {
         $this->includeMetaData = $includeMetaData;
+
         return $this;
     }
-
-
 }
-

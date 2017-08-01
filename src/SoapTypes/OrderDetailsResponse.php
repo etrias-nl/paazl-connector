@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Etrias\PaazlConnector\Result\PaazlResultInterface;
 
 class OrderDetailsResponse implements PaazlResultInterface
 {
-
     /**
      * @var errorType
      */
@@ -234,53 +242,99 @@ class OrderDetailsResponse implements PaazlResultInterface
     protected $products = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var errorType $error
-     * @var string $webshopId
-     * @var string $matrixCode
-     * @var \DateTime $createDate
-     * @var string $companyName
-     * @var string $name
-     * @var string $nameOther
-     * @var addressType $shipToAddress
-     * @var string $emailAddress
-     * @var string $phoneNumber
-     * @var string $senderName
-     * @var addressType $senderAddress
-     * @var string $returnName
-     * @var addressType $returnAddress
-     * @var shippingOptionDetailsType $shippingOption
-     * @var servicePointDetailsType $servicePointDetails
-     * @var int $numberOfArticles
-     * @var shippingPaymentType $shippingPaymentType
-     * @var string $billingAccountNumber
-     * @var string $invoiceNumber
-     * @var nonNegativeDecimal $packagingWeight
-     * @var float $customsValue
-     * @var currencyCode $customsValueCurrency
-     * @var dutiesPaymentType $dutiesPaymentType
-     * @var string $dutiesAccountNumber
-     * @var float $orderWeight
-     * @var int $maxLabels
-     * @var bool $collo
-     * @var float $codValue
-     * @var currencyCode $codValueCurrency
-     * @var int $insuredValue
-     * @var currencyCode $insuredValueCurrency
-     * @var packagingTypeType $packagingType
-     * @var \DateTime $pickupDate
-     * @var \DateTime $preferredDeliveryDate
-     * @var bool $preferredDateChosen
-     * @var string $description
-     * @var string $additionalInstruction
+     * @var errorType
+     * @var string                      $webshopId
+     * @var string                      $matrixCode
+     * @var \DateTime                   $createDate
+     * @var string                      $companyName
+     * @var string                      $name
+     * @var string                      $nameOther
+     * @var addressType                 $shipToAddress
+     * @var string                      $emailAddress
+     * @var string                      $phoneNumber
+     * @var string                      $senderName
+     * @var addressType                 $senderAddress
+     * @var string                      $returnName
+     * @var addressType                 $returnAddress
+     * @var shippingOptionDetailsType   $shippingOption
+     * @var servicePointDetailsType     $servicePointDetails
+     * @var int                         $numberOfArticles
+     * @var shippingPaymentType         $shippingPaymentType
+     * @var string                      $billingAccountNumber
+     * @var string                      $invoiceNumber
+     * @var nonNegativeDecimal          $packagingWeight
+     * @var float                       $customsValue
+     * @var currencyCode                $customsValueCurrency
+     * @var dutiesPaymentType           $dutiesPaymentType
+     * @var string                      $dutiesAccountNumber
+     * @var float                       $orderWeight
+     * @var int                         $maxLabels
+     * @var bool                        $collo
+     * @var float                       $codValue
+     * @var currencyCode                $codValueCurrency
+     * @var int                         $insuredValue
+     * @var currencyCode                $insuredValueCurrency
+     * @var packagingTypeType           $packagingType
+     * @var \DateTime                   $pickupDate
+     * @var \DateTime                   $preferredDeliveryDate
+     * @var bool                        $preferredDateChosen
+     * @var string                      $description
+     * @var string                      $additionalInstruction
      * @var shipperNotificationTypeType $shipperNotificationType
-     * @var string $shipperNotificationTarget
+     * @var string                      $shipperNotificationTarget
      * @var shipperNotificationTypeType $additionalShipperNotificationType
-     * @var string $additionalShipperNotificationTarget
-     * @var time $deliveryWindowStart
-     * @var time $deliveryWindowEnd
-     * @var products $products
+     * @var string                      $additionalShipperNotificationTarget
+     * @var time                        $deliveryWindowStart
+     * @var time                        $deliveryWindowEnd
+     * @var products                    $products
+     *
+     * @param mixed $error
+     * @param mixed $webshopId
+     * @param mixed $matrixCode
+     * @param mixed $createDate
+     * @param mixed $companyName
+     * @param mixed $name
+     * @param mixed $nameOther
+     * @param mixed $shipToAddress
+     * @param mixed $emailAddress
+     * @param mixed $phoneNumber
+     * @param mixed $senderName
+     * @param mixed $senderAddress
+     * @param mixed $returnName
+     * @param mixed $returnAddress
+     * @param mixed $shippingOption
+     * @param mixed $servicePointDetails
+     * @param mixed $numberOfArticles
+     * @param mixed $shippingPaymentType
+     * @param mixed $billingAccountNumber
+     * @param mixed $invoiceNumber
+     * @param mixed $packagingWeight
+     * @param mixed $customsValue
+     * @param mixed $customsValueCurrency
+     * @param mixed $dutiesPaymentType
+     * @param mixed $dutiesAccountNumber
+     * @param mixed $orderWeight
+     * @param mixed $maxLabels
+     * @param mixed $collo
+     * @param mixed $codValue
+     * @param mixed $codValueCurrency
+     * @param mixed $insuredValue
+     * @param mixed $insuredValueCurrency
+     * @param mixed $packagingType
+     * @param mixed $pickupDate
+     * @param mixed $preferredDeliveryDate
+     * @param mixed $preferredDateChosen
+     * @param mixed $description
+     * @param mixed $additionalInstruction
+     * @param mixed $shipperNotificationType
+     * @param mixed $shipperNotificationTarget
+     * @param mixed $additionalShipperNotificationType
+     * @param mixed $additionalShipperNotificationTarget
+     * @param mixed $deliveryWindowStart
+     * @param mixed $deliveryWindowEnd
+     * @param mixed $products
      */
     public function __construct($error, $webshopId, $matrixCode, $createDate, $companyName, $name, $nameOther, $shipToAddress, $emailAddress, $phoneNumber, $senderName, $senderAddress, $returnName, $returnAddress, $shippingOption, $servicePointDetails, $numberOfArticles, $shippingPaymentType, $billingAccountNumber, $invoiceNumber, $packagingWeight, $customsValue, $customsValueCurrency, $dutiesPaymentType, $dutiesAccountNumber, $orderWeight, $maxLabels, $collo, $codValue, $codValueCurrency, $insuredValue, $insuredValueCurrency, $packagingType, $pickupDate, $preferredDeliveryDate, $preferredDateChosen, $description, $additionalInstruction, $shipperNotificationType, $shipperNotificationTarget, $additionalShipperNotificationType, $additionalShipperNotificationTarget, $deliveryWindowStart, $deliveryWindowEnd, $products)
     {
@@ -341,11 +395,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param errorType $error
+     *
      * @return $this
      */
     public function setError($error)
     {
         $this->error = $error;
+
         return $this;
     }
 
@@ -359,11 +415,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param string $webshopId
+     *
      * @return $this
      */
     public function setWebshopId($webshopId)
     {
         $this->webshopId = $webshopId;
+
         return $this;
     }
 
@@ -377,11 +435,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param string $matrixCode
+     *
      * @return $this
      */
     public function setMatrixCode($matrixCode)
     {
         $this->matrixCode = $matrixCode;
+
         return $this;
     }
 
@@ -395,11 +455,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param \DateTime $createDate
+     *
      * @return $this
      */
     public function setCreateDate($createDate)
     {
         $this->createDate = $createDate;
+
         return $this;
     }
 
@@ -413,11 +475,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param string $companyName
+     *
      * @return $this
      */
     public function setCompanyName($companyName)
     {
         $this->companyName = $companyName;
+
         return $this;
     }
 
@@ -431,11 +495,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param string $name
+     *
      * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -449,11 +515,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param string $nameOther
+     *
      * @return $this
      */
     public function setNameOther($nameOther)
     {
         $this->nameOther = $nameOther;
+
         return $this;
     }
 
@@ -467,11 +535,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param addressType $shipToAddress
+     *
      * @return $this
      */
     public function setShipToAddress($shipToAddress)
     {
         $this->shipToAddress = $shipToAddress;
+
         return $this;
     }
 
@@ -485,11 +555,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param string $emailAddress
+     *
      * @return $this
      */
     public function setEmailAddress($emailAddress)
     {
         $this->emailAddress = $emailAddress;
+
         return $this;
     }
 
@@ -503,11 +575,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param string $phoneNumber
+     *
      * @return $this
      */
     public function setPhoneNumber($phoneNumber)
     {
         $this->phoneNumber = $phoneNumber;
+
         return $this;
     }
 
@@ -521,11 +595,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param string $senderName
+     *
      * @return $this
      */
     public function setSenderName($senderName)
     {
         $this->senderName = $senderName;
+
         return $this;
     }
 
@@ -539,11 +615,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param addressType $senderAddress
+     *
      * @return $this
      */
     public function setSenderAddress($senderAddress)
     {
         $this->senderAddress = $senderAddress;
+
         return $this;
     }
 
@@ -557,11 +635,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param string $returnName
+     *
      * @return $this
      */
     public function setReturnName($returnName)
     {
         $this->returnName = $returnName;
+
         return $this;
     }
 
@@ -575,11 +655,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param addressType $returnAddress
+     *
      * @return $this
      */
     public function setReturnAddress($returnAddress)
     {
         $this->returnAddress = $returnAddress;
+
         return $this;
     }
 
@@ -593,11 +675,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param shippingOptionDetailsType $shippingOption
+     *
      * @return $this
      */
     public function setShippingOption($shippingOption)
     {
         $this->shippingOption = $shippingOption;
+
         return $this;
     }
 
@@ -611,11 +695,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param servicePointDetailsType $servicePointDetails
+     *
      * @return $this
      */
     public function setServicePointDetails($servicePointDetails)
     {
         $this->servicePointDetails = $servicePointDetails;
+
         return $this;
     }
 
@@ -629,11 +715,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param int $numberOfArticles
+     *
      * @return $this
      */
     public function setNumberOfArticles($numberOfArticles)
     {
         $this->numberOfArticles = $numberOfArticles;
+
         return $this;
     }
 
@@ -647,11 +735,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param shippingPaymentType $shippingPaymentType
+     *
      * @return $this
      */
     public function setShippingPaymentType($shippingPaymentType)
     {
         $this->shippingPaymentType = $shippingPaymentType;
+
         return $this;
     }
 
@@ -665,11 +755,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param string $billingAccountNumber
+     *
      * @return $this
      */
     public function setBillingAccountNumber($billingAccountNumber)
     {
         $this->billingAccountNumber = $billingAccountNumber;
+
         return $this;
     }
 
@@ -683,11 +775,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param string $invoiceNumber
+     *
      * @return $this
      */
     public function setInvoiceNumber($invoiceNumber)
     {
         $this->invoiceNumber = $invoiceNumber;
+
         return $this;
     }
 
@@ -701,11 +795,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param nonNegativeDecimal $packagingWeight
+     *
      * @return $this
      */
     public function setPackagingWeight($packagingWeight)
     {
         $this->packagingWeight = $packagingWeight;
+
         return $this;
     }
 
@@ -719,11 +815,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param float $customsValue
+     *
      * @return $this
      */
     public function setCustomsValue($customsValue)
     {
         $this->customsValue = $customsValue;
+
         return $this;
     }
 
@@ -737,11 +835,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param currencyCode $customsValueCurrency
+     *
      * @return $this
      */
     public function setCustomsValueCurrency($customsValueCurrency)
     {
         $this->customsValueCurrency = $customsValueCurrency;
+
         return $this;
     }
 
@@ -755,11 +855,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param dutiesPaymentType $dutiesPaymentType
+     *
      * @return $this
      */
     public function setDutiesPaymentType($dutiesPaymentType)
     {
         $this->dutiesPaymentType = $dutiesPaymentType;
+
         return $this;
     }
 
@@ -773,11 +875,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param string $dutiesAccountNumber
+     *
      * @return $this
      */
     public function setDutiesAccountNumber($dutiesAccountNumber)
     {
         $this->dutiesAccountNumber = $dutiesAccountNumber;
+
         return $this;
     }
 
@@ -791,11 +895,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param float $orderWeight
+     *
      * @return $this
      */
     public function setOrderWeight($orderWeight)
     {
         $this->orderWeight = $orderWeight;
+
         return $this;
     }
 
@@ -809,11 +915,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param int $maxLabels
+     *
      * @return $this
      */
     public function setMaxLabels($maxLabels)
     {
         $this->maxLabels = $maxLabels;
+
         return $this;
     }
 
@@ -827,11 +935,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param bool $collo
+     *
      * @return $this
      */
     public function setCollo($collo)
     {
         $this->collo = $collo;
+
         return $this;
     }
 
@@ -845,11 +955,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param float $codValue
+     *
      * @return $this
      */
     public function setCodValue($codValue)
     {
         $this->codValue = $codValue;
+
         return $this;
     }
 
@@ -863,11 +975,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param currencyCode $codValueCurrency
+     *
      * @return $this
      */
     public function setCodValueCurrency($codValueCurrency)
     {
         $this->codValueCurrency = $codValueCurrency;
+
         return $this;
     }
 
@@ -881,11 +995,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param int $insuredValue
+     *
      * @return $this
      */
     public function setInsuredValue($insuredValue)
     {
         $this->insuredValue = $insuredValue;
+
         return $this;
     }
 
@@ -899,11 +1015,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param currencyCode $insuredValueCurrency
+     *
      * @return $this
      */
     public function setInsuredValueCurrency($insuredValueCurrency)
     {
         $this->insuredValueCurrency = $insuredValueCurrency;
+
         return $this;
     }
 
@@ -917,11 +1035,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param packagingTypeType $packagingType
+     *
      * @return $this
      */
     public function setPackagingType($packagingType)
     {
         $this->packagingType = $packagingType;
+
         return $this;
     }
 
@@ -935,11 +1055,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param \DateTime $pickupDate
+     *
      * @return $this
      */
     public function setPickupDate($pickupDate)
     {
         $this->pickupDate = $pickupDate;
+
         return $this;
     }
 
@@ -953,11 +1075,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param \DateTime $preferredDeliveryDate
+     *
      * @return $this
      */
     public function setPreferredDeliveryDate($preferredDeliveryDate)
     {
         $this->preferredDeliveryDate = $preferredDeliveryDate;
+
         return $this;
     }
 
@@ -971,11 +1095,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param bool $preferredDateChosen
+     *
      * @return $this
      */
     public function setPreferredDateChosen($preferredDateChosen)
     {
         $this->preferredDateChosen = $preferredDateChosen;
+
         return $this;
     }
 
@@ -989,11 +1115,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param string $description
+     *
      * @return $this
      */
     public function setDescription($description)
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -1007,11 +1135,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param string $additionalInstruction
+     *
      * @return $this
      */
     public function setAdditionalInstruction($additionalInstruction)
     {
         $this->additionalInstruction = $additionalInstruction;
+
         return $this;
     }
 
@@ -1025,11 +1155,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param shipperNotificationTypeType $shipperNotificationType
+     *
      * @return $this
      */
     public function setShipperNotificationType($shipperNotificationType)
     {
         $this->shipperNotificationType = $shipperNotificationType;
+
         return $this;
     }
 
@@ -1043,11 +1175,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param string $shipperNotificationTarget
+     *
      * @return $this
      */
     public function setShipperNotificationTarget($shipperNotificationTarget)
     {
         $this->shipperNotificationTarget = $shipperNotificationTarget;
+
         return $this;
     }
 
@@ -1061,11 +1195,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param shipperNotificationTypeType $additionalShipperNotificationType
+     *
      * @return $this
      */
     public function setAdditionalShipperNotificationType($additionalShipperNotificationType)
     {
         $this->additionalShipperNotificationType = $additionalShipperNotificationType;
+
         return $this;
     }
 
@@ -1079,11 +1215,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param string $additionalShipperNotificationTarget
+     *
      * @return $this
      */
     public function setAdditionalShipperNotificationTarget($additionalShipperNotificationTarget)
     {
         $this->additionalShipperNotificationTarget = $additionalShipperNotificationTarget;
+
         return $this;
     }
 
@@ -1097,11 +1235,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param time $deliveryWindowStart
+     *
      * @return $this
      */
     public function setDeliveryWindowStart($deliveryWindowStart)
     {
         $this->deliveryWindowStart = $deliveryWindowStart;
+
         return $this;
     }
 
@@ -1115,11 +1255,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param time $deliveryWindowEnd
+     *
      * @return $this
      */
     public function setDeliveryWindowEnd($deliveryWindowEnd)
     {
         $this->deliveryWindowEnd = $deliveryWindowEnd;
+
         return $this;
     }
 
@@ -1133,14 +1275,13 @@ class OrderDetailsResponse implements PaazlResultInterface
 
     /**
      * @param products $products
+     *
      * @return $this
      */
     public function setProducts($products)
     {
         $this->products = $products;
+
         return $this;
     }
-
-
 }
-

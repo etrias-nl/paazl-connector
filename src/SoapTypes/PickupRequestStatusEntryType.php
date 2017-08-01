@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class PickupRequestStatusEntryType
 {
-
     /**
      * @var \DateTime
      */
@@ -26,12 +35,17 @@ class PickupRequestStatusEntryType
     protected $description = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var \DateTime $timestamp
+     * @var \DateTime
      * @var pickupRequestStatusType $status
-     * @var string $code
-     * @var string $description
+     * @var string                  $code
+     * @var string                  $description
+     *
+     * @param mixed $timestamp
+     * @param mixed $status
+     * @param mixed $code
+     * @param mixed $description
      */
     public function __construct($timestamp, $status, $code, $description)
     {
@@ -51,11 +65,13 @@ class PickupRequestStatusEntryType
 
     /**
      * @param \DateTime $timestamp
+     *
      * @return $this
      */
     public function setTimestamp($timestamp)
     {
         $this->timestamp = $timestamp;
+
         return $this;
     }
 
@@ -69,11 +85,13 @@ class PickupRequestStatusEntryType
 
     /**
      * @param pickupRequestStatusType $status
+     *
      * @return $this
      */
     public function setStatus($status)
     {
         $this->status = $status;
+
         return $this;
     }
 
@@ -87,11 +105,13 @@ class PickupRequestStatusEntryType
 
     /**
      * @param string $code
+     *
      * @return $this
      */
     public function setCode($code)
     {
         $this->code = $code;
+
         return $this;
     }
 
@@ -105,14 +125,13 @@ class PickupRequestStatusEntryType
 
     /**
      * @param string $description
+     *
      * @return $this
      */
     public function setDescription($description)
     {
         $this->description = $description;
+
         return $this;
     }
-
-
 }
-

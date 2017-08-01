@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Phpro\SoapClient\Type\RequestInterface;
 
 class GenerateImageLabelsRequest implements RequestInterface
 {
-
     /**
      * @var int
      */
@@ -24,13 +32,16 @@ class GenerateImageLabelsRequest implements RequestInterface
     protected $includeMetaData = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var int $webshop
+     * @var int
      * @var orderType[] $order
-     * @var bool $includeMetaData
+     * @var bool        $includeMetaData
+     *
+     * @param mixed $webshop
+     * @param mixed $includeMetaData
      */
-    public function __construct($webshop, array $orders = [], $includeMetaData)
+    public function __construct($webshop, array $orders, $includeMetaData)
     {
         $this->webshop = $webshop;
         $this->order = $orders;
@@ -47,11 +58,13 @@ class GenerateImageLabelsRequest implements RequestInterface
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -65,11 +78,13 @@ class GenerateImageLabelsRequest implements RequestInterface
 
     /**
      * @param orderType[] $orders
+     *
      * @return $this
      */
     public function setOrders($orders)
     {
         $this->order = $orders;
+
         return $this;
     }
 
@@ -83,14 +98,13 @@ class GenerateImageLabelsRequest implements RequestInterface
 
     /**
      * @param bool $includeMetaData
+     *
      * @return $this
      */
     public function setIncludeMetaData($includeMetaData)
     {
         $this->includeMetaData = $includeMetaData;
+
         return $this;
     }
-
-
 }
-

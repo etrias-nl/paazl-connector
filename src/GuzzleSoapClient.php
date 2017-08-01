@@ -26,6 +26,7 @@ use Phpro\SoapClient\Type\MixedResult;
 
 /**
  * Class SoapClient.
+ *
  * @method AddressResponse address (AddressRequest $addressRequest)
  */
 class GuzzleSoapClient extends Client implements PaazlClientInterface
@@ -40,17 +41,19 @@ class GuzzleSoapClient extends Client implements PaazlClientInterface
      */
     private $password;
 
-    public function __call($name, $arguments) {
+    public function __call($name, $arguments)
+    {
         $response = $this->call($name, $arguments[0]);
 
         if ($response instanceof MixedResult) {
             $response = $response->getResult();
         }
+
         return $this->processResponse($response);
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getWebShopId()
     {
@@ -58,7 +61,7 @@ class GuzzleSoapClient extends Client implements PaazlClientInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function setWebShopId(string $webShopId)
     {
@@ -68,7 +71,7 @@ class GuzzleSoapClient extends Client implements PaazlClientInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getPassword()
     {
@@ -76,7 +79,7 @@ class GuzzleSoapClient extends Client implements PaazlClientInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function setPassword(string $password)
     {
@@ -87,8 +90,10 @@ class GuzzleSoapClient extends Client implements PaazlClientInterface
 
     /**
      * @param PaazlResultInterface $response
-     * @return PaazlResultInterface
+     *
      * @throws PaazlException
+     *
+     * @return PaazlResultInterface
      */
     public function processResponse(PaazlResultInterface $response)
     {

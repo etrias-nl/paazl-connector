@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class DeliveryDatesType
 {
-
     /**
      * @var \DateTime
      */
@@ -16,10 +25,13 @@ class DeliveryDatesType
     protected $deliveryDateOption = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var \DateTime $deliveryDate
+     * @var \DateTime
      * @var deliveryDateOptionType $deliveryDateOption
+     *
+     * @param mixed $deliveryDate
+     * @param mixed $deliveryDateOption
      */
     public function __construct($deliveryDate, $deliveryDateOption)
     {
@@ -37,11 +49,13 @@ class DeliveryDatesType
 
     /**
      * @param \DateTime $deliveryDate
+     *
      * @return $this
      */
     public function setDeliveryDate($deliveryDate)
     {
         $this->deliveryDate = $deliveryDate;
+
         return $this;
     }
 
@@ -55,14 +69,13 @@ class DeliveryDatesType
 
     /**
      * @param deliveryDateOptionType $deliveryDateOption
+     *
      * @return $this
      */
     public function setDeliveryDateOption($deliveryDateOption)
     {
         $this->deliveryDateOption = $deliveryDateOption;
+
         return $this;
     }
-
-
 }
-

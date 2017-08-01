@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class GetExistingLabelsType
 {
-
     /**
      * @var int
      */
@@ -21,11 +30,15 @@ class GetExistingLabelsType
     protected $includeMetaData = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var int $webshop
+     * @var int
      * @var existingLabelType[] $label
-     * @var bool $includeMetaData
+     * @var bool                $includeMetaData
+     *
+     * @param mixed $webshop
+     * @param mixed $label
+     * @param mixed $includeMetaData
      */
     public function __construct($webshop, $label, $includeMetaData)
     {
@@ -44,11 +57,13 @@ class GetExistingLabelsType
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -62,11 +77,13 @@ class GetExistingLabelsType
 
     /**
      * @param existingLabelType[] $label
+     *
      * @return $this
      */
     public function setLabel($label)
     {
         $this->label = $label;
+
         return $this;
     }
 
@@ -80,14 +97,13 @@ class GetExistingLabelsType
 
     /**
      * @param bool $includeMetaData
+     *
      * @return $this
      */
     public function setIncludeMetaData($includeMetaData)
     {
         $this->includeMetaData = $includeMetaData;
+
         return $this;
     }
-
-
 }
-

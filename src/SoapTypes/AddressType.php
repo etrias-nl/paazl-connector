@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class AddressType
 {
-
     /**
      * @var string
      */
@@ -51,9 +60,9 @@ class AddressType
     protected $country = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $street
+     * @var string
      * @var string $housenumber
      * @var string $addition
      * @var string $address
@@ -62,8 +71,18 @@ class AddressType
      * @var string $city
      * @var string $province
      * @var string $country
+     *
+     * @param mixed $street
+     * @param mixed $housenumber
+     * @param mixed $addition
+     * @param mixed $address
+     * @param mixed $additionalAddressLine
+     * @param mixed $postcode
+     * @param mixed $city
+     * @param mixed $province
+     * @param mixed $country
      */
-    public function __construct($street, $housenumber, $addition = null, $address = null, $additionalAddressLine = null, $postcode, $city, $province = null, $country)
+    public function __construct($street, $housenumber, $addition, $address, $additionalAddressLine, $postcode, $city, $province, $country)
     {
         $this->street = $street;
         $this->housenumber = $housenumber;
@@ -86,11 +105,13 @@ class AddressType
 
     /**
      * @param string $street
+     *
      * @return $this
      */
     public function setStreet($street)
     {
         $this->street = $street;
+
         return $this;
     }
 
@@ -104,11 +125,13 @@ class AddressType
 
     /**
      * @param string $housenumber
+     *
      * @return $this
      */
     public function setHousenumber($housenumber)
     {
         $this->housenumber = $housenumber;
+
         return $this;
     }
 
@@ -122,11 +145,13 @@ class AddressType
 
     /**
      * @param string $addition
+     *
      * @return $this
      */
     public function setAddition($addition)
     {
         $this->addition = $addition;
+
         return $this;
     }
 
@@ -140,11 +165,13 @@ class AddressType
 
     /**
      * @param string $address
+     *
      * @return $this
      */
     public function setAddress($address)
     {
         $this->address = $address;
+
         return $this;
     }
 
@@ -158,11 +185,13 @@ class AddressType
 
     /**
      * @param string $additionalAddressLine
+     *
      * @return $this
      */
     public function setAdditionalAddressLine($additionalAddressLine)
     {
         $this->additionalAddressLine = $additionalAddressLine;
+
         return $this;
     }
 
@@ -176,11 +205,13 @@ class AddressType
 
     /**
      * @param string $postcode
+     *
      * @return $this
      */
     public function setPostcode($postcode)
     {
         $this->postcode = $postcode;
+
         return $this;
     }
 
@@ -194,11 +225,13 @@ class AddressType
 
     /**
      * @param string $city
+     *
      * @return $this
      */
     public function setCity($city)
     {
         $this->city = $city;
+
         return $this;
     }
 
@@ -212,11 +245,13 @@ class AddressType
 
     /**
      * @param string $province
+     *
      * @return $this
      */
     public function setProvince($province)
     {
         $this->province = $province;
+
         return $this;
     }
 
@@ -230,14 +265,13 @@ class AddressType
 
     /**
      * @param string $country
+     *
      * @return $this
      */
     public function setCountry($country)
     {
         $this->country = $country;
+
         return $this;
     }
-
-
 }
-

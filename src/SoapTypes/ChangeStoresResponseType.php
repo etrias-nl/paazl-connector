@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 use Etrias\PaazlConnector\Result\PaazlResultInterface;
 
 class ChangeStoresResponseType implements PaazlResultInterface
 {
-
     /**
      * @var errorType
      */
@@ -18,10 +27,13 @@ class ChangeStoresResponseType implements PaazlResultInterface
     protected $code = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var errorType $error
-     * @var string $code
+     * @var errorType
+     * @var string    $code
+     *
+     * @param mixed $error
+     * @param mixed $code
      */
     public function __construct($error, $code)
     {
@@ -39,11 +51,13 @@ class ChangeStoresResponseType implements PaazlResultInterface
 
     /**
      * @param errorType $error
+     *
      * @return $this
      */
     public function setError($error)
     {
         $this->error = $error;
+
         return $this;
     }
 
@@ -57,14 +71,13 @@ class ChangeStoresResponseType implements PaazlResultInterface
 
     /**
      * @param string $code
+     *
      * @return $this
      */
     public function setCode($code)
     {
         $this->code = $code;
+
         return $this;
     }
-
-
 }
-

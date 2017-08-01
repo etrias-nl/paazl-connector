@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class ServicePointExtraDetailsStatus
 {
-
     /**
      * @var bool
      */
@@ -36,14 +45,21 @@ class ServicePointExtraDetailsStatus
     protected $referenceEndDate = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var bool $available
-     * @var string $code
-     * @var string $value
+     * @var bool
+     * @var string    $code
+     * @var string    $value
      * @var \DateTime $referenceDate
      * @var \DateTime $referenceStartDate
      * @var \DateTime $referenceEndDate
+     *
+     * @param mixed $available
+     * @param mixed $code
+     * @param mixed $value
+     * @param mixed $referenceDate
+     * @param mixed $referenceStartDate
+     * @param mixed $referenceEndDate
      */
     public function __construct($available, $code, $value, $referenceDate, $referenceStartDate, $referenceEndDate)
     {
@@ -65,11 +81,13 @@ class ServicePointExtraDetailsStatus
 
     /**
      * @param bool $available
+     *
      * @return $this
      */
     public function setAvailable($available)
     {
         $this->available = $available;
+
         return $this;
     }
 
@@ -83,11 +101,13 @@ class ServicePointExtraDetailsStatus
 
     /**
      * @param string $code
+     *
      * @return $this
      */
     public function setCode($code)
     {
         $this->code = $code;
+
         return $this;
     }
 
@@ -101,11 +121,13 @@ class ServicePointExtraDetailsStatus
 
     /**
      * @param string $value
+     *
      * @return $this
      */
     public function setValue($value)
     {
         $this->value = $value;
+
         return $this;
     }
 
@@ -119,11 +141,13 @@ class ServicePointExtraDetailsStatus
 
     /**
      * @param \DateTime $referenceDate
+     *
      * @return $this
      */
     public function setReferenceDate($referenceDate)
     {
         $this->referenceDate = $referenceDate;
+
         return $this;
     }
 
@@ -137,11 +161,13 @@ class ServicePointExtraDetailsStatus
 
     /**
      * @param \DateTime $referenceStartDate
+     *
      * @return $this
      */
     public function setReferenceStartDate($referenceStartDate)
     {
         $this->referenceStartDate = $referenceStartDate;
+
         return $this;
     }
 
@@ -155,14 +181,13 @@ class ServicePointExtraDetailsStatus
 
     /**
      * @param \DateTime $referenceEndDate
+     *
      * @return $this
      */
     public function setReferenceEndDate($referenceEndDate)
     {
         $this->referenceEndDate = $referenceEndDate;
+
         return $this;
     }
-
-
 }
-

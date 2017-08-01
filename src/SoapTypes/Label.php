@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class Label
 {
-
     /**
      * @var \DateTime
      */
@@ -51,17 +60,27 @@ class Label
     protected $deliveryInformation = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var \DateTime $createDate
-     * @var \DateTime $deliveryDate
-     * @var labelStatusType $status
-     * @var string $barcode
-     * @var string $trackingNumber
-     * @var \DateTime $expectedDeliveryDate
-     * @var timeRangeType $expectedDeliveryTimeFrame
+     * @var \DateTime
+     * @var \DateTime                $deliveryDate
+     * @var labelStatusType          $status
+     * @var string                   $barcode
+     * @var string                   $trackingNumber
+     * @var \DateTime                $expectedDeliveryDate
+     * @var timeRangeType            $expectedDeliveryTimeFrame
      * @var carrierStatusHistoryType $carrierStatus
-     * @var string $deliveryInformation
+     * @var string                   $deliveryInformation
+     *
+     * @param mixed $createDate
+     * @param mixed $deliveryDate
+     * @param mixed $status
+     * @param mixed $barcode
+     * @param mixed $trackingNumber
+     * @param mixed $expectedDeliveryDate
+     * @param mixed $expectedDeliveryTimeFrame
+     * @param mixed $carrierStatus
+     * @param mixed $deliveryInformation
      */
     public function __construct($createDate, $deliveryDate, $status, $barcode, $trackingNumber, $expectedDeliveryDate, $expectedDeliveryTimeFrame, $carrierStatus, $deliveryInformation)
     {
@@ -86,11 +105,13 @@ class Label
 
     /**
      * @param \DateTime $createDate
+     *
      * @return $this
      */
     public function setCreateDate($createDate)
     {
         $this->createDate = $createDate;
+
         return $this;
     }
 
@@ -104,11 +125,13 @@ class Label
 
     /**
      * @param \DateTime $deliveryDate
+     *
      * @return $this
      */
     public function setDeliveryDate($deliveryDate)
     {
         $this->deliveryDate = $deliveryDate;
+
         return $this;
     }
 
@@ -122,11 +145,13 @@ class Label
 
     /**
      * @param labelStatusType $status
+     *
      * @return $this
      */
     public function setStatus($status)
     {
         $this->status = $status;
+
         return $this;
     }
 
@@ -140,11 +165,13 @@ class Label
 
     /**
      * @param string $barcode
+     *
      * @return $this
      */
     public function setBarcode($barcode)
     {
         $this->barcode = $barcode;
+
         return $this;
     }
 
@@ -158,11 +185,13 @@ class Label
 
     /**
      * @param string $trackingNumber
+     *
      * @return $this
      */
     public function setTrackingNumber($trackingNumber)
     {
         $this->trackingNumber = $trackingNumber;
+
         return $this;
     }
 
@@ -176,11 +205,13 @@ class Label
 
     /**
      * @param \DateTime $expectedDeliveryDate
+     *
      * @return $this
      */
     public function setExpectedDeliveryDate($expectedDeliveryDate)
     {
         $this->expectedDeliveryDate = $expectedDeliveryDate;
+
         return $this;
     }
 
@@ -194,11 +225,13 @@ class Label
 
     /**
      * @param timeRangeType $expectedDeliveryTimeFrame
+     *
      * @return $this
      */
     public function setExpectedDeliveryTimeFrame($expectedDeliveryTimeFrame)
     {
         $this->expectedDeliveryTimeFrame = $expectedDeliveryTimeFrame;
+
         return $this;
     }
 
@@ -212,11 +245,13 @@ class Label
 
     /**
      * @param carrierStatusHistoryType $carrierStatus
+     *
      * @return $this
      */
     public function setCarrierStatus($carrierStatus)
     {
         $this->carrierStatus = $carrierStatus;
+
         return $this;
     }
 
@@ -230,14 +265,13 @@ class Label
 
     /**
      * @param string $deliveryInformation
+     *
      * @return $this
      */
     public function setDeliveryInformation($deliveryInformation)
     {
         $this->deliveryInformation = $deliveryInformation;
+
         return $this;
     }
-
-
 }
-

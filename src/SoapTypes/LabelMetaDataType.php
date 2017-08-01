@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class LabelMetaDataType
 {
-
     /**
      * @var string
      */
@@ -31,13 +40,19 @@ class LabelMetaDataType
     protected $additionalDocument = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $orderReference
-     * @var string $barcode
-     * @var string $trackingNumber
-     * @var string $batch
+     * @var string
+     * @var string                 $barcode
+     * @var string                 $trackingNumber
+     * @var string                 $batch
      * @var additionalDocumentType $additionalDocument
+     *
+     * @param mixed $orderReference
+     * @param mixed $barcode
+     * @param mixed $trackingNumber
+     * @param mixed $batch
+     * @param mixed $additionalDocument
      */
     public function __construct($orderReference, $barcode, $trackingNumber, $batch, $additionalDocument)
     {
@@ -58,11 +73,13 @@ class LabelMetaDataType
 
     /**
      * @param string $orderReference
+     *
      * @return $this
      */
     public function setOrderReference($orderReference)
     {
         $this->orderReference = $orderReference;
+
         return $this;
     }
 
@@ -76,11 +93,13 @@ class LabelMetaDataType
 
     /**
      * @param string $barcode
+     *
      * @return $this
      */
     public function setBarcode($barcode)
     {
         $this->barcode = $barcode;
+
         return $this;
     }
 
@@ -94,11 +113,13 @@ class LabelMetaDataType
 
     /**
      * @param string $trackingNumber
+     *
      * @return $this
      */
     public function setTrackingNumber($trackingNumber)
     {
         $this->trackingNumber = $trackingNumber;
+
         return $this;
     }
 
@@ -112,11 +133,13 @@ class LabelMetaDataType
 
     /**
      * @param string $batch
+     *
      * @return $this
      */
     public function setBatch($batch)
     {
         $this->batch = $batch;
+
         return $this;
     }
 
@@ -130,14 +153,13 @@ class LabelMetaDataType
 
     /**
      * @param additionalDocumentType $additionalDocument
+     *
      * @return $this
      */
     public function setAdditionalDocument($additionalDocument)
     {
         $this->additionalDocument = $additionalDocument;
+
         return $this;
     }
-
-
 }
-

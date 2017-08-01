@@ -35,7 +35,7 @@ class DocumentService
     /**
      * DocumentService constructor.
      *
-     * @param PaazlClientInterface       $client
+     * @param PaazlClientInterface     $client
      * @param SecurityServiceInterface $security
      */
     public function __construct(PaazlClientInterface $client, SecurityServiceInterface $security)

@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class CarrierStatusHistoryType
 {
-
     /**
      * @var carrierStatusType
      */
@@ -16,10 +25,13 @@ class CarrierStatusHistoryType
     protected $history = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var carrierStatusType $current
-     * @var history $history
+     * @var carrierStatusType
+     * @var history           $history
+     *
+     * @param mixed $current
+     * @param mixed $history
      */
     public function __construct($current, $history)
     {
@@ -37,11 +49,13 @@ class CarrierStatusHistoryType
 
     /**
      * @param carrierStatusType $current
+     *
      * @return $this
      */
     public function setCurrent($current)
     {
         $this->current = $current;
+
         return $this;
     }
 
@@ -55,14 +69,13 @@ class CarrierStatusHistoryType
 
     /**
      * @param history $history
+     *
      * @return $this
      */
     public function setHistory($history)
     {
         $this->history = $history;
+
         return $this;
     }
-
-
 }
-

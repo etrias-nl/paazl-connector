@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class CarrierStatusType
 {
-
     /**
      * @var string
      */
@@ -56,18 +65,29 @@ class CarrierStatusType
     protected $time = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $info
-     * @var string $type
-     * @var string $code
-     * @var string $description
-     * @var string $city
-     * @var string $postalcode
-     * @var string $country
-     * @var string $proofOfDelivery
+     * @var string
+     * @var string    $type
+     * @var string    $code
+     * @var string    $description
+     * @var string    $city
+     * @var string    $postalcode
+     * @var string    $country
+     * @var string    $proofOfDelivery
      * @var \DateTime $date
-     * @var time $time
+     * @var time      $time
+     *
+     * @param mixed $info
+     * @param mixed $type
+     * @param mixed $code
+     * @param mixed $description
+     * @param mixed $city
+     * @param mixed $postalcode
+     * @param mixed $country
+     * @param mixed $proofOfDelivery
+     * @param mixed $date
+     * @param mixed $time
      */
     public function __construct($info, $type, $code, $description, $city, $postalcode, $country, $proofOfDelivery, $date, $time)
     {
@@ -93,11 +113,13 @@ class CarrierStatusType
 
     /**
      * @param string $info
+     *
      * @return $this
      */
     public function setInfo($info)
     {
         $this->info = $info;
+
         return $this;
     }
 
@@ -111,11 +133,13 @@ class CarrierStatusType
 
     /**
      * @param string $type
+     *
      * @return $this
      */
     public function setType($type)
     {
         $this->type = $type;
+
         return $this;
     }
 
@@ -129,11 +153,13 @@ class CarrierStatusType
 
     /**
      * @param string $code
+     *
      * @return $this
      */
     public function setCode($code)
     {
         $this->code = $code;
+
         return $this;
     }
 
@@ -147,11 +173,13 @@ class CarrierStatusType
 
     /**
      * @param string $description
+     *
      * @return $this
      */
     public function setDescription($description)
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -165,11 +193,13 @@ class CarrierStatusType
 
     /**
      * @param string $city
+     *
      * @return $this
      */
     public function setCity($city)
     {
         $this->city = $city;
+
         return $this;
     }
 
@@ -183,11 +213,13 @@ class CarrierStatusType
 
     /**
      * @param string $postalcode
+     *
      * @return $this
      */
     public function setPostalcode($postalcode)
     {
         $this->postalcode = $postalcode;
+
         return $this;
     }
 
@@ -201,11 +233,13 @@ class CarrierStatusType
 
     /**
      * @param string $country
+     *
      * @return $this
      */
     public function setCountry($country)
     {
         $this->country = $country;
+
         return $this;
     }
 
@@ -219,11 +253,13 @@ class CarrierStatusType
 
     /**
      * @param string $proofOfDelivery
+     *
      * @return $this
      */
     public function setProofOfDelivery($proofOfDelivery)
     {
         $this->proofOfDelivery = $proofOfDelivery;
+
         return $this;
     }
 
@@ -237,11 +273,13 @@ class CarrierStatusType
 
     /**
      * @param \DateTime $date
+     *
      * @return $this
      */
     public function setDate($date)
     {
         $this->date = $date;
+
         return $this;
     }
 
@@ -255,14 +293,13 @@ class CarrierStatusType
 
     /**
      * @param time $time
+     *
      * @return $this
      */
     public function setTime($time)
     {
         $this->time = $time;
+
         return $this;
     }
-
-
 }
-

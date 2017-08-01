@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class DeleteStoreType
 {
-
     /**
      * @var string
      */
@@ -16,10 +25,13 @@ class DeleteStoreType
     protected $code = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $hash
+     * @var string
      * @var string $code
+     *
+     * @param mixed $hash
+     * @param mixed $code
      */
     public function __construct($hash, $code)
     {
@@ -37,11 +49,13 @@ class DeleteStoreType
 
     /**
      * @param string $hash
+     *
      * @return $this
      */
     public function setHash($hash)
     {
         $this->hash = $hash;
+
         return $this;
     }
 
@@ -55,14 +69,13 @@ class DeleteStoreType
 
     /**
      * @param string $code
+     *
      * @return $this
      */
     public function setCode($code)
     {
         $this->code = $code;
+
         return $this;
     }
-
-
 }
-

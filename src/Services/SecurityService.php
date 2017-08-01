@@ -13,7 +13,6 @@
 namespace Etrias\PaazlConnector\Services;
 
 use Etrias\PaazlConnector\Client\PaazlClientInterface;
-use Etrias\PaazlConnector\SoapClient;
 
 class SecurityService implements SecurityServiceInterface
 {

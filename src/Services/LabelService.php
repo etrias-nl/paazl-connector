@@ -34,7 +34,6 @@ use Etrias\PaazlConnector\SoapTypes\GenerateZplLabelsResponse;
 use Etrias\PaazlConnector\SoapTypes\GetExistingImageLabelRequest;
 use Etrias\PaazlConnector\SoapTypes\GetExistingImageLabelResponse;
 use Etrias\PaazlConnector\SoapTypes\GetExistingImageLabelsRequest;
-use Etrias\PaazlConnector\SoapTypes\GetExistingImageLabelsResponse;
 use Etrias\PaazlConnector\SoapTypes\GetExistingPdfLabelRequest;
 use Etrias\PaazlConnector\SoapTypes\GetExistingPdfLabelResponse;
 use Etrias\PaazlConnector\SoapTypes\GetExistingPdfLabelsRequest;
@@ -57,7 +56,7 @@ class LabelService
     /**
      * DocumentService constructor.
      *
-     * @param PaazlClientInterface       $client
+     * @param PaazlClientInterface     $client
      * @param SecurityServiceInterface $security
      */
     public function __construct(PaazlClientInterface $client, SecurityServiceInterface $security)
@@ -343,8 +342,8 @@ class LabelService
 
     /**
      * @param LabelType[] $labelTypes
-     * @param null  $printer
-     * @param null  $includeMetaData
+     * @param null        $printer
+     * @param null        $includeMetaData
      *
      * @return GetExistingPdfLabelsResponse
      */
@@ -387,12 +386,13 @@ class LabelService
             $orderReference,
             $barCode,
             $includeMetaData);
+
         return $this->client->getExistingImageLabel($request);
     }
 
     /**
      * @param LabelType[] $labelTypes
-     * @param null  $includeMetaData
+     * @param null        $includeMetaData
      *
      * @return GetExistingPdfLabelsResponse
      */

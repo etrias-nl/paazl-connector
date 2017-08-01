@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Etrias\PaazlConnector\Result\PaazlResultInterface;
 
 class GeneratePdfReturnLabelsResponse implements PaazlResultInterface
 {
-
     /**
      * @var errorType
      */
@@ -19,10 +27,13 @@ class GeneratePdfReturnLabelsResponse implements PaazlResultInterface
     protected $label = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var errorType $error
+     * @var errorType
      * @var base64Binary $label
+     *
+     * @param mixed $error
+     * @param mixed $label
      */
     public function __construct($error, $label)
     {
@@ -40,11 +51,13 @@ class GeneratePdfReturnLabelsResponse implements PaazlResultInterface
 
     /**
      * @param errorType $error
+     *
      * @return $this
      */
     public function setError($error)
     {
         $this->error = $error;
+
         return $this;
     }
 
@@ -58,14 +71,13 @@ class GeneratePdfReturnLabelsResponse implements PaazlResultInterface
 
     /**
      * @param base64Binary $label
+     *
      * @return $this
      */
     public function setLabel($label)
     {
         $this->label = $label;
+
         return $this;
     }
-
-
 }
-

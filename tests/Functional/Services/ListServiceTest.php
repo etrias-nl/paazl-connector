@@ -1,28 +1,27 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: cprinse
- * Date: 27-7-17
- * Time: 15:43
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */
 
 namespace Tests\Etrias\PaazlConnector\Functional\Services;
 
-
-use Etrias\PaazlConnector\Client\PaazlClientInterface;
-use Etrias\PaazlConnector\GuzzleSoapClient;
 use Etrias\PaazlConnector\Services\ListService;
-use Etrias\PaazlConnector\Services\SecurityService;
 use Etrias\PaazlConnector\SoapTypes\AddressResponse;
 use Etrias\PaazlConnector\SoapTypes\CoordinatesType;
 use Etrias\PaazlConnector\SoapTypes\DeliveryEstimateResponse;
 use Etrias\PaazlConnector\SoapTypes\RateResponse;
 use Etrias\PaazlConnector\SoapTypes\ServicePointsResponse;
-use GuzzleHttp\Client;
-use Phpro\SoapClient\ClientBuilder;
-use Phpro\SoapClient\ClientFactory;
-use Phpro\SoapClient\Soap\Handler\GuzzleHandle;
 
+/**
+ * @coversNothing
+ */
 class ListServiceTest extends AbstractServiceTest
 {
     /**
@@ -52,7 +51,6 @@ class ListServiceTest extends AbstractServiceTest
             'NL',
             'Rijen',
             '5121SW'
-
         );
         $this->assertInstanceOf(DeliveryEstimateResponse::class, $response);
     }
@@ -82,7 +80,7 @@ class ListServiceTest extends AbstractServiceTest
         $this->listService->getServicePoints(
             null,
             null,
-            new CoordinatesType(	52.092876, 	5.104480)
+            new CoordinatesType(52.092876, 5.104480)
         );
     }
 
@@ -93,7 +91,7 @@ class ListServiceTest extends AbstractServiceTest
             null,
             null,
             null,
-            new CoordinatesType(	52.092876, 	5.104480)
+            new CoordinatesType(52.092876, 5.104480)
         );
     }
 }

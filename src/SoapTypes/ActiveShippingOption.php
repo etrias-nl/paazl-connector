@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class ActiveShippingOption
 {
-
     /**
      * @var string
      */
@@ -31,13 +40,19 @@ class ActiveShippingOption
     protected $countries = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $type
-     * @var string $description
-     * @var string $distributor
-     * @var string $distributorDescription
+     * @var string
+     * @var string        $description
+     * @var string        $distributor
+     * @var string        $distributorDescription
      * @var countriesType $countries
+     *
+     * @param mixed $type
+     * @param mixed $description
+     * @param mixed $distributor
+     * @param mixed $distributorDescription
+     * @param mixed $countries
      */
     public function __construct($type, $description, $distributor, $distributorDescription, $countries)
     {
@@ -58,11 +73,13 @@ class ActiveShippingOption
 
     /**
      * @param string $type
+     *
      * @return $this
      */
     public function setType($type)
     {
         $this->type = $type;
+
         return $this;
     }
 
@@ -76,11 +93,13 @@ class ActiveShippingOption
 
     /**
      * @param string $description
+     *
      * @return $this
      */
     public function setDescription($description)
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -94,11 +113,13 @@ class ActiveShippingOption
 
     /**
      * @param string $distributor
+     *
      * @return $this
      */
     public function setDistributor($distributor)
     {
         $this->distributor = $distributor;
+
         return $this;
     }
 
@@ -112,11 +133,13 @@ class ActiveShippingOption
 
     /**
      * @param string $distributorDescription
+     *
      * @return $this
      */
     public function setDistributorDescription($distributorDescription)
     {
         $this->distributorDescription = $distributorDescription;
+
         return $this;
     }
 
@@ -130,14 +153,13 @@ class ActiveShippingOption
 
     /**
      * @param countriesType $countries
+     *
      * @return $this
      */
     public function setCountries($countries)
     {
         $this->countries = $countries;
+
         return $this;
     }
-
-
 }
-

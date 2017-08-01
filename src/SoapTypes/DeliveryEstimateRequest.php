@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Phpro\SoapClient\Type\RequestInterface;
 
 class DeliveryEstimateRequest implements RequestInterface
 {
-
     /**
      * @var string
      */
@@ -79,22 +87,37 @@ class DeliveryEstimateRequest implements RequestInterface
     protected $consigneePostcode = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $hash
-     * @var int $webshop
-     * @var int $targetWebshop
-     * @var string $orderReference
-     * @var string $shippingOption
+     * @var string
+     * @var int                $webshop
+     * @var int                $targetWebshop
+     * @var string             $orderReference
+     * @var string             $shippingOption
      * @var nonNegativeDecimal $weight
      * @var nonNegativeDecimal $value
-     * @var currencyCode $valueCurrency
-     * @var string $senderCountry
-     * @var string $senderCity
-     * @var string $senderPostcode
-     * @var string $consigneeCountry
-     * @var string $consigneeCity
-     * @var string $consigneePostcode
+     * @var currencyCode       $valueCurrency
+     * @var string             $senderCountry
+     * @var string             $senderCity
+     * @var string             $senderPostcode
+     * @var string             $consigneeCountry
+     * @var string             $consigneeCity
+     * @var string             $consigneePostcode
+     *
+     * @param mixed $hash
+     * @param mixed $webshop
+     * @param mixed $targetWebshop
+     * @param mixed $orderReference
+     * @param mixed $shippingOption
+     * @param mixed $weight
+     * @param mixed $value
+     * @param mixed $valueCurrency
+     * @param mixed $senderCountry
+     * @param mixed $senderCity
+     * @param mixed $senderPostcode
+     * @param mixed $consigneeCountry
+     * @param mixed $consigneeCity
+     * @param mixed $consigneePostcode
      */
     public function __construct($hash, $webshop, $targetWebshop, $orderReference, $shippingOption, $weight, $value, $valueCurrency, $senderCountry, $senderCity, $senderPostcode, $consigneeCountry, $consigneeCity, $consigneePostcode)
     {
@@ -124,11 +147,13 @@ class DeliveryEstimateRequest implements RequestInterface
 
     /**
      * @param string $hash
+     *
      * @return $this
      */
     public function setHash($hash)
     {
         $this->hash = $hash;
+
         return $this;
     }
 
@@ -142,11 +167,13 @@ class DeliveryEstimateRequest implements RequestInterface
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -160,11 +187,13 @@ class DeliveryEstimateRequest implements RequestInterface
 
     /**
      * @param int $targetWebshop
+     *
      * @return $this
      */
     public function setTargetWebshop($targetWebshop)
     {
         $this->targetWebshop = $targetWebshop;
+
         return $this;
     }
 
@@ -178,11 +207,13 @@ class DeliveryEstimateRequest implements RequestInterface
 
     /**
      * @param string $orderReference
+     *
      * @return $this
      */
     public function setOrderReference($orderReference)
     {
         $this->orderReference = $orderReference;
+
         return $this;
     }
 
@@ -196,11 +227,13 @@ class DeliveryEstimateRequest implements RequestInterface
 
     /**
      * @param string $shippingOption
+     *
      * @return $this
      */
     public function setShippingOption($shippingOption)
     {
         $this->shippingOption = $shippingOption;
+
         return $this;
     }
 
@@ -214,11 +247,13 @@ class DeliveryEstimateRequest implements RequestInterface
 
     /**
      * @param nonNegativeDecimal $weight
+     *
      * @return $this
      */
     public function setWeight($weight)
     {
         $this->weight = $weight;
+
         return $this;
     }
 
@@ -232,11 +267,13 @@ class DeliveryEstimateRequest implements RequestInterface
 
     /**
      * @param nonNegativeDecimal $value
+     *
      * @return $this
      */
     public function setValue($value)
     {
         $this->value = $value;
+
         return $this;
     }
 
@@ -250,11 +287,13 @@ class DeliveryEstimateRequest implements RequestInterface
 
     /**
      * @param currencyCode $valueCurrency
+     *
      * @return $this
      */
     public function setValueCurrency($valueCurrency)
     {
         $this->valueCurrency = $valueCurrency;
+
         return $this;
     }
 
@@ -268,11 +307,13 @@ class DeliveryEstimateRequest implements RequestInterface
 
     /**
      * @param string $senderCountry
+     *
      * @return $this
      */
     public function setSenderCountry($senderCountry)
     {
         $this->senderCountry = $senderCountry;
+
         return $this;
     }
 
@@ -286,11 +327,13 @@ class DeliveryEstimateRequest implements RequestInterface
 
     /**
      * @param string $senderCity
+     *
      * @return $this
      */
     public function setSenderCity($senderCity)
     {
         $this->senderCity = $senderCity;
+
         return $this;
     }
 
@@ -304,11 +347,13 @@ class DeliveryEstimateRequest implements RequestInterface
 
     /**
      * @param string $senderPostcode
+     *
      * @return $this
      */
     public function setSenderPostcode($senderPostcode)
     {
         $this->senderPostcode = $senderPostcode;
+
         return $this;
     }
 
@@ -322,11 +367,13 @@ class DeliveryEstimateRequest implements RequestInterface
 
     /**
      * @param string $consigneeCountry
+     *
      * @return $this
      */
     public function setConsigneeCountry($consigneeCountry)
     {
         $this->consigneeCountry = $consigneeCountry;
+
         return $this;
     }
 
@@ -340,11 +387,13 @@ class DeliveryEstimateRequest implements RequestInterface
 
     /**
      * @param string $consigneeCity
+     *
      * @return $this
      */
     public function setConsigneeCity($consigneeCity)
     {
         $this->consigneeCity = $consigneeCity;
+
         return $this;
     }
 
@@ -358,14 +407,13 @@ class DeliveryEstimateRequest implements RequestInterface
 
     /**
      * @param string $consigneePostcode
+     *
      * @return $this
      */
     public function setConsigneePostcode($consigneePostcode)
     {
         $this->consigneePostcode = $consigneePostcode;
+
         return $this;
     }
-
-
 }
-

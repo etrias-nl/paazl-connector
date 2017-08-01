@@ -1,41 +1,28 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: cprinse
- * Date: 27-7-17
- * Time: 15:43
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */
 
 namespace Tests\Etrias\PaazlConnector\Functional\Services;
 
-
-use Etrias\PaazlConnector\Client\PaazlClientInterface;
-use Etrias\PaazlConnector\GuzzleSoapClient;
-use Etrias\PaazlConnector\Services\BatchService;
-use Etrias\PaazlConnector\Services\ListService;
-use Etrias\PaazlConnector\Services\SecurityService;
 use Etrias\PaazlConnector\Services\StoresService;
-use Etrias\PaazlConnector\SoapTypes\AddressResponse;
 use Etrias\PaazlConnector\SoapTypes\AddressType;
-use Etrias\PaazlConnector\SoapTypes\BatchStatusResponse;
-use Etrias\PaazlConnector\SoapTypes\BusinessHoursType;
-use Etrias\PaazlConnector\SoapTypes\ChangeStoresRequestType;
 use Etrias\PaazlConnector\SoapTypes\ChangeStoresResponseType;
-use Etrias\PaazlConnector\SoapTypes\CloseBatchResponse;
 use Etrias\PaazlConnector\SoapTypes\CoordinatesType;
 use Etrias\PaazlConnector\SoapTypes\DeleteStoresResponse;
-use Etrias\PaazlConnector\SoapTypes\DeliveryEstimateResponse;
-use Etrias\PaazlConnector\SoapTypes\ListOpenBatchesResponse;
 use Etrias\PaazlConnector\SoapTypes\ListStoresResponse;
-use Etrias\PaazlConnector\SoapTypes\OpenBatchResponse;
-use Etrias\PaazlConnector\SoapTypes\RateResponse;
-use Etrias\PaazlConnector\SoapTypes\ServicePointsResponse;
 use Etrias\PaazlConnector\SoapTypes\StoreDetailsType;
-use GuzzleHttp\Client;
-use Phpro\SoapClient\ClientBuilder;
-use Phpro\SoapClient\ClientFactory;
-use Phpro\SoapClient\Soap\Handler\GuzzleHandle;
 
+/**
+ * @coversNothing
+ */
 class StoresServiceTest extends AbstractServiceTest
 {
     /**
@@ -66,9 +53,9 @@ class StoresServiceTest extends AbstractServiceTest
                     'Zuid-Holland',
                     'NL'
                 ),
-                new CoordinatesType(	52.092876, 	5.104480),
+                new CoordinatesType(52.092876, 5.104480),
                null
-            )
+            ),
             ];
 
         $response = $this->storesService->createStores($stores);
@@ -92,9 +79,9 @@ class StoresServiceTest extends AbstractServiceTest
                     'Zuid-Holland',
                     'NL'
                 ),
-                new CoordinatesType(	52.092876, 	5.104480),
+                new CoordinatesType(52.092876, 5.104480),
                 null
-            )
+            ),
         ];
 
         $response = $this->storesService->updateStores($stores);
@@ -112,6 +99,4 @@ class StoresServiceTest extends AbstractServiceTest
         $response = $this->storesService->listStores();
         $this->assertInstanceOf(ListStoresResponse::class, $response);
     }
-
-
 }

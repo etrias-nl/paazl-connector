@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class Order
 {
-
     /**
      * @var \DateTime
      */
@@ -96,26 +105,45 @@ class Order
     protected $label = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var \DateTime $createDate
-     * @var \DateTime $lastModificationDate
-     * @var string $orderReference
-     * @var orderStatusType $status
-     * @var string $distributor
-     * @var string $shippingOption
-     * @var string $companyName
-     * @var string $name
-     * @var string $nameOther
-     * @var addressType $shipToAddress
+     * @var \DateTime
+     * @var \DateTime               $lastModificationDate
+     * @var string                  $orderReference
+     * @var orderStatusType         $status
+     * @var string                  $distributor
+     * @var string                  $shippingOption
+     * @var string                  $companyName
+     * @var string                  $name
+     * @var string                  $nameOther
+     * @var addressType             $shipToAddress
      * @var servicePointDetailsType $servicePointDetails
-     * @var string $emailAddress
-     * @var string $phoneNumber
-     * @var \DateTime $expectedDeliveryDate
-     * @var timeRangeType $expectedDeliveryTimeFrame
-     * @var \DateTime $preferredDeliveryDate
-     * @var bool $preferredDateChosen
-     * @var label $label
+     * @var string                  $emailAddress
+     * @var string                  $phoneNumber
+     * @var \DateTime               $expectedDeliveryDate
+     * @var timeRangeType           $expectedDeliveryTimeFrame
+     * @var \DateTime               $preferredDeliveryDate
+     * @var bool                    $preferredDateChosen
+     * @var label                   $label
+     *
+     * @param mixed $createDate
+     * @param mixed $lastModificationDate
+     * @param mixed $orderReference
+     * @param mixed $status
+     * @param mixed $distributor
+     * @param mixed $shippingOption
+     * @param mixed $companyName
+     * @param mixed $name
+     * @param mixed $nameOther
+     * @param mixed $shipToAddress
+     * @param mixed $servicePointDetails
+     * @param mixed $emailAddress
+     * @param mixed $phoneNumber
+     * @param mixed $expectedDeliveryDate
+     * @param mixed $expectedDeliveryTimeFrame
+     * @param mixed $preferredDeliveryDate
+     * @param mixed $preferredDateChosen
+     * @param mixed $label
      */
     public function __construct($createDate, $lastModificationDate, $orderReference, $status, $distributor, $shippingOption, $companyName, $name, $nameOther, $shipToAddress, $servicePointDetails, $emailAddress, $phoneNumber, $expectedDeliveryDate, $expectedDeliveryTimeFrame, $preferredDeliveryDate, $preferredDateChosen, $label)
     {
@@ -149,11 +177,13 @@ class Order
 
     /**
      * @param \DateTime $createDate
+     *
      * @return $this
      */
     public function setCreateDate($createDate)
     {
         $this->createDate = $createDate;
+
         return $this;
     }
 
@@ -167,11 +197,13 @@ class Order
 
     /**
      * @param \DateTime $lastModificationDate
+     *
      * @return $this
      */
     public function setLastModificationDate($lastModificationDate)
     {
         $this->lastModificationDate = $lastModificationDate;
+
         return $this;
     }
 
@@ -185,11 +217,13 @@ class Order
 
     /**
      * @param string $orderReference
+     *
      * @return $this
      */
     public function setOrderReference($orderReference)
     {
         $this->orderReference = $orderReference;
+
         return $this;
     }
 
@@ -203,11 +237,13 @@ class Order
 
     /**
      * @param orderStatusType $status
+     *
      * @return $this
      */
     public function setStatus($status)
     {
         $this->status = $status;
+
         return $this;
     }
 
@@ -221,11 +257,13 @@ class Order
 
     /**
      * @param string $distributor
+     *
      * @return $this
      */
     public function setDistributor($distributor)
     {
         $this->distributor = $distributor;
+
         return $this;
     }
 
@@ -239,11 +277,13 @@ class Order
 
     /**
      * @param string $shippingOption
+     *
      * @return $this
      */
     public function setShippingOption($shippingOption)
     {
         $this->shippingOption = $shippingOption;
+
         return $this;
     }
 
@@ -257,11 +297,13 @@ class Order
 
     /**
      * @param string $companyName
+     *
      * @return $this
      */
     public function setCompanyName($companyName)
     {
         $this->companyName = $companyName;
+
         return $this;
     }
 
@@ -275,11 +317,13 @@ class Order
 
     /**
      * @param string $name
+     *
      * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -293,11 +337,13 @@ class Order
 
     /**
      * @param string $nameOther
+     *
      * @return $this
      */
     public function setNameOther($nameOther)
     {
         $this->nameOther = $nameOther;
+
         return $this;
     }
 
@@ -311,11 +357,13 @@ class Order
 
     /**
      * @param addressType $shipToAddress
+     *
      * @return $this
      */
     public function setShipToAddress($shipToAddress)
     {
         $this->shipToAddress = $shipToAddress;
+
         return $this;
     }
 
@@ -329,11 +377,13 @@ class Order
 
     /**
      * @param servicePointDetailsType $servicePointDetails
+     *
      * @return $this
      */
     public function setServicePointDetails($servicePointDetails)
     {
         $this->servicePointDetails = $servicePointDetails;
+
         return $this;
     }
 
@@ -347,11 +397,13 @@ class Order
 
     /**
      * @param string $emailAddress
+     *
      * @return $this
      */
     public function setEmailAddress($emailAddress)
     {
         $this->emailAddress = $emailAddress;
+
         return $this;
     }
 
@@ -365,11 +417,13 @@ class Order
 
     /**
      * @param string $phoneNumber
+     *
      * @return $this
      */
     public function setPhoneNumber($phoneNumber)
     {
         $this->phoneNumber = $phoneNumber;
+
         return $this;
     }
 
@@ -383,11 +437,13 @@ class Order
 
     /**
      * @param \DateTime $expectedDeliveryDate
+     *
      * @return $this
      */
     public function setExpectedDeliveryDate($expectedDeliveryDate)
     {
         $this->expectedDeliveryDate = $expectedDeliveryDate;
+
         return $this;
     }
 
@@ -401,11 +457,13 @@ class Order
 
     /**
      * @param timeRangeType $expectedDeliveryTimeFrame
+     *
      * @return $this
      */
     public function setExpectedDeliveryTimeFrame($expectedDeliveryTimeFrame)
     {
         $this->expectedDeliveryTimeFrame = $expectedDeliveryTimeFrame;
+
         return $this;
     }
 
@@ -419,11 +477,13 @@ class Order
 
     /**
      * @param \DateTime $preferredDeliveryDate
+     *
      * @return $this
      */
     public function setPreferredDeliveryDate($preferredDeliveryDate)
     {
         $this->preferredDeliveryDate = $preferredDeliveryDate;
+
         return $this;
     }
 
@@ -437,11 +497,13 @@ class Order
 
     /**
      * @param bool $preferredDateChosen
+     *
      * @return $this
      */
     public function setPreferredDateChosen($preferredDateChosen)
     {
         $this->preferredDateChosen = $preferredDateChosen;
+
         return $this;
     }
 
@@ -455,14 +517,13 @@ class Order
 
     /**
      * @param label $label
+     *
      * @return $this
      */
     public function setLabel($label)
     {
         $this->label = $label;
+
         return $this;
     }
-
-
 }
-

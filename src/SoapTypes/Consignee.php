@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class Consignee
 {
-
     /**
      * @var string
      */
@@ -21,11 +30,15 @@ class Consignee
     protected $city = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $country
+     * @var string
      * @var string $postcode
      * @var string $city
+     *
+     * @param mixed $country
+     * @param mixed $postcode
+     * @param mixed $city
      */
     public function __construct($country, $postcode, $city)
     {
@@ -44,11 +57,13 @@ class Consignee
 
     /**
      * @param string $country
+     *
      * @return $this
      */
     public function setCountry($country)
     {
         $this->country = $country;
+
         return $this;
     }
 
@@ -62,11 +77,13 @@ class Consignee
 
     /**
      * @param string $postcode
+     *
      * @return $this
      */
     public function setPostcode($postcode)
     {
         $this->postcode = $postcode;
+
         return $this;
     }
 
@@ -80,14 +97,13 @@ class Consignee
 
     /**
      * @param string $city
+     *
      * @return $this
      */
     public function setCity($city)
     {
         $this->city = $city;
+
         return $this;
     }
-
-
 }
-

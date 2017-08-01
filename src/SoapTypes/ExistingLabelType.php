@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class ExistingLabelType
 {
-
     /**
      * @var string
      */
@@ -26,12 +35,17 @@ class ExistingLabelType
     protected $barcode = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $hash
-     * @var int $targetWebshop
+     * @var string
+     * @var int    $targetWebshop
      * @var string $orderReference
      * @var string $barcode
+     *
+     * @param mixed $hash
+     * @param mixed $targetWebshop
+     * @param mixed $orderReference
+     * @param mixed $barcode
      */
     public function __construct($hash, $targetWebshop, $orderReference, $barcode)
     {
@@ -51,11 +65,13 @@ class ExistingLabelType
 
     /**
      * @param string $hash
+     *
      * @return $this
      */
     public function setHash($hash)
     {
         $this->hash = $hash;
+
         return $this;
     }
 
@@ -69,11 +85,13 @@ class ExistingLabelType
 
     /**
      * @param int $targetWebshop
+     *
      * @return $this
      */
     public function setTargetWebshop($targetWebshop)
     {
         $this->targetWebshop = $targetWebshop;
+
         return $this;
     }
 
@@ -87,11 +105,13 @@ class ExistingLabelType
 
     /**
      * @param string $orderReference
+     *
      * @return $this
      */
     public function setOrderReference($orderReference)
     {
         $this->orderReference = $orderReference;
+
         return $this;
     }
 
@@ -105,14 +125,13 @@ class ExistingLabelType
 
     /**
      * @param string $barcode
+     *
      * @return $this
      */
     public function setBarcode($barcode)
     {
         $this->barcode = $barcode;
+
         return $this;
     }
-
-
 }
-

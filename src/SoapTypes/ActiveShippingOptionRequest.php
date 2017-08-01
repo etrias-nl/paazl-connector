@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Phpro\SoapClient\Type\RequestInterface;
 
 class ActiveShippingOptionRequest implements RequestInterface
 {
-
     /**
      * @var int
      */
@@ -19,10 +27,13 @@ class ActiveShippingOptionRequest implements RequestInterface
     protected $apiKey = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var int $webshop
+     * @var int
      * @var string $apiKey
+     *
+     * @param mixed $webshop
+     * @param mixed $apiKey
      */
     public function __construct($webshop, $apiKey)
     {
@@ -40,11 +51,13 @@ class ActiveShippingOptionRequest implements RequestInterface
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -58,14 +71,13 @@ class ActiveShippingOptionRequest implements RequestInterface
 
     /**
      * @param string $apiKey
+     *
      * @return $this
      */
     public function setApiKey($apiKey)
     {
         $this->apiKey = $apiKey;
+
         return $this;
     }
-
-
 }
-

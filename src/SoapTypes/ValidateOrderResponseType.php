@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 use Etrias\PaazlConnector\Result\PaazlResultInterface;
 
 class ValidateOrderResponseType implements PaazlResultInterface
 {
-
     /**
      * @var errorType
      */
@@ -18,10 +27,13 @@ class ValidateOrderResponseType implements PaazlResultInterface
     protected $succes = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var errorType $error
-     * @var string $succes
+     * @var errorType
+     * @var string    $succes
+     *
+     * @param mixed $error
+     * @param mixed $succes
      */
     public function __construct($error, $succes)
     {
@@ -39,11 +51,13 @@ class ValidateOrderResponseType implements PaazlResultInterface
 
     /**
      * @param errorType $error
+     *
      * @return $this
      */
     public function setError($error)
     {
         $this->error = $error;
+
         return $this;
     }
 
@@ -57,14 +71,13 @@ class ValidateOrderResponseType implements PaazlResultInterface
 
     /**
      * @param string $succes
+     *
      * @return $this
      */
     public function setSucces($succes)
     {
         $this->succes = $succes;
+
         return $this;
     }
-
-
 }
-

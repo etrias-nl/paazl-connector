@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class ServicePointDetailsType
 {
-
     /**
      * @var string
      */
@@ -31,13 +40,19 @@ class ServicePointDetailsType
     protected $address = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $code
-     * @var string $name
-     * @var string $notificationEmail
-     * @var string $notificationMobile
+     * @var string
+     * @var string      $name
+     * @var string      $notificationEmail
+     * @var string      $notificationMobile
      * @var addressType $address
+     *
+     * @param mixed $code
+     * @param mixed $name
+     * @param mixed $notificationEmail
+     * @param mixed $notificationMobile
+     * @param mixed $address
      */
     public function __construct($code, $name, $notificationEmail, $notificationMobile, $address)
     {
@@ -58,11 +73,13 @@ class ServicePointDetailsType
 
     /**
      * @param string $code
+     *
      * @return $this
      */
     public function setCode($code)
     {
         $this->code = $code;
+
         return $this;
     }
 
@@ -76,11 +93,13 @@ class ServicePointDetailsType
 
     /**
      * @param string $name
+     *
      * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -94,11 +113,13 @@ class ServicePointDetailsType
 
     /**
      * @param string $notificationEmail
+     *
      * @return $this
      */
     public function setNotificationEmail($notificationEmail)
     {
         $this->notificationEmail = $notificationEmail;
+
         return $this;
     }
 
@@ -112,11 +133,13 @@ class ServicePointDetailsType
 
     /**
      * @param string $notificationMobile
+     *
      * @return $this
      */
     public function setNotificationMobile($notificationMobile)
     {
         $this->notificationMobile = $notificationMobile;
+
         return $this;
     }
 
@@ -130,14 +153,13 @@ class ServicePointDetailsType
 
     /**
      * @param addressType $address
+     *
      * @return $this
      */
     public function setAddress($address)
     {
         $this->address = $address;
+
         return $this;
     }
-
-
 }
-

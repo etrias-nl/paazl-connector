@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class SenderAddress
 {
-
     /**
      * @var string
      */
@@ -51,9 +60,9 @@ class SenderAddress
     protected $additionalAddressLine = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $addresseeLine
+     * @var string
      * @var string $street
      * @var string $housenumber
      * @var string $addition
@@ -62,6 +71,16 @@ class SenderAddress
      * @var string $province
      * @var string $country
      * @var string $additionalAddressLine
+     *
+     * @param mixed $addresseeLine
+     * @param mixed $street
+     * @param mixed $housenumber
+     * @param mixed $addition
+     * @param mixed $zipcode
+     * @param mixed $city
+     * @param mixed $province
+     * @param mixed $country
+     * @param mixed $additionalAddressLine
      */
     public function __construct($addresseeLine, $street, $housenumber, $addition, $zipcode, $city, $province, $country, $additionalAddressLine)
     {
@@ -86,11 +105,13 @@ class SenderAddress
 
     /**
      * @param string $addresseeLine
+     *
      * @return $this
      */
     public function setAddresseeLine($addresseeLine)
     {
         $this->addresseeLine = $addresseeLine;
+
         return $this;
     }
 
@@ -104,11 +125,13 @@ class SenderAddress
 
     /**
      * @param string $street
+     *
      * @return $this
      */
     public function setStreet($street)
     {
         $this->street = $street;
+
         return $this;
     }
 
@@ -122,11 +145,13 @@ class SenderAddress
 
     /**
      * @param string $housenumber
+     *
      * @return $this
      */
     public function setHousenumber($housenumber)
     {
         $this->housenumber = $housenumber;
+
         return $this;
     }
 
@@ -140,11 +165,13 @@ class SenderAddress
 
     /**
      * @param string $addition
+     *
      * @return $this
      */
     public function setAddition($addition)
     {
         $this->addition = $addition;
+
         return $this;
     }
 
@@ -158,11 +185,13 @@ class SenderAddress
 
     /**
      * @param string $zipcode
+     *
      * @return $this
      */
     public function setZipcode($zipcode)
     {
         $this->zipcode = $zipcode;
+
         return $this;
     }
 
@@ -176,11 +205,13 @@ class SenderAddress
 
     /**
      * @param string $city
+     *
      * @return $this
      */
     public function setCity($city)
     {
         $this->city = $city;
+
         return $this;
     }
 
@@ -194,11 +225,13 @@ class SenderAddress
 
     /**
      * @param string $province
+     *
      * @return $this
      */
     public function setProvince($province)
     {
         $this->province = $province;
+
         return $this;
     }
 
@@ -212,11 +245,13 @@ class SenderAddress
 
     /**
      * @param string $country
+     *
      * @return $this
      */
     public function setCountry($country)
     {
         $this->country = $country;
+
         return $this;
     }
 
@@ -230,14 +265,13 @@ class SenderAddress
 
     /**
      * @param string $additionalAddressLine
+     *
      * @return $this
      */
     public function setAdditionalAddressLine($additionalAddressLine)
     {
         $this->additionalAddressLine = $additionalAddressLine;
+
         return $this;
     }
-
-
 }
-

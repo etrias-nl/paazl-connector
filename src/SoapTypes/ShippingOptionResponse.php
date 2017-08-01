@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Etrias\PaazlConnector\Result\PaazlResultInterface;
 
 class ShippingOptionResponse implements PaazlResultInterface
 {
-
     /**
      * @var errorType
      */
@@ -24,11 +32,15 @@ class ShippingOptionResponse implements PaazlResultInterface
     protected $shippingOptions = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var errorType $error
-     * @var string $deliveryMatrix
+     * @var errorType
+     * @var string          $deliveryMatrix
      * @var shippingOptions $shippingOptions
+     *
+     * @param mixed $error
+     * @param mixed $deliveryMatrix
+     * @param mixed $shippingOptions
      */
     public function __construct($error, $deliveryMatrix, $shippingOptions)
     {
@@ -47,11 +59,13 @@ class ShippingOptionResponse implements PaazlResultInterface
 
     /**
      * @param errorType $error
+     *
      * @return $this
      */
     public function setError($error)
     {
         $this->error = $error;
+
         return $this;
     }
 
@@ -65,11 +79,13 @@ class ShippingOptionResponse implements PaazlResultInterface
 
     /**
      * @param string $deliveryMatrix
+     *
      * @return $this
      */
     public function setDeliveryMatrix($deliveryMatrix)
     {
         $this->deliveryMatrix = $deliveryMatrix;
+
         return $this;
     }
 
@@ -83,14 +99,13 @@ class ShippingOptionResponse implements PaazlResultInterface
 
     /**
      * @param shippingOptions $shippingOptions
+     *
      * @return $this
      */
     public function setShippingOptions($shippingOptions)
     {
         $this->shippingOptions = $shippingOptions;
+
         return $this;
     }
-
-
 }
-

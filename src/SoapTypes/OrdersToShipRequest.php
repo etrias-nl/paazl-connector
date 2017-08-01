@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Phpro\SoapClient\Type\RequestInterface;
 
 class OrdersToShipRequest implements RequestInterface
 {
-
     /**
      * @var string
      */
@@ -29,12 +37,17 @@ class OrdersToShipRequest implements RequestInterface
     protected $date = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $hash
-     * @var int $webshop
-     * @var int $targetWebshop
+     * @var string
+     * @var int       $webshop
+     * @var int       $targetWebshop
      * @var \DateTime $date
+     *
+     * @param mixed $hash
+     * @param mixed $webshop
+     * @param mixed $targetWebshop
+     * @param mixed $date
      */
     public function __construct($hash, $webshop, $targetWebshop, $date)
     {
@@ -54,11 +67,13 @@ class OrdersToShipRequest implements RequestInterface
 
     /**
      * @param string $hash
+     *
      * @return $this
      */
     public function setHash($hash)
     {
         $this->hash = $hash;
+
         return $this;
     }
 
@@ -72,11 +87,13 @@ class OrdersToShipRequest implements RequestInterface
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -90,11 +107,13 @@ class OrdersToShipRequest implements RequestInterface
 
     /**
      * @param int $targetWebshop
+     *
      * @return $this
      */
     public function setTargetWebshop($targetWebshop)
     {
         $this->targetWebshop = $targetWebshop;
+
         return $this;
     }
 
@@ -108,14 +127,13 @@ class OrdersToShipRequest implements RequestInterface
 
     /**
      * @param \DateTime $date
+     *
      * @return $this
      */
     public function setDate($date)
     {
         $this->date = $date;
+
         return $this;
     }
-
-
 }
-

@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Etrias\PaazlConnector\Result\PaazlResultInterface;
 
 class CheckoutStatusResponse implements PaazlResultInterface
 {
-
     /**
      * @var errorType
      */
@@ -39,14 +47,21 @@ class CheckoutStatusResponse implements PaazlResultInterface
     protected $notification = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var errorType $error
-     * @var language $locale
-     * @var anyURI $callbackUrl
-     * @var consignee $consignee
-     * @var delivery $delivery
+     * @var errorType
+     * @var language     $locale
+     * @var anyURI       $callbackUrl
+     * @var consignee    $consignee
+     * @var delivery     $delivery
      * @var notification $notification
+     *
+     * @param mixed $error
+     * @param mixed $locale
+     * @param mixed $callbackUrl
+     * @param mixed $consignee
+     * @param mixed $delivery
+     * @param mixed $notification
      */
     public function __construct($error, $locale, $callbackUrl, $consignee, $delivery, $notification)
     {
@@ -68,11 +83,13 @@ class CheckoutStatusResponse implements PaazlResultInterface
 
     /**
      * @param errorType $error
+     *
      * @return $this
      */
     public function setError($error)
     {
         $this->error = $error;
+
         return $this;
     }
 
@@ -86,11 +103,13 @@ class CheckoutStatusResponse implements PaazlResultInterface
 
     /**
      * @param language $locale
+     *
      * @return $this
      */
     public function setLocale($locale)
     {
         $this->locale = $locale;
+
         return $this;
     }
 
@@ -104,11 +123,13 @@ class CheckoutStatusResponse implements PaazlResultInterface
 
     /**
      * @param anyURI $callbackUrl
+     *
      * @return $this
      */
     public function setCallbackUrl($callbackUrl)
     {
         $this->callbackUrl = $callbackUrl;
+
         return $this;
     }
 
@@ -122,11 +143,13 @@ class CheckoutStatusResponse implements PaazlResultInterface
 
     /**
      * @param consignee $consignee
+     *
      * @return $this
      */
     public function setConsignee($consignee)
     {
         $this->consignee = $consignee;
+
         return $this;
     }
 
@@ -140,11 +163,13 @@ class CheckoutStatusResponse implements PaazlResultInterface
 
     /**
      * @param delivery $delivery
+     *
      * @return $this
      */
     public function setDelivery($delivery)
     {
         $this->delivery = $delivery;
+
         return $this;
     }
 
@@ -158,14 +183,13 @@ class CheckoutStatusResponse implements PaazlResultInterface
 
     /**
      * @param notification $notification
+     *
      * @return $this
      */
     public function setNotification($notification)
     {
         $this->notification = $notification;
+
         return $this;
     }
-
-
 }
-

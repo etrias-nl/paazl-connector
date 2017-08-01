@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class Time
 {
-
     /**
      * @var dayType
      */
@@ -36,14 +45,21 @@ class Time
     protected $openTillMorning = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var dayType $day
-     * @var bool $alwaysOpen
-     * @var string $openFromAfternoon
-     * @var string $openFromMorning
-     * @var string $openTillAfternoon
-     * @var string $openTillMorning
+     * @var dayType
+     * @var bool    $alwaysOpen
+     * @var string  $openFromAfternoon
+     * @var string  $openFromMorning
+     * @var string  $openTillAfternoon
+     * @var string  $openTillMorning
+     *
+     * @param null|mixed $day
+     * @param null|mixed $alwaysOpen
+     * @param null|mixed $openFromAfternoon
+     * @param null|mixed $openFromMorning
+     * @param null|mixed $openTillAfternoon
+     * @param null|mixed $openTillMorning
      */
     public function __construct($day = null, $alwaysOpen = null, $openFromAfternoon = null, $openFromMorning = null, $openTillAfternoon = null, $openTillMorning = null)
     {
@@ -65,11 +81,13 @@ class Time
 
     /**
      * @param dayType $day
+     *
      * @return $this
      */
     public function setDay($day)
     {
         $this->day = $day;
+
         return $this;
     }
 
@@ -83,11 +101,13 @@ class Time
 
     /**
      * @param bool $alwaysOpen
+     *
      * @return $this
      */
     public function setAlwaysOpen($alwaysOpen)
     {
         $this->alwaysOpen = $alwaysOpen;
+
         return $this;
     }
 
@@ -101,11 +121,13 @@ class Time
 
     /**
      * @param string $openFromAfternoon
+     *
      * @return $this
      */
     public function setOpenFromAfternoon($openFromAfternoon)
     {
         $this->openFromAfternoon = $openFromAfternoon;
+
         return $this;
     }
 
@@ -119,11 +141,13 @@ class Time
 
     /**
      * @param string $openFromMorning
+     *
      * @return $this
      */
     public function setOpenFromMorning($openFromMorning)
     {
         $this->openFromMorning = $openFromMorning;
+
         return $this;
     }
 
@@ -137,11 +161,13 @@ class Time
 
     /**
      * @param string $openTillAfternoon
+     *
      * @return $this
      */
     public function setOpenTillAfternoon($openTillAfternoon)
     {
         $this->openTillAfternoon = $openTillAfternoon;
+
         return $this;
     }
 
@@ -155,14 +181,13 @@ class Time
 
     /**
      * @param string $openTillMorning
+     *
      * @return $this
      */
     public function setOpenTillMorning($openTillMorning)
     {
         $this->openTillMorning = $openTillMorning;
+
         return $this;
     }
-
-
 }
-

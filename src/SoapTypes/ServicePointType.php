@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class ServicePointType
 {
-
     /**
      * @var string
      */
@@ -61,19 +70,31 @@ class ServicePointType
     protected $extraDetails = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $code
-     * @var string $name
-     * @var string $address
-     * @var string $postcode
-     * @var string $city
-     * @var string $province
-     * @var string $country
-     * @var coordinatesType $coordinates
-     * @var float $distance
-     * @var businessHoursType $businessHours
+     * @var string
+     * @var string                   $name
+     * @var string                   $address
+     * @var string                   $postcode
+     * @var string                   $city
+     * @var string                   $province
+     * @var string                   $country
+     * @var coordinatesType          $coordinates
+     * @var float                    $distance
+     * @var businessHoursType        $businessHours
      * @var servicePointExtraDetails $extraDetails
+     *
+     * @param mixed $code
+     * @param mixed $name
+     * @param mixed $address
+     * @param mixed $postcode
+     * @param mixed $city
+     * @param mixed $province
+     * @param mixed $country
+     * @param mixed $coordinates
+     * @param mixed $distance
+     * @param mixed $businessHours
+     * @param mixed $extraDetails
      */
     public function __construct($code, $name, $address, $postcode, $city, $province, $country, $coordinates, $distance, $businessHours, $extraDetails)
     {
@@ -100,11 +121,13 @@ class ServicePointType
 
     /**
      * @param string $code
+     *
      * @return $this
      */
     public function setCode($code)
     {
         $this->code = $code;
+
         return $this;
     }
 
@@ -118,11 +141,13 @@ class ServicePointType
 
     /**
      * @param string $name
+     *
      * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -136,11 +161,13 @@ class ServicePointType
 
     /**
      * @param string $address
+     *
      * @return $this
      */
     public function setAddress($address)
     {
         $this->address = $address;
+
         return $this;
     }
 
@@ -154,11 +181,13 @@ class ServicePointType
 
     /**
      * @param string $postcode
+     *
      * @return $this
      */
     public function setPostcode($postcode)
     {
         $this->postcode = $postcode;
+
         return $this;
     }
 
@@ -172,11 +201,13 @@ class ServicePointType
 
     /**
      * @param string $city
+     *
      * @return $this
      */
     public function setCity($city)
     {
         $this->city = $city;
+
         return $this;
     }
 
@@ -190,11 +221,13 @@ class ServicePointType
 
     /**
      * @param string $province
+     *
      * @return $this
      */
     public function setProvince($province)
     {
         $this->province = $province;
+
         return $this;
     }
 
@@ -208,11 +241,13 @@ class ServicePointType
 
     /**
      * @param string $country
+     *
      * @return $this
      */
     public function setCountry($country)
     {
         $this->country = $country;
+
         return $this;
     }
 
@@ -226,11 +261,13 @@ class ServicePointType
 
     /**
      * @param coordinatesType $coordinates
+     *
      * @return $this
      */
     public function setCoordinates($coordinates)
     {
         $this->coordinates = $coordinates;
+
         return $this;
     }
 
@@ -244,11 +281,13 @@ class ServicePointType
 
     /**
      * @param float $distance
+     *
      * @return $this
      */
     public function setDistance($distance)
     {
         $this->distance = $distance;
+
         return $this;
     }
 
@@ -262,11 +301,13 @@ class ServicePointType
 
     /**
      * @param businessHoursType $businessHours
+     *
      * @return $this
      */
     public function setBusinessHours($businessHours)
     {
         $this->businessHours = $businessHours;
+
         return $this;
     }
 
@@ -280,14 +321,13 @@ class ServicePointType
 
     /**
      * @param servicePointExtraDetails $extraDetails
+     *
      * @return $this
      */
     public function setExtraDetails($extraDetails)
     {
         $this->extraDetails = $extraDetails;
+
         return $this;
     }
-
-
 }
-

@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class PickupRequestOptionType
 {
-
     /**
      * @var string
      */
@@ -26,12 +35,17 @@ class PickupRequestOptionType
     protected $option = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $identifier
+     * @var string
      * @var string $description
      * @var string $distributor
      * @var string $option
+     *
+     * @param mixed $identifier
+     * @param mixed $description
+     * @param mixed $distributor
+     * @param mixed $option
      */
     public function __construct($identifier, $description, $distributor, $option)
     {
@@ -51,11 +65,13 @@ class PickupRequestOptionType
 
     /**
      * @param string $identifier
+     *
      * @return $this
      */
     public function setIdentifier($identifier)
     {
         $this->identifier = $identifier;
+
         return $this;
     }
 
@@ -69,11 +85,13 @@ class PickupRequestOptionType
 
     /**
      * @param string $description
+     *
      * @return $this
      */
     public function setDescription($description)
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -87,11 +105,13 @@ class PickupRequestOptionType
 
     /**
      * @param string $distributor
+     *
      * @return $this
      */
     public function setDistributor($distributor)
     {
         $this->distributor = $distributor;
+
         return $this;
     }
 
@@ -105,14 +125,13 @@ class PickupRequestOptionType
 
     /**
      * @param string $option
+     *
      * @return $this
      */
     public function setOption($option)
     {
         $this->option = $option;
+
         return $this;
     }
-
-
 }
-

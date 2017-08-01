@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Phpro\SoapClient\Type\RequestInterface;
 
 class ChangeOrderRequest implements RequestInterface
 {
-
     /**
      * @var string
      */
@@ -84,23 +92,39 @@ class ChangeOrderRequest implements RequestInterface
     protected $products = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $hash
-     * @var int $webshop
-     * @var int $targetWebshop
-     * @var string $orderReference
-     * @var string $newOrderReference
-     * @var int $totalAmount
-     * @var currencyCode $totalAmountCurrency
-     * @var language $language
-     * @var string $customerEmail
-     * @var customerPhoneNumber $customerPhoneNumber
-     * @var changeShippingMethod $shippingMethod
-     * @var changeSenderAddress $shipperAddress
-     * @var changeSenderAddress $returnAddress
+     * @var string
+     * @var int                   $webshop
+     * @var int                   $targetWebshop
+     * @var string                $orderReference
+     * @var string                $newOrderReference
+     * @var int                   $totalAmount
+     * @var currencyCode          $totalAmountCurrency
+     * @var language              $language
+     * @var string                $customerEmail
+     * @var customerPhoneNumber   $customerPhoneNumber
+     * @var changeShippingMethod  $shippingMethod
+     * @var changeSenderAddress   $shipperAddress
+     * @var changeSenderAddress   $returnAddress
      * @var changeShippingAddress $shippingAddress
-     * @var changeProducts $products
+     * @var changeProducts        $products
+     *
+     * @param mixed $hash
+     * @param mixed $webshop
+     * @param mixed $targetWebshop
+     * @param mixed $orderReference
+     * @param mixed $newOrderReference
+     * @param mixed $totalAmount
+     * @param mixed $totalAmountCurrency
+     * @param mixed $language
+     * @param mixed $customerEmail
+     * @param mixed $customerPhoneNumber
+     * @param mixed $shippingMethod
+     * @param mixed $shipperAddress
+     * @param mixed $returnAddress
+     * @param mixed $shippingAddress
+     * @param mixed $products
      */
     public function __construct($hash, $webshop, $targetWebshop, $orderReference, $newOrderReference, $totalAmount, $totalAmountCurrency, $language, $customerEmail, $customerPhoneNumber, $shippingMethod, $shipperAddress, $returnAddress, $shippingAddress, $products)
     {
@@ -131,11 +155,13 @@ class ChangeOrderRequest implements RequestInterface
 
     /**
      * @param string $hash
+     *
      * @return $this
      */
     public function setHash($hash)
     {
         $this->hash = $hash;
+
         return $this;
     }
 
@@ -149,11 +175,13 @@ class ChangeOrderRequest implements RequestInterface
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -167,11 +195,13 @@ class ChangeOrderRequest implements RequestInterface
 
     /**
      * @param int $targetWebshop
+     *
      * @return $this
      */
     public function setTargetWebshop($targetWebshop)
     {
         $this->targetWebshop = $targetWebshop;
+
         return $this;
     }
 
@@ -185,11 +215,13 @@ class ChangeOrderRequest implements RequestInterface
 
     /**
      * @param string $orderReference
+     *
      * @return $this
      */
     public function setOrderReference($orderReference)
     {
         $this->orderReference = $orderReference;
+
         return $this;
     }
 
@@ -203,11 +235,13 @@ class ChangeOrderRequest implements RequestInterface
 
     /**
      * @param string $newOrderReference
+     *
      * @return $this
      */
     public function setNewOrderReference($newOrderReference)
     {
         $this->newOrderReference = $newOrderReference;
+
         return $this;
     }
 
@@ -221,11 +255,13 @@ class ChangeOrderRequest implements RequestInterface
 
     /**
      * @param int $totalAmount
+     *
      * @return $this
      */
     public function setTotalAmount($totalAmount)
     {
         $this->totalAmount = $totalAmount;
+
         return $this;
     }
 
@@ -239,11 +275,13 @@ class ChangeOrderRequest implements RequestInterface
 
     /**
      * @param currencyCode $totalAmountCurrency
+     *
      * @return $this
      */
     public function setTotalAmountCurrency($totalAmountCurrency)
     {
         $this->totalAmountCurrency = $totalAmountCurrency;
+
         return $this;
     }
 
@@ -257,11 +295,13 @@ class ChangeOrderRequest implements RequestInterface
 
     /**
      * @param language $language
+     *
      * @return $this
      */
     public function setLanguage($language)
     {
         $this->language = $language;
+
         return $this;
     }
 
@@ -275,11 +315,13 @@ class ChangeOrderRequest implements RequestInterface
 
     /**
      * @param string $customerEmail
+     *
      * @return $this
      */
     public function setCustomerEmail($customerEmail)
     {
         $this->customerEmail = $customerEmail;
+
         return $this;
     }
 
@@ -293,11 +335,13 @@ class ChangeOrderRequest implements RequestInterface
 
     /**
      * @param customerPhoneNumber $customerPhoneNumber
+     *
      * @return $this
      */
     public function setCustomerPhoneNumber($customerPhoneNumber)
     {
         $this->customerPhoneNumber = $customerPhoneNumber;
+
         return $this;
     }
 
@@ -311,11 +355,13 @@ class ChangeOrderRequest implements RequestInterface
 
     /**
      * @param changeShippingMethod $shippingMethod
+     *
      * @return $this
      */
     public function setShippingMethod($shippingMethod)
     {
         $this->shippingMethod = $shippingMethod;
+
         return $this;
     }
 
@@ -329,11 +375,13 @@ class ChangeOrderRequest implements RequestInterface
 
     /**
      * @param changeSenderAddress $shipperAddress
+     *
      * @return $this
      */
     public function setShipperAddress($shipperAddress)
     {
         $this->shipperAddress = $shipperAddress;
+
         return $this;
     }
 
@@ -347,11 +395,13 @@ class ChangeOrderRequest implements RequestInterface
 
     /**
      * @param changeSenderAddress $returnAddress
+     *
      * @return $this
      */
     public function setReturnAddress($returnAddress)
     {
         $this->returnAddress = $returnAddress;
+
         return $this;
     }
 
@@ -365,11 +415,13 @@ class ChangeOrderRequest implements RequestInterface
 
     /**
      * @param changeShippingAddress $shippingAddress
+     *
      * @return $this
      */
     public function setShippingAddress($shippingAddress)
     {
         $this->shippingAddress = $shippingAddress;
+
         return $this;
     }
 
@@ -383,14 +435,13 @@ class ChangeOrderRequest implements RequestInterface
 
     /**
      * @param changeProducts $products
+     *
      * @return $this
      */
     public function setProducts($products)
     {
         $this->products = $products;
+
         return $this;
     }
-
-
 }
-

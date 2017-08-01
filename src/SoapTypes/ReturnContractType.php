@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class ReturnContractType
 {
-
     /**
      * @var returnContractTypeType
      */
@@ -16,10 +25,13 @@ class ReturnContractType
     protected $contract = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var returnContractTypeType $type
-     * @var string $contract
+     * @var returnContractTypeType
+     * @var string                 $contract
+     *
+     * @param mixed $type
+     * @param mixed $contract
      */
     public function __construct($type, $contract)
     {
@@ -37,11 +49,13 @@ class ReturnContractType
 
     /**
      * @param returnContractTypeType $type
+     *
      * @return $this
      */
     public function setType($type)
     {
         $this->type = $type;
+
         return $this;
     }
 
@@ -55,14 +69,13 @@ class ReturnContractType
 
     /**
      * @param string $contract
+     *
      * @return $this
      */
     public function setContract($contract)
     {
         $this->contract = $contract;
+
         return $this;
     }
-
-
 }
-

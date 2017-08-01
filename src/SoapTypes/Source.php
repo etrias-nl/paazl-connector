@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class Source
 {
-
     /**
      * @var string
      */
@@ -31,13 +40,19 @@ class Source
     protected $timeZoneId = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $name
+     * @var string
      * @var postCode $postCode
-     * @var string $city
-     * @var country $country
-     * @var string $timeZoneId
+     * @var string   $city
+     * @var country  $country
+     * @var string   $timeZoneId
+     *
+     * @param mixed $name
+     * @param mixed $postCode
+     * @param mixed $city
+     * @param mixed $country
+     * @param mixed $timeZoneId
      */
     public function __construct($name, $postCode, $city, $country, $timeZoneId)
     {
@@ -58,11 +73,13 @@ class Source
 
     /**
      * @param string $name
+     *
      * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -76,11 +93,13 @@ class Source
 
     /**
      * @param postCode $postCode
+     *
      * @return $this
      */
     public function setPostCode($postCode)
     {
         $this->postCode = $postCode;
+
         return $this;
     }
 
@@ -94,11 +113,13 @@ class Source
 
     /**
      * @param string $city
+     *
      * @return $this
      */
     public function setCity($city)
     {
         $this->city = $city;
+
         return $this;
     }
 
@@ -112,11 +133,13 @@ class Source
 
     /**
      * @param country $country
+     *
      * @return $this
      */
     public function setCountry($country)
     {
         $this->country = $country;
+
         return $this;
     }
 
@@ -130,14 +153,13 @@ class Source
 
     /**
      * @param string $timeZoneId
+     *
      * @return $this
      */
     public function setTimeZoneId($timeZoneId)
     {
         $this->timeZoneId = $timeZoneId;
+
         return $this;
     }
-
-
 }
-

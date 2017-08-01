@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class ServicePoint
 {
-
     /**
      * @var string
      */
@@ -71,21 +80,35 @@ class ServicePoint
     protected $extraDetails = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $distributor
-     * @var string $shippingOption
-     * @var string $name
-     * @var string $postcode
-     * @var string $address
-     * @var string $city
-     * @var string $province
-     * @var coordinatesType $coordinates
-     * @var string $distance
-     * @var string $code
-     * @var float $price
-     * @var openingTimes $openingTimes
+     * @var string
+     * @var string                   $shippingOption
+     * @var string                   $name
+     * @var string                   $postcode
+     * @var string                   $address
+     * @var string                   $city
+     * @var string                   $province
+     * @var coordinatesType          $coordinates
+     * @var string                   $distance
+     * @var string                   $code
+     * @var float                    $price
+     * @var openingTimes             $openingTimes
      * @var servicePointExtraDetails $extraDetails
+     *
+     * @param mixed $distributor
+     * @param mixed $shippingOption
+     * @param mixed $name
+     * @param mixed $postcode
+     * @param mixed $address
+     * @param mixed $city
+     * @param mixed $province
+     * @param mixed $coordinates
+     * @param mixed $distance
+     * @param mixed $code
+     * @param mixed $price
+     * @param mixed $openingTimes
+     * @param mixed $extraDetails
      */
     public function __construct($distributor, $shippingOption, $name, $postcode, $address, $city, $province, $coordinates, $distance, $code, $price, $openingTimes, $extraDetails)
     {
@@ -114,11 +137,13 @@ class ServicePoint
 
     /**
      * @param string $distributor
+     *
      * @return $this
      */
     public function setDistributor($distributor)
     {
         $this->distributor = $distributor;
+
         return $this;
     }
 
@@ -132,11 +157,13 @@ class ServicePoint
 
     /**
      * @param string $shippingOption
+     *
      * @return $this
      */
     public function setShippingOption($shippingOption)
     {
         $this->shippingOption = $shippingOption;
+
         return $this;
     }
 
@@ -150,11 +177,13 @@ class ServicePoint
 
     /**
      * @param string $name
+     *
      * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -168,11 +197,13 @@ class ServicePoint
 
     /**
      * @param string $postcode
+     *
      * @return $this
      */
     public function setPostcode($postcode)
     {
         $this->postcode = $postcode;
+
         return $this;
     }
 
@@ -186,11 +217,13 @@ class ServicePoint
 
     /**
      * @param string $address
+     *
      * @return $this
      */
     public function setAddress($address)
     {
         $this->address = $address;
+
         return $this;
     }
 
@@ -204,11 +237,13 @@ class ServicePoint
 
     /**
      * @param string $city
+     *
      * @return $this
      */
     public function setCity($city)
     {
         $this->city = $city;
+
         return $this;
     }
 
@@ -222,11 +257,13 @@ class ServicePoint
 
     /**
      * @param string $province
+     *
      * @return $this
      */
     public function setProvince($province)
     {
         $this->province = $province;
+
         return $this;
     }
 
@@ -240,11 +277,13 @@ class ServicePoint
 
     /**
      * @param coordinatesType $coordinates
+     *
      * @return $this
      */
     public function setCoordinates($coordinates)
     {
         $this->coordinates = $coordinates;
+
         return $this;
     }
 
@@ -258,11 +297,13 @@ class ServicePoint
 
     /**
      * @param string $distance
+     *
      * @return $this
      */
     public function setDistance($distance)
     {
         $this->distance = $distance;
+
         return $this;
     }
 
@@ -276,11 +317,13 @@ class ServicePoint
 
     /**
      * @param string $code
+     *
      * @return $this
      */
     public function setCode($code)
     {
         $this->code = $code;
+
         return $this;
     }
 
@@ -294,11 +337,13 @@ class ServicePoint
 
     /**
      * @param float $price
+     *
      * @return $this
      */
     public function setPrice($price)
     {
         $this->price = $price;
+
         return $this;
     }
 
@@ -312,11 +357,13 @@ class ServicePoint
 
     /**
      * @param openingTimes $openingTimes
+     *
      * @return $this
      */
     public function setOpeningTimes($openingTimes)
     {
         $this->openingTimes = $openingTimes;
+
         return $this;
     }
 
@@ -330,14 +377,13 @@ class ServicePoint
 
     /**
      * @param servicePointExtraDetails $extraDetails
+     *
      * @return $this
      */
     public function setExtraDetails($extraDetails)
     {
         $this->extraDetails = $extraDetails;
+
         return $this;
     }
-
-
 }
-

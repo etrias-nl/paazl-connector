@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class LabelType
 {
-
     /**
      * @var base64Binary
      */
@@ -31,13 +40,19 @@ class LabelType
     protected $batch = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var base64Binary $_
-     * @var string $orderReference
-     * @var string $barcode
-     * @var string $trackingNumber
-     * @var string $batch
+     * @var base64Binary
+     * @var string       $orderReference
+     * @var string       $barcode
+     * @var string       $trackingNumber
+     * @var string       $batch
+     *
+     * @param mixed $_
+     * @param mixed $orderReference
+     * @param mixed $barcode
+     * @param mixed $trackingNumber
+     * @param mixed $batch
      */
     public function __construct($_, $orderReference, $barcode, $trackingNumber, $batch)
     {
@@ -58,11 +73,13 @@ class LabelType
 
     /**
      * @param base64Binary $_
+     *
      * @return $this
      */
     public function set_($_)
     {
         $this->_ = $_;
+
         return $this;
     }
 
@@ -76,11 +93,13 @@ class LabelType
 
     /**
      * @param string $orderReference
+     *
      * @return $this
      */
     public function setOrderReference($orderReference)
     {
         $this->orderReference = $orderReference;
+
         return $this;
     }
 
@@ -94,11 +113,13 @@ class LabelType
 
     /**
      * @param string $barcode
+     *
      * @return $this
      */
     public function setBarcode($barcode)
     {
         $this->barcode = $barcode;
+
         return $this;
     }
 
@@ -112,11 +133,13 @@ class LabelType
 
     /**
      * @param string $trackingNumber
+     *
      * @return $this
      */
     public function setTrackingNumber($trackingNumber)
     {
         $this->trackingNumber = $trackingNumber;
+
         return $this;
     }
 
@@ -130,14 +153,13 @@ class LabelType
 
     /**
      * @param string $batch
+     *
      * @return $this
      */
     public function setBatch($batch)
     {
         $this->batch = $batch;
+
         return $this;
     }
-
-
 }
-

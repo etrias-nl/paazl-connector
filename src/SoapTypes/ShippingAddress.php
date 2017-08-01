@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class ShippingAddress
 {
-
     /**
      * @var string
      */
@@ -76,40 +85,54 @@ class ShippingAddress
     protected $additionalInstruction = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $accountNumber
+     * @var string
      * @var customerName $customerName
-     * @var companyName $companyName
-     * @var nameOther $nameOther
-     * @var string $street
-     * @var string $housenumber
-     * @var string $addition
-     * @var string $additionalAddressLine
-     * @var string $zipcode
-     * @var string $city
-     * @var string $province
-     * @var string $country
-     * @var bool $localAddressValidation
-     * @var string $additionalInstruction
+     * @var companyName  $companyName
+     * @var nameOther    $nameOther
+     * @var string       $street
+     * @var string       $housenumber
+     * @var string       $addition
+     * @var string       $additionalAddressLine
+     * @var string       $zipcode
+     * @var string       $city
+     * @var string       $province
+     * @var string       $country
+     * @var bool         $localAddressValidation
+     * @var string       $additionalInstruction
+     *
+     * @param mixed      $accountNumber
+     * @param mixed      $customerName
+     * @param mixed      $companyName
+     * @param mixed      $nameOther
+     * @param mixed      $street
+     * @param mixed      $housenumber
+     * @param mixed      $addition
+     * @param mixed      $additionalAddressLine
+     * @param mixed      $zipcode
+     * @param mixed      $city
+     * @param null|mixed $province
+     * @param null|mixed $country
+     * @param null|mixed $localAddressValidation
+     * @param null|mixed $additionalInstruction
      */
     public function __construct(
-        $accountNumber = null,
+        $accountNumber,
         $customerName,
-        $companyName = null,
-        $nameOther = null,
+        $companyName,
+        $nameOther,
         $street,
         $housenumber,
-        $addition = null,
-        $additionalAddressLine = null,
+        $addition,
+        $additionalAddressLine,
         $zipcode,
         $city,
         $province = null,
         $country = null,
         $localAddressValidation = null,
         $additionalInstruction = null
-    )
-    {
+    ) {
         $this->accountNumber = $accountNumber;
         $this->customerName = $customerName;
         $this->companyName = $companyName;
@@ -136,11 +159,13 @@ class ShippingAddress
 
     /**
      * @param string $accountNumber
+     *
      * @return $this
      */
     public function setAccountNumber($accountNumber)
     {
         $this->accountNumber = $accountNumber;
+
         return $this;
     }
 
@@ -154,11 +179,13 @@ class ShippingAddress
 
     /**
      * @param customerName $customerName
+     *
      * @return $this
      */
     public function setCustomerName($customerName)
     {
         $this->customerName = $customerName;
+
         return $this;
     }
 
@@ -172,11 +199,13 @@ class ShippingAddress
 
     /**
      * @param companyName $companyName
+     *
      * @return $this
      */
     public function setCompanyName($companyName)
     {
         $this->companyName = $companyName;
+
         return $this;
     }
 
@@ -190,11 +219,13 @@ class ShippingAddress
 
     /**
      * @param nameOther $nameOther
+     *
      * @return $this
      */
     public function setNameOther($nameOther)
     {
         $this->nameOther = $nameOther;
+
         return $this;
     }
 
@@ -208,11 +239,13 @@ class ShippingAddress
 
     /**
      * @param string $street
+     *
      * @return $this
      */
     public function setStreet($street)
     {
         $this->street = $street;
+
         return $this;
     }
 
@@ -226,11 +259,13 @@ class ShippingAddress
 
     /**
      * @param string $housenumber
+     *
      * @return $this
      */
     public function setHousenumber($housenumber)
     {
         $this->housenumber = $housenumber;
+
         return $this;
     }
 
@@ -244,11 +279,13 @@ class ShippingAddress
 
     /**
      * @param string $addition
+     *
      * @return $this
      */
     public function setAddition($addition)
     {
         $this->addition = $addition;
+
         return $this;
     }
 
@@ -262,11 +299,13 @@ class ShippingAddress
 
     /**
      * @param string $additionalAddressLine
+     *
      * @return $this
      */
     public function setAdditionalAddressLine($additionalAddressLine)
     {
         $this->additionalAddressLine = $additionalAddressLine;
+
         return $this;
     }
 
@@ -280,11 +319,13 @@ class ShippingAddress
 
     /**
      * @param string $zipcode
+     *
      * @return $this
      */
     public function setZipcode($zipcode)
     {
         $this->zipcode = $zipcode;
+
         return $this;
     }
 
@@ -298,11 +339,13 @@ class ShippingAddress
 
     /**
      * @param string $city
+     *
      * @return $this
      */
     public function setCity($city)
     {
         $this->city = $city;
+
         return $this;
     }
 
@@ -316,11 +359,13 @@ class ShippingAddress
 
     /**
      * @param string $province
+     *
      * @return $this
      */
     public function setProvince($province)
     {
         $this->province = $province;
+
         return $this;
     }
 
@@ -334,11 +379,13 @@ class ShippingAddress
 
     /**
      * @param string $country
+     *
      * @return $this
      */
     public function setCountry($country)
     {
         $this->country = $country;
+
         return $this;
     }
 
@@ -352,11 +399,13 @@ class ShippingAddress
 
     /**
      * @param bool $localAddressValidation
+     *
      * @return $this
      */
     public function setLocalAddressValidation($localAddressValidation)
     {
         $this->localAddressValidation = $localAddressValidation;
+
         return $this;
     }
 
@@ -370,14 +419,13 @@ class ShippingAddress
 
     /**
      * @param string $additionalInstruction
+     *
      * @return $this
      */
     public function setAdditionalInstruction($additionalInstruction)
     {
         $this->additionalInstruction = $additionalInstruction;
+
         return $this;
     }
-
-
 }
-

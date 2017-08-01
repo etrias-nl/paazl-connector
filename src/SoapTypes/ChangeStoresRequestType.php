@@ -1,12 +1,21 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 use Phpro\SoapClient\Type\RequestInterface;
 
 class ChangeStoresRequestType implements RequestInterface
 {
-
     /**
      * @var int
      */
@@ -23,11 +32,14 @@ class ChangeStoresRequestType implements RequestInterface
     protected $store = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var int $webshop
-     * @var int $targetWebshop
+     * @var int
+     * @var int                      $targetWebshop
      * @var changeStoreDetailsType[] $stores
+     *
+     * @param mixed $webshop
+     * @param mixed $targetWebshop
      */
     public function __construct($webshop, $targetWebshop, array $stores)
     {
@@ -46,11 +58,13 @@ class ChangeStoresRequestType implements RequestInterface
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -64,11 +78,13 @@ class ChangeStoresRequestType implements RequestInterface
 
     /**
      * @param int $targetWebshop
+     *
      * @return $this
      */
     public function setTargetWebshop($targetWebshop)
     {
         $this->targetWebshop = $targetWebshop;
+
         return $this;
     }
 
@@ -82,14 +98,13 @@ class ChangeStoresRequestType implements RequestInterface
 
     /**
      * @param changeStoreDetailsType[] $stores
+     *
      * @return $this
      */
     public function setStores($stores)
     {
         $this->store = $stores;
+
         return $this;
     }
-
-
 }
-

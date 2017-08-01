@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class ShippingOptionDetailsType
 {
-
     /**
      * @var string
      */
@@ -26,12 +35,17 @@ class ShippingOptionDetailsType
     protected $description = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $distributor
+     * @var string
      * @var string $contract
      * @var string $option
      * @var string $description
+     *
+     * @param mixed $distributor
+     * @param mixed $contract
+     * @param mixed $option
+     * @param mixed $description
      */
     public function __construct($distributor, $contract, $option, $description)
     {
@@ -51,11 +65,13 @@ class ShippingOptionDetailsType
 
     /**
      * @param string $distributor
+     *
      * @return $this
      */
     public function setDistributor($distributor)
     {
         $this->distributor = $distributor;
+
         return $this;
     }
 
@@ -69,11 +85,13 @@ class ShippingOptionDetailsType
 
     /**
      * @param string $contract
+     *
      * @return $this
      */
     public function setContract($contract)
     {
         $this->contract = $contract;
+
         return $this;
     }
 
@@ -87,11 +105,13 @@ class ShippingOptionDetailsType
 
     /**
      * @param string $option
+     *
      * @return $this
      */
     public function setOption($option)
     {
         $this->option = $option;
+
         return $this;
     }
 
@@ -105,14 +125,13 @@ class ShippingOptionDetailsType
 
     /**
      * @param string $description
+     *
      * @return $this
      */
     public function setDescription($description)
     {
         $this->description = $description;
+
         return $this;
     }
-
-
 }
-

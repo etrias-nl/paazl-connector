@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class ShippingOption extends ShippingOptionDetailsType
 {
-
     /**
      * @var string
      */
@@ -31,12 +40,12 @@ class ShippingOption extends ShippingOptionDetailsType
     protected $priceDiscount;
 
     /**
-     * @var  string
+     * @var string
      */
     protected $deliveryDayOfWeekRange;
 
     /**
-     * @var  string
+     * @var string
      */
     protected $deliveryWindowStart;
 
@@ -60,7 +69,7 @@ class ShippingOption extends ShippingOptionDetailsType
      */
     protected $insurance;
 
-    /** @var  bool */
+    /** @var bool */
     protected $needsServicePointAccountNumber;
 
     /**
@@ -69,7 +78,7 @@ class ShippingOption extends ShippingOptionDetailsType
     protected $shipperNotification;
 
     /**
-     * @var  bool
+     * @var bool
      */
     protected $needsAdditionalShipperNotification;
 
@@ -77,7 +86,6 @@ class ShippingOption extends ShippingOptionDetailsType
      * @var bool
      */
     protected $allowsAdditionalShipperNotification;
-
 
     /**
      * @var string
@@ -95,14 +103,17 @@ class ShippingOption extends ShippingOptionDetailsType
     protected $servicePoint = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param string $distributor
      * @param string $shippingOption
+     *
      * @var servicePointType $servicePoint
+     *
      * @param string $contract
      * @param $option
      * @param $description
+     * @param mixed $servicePoint
      */
     public function __construct($distributor, $shippingOption, $servicePoint, $contract, $option, $description)
     {
@@ -122,11 +133,13 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param string $distributor
+     *
      * @return $this
      */
     public function setDistributor($distributor)
     {
         $this->distributor = $distributor;
+
         return $this;
     }
 
@@ -140,11 +153,13 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param string $shippingOption
+     *
      * @return $this
      */
     public function setShippingOption($shippingOption)
     {
         $this->shippingOption = $shippingOption;
+
         return $this;
     }
 
@@ -158,11 +173,13 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param servicePointType $servicePoint
+     *
      * @return $this
      */
     public function setServicePoint($servicePoint)
     {
         $this->servicePoint = $servicePoint;
+
         return $this;
     }
 
@@ -176,6 +193,7 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param string $type
+     *
      * @return ShippingOption
      */
     public function setType($type)
@@ -195,6 +213,7 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param string $deliverySchemaLineId
+     *
      * @return ShippingOption
      */
     public function setDeliverySchemaLineId($deliverySchemaLineId)
@@ -214,6 +233,7 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param string $partOfDay
+     *
      * @return ShippingOption
      */
     public function setPartOfDay($partOfDay)
@@ -233,6 +253,7 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param float $price
+     *
      * @return ShippingOption
      */
     public function setPrice($price)
@@ -252,6 +273,7 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param float $priceDiscount
+     *
      * @return ShippingOption
      */
     public function setPriceDiscount($priceDiscount)
@@ -271,6 +293,7 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param string $deliveryDayOfWeekRange
+     *
      * @return ShippingOption
      */
     public function setDeliveryDayOfWeekRange($deliveryDayOfWeekRange)
@@ -290,6 +313,7 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param string $deliveryWindowStart
+     *
      * @return ShippingOption
      */
     public function setDeliveryWindowStart($deliveryWindowStart)
@@ -309,6 +333,7 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param string $deliveryWindowEnd
+     *
      * @return ShippingOption
      */
     public function setDeliveryWindowEnd($deliveryWindowEnd)
@@ -328,6 +353,7 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param bool $datePreference
+     *
      * @return ShippingOption
      */
     public function setDatePreference($datePreference)
@@ -347,6 +373,7 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param bool $cod
+     *
      * @return ShippingOption
      */
     public function setCod($cod)
@@ -366,6 +393,7 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param bool $insurance
+     *
      * @return ShippingOption
      */
     public function setInsurance($insurance)
@@ -385,6 +413,7 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param bool $needsServicePointAccountNumber
+     *
      * @return ShippingOption
      */
     public function setNeedsServicePointAccountNumber($needsServicePointAccountNumber)
@@ -404,6 +433,7 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param bool $shipperNotification
+     *
      * @return ShippingOption
      */
     public function setShipperNotification($shipperNotification)
@@ -423,6 +453,7 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param bool $needsAdditionalShipperNotification
+     *
      * @return ShippingOption
      */
     public function setNeedsAdditionalShipperNotification($needsAdditionalShipperNotification)
@@ -442,6 +473,7 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param bool $allowsAdditionalShipperNotification
+     *
      * @return ShippingOption
      */
     public function setAllowsAdditionalShipperNotification($allowsAdditionalShipperNotification)
@@ -461,6 +493,7 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param string $contract
+     *
      * @return ShippingOption
      */
     public function setContract($contract)
@@ -480,6 +513,7 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param string $option
+     *
      * @return ShippingOption
      */
     public function setOption($option)
@@ -499,6 +533,7 @@ class ShippingOption extends ShippingOptionDetailsType
 
     /**
      * @param string $description
+     *
      * @return ShippingOption
      */
     public function setDescription($description)
@@ -507,9 +542,4 @@ class ShippingOption extends ShippingOptionDetailsType
 
         return $this;
     }
-
-
-
-
 }
-

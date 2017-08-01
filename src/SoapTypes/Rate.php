@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class Rate
 {
-
     /**
      * @var deliveryTypeType
      */
@@ -41,15 +50,23 @@ class Rate
     protected $transitDaysRange = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var deliveryTypeType $type
-     * @var string $distributor
-     * @var string $shippingOption
-     * @var string $description
-     * @var float $rate
-     * @var float $rateDiscount
+     * @var deliveryTypeType
+     * @var string                      $distributor
+     * @var string                      $shippingOption
+     * @var string                      $description
+     * @var float                       $rate
+     * @var float                       $rateDiscount
      * @var nonNegativeIntegerRangeType $transitDaysRange
+     *
+     * @param mixed $type
+     * @param mixed $distributor
+     * @param mixed $shippingOption
+     * @param mixed $description
+     * @param mixed $rate
+     * @param mixed $rateDiscount
+     * @param mixed $transitDaysRange
      */
     public function __construct($type, $distributor, $shippingOption, $description, $rate, $rateDiscount, $transitDaysRange)
     {
@@ -72,11 +89,13 @@ class Rate
 
     /**
      * @param deliveryTypeType $type
+     *
      * @return $this
      */
     public function setType($type)
     {
         $this->type = $type;
+
         return $this;
     }
 
@@ -90,11 +109,13 @@ class Rate
 
     /**
      * @param string $distributor
+     *
      * @return $this
      */
     public function setDistributor($distributor)
     {
         $this->distributor = $distributor;
+
         return $this;
     }
 
@@ -108,11 +129,13 @@ class Rate
 
     /**
      * @param string $shippingOption
+     *
      * @return $this
      */
     public function setShippingOption($shippingOption)
     {
         $this->shippingOption = $shippingOption;
+
         return $this;
     }
 
@@ -126,11 +149,13 @@ class Rate
 
     /**
      * @param string $description
+     *
      * @return $this
      */
     public function setDescription($description)
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -144,11 +169,13 @@ class Rate
 
     /**
      * @param float $rate
+     *
      * @return $this
      */
     public function setRate($rate)
     {
         $this->rate = $rate;
+
         return $this;
     }
 
@@ -162,11 +189,13 @@ class Rate
 
     /**
      * @param float $rateDiscount
+     *
      * @return $this
      */
     public function setRateDiscount($rateDiscount)
     {
         $this->rateDiscount = $rateDiscount;
+
         return $this;
     }
 
@@ -180,14 +209,13 @@ class Rate
 
     /**
      * @param nonNegativeIntegerRangeType $transitDaysRange
+     *
      * @return $this
      */
     public function setTransitDaysRange($transitDaysRange)
     {
         $this->transitDaysRange = $transitDaysRange;
+
         return $this;
     }
-
-
 }
-

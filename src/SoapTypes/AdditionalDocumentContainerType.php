@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class AdditionalDocumentContainerType
 {
-
     /**
      * @var string
      */
@@ -36,14 +45,21 @@ class AdditionalDocumentContainerType
     protected $document = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $orderReference
-     * @var string $barcode
-     * @var string $trackingNumber
-     * @var string $batch
+     * @var string
+     * @var string                 $barcode
+     * @var string                 $trackingNumber
+     * @var string                 $batch
      * @var additionalDocumentType $documentType
-     * @var base64Binary $document
+     * @var base64Binary           $document
+     *
+     * @param mixed $orderReference
+     * @param mixed $barcode
+     * @param mixed $trackingNumber
+     * @param mixed $batch
+     * @param mixed $documentType
+     * @param mixed $document
      */
     public function __construct($orderReference, $barcode, $trackingNumber, $batch, $documentType, $document)
     {
@@ -65,11 +81,13 @@ class AdditionalDocumentContainerType
 
     /**
      * @param string $orderReference
+     *
      * @return $this
      */
     public function setOrderReference($orderReference)
     {
         $this->orderReference = $orderReference;
+
         return $this;
     }
 
@@ -83,11 +101,13 @@ class AdditionalDocumentContainerType
 
     /**
      * @param string $barcode
+     *
      * @return $this
      */
     public function setBarcode($barcode)
     {
         $this->barcode = $barcode;
+
         return $this;
     }
 
@@ -101,11 +121,13 @@ class AdditionalDocumentContainerType
 
     /**
      * @param string $trackingNumber
+     *
      * @return $this
      */
     public function setTrackingNumber($trackingNumber)
     {
         $this->trackingNumber = $trackingNumber;
+
         return $this;
     }
 
@@ -119,11 +141,13 @@ class AdditionalDocumentContainerType
 
     /**
      * @param string $batch
+     *
      * @return $this
      */
     public function setBatch($batch)
     {
         $this->batch = $batch;
+
         return $this;
     }
 
@@ -137,11 +161,13 @@ class AdditionalDocumentContainerType
 
     /**
      * @param additionalDocumentType $documentType
+     *
      * @return $this
      */
     public function setDocumentType($documentType)
     {
         $this->documentType = $documentType;
+
         return $this;
     }
 
@@ -155,14 +181,13 @@ class AdditionalDocumentContainerType
 
     /**
      * @param base64Binary $document
+     *
      * @return $this
      */
     public function setDocument($document)
     {
         $this->document = $document;
+
         return $this;
     }
-
-
 }
-

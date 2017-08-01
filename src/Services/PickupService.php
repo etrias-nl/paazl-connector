@@ -14,7 +14,6 @@ namespace Etrias\PaazlConnector\Services;
 
 use DateTime;
 use Etrias\PaazlConnector\Client\PaazlClientInterface;
-use Etrias\PaazlConnector\Processor\Processor;
 use Etrias\PaazlConnector\SoapTypes\AddressType;
 use Etrias\PaazlConnector\SoapTypes\CancelPickupRequestResponse;
 use Etrias\PaazlConnector\SoapTypes\CreatePickupRequestRequest;
@@ -39,7 +38,7 @@ class PickupService
     /**
      * DocumentService constructor.
      *
-     * @param PaazlClientInterface       $client
+     * @param PaazlClientInterface     $client
      * @param SecurityServiceInterface $security
      */
     public function __construct(PaazlClientInterface $client, SecurityServiceInterface $security)
@@ -97,9 +96,9 @@ class PickupService
         $pieceCount,
         DateTime $pickupWindowStart,
         DateTime $pickupWindowEnd,
-        $pickupCompanyName = null,
-        $pickupContactName = null,
-        $pickupName = null,
+        $pickupCompanyName,
+        $pickupContactName,
+        $pickupName,
         AddressType $pickupAddress,
         $pickupPhoneNumber,
         $pickupEmailAddress = null,

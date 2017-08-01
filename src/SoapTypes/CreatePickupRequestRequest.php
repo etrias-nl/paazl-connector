@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Phpro\SoapClient\Type\RequestInterface;
 
 class CreatePickupRequestRequest implements RequestInterface
 {
-
     /**
      * @var string
      */
@@ -109,28 +117,49 @@ class CreatePickupRequestRequest implements RequestInterface
     protected $additionalInstruction = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $hash
-     * @var int $webshop
-     * @var int $targetWebshop
-     * @var string $internalReference
-     * @var string $contract
-     * @var string $pickupRequestOption
-     * @var string $orderReference
-     * @var int $pieceCount
-     * @var \DateTime $pickupDate
-     * @var time $pickupWindowStart
-     * @var time $pickupWindowEnd
-     * @var string $pickupCompanyName
-     * @var string $pickupContactName
-     * @var string $pickupName
+     * @var string
+     * @var int         $webshop
+     * @var int         $targetWebshop
+     * @var string      $internalReference
+     * @var string      $contract
+     * @var string      $pickupRequestOption
+     * @var string      $orderReference
+     * @var int         $pieceCount
+     * @var \DateTime   $pickupDate
+     * @var time        $pickupWindowStart
+     * @var time        $pickupWindowEnd
+     * @var string      $pickupCompanyName
+     * @var string      $pickupContactName
+     * @var string      $pickupName
      * @var addressType $pickupAddress
-     * @var string $pickupPhoneNumber
-     * @var string $pickupEmailAddress
+     * @var string      $pickupPhoneNumber
+     * @var string      $pickupEmailAddress
      * @var addressType $deliveryAddress
-     * @var string $deliveryEmailAddress
-     * @var string $additionalInstruction
+     * @var string      $deliveryEmailAddress
+     * @var string      $additionalInstruction
+     *
+     * @param mixed $hash
+     * @param mixed $webshop
+     * @param mixed $targetWebshop
+     * @param mixed $internalReference
+     * @param mixed $contract
+     * @param mixed $pickupRequestOption
+     * @param mixed $orderReference
+     * @param mixed $pieceCount
+     * @param mixed $pickupDate
+     * @param mixed $pickupWindowStart
+     * @param mixed $pickupWindowEnd
+     * @param mixed $pickupCompanyName
+     * @param mixed $pickupContactName
+     * @param mixed $pickupName
+     * @param mixed $pickupAddress
+     * @param mixed $pickupPhoneNumber
+     * @param mixed $pickupEmailAddress
+     * @param mixed $deliveryAddress
+     * @param mixed $deliveryEmailAddress
+     * @param mixed $additionalInstruction
      */
     public function __construct($hash, $webshop, $targetWebshop, $internalReference, $contract, $pickupRequestOption, $orderReference, $pieceCount, $pickupDate, $pickupWindowStart, $pickupWindowEnd, $pickupCompanyName, $pickupContactName, $pickupName, $pickupAddress, $pickupPhoneNumber, $pickupEmailAddress, $deliveryAddress, $deliveryEmailAddress, $additionalInstruction)
     {
@@ -166,11 +195,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param string $hash
+     *
      * @return $this
      */
     public function setHash($hash)
     {
         $this->hash = $hash;
+
         return $this;
     }
 
@@ -184,11 +215,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -202,11 +235,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param int $targetWebshop
+     *
      * @return $this
      */
     public function setTargetWebshop($targetWebshop)
     {
         $this->targetWebshop = $targetWebshop;
+
         return $this;
     }
 
@@ -220,11 +255,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param string $internalReference
+     *
      * @return $this
      */
     public function setInternalReference($internalReference)
     {
         $this->internalReference = $internalReference;
+
         return $this;
     }
 
@@ -238,11 +275,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param string $contract
+     *
      * @return $this
      */
     public function setContract($contract)
     {
         $this->contract = $contract;
+
         return $this;
     }
 
@@ -256,11 +295,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param string $pickupRequestOption
+     *
      * @return $this
      */
     public function setPickupRequestOption($pickupRequestOption)
     {
         $this->pickupRequestOption = $pickupRequestOption;
+
         return $this;
     }
 
@@ -274,11 +315,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param string $orderReference
+     *
      * @return $this
      */
     public function setOrderReference($orderReference)
     {
         $this->orderReference = $orderReference;
+
         return $this;
     }
 
@@ -292,11 +335,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param int $pieceCount
+     *
      * @return $this
      */
     public function setPieceCount($pieceCount)
     {
         $this->pieceCount = $pieceCount;
+
         return $this;
     }
 
@@ -310,11 +355,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param \DateTime $pickupDate
+     *
      * @return $this
      */
     public function setPickupDate($pickupDate)
     {
         $this->pickupDate = $pickupDate;
+
         return $this;
     }
 
@@ -328,11 +375,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param time $pickupWindowStart
+     *
      * @return $this
      */
     public function setPickupWindowStart($pickupWindowStart)
     {
         $this->pickupWindowStart = $pickupWindowStart;
+
         return $this;
     }
 
@@ -346,11 +395,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param time $pickupWindowEnd
+     *
      * @return $this
      */
     public function setPickupWindowEnd($pickupWindowEnd)
     {
         $this->pickupWindowEnd = $pickupWindowEnd;
+
         return $this;
     }
 
@@ -364,11 +415,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param string $pickupCompanyName
+     *
      * @return $this
      */
     public function setPickupCompanyName($pickupCompanyName)
     {
         $this->pickupCompanyName = $pickupCompanyName;
+
         return $this;
     }
 
@@ -382,11 +435,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param string $pickupContactName
+     *
      * @return $this
      */
     public function setPickupContactName($pickupContactName)
     {
         $this->pickupContactName = $pickupContactName;
+
         return $this;
     }
 
@@ -400,11 +455,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param string $pickupName
+     *
      * @return $this
      */
     public function setPickupName($pickupName)
     {
         $this->pickupName = $pickupName;
+
         return $this;
     }
 
@@ -418,11 +475,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param addressType $pickupAddress
+     *
      * @return $this
      */
     public function setPickupAddress($pickupAddress)
     {
         $this->pickupAddress = $pickupAddress;
+
         return $this;
     }
 
@@ -436,11 +495,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param string $pickupPhoneNumber
+     *
      * @return $this
      */
     public function setPickupPhoneNumber($pickupPhoneNumber)
     {
         $this->pickupPhoneNumber = $pickupPhoneNumber;
+
         return $this;
     }
 
@@ -454,11 +515,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param string $pickupEmailAddress
+     *
      * @return $this
      */
     public function setPickupEmailAddress($pickupEmailAddress)
     {
         $this->pickupEmailAddress = $pickupEmailAddress;
+
         return $this;
     }
 
@@ -472,11 +535,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param addressType $deliveryAddress
+     *
      * @return $this
      */
     public function setDeliveryAddress($deliveryAddress)
     {
         $this->deliveryAddress = $deliveryAddress;
+
         return $this;
     }
 
@@ -490,11 +555,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param string $deliveryEmailAddress
+     *
      * @return $this
      */
     public function setDeliveryEmailAddress($deliveryEmailAddress)
     {
         $this->deliveryEmailAddress = $deliveryEmailAddress;
+
         return $this;
     }
 
@@ -508,14 +575,13 @@ class CreatePickupRequestRequest implements RequestInterface
 
     /**
      * @param string $additionalInstruction
+     *
      * @return $this
      */
     public function setAdditionalInstruction($additionalInstruction)
     {
         $this->additionalInstruction = $additionalInstruction;
+
         return $this;
     }
-
-
 }
-

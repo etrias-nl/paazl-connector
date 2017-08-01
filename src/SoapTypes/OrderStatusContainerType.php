@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class OrderStatusContainerType
 {
-
     /**
      * @var orderStatusType
      */
@@ -16,10 +25,13 @@ class OrderStatusContainerType
     protected $shippingLabels = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var orderStatusType $status
-     * @var shippingLabels $shippingLabels
+     * @var orderStatusType
+     * @var shippingLabels  $shippingLabels
+     *
+     * @param mixed $status
+     * @param mixed $shippingLabels
      */
     public function __construct($status, $shippingLabels)
     {
@@ -37,11 +49,13 @@ class OrderStatusContainerType
 
     /**
      * @param orderStatusType $status
+     *
      * @return $this
      */
     public function setStatus($status)
     {
         $this->status = $status;
+
         return $this;
     }
 
@@ -55,14 +69,13 @@ class OrderStatusContainerType
 
     /**
      * @param shippingLabels $shippingLabels
+     *
      * @return $this
      */
     public function setShippingLabels($shippingLabels)
     {
         $this->shippingLabels = $shippingLabels;
+
         return $this;
     }
-
-
 }
-

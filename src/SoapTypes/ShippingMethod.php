@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class ShippingMethod
 {
-
     /**
      * @var deliveryTypeType
      */
@@ -146,42 +155,71 @@ class ShippingMethod
     protected $description = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var deliveryTypeType $type
-     * @var string $distributor
-     * @var string $contract
-     * @var string $identifier
-     * @var string $option
-     * @var returnContractType $returnContract
-     * @var string $servicepointAccountNumber
-     * @var string $servicepointNotificationEmail
-     * @var string $servicepointNotificationMobile
-     * @var float $price
+     * @var deliveryTypeType
+     * @var string              $distributor
+     * @var string              $contract
+     * @var string              $identifier
+     * @var string              $option
+     * @var returnContractType  $returnContract
+     * @var string              $servicepointAccountNumber
+     * @var string              $servicepointNotificationEmail
+     * @var string              $servicepointNotificationMobile
+     * @var float               $price
      * @var shippingPaymentType $shippingPaymentType
-     * @var string $billingAccountNumber
-     * @var string $invoiceNumber
-     * @var nonNegativeDecimal $packagingWeight
-     * @var customsValue $customsValue
-     * @var currencyCode $customsValueCurrency
-     * @var dutiesPaymentType $dutiesPaymentType
-     * @var string $dutiesAccountNumber
-     * @var nonNegativeDecimal $orderWeight
-     * @var int $assuredAmount
-     * @var currencyCode $assuredAmountCurrency
-     * @var int $collo
-     * @var positiveInteger $packageCount
-     * @var int $maxLabels
-     * @var packagingTypeType $packagingType
-     * @var \DateTime $preferredDeliveryDate
-     * @var bool $preferredDateChosen
-     * @var string $description
+     * @var string              $billingAccountNumber
+     * @var string              $invoiceNumber
+     * @var nonNegativeDecimal  $packagingWeight
+     * @var customsValue        $customsValue
+     * @var currencyCode        $customsValueCurrency
+     * @var dutiesPaymentType   $dutiesPaymentType
+     * @var string              $dutiesAccountNumber
+     * @var nonNegativeDecimal  $orderWeight
+     * @var int                 $assuredAmount
+     * @var currencyCode        $assuredAmountCurrency
+     * @var int                 $collo
+     * @var positiveInteger     $packageCount
+     * @var int                 $maxLabels
+     * @var packagingTypeType   $packagingType
+     * @var \DateTime           $preferredDeliveryDate
+     * @var bool                $preferredDateChosen
+     * @var string              $description
+     *
+     * @param mixed      $type
+     * @param mixed      $distributor
+     * @param mixed      $contract
+     * @param mixed      $identifier
+     * @param mixed      $option
+     * @param null|mixed $returnContract
+     * @param null|mixed $servicepointAccountNumber
+     * @param null|mixed $servicepointNotificationEmail
+     * @param null|mixed $servicepointNotificationMobile
+     * @param null|mixed $price
+     * @param null|mixed $shippingPaymentType
+     * @param null|mixed $billingAccountNumber
+     * @param null|mixed $invoiceNumber
+     * @param null|mixed $packagingWeight
+     * @param null|mixed $customsValue
+     * @param null|mixed $customsValueCurrency
+     * @param null|mixed $dutiesPaymentType
+     * @param null|mixed $dutiesAccountNumber
+     * @param null|mixed $orderWeight
+     * @param null|mixed $assuredAmount
+     * @param null|mixed $assuredAmountCurrency
+     * @param null|mixed $collo
+     * @param null|mixed $packageCount
+     * @param null|mixed $maxLabels
+     * @param null|mixed $packagingType
+     * @param null|mixed $preferredDeliveryDate
+     * @param null|mixed $preferredDateChosen
+     * @param null|mixed $description
      */
     public function __construct(
         $type,
-        $distributor = null,
-        $contract = null,
-        $identifier = 0,
+        $distributor,
+        $contract,
+        $identifier,
         $option,
         $returnContract = null,
         $servicepointAccountNumber = null,
@@ -206,8 +244,7 @@ class ShippingMethod
         $preferredDeliveryDate = null,
         $preferredDateChosen = null,
         $description = null
-    )
-    {
+    ) {
         $this->type = $type;
         $this->distributor = $distributor;
         $this->contract = $contract;
@@ -248,11 +285,13 @@ class ShippingMethod
 
     /**
      * @param deliveryTypeType $type
+     *
      * @return $this
      */
     public function setType($type)
     {
         $this->type = $type;
+
         return $this;
     }
 
@@ -266,11 +305,13 @@ class ShippingMethod
 
     /**
      * @param string $distributor
+     *
      * @return $this
      */
     public function setDistributor($distributor)
     {
         $this->distributor = $distributor;
+
         return $this;
     }
 
@@ -284,11 +325,13 @@ class ShippingMethod
 
     /**
      * @param string $contract
+     *
      * @return $this
      */
     public function setContract($contract)
     {
         $this->contract = $contract;
+
         return $this;
     }
 
@@ -302,11 +345,13 @@ class ShippingMethod
 
     /**
      * @param string $identifier
+     *
      * @return $this
      */
     public function setIdentifier($identifier)
     {
         $this->identifier = $identifier;
+
         return $this;
     }
 
@@ -320,11 +365,13 @@ class ShippingMethod
 
     /**
      * @param string $option
+     *
      * @return $this
      */
     public function setOption($option)
     {
         $this->option = $option;
+
         return $this;
     }
 
@@ -338,11 +385,13 @@ class ShippingMethod
 
     /**
      * @param returnContractType $returnContract
+     *
      * @return $this
      */
     public function setReturnContract($returnContract)
     {
         $this->returnContract = $returnContract;
+
         return $this;
     }
 
@@ -356,11 +405,13 @@ class ShippingMethod
 
     /**
      * @param string $servicepointAccountNumber
+     *
      * @return $this
      */
     public function setServicepointAccountNumber($servicepointAccountNumber)
     {
         $this->servicepointAccountNumber = $servicepointAccountNumber;
+
         return $this;
     }
 
@@ -374,11 +425,13 @@ class ShippingMethod
 
     /**
      * @param string $servicepointNotificationEmail
+     *
      * @return $this
      */
     public function setServicepointNotificationEmail($servicepointNotificationEmail)
     {
         $this->servicepointNotificationEmail = $servicepointNotificationEmail;
+
         return $this;
     }
 
@@ -392,11 +445,13 @@ class ShippingMethod
 
     /**
      * @param string $servicepointNotificationMobile
+     *
      * @return $this
      */
     public function setServicepointNotificationMobile($servicepointNotificationMobile)
     {
         $this->servicepointNotificationMobile = $servicepointNotificationMobile;
+
         return $this;
     }
 
@@ -410,11 +465,13 @@ class ShippingMethod
 
     /**
      * @param float $price
+     *
      * @return $this
      */
     public function setPrice($price)
     {
         $this->price = $price;
+
         return $this;
     }
 
@@ -428,11 +485,13 @@ class ShippingMethod
 
     /**
      * @param shippingPaymentType $shippingPaymentType
+     *
      * @return $this
      */
     public function setShippingPaymentType($shippingPaymentType)
     {
         $this->shippingPaymentType = $shippingPaymentType;
+
         return $this;
     }
 
@@ -446,11 +505,13 @@ class ShippingMethod
 
     /**
      * @param string $billingAccountNumber
+     *
      * @return $this
      */
     public function setBillingAccountNumber($billingAccountNumber)
     {
         $this->billingAccountNumber = $billingAccountNumber;
+
         return $this;
     }
 
@@ -464,11 +525,13 @@ class ShippingMethod
 
     /**
      * @param string $invoiceNumber
+     *
      * @return $this
      */
     public function setInvoiceNumber($invoiceNumber)
     {
         $this->invoiceNumber = $invoiceNumber;
+
         return $this;
     }
 
@@ -482,11 +545,13 @@ class ShippingMethod
 
     /**
      * @param nonNegativeDecimal $packagingWeight
+     *
      * @return $this
      */
     public function setPackagingWeight($packagingWeight)
     {
         $this->packagingWeight = $packagingWeight;
+
         return $this;
     }
 
@@ -500,11 +565,13 @@ class ShippingMethod
 
     /**
      * @param customsValue $customsValue
+     *
      * @return $this
      */
     public function setCustomsValue($customsValue)
     {
         $this->customsValue = $customsValue;
+
         return $this;
     }
 
@@ -518,11 +585,13 @@ class ShippingMethod
 
     /**
      * @param currencyCode $customsValueCurrency
+     *
      * @return $this
      */
     public function setCustomsValueCurrency($customsValueCurrency)
     {
         $this->customsValueCurrency = $customsValueCurrency;
+
         return $this;
     }
 
@@ -536,11 +605,13 @@ class ShippingMethod
 
     /**
      * @param dutiesPaymentType $dutiesPaymentType
+     *
      * @return $this
      */
     public function setDutiesPaymentType($dutiesPaymentType)
     {
         $this->dutiesPaymentType = $dutiesPaymentType;
+
         return $this;
     }
 
@@ -554,11 +625,13 @@ class ShippingMethod
 
     /**
      * @param string $dutiesAccountNumber
+     *
      * @return $this
      */
     public function setDutiesAccountNumber($dutiesAccountNumber)
     {
         $this->dutiesAccountNumber = $dutiesAccountNumber;
+
         return $this;
     }
 
@@ -572,11 +645,13 @@ class ShippingMethod
 
     /**
      * @param nonNegativeDecimal $orderWeight
+     *
      * @return $this
      */
     public function setOrderWeight($orderWeight)
     {
         $this->orderWeight = $orderWeight;
+
         return $this;
     }
 
@@ -590,11 +665,13 @@ class ShippingMethod
 
     /**
      * @param int $assuredAmount
+     *
      * @return $this
      */
     public function setAssuredAmount($assuredAmount)
     {
         $this->assuredAmount = $assuredAmount;
+
         return $this;
     }
 
@@ -608,11 +685,13 @@ class ShippingMethod
 
     /**
      * @param currencyCode $assuredAmountCurrency
+     *
      * @return $this
      */
     public function setAssuredAmountCurrency($assuredAmountCurrency)
     {
         $this->assuredAmountCurrency = $assuredAmountCurrency;
+
         return $this;
     }
 
@@ -626,11 +705,13 @@ class ShippingMethod
 
     /**
      * @param int $collo
+     *
      * @return $this
      */
     public function setCollo($collo)
     {
         $this->collo = $collo;
+
         return $this;
     }
 
@@ -644,11 +725,13 @@ class ShippingMethod
 
     /**
      * @param positiveInteger $packageCount
+     *
      * @return $this
      */
     public function setPackageCount($packageCount)
     {
         $this->packageCount = $packageCount;
+
         return $this;
     }
 
@@ -662,11 +745,13 @@ class ShippingMethod
 
     /**
      * @param int $maxLabels
+     *
      * @return $this
      */
     public function setMaxLabels($maxLabels)
     {
         $this->maxLabels = $maxLabels;
+
         return $this;
     }
 
@@ -680,11 +765,13 @@ class ShippingMethod
 
     /**
      * @param packagingTypeType $packagingType
+     *
      * @return $this
      */
     public function setPackagingType($packagingType)
     {
         $this->packagingType = $packagingType;
+
         return $this;
     }
 
@@ -698,11 +785,13 @@ class ShippingMethod
 
     /**
      * @param \DateTime $preferredDeliveryDate
+     *
      * @return $this
      */
     public function setPreferredDeliveryDate($preferredDeliveryDate)
     {
         $this->preferredDeliveryDate = $preferredDeliveryDate;
+
         return $this;
     }
 
@@ -716,11 +805,13 @@ class ShippingMethod
 
     /**
      * @param bool $preferredDateChosen
+     *
      * @return $this
      */
     public function setPreferredDateChosen($preferredDateChosen)
     {
         $this->preferredDateChosen = $preferredDateChosen;
+
         return $this;
     }
 
@@ -734,14 +825,13 @@ class ShippingMethod
 
     /**
      * @param string $description
+     *
      * @return $this
      */
     public function setDescription($description)
     {
         $this->description = $description;
+
         return $this;
     }
-
-
 }
-

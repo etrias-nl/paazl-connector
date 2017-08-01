@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Etrias\PaazlConnector\Result\PaazlResultInterface;
 
 class DeliveryEstimateResponse implements PaazlResultInterface
 {
-
     /**
      * @var errorType
      */
@@ -24,11 +32,15 @@ class DeliveryEstimateResponse implements PaazlResultInterface
     protected $deliveryEstimate = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var errorType $error
+     * @var errorType
      * @var disambiguationCandi\DateTimeType $disambiguationCandidate
-     * @var deliveryEstimateType $deliveryEstimate
+     * @var deliveryEstimateType             $deliveryEstimate
+     *
+     * @param mixed $error
+     * @param mixed $disambiguationCandidate
+     * @param mixed $deliveryEstimate
      */
     public function __construct($error, $disambiguationCandidate, $deliveryEstimate)
     {
@@ -47,11 +59,13 @@ class DeliveryEstimateResponse implements PaazlResultInterface
 
     /**
      * @param errorType $error
+     *
      * @return $this
      */
     public function setError($error)
     {
         $this->error = $error;
+
         return $this;
     }
 
@@ -65,11 +79,13 @@ class DeliveryEstimateResponse implements PaazlResultInterface
 
     /**
      * @param disambiguationCandi\DateTimeType $disambiguationCandidate
+     *
      * @return $this
      */
     public function setDisambiguationCandidate($disambiguationCandidate)
     {
         $this->disambiguationCandidate = $disambiguationCandidate;
+
         return $this;
     }
 
@@ -83,14 +99,13 @@ class DeliveryEstimateResponse implements PaazlResultInterface
 
     /**
      * @param deliveryEstimateType $deliveryEstimate
+     *
      * @return $this
      */
     public function setDeliveryEstimate($deliveryEstimate)
     {
         $this->deliveryEstimate = $deliveryEstimate;
+
         return $this;
     }
-
-
 }
-

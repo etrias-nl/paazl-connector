@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class ProductType
 {
-
     /**
      * @var int
      */
@@ -71,21 +80,35 @@ class ProductType
     protected $hsTariffCode = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var int $quantity
-     * @var int $packagesPerUnit
-     * @var float $unitPrice
+     * @var int
+     * @var int          $packagesPerUnit
+     * @var float        $unitPrice
      * @var currencyCode $unitPriceCurrency
-     * @var float $weight
-     * @var int $length
-     * @var int $width
-     * @var int $height
-     * @var float $volume
-     * @var string $code
-     * @var string $description
-     * @var string $countryOfManufacture
-     * @var string $hsTariffCode
+     * @var float        $weight
+     * @var int          $length
+     * @var int          $width
+     * @var int          $height
+     * @var float        $volume
+     * @var string       $code
+     * @var string       $description
+     * @var string       $countryOfManufacture
+     * @var string       $hsTariffCode
+     *
+     * @param mixed $quantity
+     * @param mixed $packagesPerUnit
+     * @param mixed $unitPrice
+     * @param mixed $unitPriceCurrency
+     * @param mixed $weight
+     * @param mixed $length
+     * @param mixed $width
+     * @param mixed $height
+     * @param mixed $volume
+     * @param mixed $code
+     * @param mixed $description
+     * @param mixed $countryOfManufacture
+     * @param mixed $hsTariffCode
      */
     public function __construct($quantity, $packagesPerUnit, $unitPrice, $unitPriceCurrency, $weight, $length, $width, $height, $volume, $code, $description, $countryOfManufacture, $hsTariffCode)
     {
@@ -114,11 +137,13 @@ class ProductType
 
     /**
      * @param int $quantity
+     *
      * @return $this
      */
     public function setQuantity($quantity)
     {
         $this->quantity = $quantity;
+
         return $this;
     }
 
@@ -132,11 +157,13 @@ class ProductType
 
     /**
      * @param int $packagesPerUnit
+     *
      * @return $this
      */
     public function setPackagesPerUnit($packagesPerUnit)
     {
         $this->packagesPerUnit = $packagesPerUnit;
+
         return $this;
     }
 
@@ -150,11 +177,13 @@ class ProductType
 
     /**
      * @param float $unitPrice
+     *
      * @return $this
      */
     public function setUnitPrice($unitPrice)
     {
         $this->unitPrice = $unitPrice;
+
         return $this;
     }
 
@@ -168,11 +197,13 @@ class ProductType
 
     /**
      * @param currencyCode $unitPriceCurrency
+     *
      * @return $this
      */
     public function setUnitPriceCurrency($unitPriceCurrency)
     {
         $this->unitPriceCurrency = $unitPriceCurrency;
+
         return $this;
     }
 
@@ -186,11 +217,13 @@ class ProductType
 
     /**
      * @param float $weight
+     *
      * @return $this
      */
     public function setWeight($weight)
     {
         $this->weight = $weight;
+
         return $this;
     }
 
@@ -204,11 +237,13 @@ class ProductType
 
     /**
      * @param int $length
+     *
      * @return $this
      */
     public function setLength($length)
     {
         $this->length = $length;
+
         return $this;
     }
 
@@ -222,11 +257,13 @@ class ProductType
 
     /**
      * @param int $width
+     *
      * @return $this
      */
     public function setWidth($width)
     {
         $this->width = $width;
+
         return $this;
     }
 
@@ -240,11 +277,13 @@ class ProductType
 
     /**
      * @param int $height
+     *
      * @return $this
      */
     public function setHeight($height)
     {
         $this->height = $height;
+
         return $this;
     }
 
@@ -258,11 +297,13 @@ class ProductType
 
     /**
      * @param float $volume
+     *
      * @return $this
      */
     public function setVolume($volume)
     {
         $this->volume = $volume;
+
         return $this;
     }
 
@@ -276,11 +317,13 @@ class ProductType
 
     /**
      * @param string $code
+     *
      * @return $this
      */
     public function setCode($code)
     {
         $this->code = $code;
+
         return $this;
     }
 
@@ -294,11 +337,13 @@ class ProductType
 
     /**
      * @param string $description
+     *
      * @return $this
      */
     public function setDescription($description)
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -312,11 +357,13 @@ class ProductType
 
     /**
      * @param string $countryOfManufacture
+     *
      * @return $this
      */
     public function setCountryOfManufacture($countryOfManufacture)
     {
         $this->countryOfManufacture = $countryOfManufacture;
+
         return $this;
     }
 
@@ -330,14 +377,13 @@ class ProductType
 
     /**
      * @param string $hsTariffCode
+     *
      * @return $this
      */
     public function setHsTariffCode($hsTariffCode)
     {
         $this->hsTariffCode = $hsTariffCode;
+
         return $this;
     }
-
-
 }
-

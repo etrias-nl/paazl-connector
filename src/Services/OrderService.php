@@ -38,7 +38,6 @@ use Etrias\PaazlConnector\SoapTypes\UpdateOrderRequest;
 use Etrias\PaazlConnector\SoapTypes\ValidateOrderRequest;
 use Etrias\PaazlConnector\SoapTypes\ValidateOrderResponseType;
 
-
 class OrderService
 {
     /**
@@ -53,7 +52,7 @@ class OrderService
     /**
      * DocumentService constructor.
      *
-     * @param PaazlClientInterface       $client
+     * @param PaazlClientInterface     $client
      * @param SecurityServiceInterface $security
      */
     public function __construct(PaazlClientInterface $client, SecurityServiceInterface $security)
@@ -87,7 +86,7 @@ class OrderService
     /**
      * @param $orderReference
      * @param Product[] $products
-     * @param null     $targetWebShop
+     * @param null      $targetWebShop
      *
      * @return OrderSaveResponseType
      */
@@ -107,7 +106,7 @@ class OrderService
     /**
      * @param $orderReference
      * @param Products[] $products
-     * @param null     $targetWebShop
+     * @param null       $targetWebShop
      *
      * @return OrderSaveResponseType
      */
@@ -126,18 +125,18 @@ class OrderService
 
     /**
      * @param $orderReference
-     * @param null                      $newOrderReference
-     * @param ChangeShippingMethod|null $shippingMethod
-     * @param ChangeShippingAddress|null      $shippingAddress
-     * @param ChangeSenderAddress|null  $returnAddress
-     * @param ChangeSenderAddress|null  $shipperAddress
-     * @param ChangeProducts|null       $products
-     * @param null                      $totalAmount
-     * @param null                      $totalAmountCurrency
-     * @param null                      $language
-     * @param null                      $customerEmail
-     * @param null                      $customerPhoneNumber
-     * @param null                      $targetWebShop
+     * @param null                       $newOrderReference
+     * @param ChangeShippingMethod|null  $shippingMethod
+     * @param ChangeShippingAddress|null $shippingAddress
+     * @param ChangeSenderAddress|null   $returnAddress
+     * @param ChangeSenderAddress|null   $shipperAddress
+     * @param ChangeProducts|null        $products
+     * @param null                       $totalAmount
+     * @param null                       $totalAmountCurrency
+     * @param null                       $language
+     * @param null                       $customerEmail
+     * @param null                       $customerPhoneNumber
+     * @param null                       $targetWebShop
      *
      * @return OrderSaveResponseType
      */

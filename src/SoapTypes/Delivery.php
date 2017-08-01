@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class Delivery
 {
-
     /**
      * @var deliveryTypeType
      */
@@ -86,24 +95,41 @@ class Delivery
     protected $preferredDateChosen = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var deliveryTypeType $deliveryType
-     * @var string $option
-     * @var string $description
-     * @var float $rate
-     * @var bool $cod
-     * @var bool $insurance
-     * @var bool $signatureRequired
-     * @var bool $directDeliveryOnly
-     * @var string $servicePointBasePostalCode
-     * @var string $servicePointBaseCity
-     * @var servicePointType $servicePoint
-     * @var string $servicePointAccountNumber
-     * @var \DateTime $preferredDeliveryDate
-     * @var openOrClosedTimeRangeType $timeFrame
+     * @var deliveryTypeType
+     * @var string                      $option
+     * @var string                      $description
+     * @var float                       $rate
+     * @var bool                        $cod
+     * @var bool                        $insurance
+     * @var bool                        $signatureRequired
+     * @var bool                        $directDeliveryOnly
+     * @var string                      $servicePointBasePostalCode
+     * @var string                      $servicePointBaseCity
+     * @var servicePointType            $servicePoint
+     * @var string                      $servicePointAccountNumber
+     * @var \DateTime                   $preferredDeliveryDate
+     * @var openOrClosedTimeRangeType   $timeFrame
      * @var nonNegativeIntegerRangeType $transitDaysRange
-     * @var bool $preferredDateChosen
+     * @var bool                        $preferredDateChosen
+     *
+     * @param mixed $deliveryType
+     * @param mixed $option
+     * @param mixed $description
+     * @param mixed $rate
+     * @param mixed $cod
+     * @param mixed $insurance
+     * @param mixed $signatureRequired
+     * @param mixed $directDeliveryOnly
+     * @param mixed $servicePointBasePostalCode
+     * @param mixed $servicePointBaseCity
+     * @param mixed $servicePoint
+     * @param mixed $servicePointAccountNumber
+     * @param mixed $preferredDeliveryDate
+     * @param mixed $timeFrame
+     * @param mixed $transitDaysRange
+     * @param mixed $preferredDateChosen
      */
     public function __construct($deliveryType, $option, $description, $rate, $cod, $insurance, $signatureRequired, $directDeliveryOnly, $servicePointBasePostalCode, $servicePointBaseCity, $servicePoint, $servicePointAccountNumber, $preferredDeliveryDate, $timeFrame, $transitDaysRange, $preferredDateChosen)
     {
@@ -135,11 +161,13 @@ class Delivery
 
     /**
      * @param deliveryTypeType $deliveryType
+     *
      * @return $this
      */
     public function setDeliveryType($deliveryType)
     {
         $this->deliveryType = $deliveryType;
+
         return $this;
     }
 
@@ -153,11 +181,13 @@ class Delivery
 
     /**
      * @param string $option
+     *
      * @return $this
      */
     public function setOption($option)
     {
         $this->option = $option;
+
         return $this;
     }
 
@@ -171,11 +201,13 @@ class Delivery
 
     /**
      * @param string $description
+     *
      * @return $this
      */
     public function setDescription($description)
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -189,11 +221,13 @@ class Delivery
 
     /**
      * @param float $rate
+     *
      * @return $this
      */
     public function setRate($rate)
     {
         $this->rate = $rate;
+
         return $this;
     }
 
@@ -207,11 +241,13 @@ class Delivery
 
     /**
      * @param bool $cod
+     *
      * @return $this
      */
     public function setCod($cod)
     {
         $this->cod = $cod;
+
         return $this;
     }
 
@@ -225,11 +261,13 @@ class Delivery
 
     /**
      * @param bool $insurance
+     *
      * @return $this
      */
     public function setInsurance($insurance)
     {
         $this->insurance = $insurance;
+
         return $this;
     }
 
@@ -243,11 +281,13 @@ class Delivery
 
     /**
      * @param bool $signatureRequired
+     *
      * @return $this
      */
     public function setSignatureRequired($signatureRequired)
     {
         $this->signatureRequired = $signatureRequired;
+
         return $this;
     }
 
@@ -261,11 +301,13 @@ class Delivery
 
     /**
      * @param bool $directDeliveryOnly
+     *
      * @return $this
      */
     public function setDirectDeliveryOnly($directDeliveryOnly)
     {
         $this->directDeliveryOnly = $directDeliveryOnly;
+
         return $this;
     }
 
@@ -279,11 +321,13 @@ class Delivery
 
     /**
      * @param string $servicePointBasePostalCode
+     *
      * @return $this
      */
     public function setServicePointBasePostalCode($servicePointBasePostalCode)
     {
         $this->servicePointBasePostalCode = $servicePointBasePostalCode;
+
         return $this;
     }
 
@@ -297,11 +341,13 @@ class Delivery
 
     /**
      * @param string $servicePointBaseCity
+     *
      * @return $this
      */
     public function setServicePointBaseCity($servicePointBaseCity)
     {
         $this->servicePointBaseCity = $servicePointBaseCity;
+
         return $this;
     }
 
@@ -315,11 +361,13 @@ class Delivery
 
     /**
      * @param servicePointType $servicePoint
+     *
      * @return $this
      */
     public function setServicePoint($servicePoint)
     {
         $this->servicePoint = $servicePoint;
+
         return $this;
     }
 
@@ -333,11 +381,13 @@ class Delivery
 
     /**
      * @param string $servicePointAccountNumber
+     *
      * @return $this
      */
     public function setServicePointAccountNumber($servicePointAccountNumber)
     {
         $this->servicePointAccountNumber = $servicePointAccountNumber;
+
         return $this;
     }
 
@@ -351,11 +401,13 @@ class Delivery
 
     /**
      * @param \DateTime $preferredDeliveryDate
+     *
      * @return $this
      */
     public function setPreferredDeliveryDate($preferredDeliveryDate)
     {
         $this->preferredDeliveryDate = $preferredDeliveryDate;
+
         return $this;
     }
 
@@ -369,11 +421,13 @@ class Delivery
 
     /**
      * @param openOrClosedTimeRangeType $timeFrame
+     *
      * @return $this
      */
     public function setTimeFrame($timeFrame)
     {
         $this->timeFrame = $timeFrame;
+
         return $this;
     }
 
@@ -387,11 +441,13 @@ class Delivery
 
     /**
      * @param nonNegativeIntegerRangeType $transitDaysRange
+     *
      * @return $this
      */
     public function setTransitDaysRange($transitDaysRange)
     {
         $this->transitDaysRange = $transitDaysRange;
+
         return $this;
     }
 
@@ -405,14 +461,13 @@ class Delivery
 
     /**
      * @param bool $preferredDateChosen
+     *
      * @return $this
      */
     public function setPreferredDateChosen($preferredDateChosen)
     {
         $this->preferredDateChosen = $preferredDateChosen;
+
         return $this;
     }
-
-
 }
-

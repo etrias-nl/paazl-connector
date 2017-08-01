@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Phpro\SoapClient\Type\RequestInterface;
 
 class CancelShipmentsRequest implements RequestInterface
 {
-
     /**
      * @var int
      */
@@ -19,10 +27,12 @@ class CancelShipmentsRequest implements RequestInterface
     protected $label = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var int $webshop
+     * @var int
      * @var existingLabelType[] $label
+     *
+     * @param mixed $webshop
      */
     public function __construct($webshop, array $labels)
     {
@@ -40,11 +50,13 @@ class CancelShipmentsRequest implements RequestInterface
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -58,14 +70,13 @@ class CancelShipmentsRequest implements RequestInterface
 
     /**
      * @param existingLabelType[] $labels
+     *
      * @return $this
      */
     public function setLabels(array $labels)
     {
         $this->label = $labels;
+
         return $this;
     }
-
-
 }
-

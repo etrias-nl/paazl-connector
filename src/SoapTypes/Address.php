@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class Address
 {
-
     /**
      * @var string
      */
@@ -31,13 +40,19 @@ class Address
     protected $addition = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $zipcode
+     * @var string
      * @var string $housenumber
      * @var string $street
      * @var string $city
      * @var string $addition
+     *
+     * @param mixed $zipcode
+     * @param mixed $housenumber
+     * @param mixed $street
+     * @param mixed $city
+     * @param mixed $addition
      */
     public function __construct($zipcode, $housenumber, $street, $city, $addition)
     {
@@ -58,11 +73,13 @@ class Address
 
     /**
      * @param string $zipcode
+     *
      * @return $this
      */
     public function setZipcode($zipcode)
     {
         $this->zipcode = $zipcode;
+
         return $this;
     }
 
@@ -76,11 +93,13 @@ class Address
 
     /**
      * @param string $housenumber
+     *
      * @return $this
      */
     public function setHousenumber($housenumber)
     {
         $this->housenumber = $housenumber;
+
         return $this;
     }
 
@@ -94,11 +113,13 @@ class Address
 
     /**
      * @param string $street
+     *
      * @return $this
      */
     public function setStreet($street)
     {
         $this->street = $street;
+
         return $this;
     }
 
@@ -112,11 +133,13 @@ class Address
 
     /**
      * @param string $city
+     *
      * @return $this
      */
     public function setCity($city)
     {
         $this->city = $city;
+
         return $this;
     }
 
@@ -130,14 +153,13 @@ class Address
 
     /**
      * @param string $addition
+     *
      * @return $this
      */
     public function setAddition($addition)
     {
         $this->addition = $addition;
+
         return $this;
     }
-
-
 }
-

@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class StoreDetailsType
 {
-
     /**
      * @var string
      */
@@ -31,13 +40,17 @@ class StoreDetailsType
     protected $businessHours = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $code
-     * @var string $name
-     * @var addressType $address
-     * @var coordinatesType $coordinates
+     * @var string
+     * @var string            $name
+     * @var addressType       $address
+     * @var coordinatesType   $coordinates
      * @var businessHoursType $businessHours
+     *
+     * @param mixed $code
+     * @param mixed $name
+     * @param mixed $address
      */
     public function __construct($code, $name, $address, coordinatesType $coordinates = null, businessHoursType $businessHours = null)
     {
@@ -58,11 +71,13 @@ class StoreDetailsType
 
     /**
      * @param string $code
+     *
      * @return $this
      */
     public function setCode($code)
     {
         $this->code = $code;
+
         return $this;
     }
 
@@ -76,11 +91,13 @@ class StoreDetailsType
 
     /**
      * @param string $name
+     *
      * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -94,11 +111,13 @@ class StoreDetailsType
 
     /**
      * @param addressType $address
+     *
      * @return $this
      */
     public function setAddress($address)
     {
         $this->address = $address;
+
         return $this;
     }
 
@@ -112,11 +131,13 @@ class StoreDetailsType
 
     /**
      * @param coordinatesType $coordinates
+     *
      * @return $this
      */
     public function setCoordinates($coordinates)
     {
         $this->coordinates = $coordinates;
+
         return $this;
     }
 
@@ -130,14 +151,13 @@ class StoreDetailsType
 
     /**
      * @param businessHoursType $businessHours
+     *
      * @return $this
      */
     public function setBusinessHours($businessHours)
     {
         $this->businessHours = $businessHours;
+
         return $this;
     }
-
-
 }
-

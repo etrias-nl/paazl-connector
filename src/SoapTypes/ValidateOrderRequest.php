@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Phpro\SoapClient\Type\RequestInterface;
 
 class ValidateOrderRequest implements RequestInterface
 {
-
     /**
      * @var string
      */
@@ -79,22 +87,37 @@ class ValidateOrderRequest implements RequestInterface
     protected $shippingAddress = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $hash
-     * @var int $webshop
-     * @var int $targetWebshop
-     * @var string $orderReference
-     * @var string $pendingOrderReference
-     * @var int $totalAmount
-     * @var currencyCode $totalAmountCurrency
-     * @var language $language
-     * @var string $customerEmail
+     * @var string
+     * @var int                 $webshop
+     * @var int                 $targetWebshop
+     * @var string              $orderReference
+     * @var string              $pendingOrderReference
+     * @var int                 $totalAmount
+     * @var currencyCode        $totalAmountCurrency
+     * @var language            $language
+     * @var string              $customerEmail
      * @var customerPhoneNumber $customerPhoneNumber
-     * @var shippingMethod $shippingMethod
-     * @var senderAddress $shipperAddress
-     * @var senderAddress $returnAddress
-     * @var shippingAddress $shippingAddress
+     * @var shippingMethod      $shippingMethod
+     * @var senderAddress       $shipperAddress
+     * @var senderAddress       $returnAddress
+     * @var shippingAddress     $shippingAddress
+     *
+     * @param mixed $hash
+     * @param mixed $webshop
+     * @param mixed $targetWebshop
+     * @param mixed $orderReference
+     * @param mixed $pendingOrderReference
+     * @param mixed $totalAmount
+     * @param mixed $totalAmountCurrency
+     * @param mixed $language
+     * @param mixed $customerEmail
+     * @param mixed $customerPhoneNumber
+     * @param mixed $shippingMethod
+     * @param mixed $shipperAddress
+     * @param mixed $returnAddress
+     * @param mixed $shippingAddress
      */
     public function __construct($hash, $webshop, $targetWebshop, $orderReference, $pendingOrderReference, $totalAmount, $totalAmountCurrency, $language, $customerEmail, $customerPhoneNumber, $shippingMethod, $shipperAddress, $returnAddress, $shippingAddress)
     {
@@ -124,11 +147,13 @@ class ValidateOrderRequest implements RequestInterface
 
     /**
      * @param string $hash
+     *
      * @return $this
      */
     public function setHash($hash)
     {
         $this->hash = $hash;
+
         return $this;
     }
 
@@ -142,11 +167,13 @@ class ValidateOrderRequest implements RequestInterface
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -160,11 +187,13 @@ class ValidateOrderRequest implements RequestInterface
 
     /**
      * @param int $targetWebshop
+     *
      * @return $this
      */
     public function setTargetWebshop($targetWebshop)
     {
         $this->targetWebshop = $targetWebshop;
+
         return $this;
     }
 
@@ -178,11 +207,13 @@ class ValidateOrderRequest implements RequestInterface
 
     /**
      * @param string $orderReference
+     *
      * @return $this
      */
     public function setOrderReference($orderReference)
     {
         $this->orderReference = $orderReference;
+
         return $this;
     }
 
@@ -196,11 +227,13 @@ class ValidateOrderRequest implements RequestInterface
 
     /**
      * @param string $pendingOrderReference
+     *
      * @return $this
      */
     public function setPendingOrderReference($pendingOrderReference)
     {
         $this->pendingOrderReference = $pendingOrderReference;
+
         return $this;
     }
 
@@ -214,11 +247,13 @@ class ValidateOrderRequest implements RequestInterface
 
     /**
      * @param int $totalAmount
+     *
      * @return $this
      */
     public function setTotalAmount($totalAmount)
     {
         $this->totalAmount = $totalAmount;
+
         return $this;
     }
 
@@ -232,11 +267,13 @@ class ValidateOrderRequest implements RequestInterface
 
     /**
      * @param currencyCode $totalAmountCurrency
+     *
      * @return $this
      */
     public function setTotalAmountCurrency($totalAmountCurrency)
     {
         $this->totalAmountCurrency = $totalAmountCurrency;
+
         return $this;
     }
 
@@ -250,11 +287,13 @@ class ValidateOrderRequest implements RequestInterface
 
     /**
      * @param language $language
+     *
      * @return $this
      */
     public function setLanguage($language)
     {
         $this->language = $language;
+
         return $this;
     }
 
@@ -268,11 +307,13 @@ class ValidateOrderRequest implements RequestInterface
 
     /**
      * @param string $customerEmail
+     *
      * @return $this
      */
     public function setCustomerEmail($customerEmail)
     {
         $this->customerEmail = $customerEmail;
+
         return $this;
     }
 
@@ -286,11 +327,13 @@ class ValidateOrderRequest implements RequestInterface
 
     /**
      * @param customerPhoneNumber $customerPhoneNumber
+     *
      * @return $this
      */
     public function setCustomerPhoneNumber($customerPhoneNumber)
     {
         $this->customerPhoneNumber = $customerPhoneNumber;
+
         return $this;
     }
 
@@ -304,11 +347,13 @@ class ValidateOrderRequest implements RequestInterface
 
     /**
      * @param shippingMethod $shippingMethod
+     *
      * @return $this
      */
     public function setShippingMethod($shippingMethod)
     {
         $this->shippingMethod = $shippingMethod;
+
         return $this;
     }
 
@@ -322,11 +367,13 @@ class ValidateOrderRequest implements RequestInterface
 
     /**
      * @param senderAddress $shipperAddress
+     *
      * @return $this
      */
     public function setShipperAddress($shipperAddress)
     {
         $this->shipperAddress = $shipperAddress;
+
         return $this;
     }
 
@@ -340,11 +387,13 @@ class ValidateOrderRequest implements RequestInterface
 
     /**
      * @param senderAddress $returnAddress
+     *
      * @return $this
      */
     public function setReturnAddress($returnAddress)
     {
         $this->returnAddress = $returnAddress;
+
         return $this;
     }
 
@@ -358,14 +407,13 @@ class ValidateOrderRequest implements RequestInterface
 
     /**
      * @param shippingAddress $shippingAddress
+     *
      * @return $this
      */
     public function setShippingAddress($shippingAddress)
     {
         $this->shippingAddress = $shippingAddress;
+
         return $this;
     }
-
-
 }
-

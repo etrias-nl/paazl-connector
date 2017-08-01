@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class Notification
 {
-
     /**
      * @var string
      */
@@ -16,10 +25,13 @@ class Notification
     protected $phoneNumber = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $emailAddress
+     * @var string
      * @var string $phoneNumber
+     *
+     * @param mixed $emailAddress
+     * @param mixed $phoneNumber
      */
     public function __construct($emailAddress, $phoneNumber)
     {
@@ -37,11 +49,13 @@ class Notification
 
     /**
      * @param string $emailAddress
+     *
      * @return $this
      */
     public function setEmailAddress($emailAddress)
     {
         $this->emailAddress = $emailAddress;
+
         return $this;
     }
 
@@ -55,14 +69,13 @@ class Notification
 
     /**
      * @param string $phoneNumber
+     *
      * @return $this
      */
     public function setPhoneNumber($phoneNumber)
     {
         $this->phoneNumber = $phoneNumber;
+
         return $this;
     }
-
-
 }
-

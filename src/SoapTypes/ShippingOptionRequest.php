@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Phpro\SoapClient\Type\RequestInterface;
 
 class ShippingOptionRequest implements RequestInterface
 {
-
     /**
      * @var string
      */
@@ -74,21 +82,35 @@ class ShippingOptionRequest implements RequestInterface
     protected $sources = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $hash
-     * @var int $webshop
-     * @var int $targetWebshop
-     * @var string $orderReference
-     * @var string $postcode
-     * @var string $country
-     * @var bool $evening
-     * @var bool $weekend
-     * @var bool $extendedDeliveryDateDetails
-     * @var string $shippingOption
-     * @var bool $deliveryEstimate
+     * @var string
+     * @var int                $webshop
+     * @var int                $targetWebshop
+     * @var string             $orderReference
+     * @var string             $postcode
+     * @var string             $country
+     * @var bool               $evening
+     * @var bool               $weekend
+     * @var bool               $extendedDeliveryDateDetails
+     * @var string             $shippingOption
+     * @var bool               $deliveryEstimate
      * @var \DateTimeRangeType $deliveryDateRange
-     * @var sources $sources
+     * @var sources            $sources
+     *
+     * @param mixed $hash
+     * @param mixed $webshop
+     * @param mixed $targetWebshop
+     * @param mixed $orderReference
+     * @param mixed $postcode
+     * @param mixed $country
+     * @param mixed $evening
+     * @param mixed $weekend
+     * @param mixed $extendedDeliveryDateDetails
+     * @param mixed $shippingOption
+     * @param mixed $deliveryEstimate
+     * @param mixed $deliveryDateRange
+     * @param mixed $sources
      */
     public function __construct($hash, $webshop, $targetWebshop, $orderReference, $postcode, $country, $evening, $weekend, $extendedDeliveryDateDetails, $shippingOption, $deliveryEstimate, $deliveryDateRange, $sources)
     {
@@ -117,11 +139,13 @@ class ShippingOptionRequest implements RequestInterface
 
     /**
      * @param string $hash
+     *
      * @return $this
      */
     public function setHash($hash)
     {
         $this->hash = $hash;
+
         return $this;
     }
 
@@ -135,11 +159,13 @@ class ShippingOptionRequest implements RequestInterface
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -153,11 +179,13 @@ class ShippingOptionRequest implements RequestInterface
 
     /**
      * @param int $targetWebshop
+     *
      * @return $this
      */
     public function setTargetWebshop($targetWebshop)
     {
         $this->targetWebshop = $targetWebshop;
+
         return $this;
     }
 
@@ -171,11 +199,13 @@ class ShippingOptionRequest implements RequestInterface
 
     /**
      * @param string $orderReference
+     *
      * @return $this
      */
     public function setOrderReference($orderReference)
     {
         $this->orderReference = $orderReference;
+
         return $this;
     }
 
@@ -189,11 +219,13 @@ class ShippingOptionRequest implements RequestInterface
 
     /**
      * @param string $postcode
+     *
      * @return $this
      */
     public function setPostcode($postcode)
     {
         $this->postcode = $postcode;
+
         return $this;
     }
 
@@ -207,11 +239,13 @@ class ShippingOptionRequest implements RequestInterface
 
     /**
      * @param string $country
+     *
      * @return $this
      */
     public function setCountry($country)
     {
         $this->country = $country;
+
         return $this;
     }
 
@@ -225,11 +259,13 @@ class ShippingOptionRequest implements RequestInterface
 
     /**
      * @param bool $evening
+     *
      * @return $this
      */
     public function setEvening($evening)
     {
         $this->evening = $evening;
+
         return $this;
     }
 
@@ -243,11 +279,13 @@ class ShippingOptionRequest implements RequestInterface
 
     /**
      * @param bool $weekend
+     *
      * @return $this
      */
     public function setWeekend($weekend)
     {
         $this->weekend = $weekend;
+
         return $this;
     }
 
@@ -261,11 +299,13 @@ class ShippingOptionRequest implements RequestInterface
 
     /**
      * @param bool $extendedDeliveryDateDetails
+     *
      * @return $this
      */
     public function setExtendedDeliveryDateDetails($extendedDeliveryDateDetails)
     {
         $this->extendedDeliveryDateDetails = $extendedDeliveryDateDetails;
+
         return $this;
     }
 
@@ -279,11 +319,13 @@ class ShippingOptionRequest implements RequestInterface
 
     /**
      * @param string $shippingOption
+     *
      * @return $this
      */
     public function setShippingOption($shippingOption)
     {
         $this->shippingOption = $shippingOption;
+
         return $this;
     }
 
@@ -297,11 +339,13 @@ class ShippingOptionRequest implements RequestInterface
 
     /**
      * @param bool $deliveryEstimate
+     *
      * @return $this
      */
     public function setDeliveryEstimate($deliveryEstimate)
     {
         $this->deliveryEstimate = $deliveryEstimate;
+
         return $this;
     }
 
@@ -315,11 +359,13 @@ class ShippingOptionRequest implements RequestInterface
 
     /**
      * @param \DateTimeRangeType $deliveryDateRange
+     *
      * @return $this
      */
     public function setDeliveryDateRange($deliveryDateRange)
     {
         $this->deliveryDateRange = $deliveryDateRange;
+
         return $this;
     }
 
@@ -333,14 +379,13 @@ class ShippingOptionRequest implements RequestInterface
 
     /**
      * @param sources $sources
+     *
      * @return $this
      */
     public function setSources($sources)
     {
         $this->sources = $sources;
+
         return $this;
     }
-
-
 }
-

@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Phpro\SoapClient\Type\RequestInterface;
 
 class GenerateLabelsRequest implements RequestInterface
 {
-
     /**
      * @var int
      */
@@ -34,13 +42,19 @@ class GenerateLabelsRequest implements RequestInterface
     protected $includeMetaData = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var int $webshop
+     * @var int
      * @var labelFormatType $labelFormat
-     * @var printerType $printer
-     * @var orderType $order
-     * @var bool $includeMetaData
+     * @var printerType     $printer
+     * @var orderType       $order
+     * @var bool            $includeMetaData
+     *
+     * @param mixed $webshop
+     * @param mixed $labelFormat
+     * @param mixed $printer
+     * @param mixed $order
+     * @param mixed $includeMetaData
      */
     public function __construct($webshop, $labelFormat, $printer, $order, $includeMetaData)
     {
@@ -61,11 +75,13 @@ class GenerateLabelsRequest implements RequestInterface
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -79,11 +95,13 @@ class GenerateLabelsRequest implements RequestInterface
 
     /**
      * @param labelFormatType $labelFormat
+     *
      * @return $this
      */
     public function setLabelFormat($labelFormat)
     {
         $this->labelFormat = $labelFormat;
+
         return $this;
     }
 
@@ -97,11 +115,13 @@ class GenerateLabelsRequest implements RequestInterface
 
     /**
      * @param printerType $printer
+     *
      * @return $this
      */
     public function setPrinter($printer)
     {
         $this->printer = $printer;
+
         return $this;
     }
 
@@ -115,11 +135,13 @@ class GenerateLabelsRequest implements RequestInterface
 
     /**
      * @param orderType $order
+     *
      * @return $this
      */
     public function setOrder($order)
     {
         $this->order = $order;
+
         return $this;
     }
 
@@ -133,14 +155,13 @@ class GenerateLabelsRequest implements RequestInterface
 
     /**
      * @param bool $includeMetaData
+     *
      * @return $this
      */
     public function setIncludeMetaData($includeMetaData)
     {
         $this->includeMetaData = $includeMetaData;
+
         return $this;
     }
-
-
 }
-

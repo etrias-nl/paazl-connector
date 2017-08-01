@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class OrdersType
 {
-
     /**
      * @var nonNegativeInteger
      */
@@ -31,13 +40,19 @@ class OrdersType
     protected $order = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var nonNegativeInteger $page
-     * @var bool $hasNextPage
-     * @var int $webshop
-     * @var string $webshopName
-     * @var order $order
+     * @var nonNegativeInteger
+     * @var bool               $hasNextPage
+     * @var int                $webshop
+     * @var string             $webshopName
+     * @var order              $order
+     *
+     * @param mixed $page
+     * @param mixed $hasNextPage
+     * @param mixed $webshop
+     * @param mixed $webshopName
+     * @param mixed $order
      */
     public function __construct($page, $hasNextPage, $webshop, $webshopName, $order)
     {
@@ -58,11 +73,13 @@ class OrdersType
 
     /**
      * @param nonNegativeInteger $page
+     *
      * @return $this
      */
     public function setPage($page)
     {
         $this->page = $page;
+
         return $this;
     }
 
@@ -76,11 +93,13 @@ class OrdersType
 
     /**
      * @param bool $hasNextPage
+     *
      * @return $this
      */
     public function setHasNextPage($hasNextPage)
     {
         $this->hasNextPage = $hasNextPage;
+
         return $this;
     }
 
@@ -94,11 +113,13 @@ class OrdersType
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -112,11 +133,13 @@ class OrdersType
 
     /**
      * @param string $webshopName
+     *
      * @return $this
      */
     public function setWebshopName($webshopName)
     {
         $this->webshopName = $webshopName;
+
         return $this;
     }
 
@@ -130,14 +153,13 @@ class OrdersType
 
     /**
      * @param order $order
+     *
      * @return $this
      */
     public function setOrder($order)
     {
         $this->order = $order;
+
         return $this;
     }
-
-
 }
-

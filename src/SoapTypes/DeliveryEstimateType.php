@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class DeliveryEstimateType
 {
-
     /**
      * @var string
      */
@@ -41,15 +50,23 @@ class DeliveryEstimateType
     protected $guarantee = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $shippingOption
-     * @var string $distributor
+     * @var string
+     * @var string                      $distributor
      * @var deliveryEstimateDestination $destination
-     * @var \DateTime $expectedDeliveryDateFrom
-     * @var \DateTime $expectedDeliveryDate
-     * @var nonNegativeInteger $transitDays
-     * @var bool $guarantee
+     * @var \DateTime                   $expectedDeliveryDateFrom
+     * @var \DateTime                   $expectedDeliveryDate
+     * @var nonNegativeInteger          $transitDays
+     * @var bool                        $guarantee
+     *
+     * @param mixed $shippingOption
+     * @param mixed $distributor
+     * @param mixed $destination
+     * @param mixed $expectedDeliveryDateFrom
+     * @param mixed $expectedDeliveryDate
+     * @param mixed $transitDays
+     * @param mixed $guarantee
      */
     public function __construct($shippingOption, $distributor, $destination, $expectedDeliveryDateFrom, $expectedDeliveryDate, $transitDays, $guarantee)
     {
@@ -72,11 +89,13 @@ class DeliveryEstimateType
 
     /**
      * @param string $shippingOption
+     *
      * @return $this
      */
     public function setShippingOption($shippingOption)
     {
         $this->shippingOption = $shippingOption;
+
         return $this;
     }
 
@@ -90,11 +109,13 @@ class DeliveryEstimateType
 
     /**
      * @param string $distributor
+     *
      * @return $this
      */
     public function setDistributor($distributor)
     {
         $this->distributor = $distributor;
+
         return $this;
     }
 
@@ -108,11 +129,13 @@ class DeliveryEstimateType
 
     /**
      * @param deliveryEstimateDestination $destination
+     *
      * @return $this
      */
     public function setDestination($destination)
     {
         $this->destination = $destination;
+
         return $this;
     }
 
@@ -126,11 +149,13 @@ class DeliveryEstimateType
 
     /**
      * @param \DateTime $expectedDeliveryDateFrom
+     *
      * @return $this
      */
     public function setExpectedDeliveryDateFrom($expectedDeliveryDateFrom)
     {
         $this->expectedDeliveryDateFrom = $expectedDeliveryDateFrom;
+
         return $this;
     }
 
@@ -144,11 +169,13 @@ class DeliveryEstimateType
 
     /**
      * @param \DateTime $expectedDeliveryDate
+     *
      * @return $this
      */
     public function setExpectedDeliveryDate($expectedDeliveryDate)
     {
         $this->expectedDeliveryDate = $expectedDeliveryDate;
+
         return $this;
     }
 
@@ -162,11 +189,13 @@ class DeliveryEstimateType
 
     /**
      * @param nonNegativeInteger $transitDays
+     *
      * @return $this
      */
     public function setTransitDays($transitDays)
     {
         $this->transitDays = $transitDays;
+
         return $this;
     }
 
@@ -180,14 +209,13 @@ class DeliveryEstimateType
 
     /**
      * @param bool $guarantee
+     *
      * @return $this
      */
     public function setGuarantee($guarantee)
     {
         $this->guarantee = $guarantee;
+
         return $this;
     }
-
-
 }
-

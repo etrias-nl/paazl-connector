@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class OrderType
 {
-
     /**
      * @var string
      */
@@ -31,13 +40,19 @@ class OrderType
     protected $batch = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $hash
-     * @var int $targetWebshop
-     * @var string $orderReference
+     * @var string
+     * @var int           $targetWebshop
+     * @var string        $orderReference
      * @var labelProducts $labelProducts
-     * @var string $batch
+     * @var string        $batch
+     *
+     * @param mixed      $hash
+     * @param mixed      $targetWebshop
+     * @param mixed      $orderReference
+     * @param null|mixed $labelProducts
+     * @param null|mixed $batch
      */
     public function __construct($hash, $targetWebshop, $orderReference, $labelProducts = null, $batch = null)
     {
@@ -58,11 +73,13 @@ class OrderType
 
     /**
      * @param string $hash
+     *
      * @return $this
      */
     public function setHash($hash)
     {
         $this->hash = $hash;
+
         return $this;
     }
 
@@ -76,11 +93,13 @@ class OrderType
 
     /**
      * @param int $targetWebshop
+     *
      * @return $this
      */
     public function setTargetWebshop($targetWebshop)
     {
         $this->targetWebshop = $targetWebshop;
+
         return $this;
     }
 
@@ -94,11 +113,13 @@ class OrderType
 
     /**
      * @param string $orderReference
+     *
      * @return $this
      */
     public function setOrderReference($orderReference)
     {
         $this->orderReference = $orderReference;
+
         return $this;
     }
 
@@ -112,11 +133,13 @@ class OrderType
 
     /**
      * @param labelProducts $labelProducts
+     *
      * @return $this
      */
     public function setLabelProducts($labelProducts)
     {
         $this->labelProducts = $labelProducts;
+
         return $this;
     }
 
@@ -130,14 +153,13 @@ class OrderType
 
     /**
      * @param string $batch
+     *
      * @return $this
      */
     public function setBatch($batch)
     {
         $this->batch = $batch;
+
         return $this;
     }
-
-
 }
-

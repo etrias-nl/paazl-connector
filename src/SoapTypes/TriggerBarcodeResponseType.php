@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class TriggerBarcodeResponseType
 {
-
     /**
      * @var string
      */
@@ -21,11 +30,15 @@ class TriggerBarcodeResponseType
     protected $identifier = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var string $barcode
+     * @var string
      * @var triggerResponseStatus $status
-     * @var string $identifier
+     * @var string                $identifier
+     *
+     * @param mixed $barcode
+     * @param mixed $status
+     * @param mixed $identifier
      */
     public function __construct($barcode, $status, $identifier)
     {
@@ -44,11 +57,13 @@ class TriggerBarcodeResponseType
 
     /**
      * @param string $barcode
+     *
      * @return $this
      */
     public function setBarcode($barcode)
     {
         $this->barcode = $barcode;
+
         return $this;
     }
 
@@ -62,11 +77,13 @@ class TriggerBarcodeResponseType
 
     /**
      * @param triggerResponseStatus $status
+     *
      * @return $this
      */
     public function setStatus($status)
     {
         $this->status = $status;
+
         return $this;
     }
 
@@ -80,14 +97,13 @@ class TriggerBarcodeResponseType
 
     /**
      * @param string $identifier
+     *
      * @return $this
      */
     public function setIdentifier($identifier)
     {
         $this->identifier = $identifier;
+
         return $this;
     }
-
-
 }
-

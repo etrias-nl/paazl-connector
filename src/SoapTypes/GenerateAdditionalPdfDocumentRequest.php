@@ -1,25 +1,34 @@
 <?php
 
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Etrias\PaazlConnector\SoapTypes;
 
 class GenerateAdditionalPdfDocumentRequest extends GenerateAdditionalDocumentType
 {
-
     /**
      * @var printerType
      */
     protected $printer = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @param string $hash
-     * @param int $webShop
-     * @param int $targetWebShop
-     * @param string $orderReference
-     * @param string $barcode
+     * @param string                 $hash
+     * @param int                    $webShop
+     * @param int                    $targetWebShop
+     * @param string                 $orderReference
+     * @param string                 $barcode
      * @param additionalDocumentType $documentType
-     * @param printerType $printer
+     * @param printerType            $printer
      */
     public function __construct($hash, $webShop, $targetWebShop, $orderReference, $barcode, $documentType, $printer)
     {
@@ -37,14 +46,13 @@ class GenerateAdditionalPdfDocumentRequest extends GenerateAdditionalDocumentTyp
 
     /**
      * @param printerType $printer
+     *
      * @return $this
      */
     public function setPrinter($printer)
     {
         $this->printer = $printer;
+
         return $this;
     }
-
-
 }
-

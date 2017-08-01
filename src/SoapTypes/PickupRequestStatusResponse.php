@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Etrias\PaazlConnector\Result\PaazlResultInterface;
 
 class PickupRequestStatusResponse implements PaazlResultInterface
 {
-
     /**
      * @var errorType
      */
@@ -39,14 +47,21 @@ class PickupRequestStatusResponse implements PaazlResultInterface
     protected $statusHistory = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var errorType $error
-     * @var string $internalReference
-     * @var int $webshop
-     * @var pickupRequestStatusType $status
-     * @var \DateTime $date
+     * @var errorType
+     * @var string                         $internalReference
+     * @var int                            $webshop
+     * @var pickupRequestStatusType        $status
+     * @var \DateTime                      $date
      * @var pickupRequestStatusHistoryType $statusHistory
+     *
+     * @param mixed $error
+     * @param mixed $internalReference
+     * @param mixed $webshop
+     * @param mixed $status
+     * @param mixed $date
+     * @param mixed $statusHistory
      */
     public function __construct($error, $internalReference, $webshop, $status, $date, $statusHistory)
     {
@@ -68,11 +83,13 @@ class PickupRequestStatusResponse implements PaazlResultInterface
 
     /**
      * @param errorType $error
+     *
      * @return $this
      */
     public function setError($error)
     {
         $this->error = $error;
+
         return $this;
     }
 
@@ -86,11 +103,13 @@ class PickupRequestStatusResponse implements PaazlResultInterface
 
     /**
      * @param string $internalReference
+     *
      * @return $this
      */
     public function setInternalReference($internalReference)
     {
         $this->internalReference = $internalReference;
+
         return $this;
     }
 
@@ -104,11 +123,13 @@ class PickupRequestStatusResponse implements PaazlResultInterface
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -122,11 +143,13 @@ class PickupRequestStatusResponse implements PaazlResultInterface
 
     /**
      * @param pickupRequestStatusType $status
+     *
      * @return $this
      */
     public function setStatus($status)
     {
         $this->status = $status;
+
         return $this;
     }
 
@@ -140,11 +163,13 @@ class PickupRequestStatusResponse implements PaazlResultInterface
 
     /**
      * @param \DateTime $date
+     *
      * @return $this
      */
     public function setDate($date)
     {
         $this->date = $date;
+
         return $this;
     }
 
@@ -158,14 +183,13 @@ class PickupRequestStatusResponse implements PaazlResultInterface
 
     /**
      * @param pickupRequestStatusHistoryType $statusHistory
+     *
      * @return $this
      */
     public function setStatusHistory($statusHistory)
     {
         $this->statusHistory = $statusHistory;
+
         return $this;
     }
-
-
 }
-

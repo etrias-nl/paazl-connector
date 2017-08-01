@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Phpro\SoapClient\Type\RequestInterface;
 
 class GeneratePdfCustomsDocumentsRequest implements RequestInterface
 {
-
     /**
      * @var int
      */
@@ -19,10 +27,12 @@ class GeneratePdfCustomsDocumentsRequest implements RequestInterface
     protected $order = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var int $webshop
+     * @var int
      * @var orderType[] $orders
+     *
+     * @param mixed $webshop
      */
     public function __construct($webshop, array $orders)
     {
@@ -40,11 +50,13 @@ class GeneratePdfCustomsDocumentsRequest implements RequestInterface
 
     /**
      * @param int $webshop
+     *
      * @return $this
      */
     public function setWebshop($webshop)
     {
         $this->webshop = $webshop;
+
         return $this;
     }
 
@@ -58,14 +70,13 @@ class GeneratePdfCustomsDocumentsRequest implements RequestInterface
 
     /**
      * @param orderType[] $orders
+     *
      * @return $this
      */
     public function setOrders($orders)
     {
         $this->order = $orders;
+
         return $this;
     }
-
-
 }
-

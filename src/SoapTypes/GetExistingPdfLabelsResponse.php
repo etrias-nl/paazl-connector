@@ -1,13 +1,21 @@
 <?php
 
-namespace Etrias\PaazlConnector\SoapTypes;
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Etrias\PaazlConnector\SoapTypes;
 
 use Etrias\PaazlConnector\Result\PaazlResultInterface;
 
 class GetExistingPdfLabelsResponse implements PaazlResultInterface
 {
-
     /**
      * @var errorType
      */
@@ -24,11 +32,15 @@ class GetExistingPdfLabelsResponse implements PaazlResultInterface
     protected $metaData = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @var errorType $error
-     * @var base64Binary $labels
+     * @var errorType
+     * @var base64Binary      $labels
      * @var labelMetaDataType $metaData
+     *
+     * @param mixed $error
+     * @param mixed $labels
+     * @param mixed $metaData
      */
     public function __construct($error, $labels, $metaData)
     {
@@ -47,11 +59,13 @@ class GetExistingPdfLabelsResponse implements PaazlResultInterface
 
     /**
      * @param errorType $error
+     *
      * @return $this
      */
     public function setError($error)
     {
         $this->error = $error;
+
         return $this;
     }
 
@@ -65,11 +79,13 @@ class GetExistingPdfLabelsResponse implements PaazlResultInterface
 
     /**
      * @param base64Binary $labels
+     *
      * @return $this
      */
     public function setLabels($labels)
     {
         $this->labels = $labels;
+
         return $this;
     }
 
@@ -83,14 +99,13 @@ class GetExistingPdfLabelsResponse implements PaazlResultInterface
 
     /**
      * @param labelMetaDataType $metaData
+     *
      * @return $this
      */
     public function setMetaData($metaData)
     {
         $this->metaData = $metaData;
+
         return $this;
     }
-
-
 }
-
