@@ -35,6 +35,7 @@ abstract class AbstractServiceTest extends TestCase
 
         $clientFactory = new ClientFactory(GuzzleSoapClient::class);
         $soapOptions = [
+            'cache_wsdl' => WSDL_CACHE_DISK,
             'trace' => true,
         ];
 
