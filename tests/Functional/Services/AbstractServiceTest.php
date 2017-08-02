@@ -31,7 +31,6 @@ abstract class AbstractServiceTest extends TestCase
 
     public function setUp()
     {
-        var_dump('WEBSHOPID', getenv('WEBSHOPID'), $_ENV['WEBSHOPID']);
         $guzzleClient = new Client();
 
         $clientFactory = new ClientFactory(GuzzleSoapClient::class);
@@ -46,8 +45,8 @@ abstract class AbstractServiceTest extends TestCase
 
         $this->soapClient = $clientBuilder->build();
         $this->soapClient
-            ->setWebShopId($_ENV['WEBSHOPID'])
-            ->setPassword($_ENV['PASSWORD']);
+            ->setWebShopId(getenv('WEBSHOPID'))
+            ->setPassword(getenv('PASSWORD'));
 
         $this->securityService = new SecurityService($this->soapClient);
     }
