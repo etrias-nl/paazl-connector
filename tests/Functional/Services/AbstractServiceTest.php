@@ -31,6 +31,7 @@ abstract class AbstractServiceTest extends TestCase
 
     public function setUp()
     {
+        var_dump('WEBSHOPID', getenv('WEBSHOPID'), $_ENV['WEBSHOPID']);
         $guzzleClient = new Client();
 
         $clientFactory = new ClientFactory(GuzzleSoapClient::class);
