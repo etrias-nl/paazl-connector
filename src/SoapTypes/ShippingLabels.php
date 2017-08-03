@@ -15,38 +15,38 @@ namespace Etrias\PaazlConnector\SoapTypes;
 class ShippingLabels
 {
     /**
-     * @var triggerBarcodeResponseType
+     * @var ShippingLabel[]
      */
-    protected $shippingLabel = null;
+    protected $shippingLabel = [];
 
     /**
      * Constructor.
      *
-     * @var triggerBarcodeResponseType
+     * @var ShippingLabel[]
      *
      * @param mixed $shippingLabel
      */
-    public function __construct($shippingLabel)
+    public function __construct(array $shippingLabels)
     {
-        $this->shippingLabel = $shippingLabel;
+        $this->shippingLabel = $shippingLabels;
     }
 
     /**
-     * @return triggerBarcodeResponseType
+     * @return ShippingLabel[]
      */
-    public function getShippingLabel()
+    public function getShippingLabels()
     {
         return $this->shippingLabel;
     }
 
     /**
-     * @param triggerBarcodeResponseType $shippingLabel
+     * @param ShippingLabel[] $shippingLabel
      *
      * @return $this
      */
-    public function setShippingLabel($shippingLabel)
+    public function setShippingLabels($shippingLabels)
     {
-        $this->shippingLabel = $shippingLabel;
+        $this->shippingLabel = $shippingLabels;
 
         return $this;
     }
