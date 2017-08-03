@@ -99,7 +99,10 @@ class GuzzleSoapClient extends Client implements PaazlClientInterface
     {
         if ($response->getError()) {
             $exceptionName = ExceptionMap::getException($response->getError()->getCode());
-            throw new $exceptionName();
+            throw new $exceptionName(
+                $response->getError()->getMessage(),
+                $response->getError()->getCode()
+                );
         }
 
         return $response;
