@@ -15,38 +15,38 @@ namespace Etrias\PaazlConnector\SoapTypes;
 class ShippingOptions
 {
     /**
-     * @var shippingOption
+     * @var shippingOption[]
      */
-    protected $shippingOption = null;
+    protected $shippingOption = [];
 
     /**
      * Constructor.
      *
      * @var shippingOption
      *
-     * @param mixed $shippingOption
+     * @param mixed $shippingOption[]
      */
-    public function __construct($shippingOption)
+    public function __construct(array $shippingOptions)
     {
         $this->shippingOption = $shippingOption;
     }
 
     /**
-     * @return shippingOption
+     * @return shippingOption[]
      */
-    public function getShippingOption()
+    public function getShippingOptions()
     {
         return $this->shippingOption;
     }
 
     /**
-     * @param shippingOption $shippingOption
+     * @param shippingOption[] $shippingOptions
      *
      * @return $this
      */
-    public function setShippingOption($shippingOption)
+    public function setShippingOptions($shippingOptions)
     {
-        $this->shippingOption = $shippingOption;
+        $this->shippingOption = $shippingOptions;
 
         return $this;
     }

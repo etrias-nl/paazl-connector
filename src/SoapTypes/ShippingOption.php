@@ -98,9 +98,9 @@ class ShippingOption extends ShippingOptionDetailsType
     protected $shippingOption = null;
 
     /**
-     * @var servicePointType[]
+     * @var servicePointsType
      */
-    protected $servicePoint = null;
+    protected $servicePoints = null;
 
     /**
      * Constructor.
@@ -108,19 +108,19 @@ class ShippingOption extends ShippingOptionDetailsType
      * @param string $distributor
      * @param string $shippingOption
      *
-     * @var servicePointType $servicePoint
+     * @var servicePointsType $servicePoint
      *
      * @param string $contract
      * @param $option
      * @param $description
      * @param mixed $servicePoint
      */
-    public function __construct($distributor, $shippingOption, $servicePoint, $contract, $option, $description)
+    public function __construct($distributor, $shippingOption, $servicePoints, $contract, $option, $description)
     {
         parent::__construct($distributor, $contract, $option, $description);
         $this->distributor = $distributor;
         $this->shippingOption = $shippingOption;
-        $this->servicePoint = $servicePoint;
+        $this->servicePoints = $servicePoints;
     }
 
     /**
@@ -164,21 +164,21 @@ class ShippingOption extends ShippingOptionDetailsType
     }
 
     /**
-     * @return servicePointType[]
+     * @return servicePointsType
      */
-    public function getServicePoint()
+    public function getServicePoints()
     {
-        return $this->servicePoint;
+        return $this->servicePoints;
     }
 
     /**
-     * @param servicePointType $servicePoint
+     * @param servicePointsType $servicePoints
      *
      * @return $this
      */
-    public function setServicePoint($servicePoint)
+    public function setServicePoints($servicePoints)
     {
-        $this->servicePoint = $servicePoint;
+        $this->servicePoints = $servicePoints;
 
         return $this;
     }

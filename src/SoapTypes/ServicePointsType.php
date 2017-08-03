@@ -17,36 +17,36 @@ class ServicePointsType
     /**
      * @var servicePoint
      */
-    protected $servicePoint = null;
+    protected $servicePoint = [];
 
     /**
      * Constructor.
      *
      * @var servicePoint
      *
-     * @param mixed $servicePoint
+     * @param servicePoint[] $servicePoints
      */
-    public function __construct($servicePoint)
+    public function __construct(array $servicePoints)
     {
-        $this->servicePoint = $servicePoint;
+        $this->servicePoint = $servicePoints;
     }
 
     /**
-     * @return servicePoint
+     * @return servicePoint[]
      */
-    public function getServicePoint()
+    public function getServicePoints()
     {
         return $this->servicePoint;
     }
 
     /**
-     * @param servicePoint $servicePoint
+     * @param servicePoint[] $servicePoints
      *
      * @return $this
      */
-    public function setServicePoint($servicePoint)
+    public function setServicePoint($servicePoints)
     {
-        $this->servicePoint = $servicePoint;
+        $this->servicePoint = $servicePoints;
 
         return $this;
     }
