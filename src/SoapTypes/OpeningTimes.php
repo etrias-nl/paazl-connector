@@ -15,38 +15,38 @@ namespace Etrias\PaazlConnector\SoapTypes;
 class OpeningTimes
 {
     /**
-     * @var time
+     * @var Time
      */
-    protected $time = null;
+    protected $time = [];
 
     /**
      * Constructor.
      *
-     * @var time
+     * @var Time
      *
-     * @param mixed $time
+     * @param Time[] $time
      */
-    public function __construct($time)
+    public function __construct(array $times = [])
     {
-        $this->time = $time;
+        $this->time = $times;
     }
 
     /**
-     * @return time
+     * @return Time[]
      */
-    public function getTime()
+    public function getTimes()
     {
         return $this->time;
     }
 
     /**
-     * @param time $time
+     * @param Time[] $times
      *
      * @return $this
      */
-    public function setTime($time)
+    public function setTimes($times)
     {
-        $this->time = $time;
+        $this->time = $times;
 
         return $this;
     }
