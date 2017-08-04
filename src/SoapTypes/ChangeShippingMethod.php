@@ -201,7 +201,34 @@ class ChangeShippingMethod
      * @param mixed $preferredDateChosen
      * @param mixed $description
      */
-    public function __construct($type, $contract, $identifier, $option, $servicepointAccountNumber, $servicepointNotificationEmail, $servicepointNotificationMobile, $price, $shippingPaymentType, $billingAccountNumber, $invoiceNumber, $packagingWeight, $customsValue, $customsValueCurrency, $dutiesPaymentType, $dutiesAccountNumber, $orderWeight, $assuredAmount, $assuredAmountCurrency, $collo, $packageCount, $maxLabels, $packagingType, $preferredDeliveryDate, $preferredDateChosen, $description)
+    public function __construct(
+        $type = null,
+        $contract = null,
+        $identifier = null,
+        $option = null,
+        $servicepointAccountNumber = null,
+        $servicepointNotificationEmail = null,
+        $servicepointNotificationMobile = null,
+        $price = null,
+        $shippingPaymentType = null,
+        $billingAccountNumber = null,
+        $invoiceNumber = null,
+        $packagingWeight = null,
+        $customsValue = null,
+        $customsValueCurrency = null,
+        $dutiesPaymentType = null,
+        $dutiesAccountNumber = null,
+        $orderWeight = null,
+        $assuredAmount = null,
+        $assuredAmountCurrency = null,
+        $collo = null,
+        $packageCount = null,
+        $maxLabels = null,
+        $packagingType = null,
+        $preferredDeliveryDate = null,
+        $preferredDateChosen = null,
+        $description = null
+    )
     {
         $this->type = $type;
         $this->contract = $contract;

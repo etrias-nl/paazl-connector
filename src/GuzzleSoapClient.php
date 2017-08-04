@@ -23,6 +23,7 @@ use Etrias\PaazlConnector\SoapTypes\AddressRequest;
 use Etrias\PaazlConnector\SoapTypes\AddressResponse;
 use Phpro\SoapClient\Client;
 use Phpro\SoapClient\Type\MixedResult;
+use Phpro\SoapClient\Type\RequestInterface;
 
 /**
  * Class SoapClient.
@@ -49,7 +50,7 @@ class GuzzleSoapClient extends Client implements PaazlClientInterface
             $response = $response->getResult();
         }
 
-        return $this->processResponse($response);
+        return $this->processResponse($arguments[0], $response);
     }
 
     /**
@@ -89,20 +90,26 @@ class GuzzleSoapClient extends Client implements PaazlClientInterface
     }
 
     /**
+     * @param RequestInterface $request
      * @param PaazlResultInterface $response
      *
      * @throws PaazlException
      *
      * @return PaazlResultInterface
      */
-    public function processResponse(PaazlResultInterface $response)
+    public function processResponse(RequestInterface $request, PaazlResultInterface $response)
     {
         if ($response->getError()) {
             $exceptionName = ExceptionMap::getException($response->getError()->getCode());
-            throw new $exceptionName(
+            $exception = new $exceptionName(
                 $response->getError()->getMessage(),
                 $response->getError()->getCode()
                 );
+            $exception
+                ->setRequest($request)
+                ->setResponse($response);
+
+            throw $exception;
         }
 
         return $response;
