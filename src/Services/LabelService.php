@@ -66,7 +66,7 @@ class LabelService
     }
 
     /**
-     * @param array $orderReferences
+     * @param string[] $orderReferences
      * @param null  $printer
      * @param null  $includeMetaData
      * @param null  $batch

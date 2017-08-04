@@ -14,6 +14,7 @@ namespace Etrias\PaazlConnector\Services;
 
 use DateTime;
 use Etrias\PaazlConnector\Client\PaazlClientInterface;
+use Etrias\PaazlConnector\Exceptions\ReferenceAlreadyExistsException;
 use Etrias\PaazlConnector\SoapTypes\ChangeOrderRequest;
 use Etrias\PaazlConnector\SoapTypes\ChangeProducts;
 use Etrias\PaazlConnector\SoapTypes\ChangeSenderAddress;
@@ -86,11 +87,12 @@ class OrderService
     /**
      * @param $orderReference
      * @param Product[] $products
+     * @param bool $override
      * @param null      $targetWebShop
      *
      * @return OrderSaveResponseType
      */
-    public function createOrder($orderReference, array $products, $targetWebShop = null)
+    public function createOrder($orderReference, array $products, $override = false, $targetWebShop = null)
     {
         $request = new OrderRequest(
             $this->security->getHash($orderReference),
@@ -100,7 +102,16 @@ class OrderService
             $products
         );
 
-        return $this->client->order($request);
+        if ($override === true) {
+            try {
+                return $this->client->order($request);
+            } catch (ReferenceAlreadyExistsException $e) {
+                return $this->updateOrder($orderReference, $products, $targetWebShop);
+            }
+        } else {
+            return $this->client->order($request);
+        }
+
     }
 
     /**
