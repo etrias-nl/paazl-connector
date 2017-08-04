@@ -14,6 +14,7 @@ namespace Etrias\PaazlConnector\Services;
 
 use DateTime;
 use Etrias\PaazlConnector\Client\PaazlClientInterface;
+use Etrias\PaazlConnector\Exceptions\NoShippingOptionsAvailableException;
 use Etrias\PaazlConnector\SoapTypes\CancelShipmentsRequest;
 use Etrias\PaazlConnector\SoapTypes\CancelShipmentsResponse;
 use Etrias\PaazlConnector\SoapTypes\CancelShipmentType;
@@ -23,6 +24,7 @@ use Etrias\PaazlConnector\SoapTypes\OrdersToShipRequest;
 use Etrias\PaazlConnector\SoapTypes\OrdersToShipResponse;
 use Etrias\PaazlConnector\SoapTypes\ShippingOptionRequest;
 use Etrias\PaazlConnector\SoapTypes\ShippingOptionResponse;
+use Etrias\PaazlConnector\SoapTypes\ShippingOptions;
 use Etrias\PaazlConnector\SoapTypes\Source;
 use Etrias\PaazlConnector\SoapTypes\Sources;
 use RuntimeException;
@@ -147,6 +149,13 @@ class ShippingService
             $sources
         );
 
-        return $this->client->shippingOption($request);
+        try {
+            return $this->client->shippingOption($request);
+        } catch (NoShippingOptionsAvailableException $e) {
+            $response = new ShippingOptionResponse();
+            $response->setShippingOptions(new ShippingOptions());
+
+            return $response;
+        }
     }
 }

@@ -32,24 +32,6 @@ class ShippingOptionResponse implements PaazlResultInterface
     protected $shippingOptions = null;
 
     /**
-     * Constructor.
-     *
-     * @var errorType
-     * @var string          $deliveryMatrix
-     * @var shippingOptions $shippingOptions
-     *
-     * @param mixed $error
-     * @param mixed $deliveryMatrix
-     * @param mixed $shippingOptions
-     */
-    public function __construct($error, $deliveryMatrix, $shippingOptions)
-    {
-        $this->error = $error;
-        $this->deliveryMatrix = $deliveryMatrix;
-        $this->shippingOptions = $shippingOptions;
-    }
-
-    /**
      * @return errorType
      */
     public function getError()

@@ -26,9 +26,9 @@ class ShippingOptions
      *
      * @param mixed $shippingOption[]
      */
-    public function __construct(array $shippingOptions)
+    public function __construct(array $shippingOptions = [])
     {
-        $this->shippingOption = $shippingOption;
+        $this->shippingOption = $shippingOptions;
     }
 
     /**
