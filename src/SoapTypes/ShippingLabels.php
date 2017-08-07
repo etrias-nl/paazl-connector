@@ -41,6 +41,7 @@ class ShippingLabels
 
     /**
      * @param ShippingLabel[] $shippingLabel
+     * @param mixed           $shippingLabels
      *
      * @return $this
      */

@@ -16,12 +16,9 @@ use DateTime;
 use Etrias\PaazlConnector\Client\PaazlClientInterface;
 use Etrias\PaazlConnector\Exceptions\NoShippingOptionsAvailableException;
 use Etrias\PaazlConnector\SoapTypes\CancelShipmentsRequest;
-use Etrias\PaazlConnector\SoapTypes\CancelShipmentsResponse;
-use Etrias\PaazlConnector\SoapTypes\CancelShipmentType;
 use Etrias\PaazlConnector\SoapTypes\DateRangeType;
 use Etrias\PaazlConnector\SoapTypes\ExistingLabelType;
 use Etrias\PaazlConnector\SoapTypes\OrdersToShipRequest;
-use Etrias\PaazlConnector\SoapTypes\OrdersToShipResponse;
 use Etrias\PaazlConnector\SoapTypes\ShippingOptionRequest;
 use Etrias\PaazlConnector\SoapTypes\ShippingOptionResponse;
 use Etrias\PaazlConnector\SoapTypes\ShippingOptions;
@@ -53,7 +50,7 @@ class ShippingService implements ShippingServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function generateShippingManifest()
     {
@@ -61,7 +58,7 @@ class ShippingService implements ShippingServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getOrdersToShip(DateTime $date = null, $targetWebShop = null)
     {
@@ -80,7 +77,7 @@ class ShippingService implements ShippingServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function cancelShipments(array $barCodes, $targetWebShop = null)
     {
@@ -104,7 +101,7 @@ class ShippingService implements ShippingServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getShippingOptions(
         $orderReference,

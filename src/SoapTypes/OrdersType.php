@@ -48,11 +48,12 @@ class OrdersType
      * @var string             $webshopName
      * @var order              $order
      *
-     * @param mixed $page
-     * @param mixed $hasNextPage
-     * @param mixed $webshop
-     * @param mixed $webshopName
-     * @param mixed $order
+     * @param mixed      $page
+     * @param mixed      $hasNextPage
+     * @param mixed      $webshop
+     * @param mixed      $webshopName
+     * @param mixed      $order
+     * @param null|mixed $orders
      */
     public function __construct(
         $page = null,

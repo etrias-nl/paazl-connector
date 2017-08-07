@@ -1,9 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: cprinse
- * Date: 7-8-17
- * Time: 16:38
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */
 
 namespace Etrias\PaazlConnector\Services;
@@ -76,15 +80,15 @@ interface ListServiceInterface
     );
 
     /**
-     * @param null $country
-     * @param null $postcode
+     * @param null                 $country
+     * @param null                 $postcode
      * @param CoordinatesType|null $southWest
      * @param CoordinatesType|null $northEast
-     * @param null $limit
-     * @param null $shippingOption
-     * @param null $evening
-     * @param null $weekend
-     * @param null $targetWebShop
+     * @param null                 $limit
+     * @param null                 $shippingOption
+     * @param null                 $evening
+     * @param null                 $weekend
+     * @param null                 $targetWebShop
      *
      * @return ServicePointsResponse
      */

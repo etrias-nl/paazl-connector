@@ -15,13 +15,9 @@ namespace Etrias\PaazlConnector\Services;
 use DateTime;
 use Etrias\PaazlConnector\Client\PaazlClientInterface;
 use Etrias\PaazlConnector\SoapTypes\BatchStatusRequest;
-use Etrias\PaazlConnector\SoapTypes\BatchStatusResponse;
 use Etrias\PaazlConnector\SoapTypes\CloseBatchRequest;
-use Etrias\PaazlConnector\SoapTypes\CloseBatchResponse;
 use Etrias\PaazlConnector\SoapTypes\ListOpenBatchesRequest;
-use Etrias\PaazlConnector\SoapTypes\ListOpenBatchesResponse;
 use Etrias\PaazlConnector\SoapTypes\OpenBatchRequest;
-use Etrias\PaazlConnector\SoapTypes\OpenBatchResponse;
 
 class BatchService implements BatchServiceInterface
 {
@@ -47,7 +43,7 @@ class BatchService implements BatchServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function openBatch(
         $distributor = null,
@@ -76,7 +72,7 @@ class BatchService implements BatchServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function closeBatch($batchId, $targetWebShop = null)
     {
@@ -91,7 +87,7 @@ class BatchService implements BatchServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getBatchStatus($batchId, $targetWebShop = null)
     {
@@ -106,7 +102,7 @@ class BatchService implements BatchServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function listOpenBatches($targetWebShop = null)
     {

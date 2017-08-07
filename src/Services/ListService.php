@@ -14,14 +14,10 @@ namespace Etrias\PaazlConnector\Services;
 
 use Etrias\PaazlConnector\Client\PaazlClientInterface;
 use Etrias\PaazlConnector\SoapTypes\AddressRequest;
-use Etrias\PaazlConnector\SoapTypes\AddressResponse;
 use Etrias\PaazlConnector\SoapTypes\CoordinatesType;
 use Etrias\PaazlConnector\SoapTypes\DeliveryEstimateRequest;
-use Etrias\PaazlConnector\SoapTypes\DeliveryEstimateResponse;
 use Etrias\PaazlConnector\SoapTypes\RateRequest;
-use Etrias\PaazlConnector\SoapTypes\RateResponse;
 use Etrias\PaazlConnector\SoapTypes\ServicePointsRequest;
-use Etrias\PaazlConnector\SoapTypes\ServicePointsResponse;
 use RuntimeException;
 
 class ListService implements ListServiceInterface
@@ -48,7 +44,7 @@ class ListService implements ListServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getAddress($orderReference, $zipCode, $houseNumber, $addition = null, $targetWebShop = null)
     {
@@ -66,7 +62,7 @@ class ListService implements ListServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getDeliveryEstimate(
         $orderReference,
@@ -103,7 +99,7 @@ class ListService implements ListServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getRates($orderReference, $country = null, $postalCode = null, $shippingOption = null, $targetWebShop = null)
     {
@@ -121,7 +117,7 @@ class ListService implements ListServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getServicePoints(
         $country = null,

@@ -16,13 +16,9 @@ use DateTime;
 use Etrias\PaazlConnector\Client\PaazlClientInterface;
 use Etrias\PaazlConnector\SoapTypes\ChangeStoreDetailsType;
 use Etrias\PaazlConnector\SoapTypes\ChangeStoresRequestType;
-use Etrias\PaazlConnector\SoapTypes\ChangeStoresResponseType;
 use Etrias\PaazlConnector\SoapTypes\DeleteStoresRequest;
-use Etrias\PaazlConnector\SoapTypes\DeleteStoresResponse;
 use Etrias\PaazlConnector\SoapTypes\DeleteStoreType;
 use Etrias\PaazlConnector\SoapTypes\ListStoresRequest;
-use Etrias\PaazlConnector\SoapTypes\ListStoresResponse;
-use Etrias\PaazlConnector\SoapTypes\StoreDetailsType;
 
 class StoresService implements StoresServiceInterface
 {
@@ -48,7 +44,7 @@ class StoresService implements StoresServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function createStores(array $stores, $targetWebShop = null)
     {
@@ -75,7 +71,7 @@ class StoresService implements StoresServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function updateStores(array $stores, $targetWebShop = null)
     {
@@ -102,7 +98,7 @@ class StoresService implements StoresServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function deleteStores(array $storeCodes, $targetWebShop = null)
     {
@@ -122,7 +118,7 @@ class StoresService implements StoresServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function listStores($targetWebShop = null)
     {

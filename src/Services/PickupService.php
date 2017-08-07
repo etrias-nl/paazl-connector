@@ -15,13 +15,9 @@ namespace Etrias\PaazlConnector\Services;
 use DateTime;
 use Etrias\PaazlConnector\Client\PaazlClientInterface;
 use Etrias\PaazlConnector\SoapTypes\AddressType;
-use Etrias\PaazlConnector\SoapTypes\CancelPickupRequestResponse;
 use Etrias\PaazlConnector\SoapTypes\CreatePickupRequestRequest;
-use Etrias\PaazlConnector\SoapTypes\CreatePickupRequestResponse;
-use Etrias\PaazlConnector\SoapTypes\PickupRequestDetailsResponse;
 use Etrias\PaazlConnector\SoapTypes\PickupRequestOptionsRequest;
 use Etrias\PaazlConnector\SoapTypes\PickupRequestQueryType;
-use Etrias\PaazlConnector\SoapTypes\PickupRequestStatusResponse;
 use InvalidArgumentException;
 
 class PickupService implements PickupServiceInterface
@@ -48,7 +44,7 @@ class PickupService implements PickupServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getPickupRequestOptions($internalReference, $pickupCountry = null, $deliveryCountry = null, $targetWebShop = null)
     {
@@ -65,7 +61,7 @@ class PickupService implements PickupServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function createPickupRequest(
         $internalReference,
@@ -117,7 +113,7 @@ class PickupService implements PickupServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getPickupRequestDetails($internalReference, $distributor, $externalReference, $targetWebShop = null)
     {
@@ -134,7 +130,7 @@ class PickupService implements PickupServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getPickupRequestStatus($internalReference, $distributor, $externalReference, $targetWebShop = null)
     {
@@ -151,7 +147,7 @@ class PickupService implements PickupServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function cancelPickupRequest($internalReference, $distributor, $externalReference, $targetWebShop = null)
     {

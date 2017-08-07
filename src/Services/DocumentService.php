@@ -14,14 +14,10 @@ namespace Etrias\PaazlConnector\Services;
 
 use Etrias\PaazlConnector\Client\PaazlClientInterface;
 use Etrias\PaazlConnector\SoapTypes\GenerateAdditionalDocumentType;
-use Etrias\PaazlConnector\SoapTypes\GenerateAdditionalImageDocumentResponse;
 use Etrias\PaazlConnector\SoapTypes\GenerateAdditionalPdfDocumentRequest;
-use Etrias\PaazlConnector\SoapTypes\GenerateAdditionalPdfDocumentResponse;
 use Etrias\PaazlConnector\SoapTypes\GeneratePdfCustomsDocumentsRequest;
-use Etrias\PaazlConnector\SoapTypes\GeneratePdfCustomsDocumentsResponse;
 use Etrias\PaazlConnector\SoapTypes\OrderType;
 use Etrias\PaazlConnector\SoapTypes\ProofOfDeliveryRequest;
-use Etrias\PaazlConnector\SoapTypes\ProofOfDeliveryResponse;
 
 class DocumentService implements DocumentServiceInterface
 {
@@ -47,7 +43,7 @@ class DocumentService implements DocumentServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function generateAdditionalPdfDocument($orderReference, $barcode, $documentType, $printer = null, $targetWebShop = null)
     {
@@ -65,7 +61,7 @@ class DocumentService implements DocumentServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function generateAdditionalImageDocument($orderReference, $barcode, $documentType, $targetWebShop = null)
     {
@@ -82,7 +78,7 @@ class DocumentService implements DocumentServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function generatePdfCustomsDocuments(array $orderReferences, $targetWebShop = null)
     {
@@ -105,7 +101,7 @@ class DocumentService implements DocumentServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getProofOfDelivery($barcode, $targetWebShop = null)
     {

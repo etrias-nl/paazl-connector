@@ -1,9 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: cprinse
- * Date: 7-8-17
- * Time: 16:39
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */
 
 namespace Etrias\PaazlConnector\Services;
@@ -30,8 +34,8 @@ interface OrderServiceInterface
      * Constructor method for orderDetailsRequest.
      *
      * @param string $orderReference
-     * @param int $targetWebShop
-     * @param bool $extendedDetails
+     * @param int    $targetWebShop
+     * @param bool   $extendedDetails
      *
      * @return OrderDetailsResponse
      */
@@ -40,8 +44,8 @@ interface OrderServiceInterface
     /**
      * @param $orderReference
      * @param Product[] $products
-     * @param bool $override
-     * @param null $targetWebShop
+     * @param bool      $override
+     * @param null      $targetWebShop
      *
      * @return OrderSaveResponseType
      */
@@ -50,7 +54,7 @@ interface OrderServiceInterface
     /**
      * @param $orderReference
      * @param Products[] $products
-     * @param null $targetWebShop
+     * @param null       $targetWebShop
      *
      * @return OrderSaveResponseType
      */
@@ -58,18 +62,18 @@ interface OrderServiceInterface
 
     /**
      * @param $orderReference
-     * @param null $newOrderReference
-     * @param ChangeShippingMethod|null $shippingMethod
+     * @param null                       $newOrderReference
+     * @param ChangeShippingMethod|null  $shippingMethod
      * @param ChangeShippingAddress|null $shippingAddress
-     * @param ChangeSenderAddress|null $returnAddress
-     * @param ChangeSenderAddress|null $shipperAddress
-     * @param ChangeProducts|null $products
-     * @param null $totalAmount
-     * @param null $totalAmountCurrency
-     * @param null $language
-     * @param null $customerEmail
-     * @param null $customerPhoneNumber
-     * @param null $targetWebShop
+     * @param ChangeSenderAddress|null   $returnAddress
+     * @param ChangeSenderAddress|null   $shipperAddress
+     * @param ChangeProducts|null        $products
+     * @param null                       $totalAmount
+     * @param null                       $totalAmountCurrency
+     * @param null                       $language
+     * @param null                       $customerEmail
+     * @param null                       $customerPhoneNumber
+     * @param null                       $targetWebShop
      *
      * @return OrderSaveResponseType
      */
@@ -94,14 +98,14 @@ interface OrderServiceInterface
      * @param $pendingOrderReference
      * @param $totalAmount
      * @param $totalAmountCurrency
-     * @param ShippingMethod $shippingMethod
-     * @param ShippingAddress $shippingAddress
-     * @param null $customerEmail
-     * @param null $language
-     * @param null $customerPhoneNumber
+     * @param ShippingMethod     $shippingMethod
+     * @param ShippingAddress    $shippingAddress
+     * @param null               $customerEmail
+     * @param null               $language
+     * @param null               $customerPhoneNumber
      * @param SenderAddress|null $shipperAddress
      * @param SenderAddress|null $returnAddress
-     * @param null $targetWebShop
+     * @param null               $targetWebShop
      *
      * @return ValidateOrderResponseType
      */
@@ -122,17 +126,17 @@ interface OrderServiceInterface
 
     /**
      * @param $orderReference
-     * @param ShippingMethod $shippingMethod
-     * @param ShippingAddress $shippingAddress
-     * @param null $totalAmount
-     * @param null $totalAmountCurrency
-     * @param null $language
-     * @param null $customerEmail
-     * @param null $customerPhoneNumber
+     * @param ShippingMethod     $shippingMethod
+     * @param ShippingAddress    $shippingAddress
+     * @param null               $totalAmount
+     * @param null               $totalAmountCurrency
+     * @param null               $language
+     * @param null               $customerEmail
+     * @param null               $customerPhoneNumber
      * @param SenderAddress|null $returnAddress
      * @param SenderAddress|null $shipperAddress
-     * @param null $pendingOrderReference
-     * @param null $targetWebShop
+     * @param null               $pendingOrderReference
+     * @param null               $targetWebShop
      *
      * @return OrderSaveResponseType
      */
@@ -163,7 +167,7 @@ interface OrderServiceInterface
      * @param $orderReference
      * @param bool|null $includeLabels
      * @param bool|null $getCarrierStatus
-     * @param null $targetWebShop
+     * @param null      $targetWebShop
      *
      * @return OrderStatusResponse
      */
@@ -176,9 +180,9 @@ interface OrderServiceInterface
 
     /**
      * @param DateTime $changedSince
-     * @param null $page
-     * @param null $carrierStatus
-     * @param null $targetWebShop
+     * @param null     $page
+     * @param null     $carrierStatus
+     * @param null     $targetWebShop
      *
      * @return ListOrdersResponse
      */

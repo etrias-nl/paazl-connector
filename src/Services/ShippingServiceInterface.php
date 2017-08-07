@@ -1,9 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: cprinse
- * Date: 7-8-17
- * Time: 16:40
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */
 
 namespace Etrias\PaazlConnector\Services;
@@ -26,7 +30,7 @@ interface ShippingServiceInterface
 
     /**
      * @param DateTime $date
-     * @param null $targetWebShop
+     * @param null     $targetWebShop
      *
      * @return OrdersToShipResponse
      */
@@ -34,7 +38,7 @@ interface ShippingServiceInterface
 
     /**
      * @param CancelShipmentType[] $barCodes
-     * @param null $targetWebShop
+     * @param null                 $targetWebShop
      *
      * @return CancelShipmentsResponse
      */
@@ -42,12 +46,12 @@ interface ShippingServiceInterface
 
     /**
      * @param $orderReference
-     * @param string $country
+     * @param string             $country
      * @param DateRangeType|null $deliveryDateRange
-     * @param null $postcode
-     * @param bool $extendedDeliveryDateDetails
-     * @param null $shippingOption
-     * @param Source[] $sources
+     * @param null               $postcode
+     * @param bool               $extendedDeliveryDateDetails
+     * @param null               $shippingOption
+     * @param Source[]           $sources
      * @param $targetWebShop
      *
      * @return ShippingOptionResponse

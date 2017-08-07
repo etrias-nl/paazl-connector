@@ -15,31 +15,18 @@ namespace Etrias\PaazlConnector\Services;
 use Etrias\PaazlConnector\Client\PaazlClientInterface;
 use Etrias\PaazlConnector\SoapTypes\ExistingLabelType;
 use Etrias\PaazlConnector\SoapTypes\GenerateExtraImageLabelRequest;
-use Etrias\PaazlConnector\SoapTypes\GenerateExtraImageLabelResponse;
 use Etrias\PaazlConnector\SoapTypes\GenerateExtraImageReturnLabelRequest;
-use Etrias\PaazlConnector\SoapTypes\GenerateExtraImageReturnLabelResponse;
 use Etrias\PaazlConnector\SoapTypes\GenerateExtraPdfLabelRequest;
-use Etrias\PaazlConnector\SoapTypes\GenerateExtraPdfLabelResponse;
 use Etrias\PaazlConnector\SoapTypes\GenerateExtraPdfReturnLabelRequest;
-use Etrias\PaazlConnector\SoapTypes\GenerateExtraPdfReturnLabelResponse;
 use Etrias\PaazlConnector\SoapTypes\GenerateImageLabelsRequest;
-use Etrias\PaazlConnector\SoapTypes\GenerateImageLabelsResponse;
 use Etrias\PaazlConnector\SoapTypes\GenerateImageReturnLabelsRequest;
-use Etrias\PaazlConnector\SoapTypes\GenerateImageReturnLabelsResponse;
 use Etrias\PaazlConnector\SoapTypes\GeneratePdfLabelsRequest;
-use Etrias\PaazlConnector\SoapTypes\GeneratePdfLabelsResponse;
 use Etrias\PaazlConnector\SoapTypes\GeneratePdfReturnLabelsRequest;
-use Etrias\PaazlConnector\SoapTypes\GeneratePdfReturnLabelsResponse;
 use Etrias\PaazlConnector\SoapTypes\GenerateZplLabelsRequest;
-use Etrias\PaazlConnector\SoapTypes\GenerateZplLabelsResponse;
 use Etrias\PaazlConnector\SoapTypes\GetExistingImageLabelRequest;
-use Etrias\PaazlConnector\SoapTypes\GetExistingImageLabelResponse;
 use Etrias\PaazlConnector\SoapTypes\GetExistingImageLabelsRequest;
 use Etrias\PaazlConnector\SoapTypes\GetExistingPdfLabelRequest;
-use Etrias\PaazlConnector\SoapTypes\GetExistingPdfLabelResponse;
 use Etrias\PaazlConnector\SoapTypes\GetExistingPdfLabelsRequest;
-use Etrias\PaazlConnector\SoapTypes\GetExistingPdfLabelsResponse;
-use Etrias\PaazlConnector\SoapTypes\LabelType;
 use Etrias\PaazlConnector\SoapTypes\OrderType;
 use Etrias\PaazlConnector\SoapTypes\ReturnLabelsOrderType;
 
@@ -67,7 +54,7 @@ class LabelService implements LabelServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function generatePdfLabels(array $orderReferences, $printer = null, $includeMetaData = null, $batch = null, $targetWebShop = null)
     {
@@ -94,7 +81,7 @@ class LabelService implements LabelServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function generateExtraPdfLabel($orderReference, $printer = null, $includeMetaData = null, $batch = null, $targetWebShop = null)
     {
@@ -113,7 +100,7 @@ class LabelService implements LabelServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function generatePdfReturnLabels(array $orderReferences, $shippingOption = null, $printer = null, $targetWebShop = null)
     {
@@ -139,7 +126,7 @@ class LabelService implements LabelServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function generateExtraPdfReturnLabel($orderReference, $shippingOption, $printer = null, $targetWebShop = null)
     {
@@ -157,7 +144,7 @@ class LabelService implements LabelServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function generateImageLabels(array $orderReferences, $includeMetaData = null, $batch = null, $targetWebShop = null)
     {
@@ -183,7 +170,7 @@ class LabelService implements LabelServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function generateImageReturnLabels(array $orderReferences, $shippingOption, $printer = null, $targetWebShop = null)
     {
@@ -208,7 +195,7 @@ class LabelService implements LabelServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function generateExtraImageReturnLabel($orderReference, $shippingOption, $targetWebShop = null)
     {
@@ -225,7 +212,7 @@ class LabelService implements LabelServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function generateExtraImageLabel($orderReference, $includeMetaData = null, $batch = null, $targetWebShop = null)
     {
@@ -243,7 +230,7 @@ class LabelService implements LabelServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function generateZplLabels(array $orderReferences, $printer = null, $includeMetaData = null, $batch = null, $targetWebShop = null)
     {
@@ -270,7 +257,7 @@ class LabelService implements LabelServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getExistingPdfLabel($orderReference, $barCode, $printer = null, $includeMetaData = null, $targetWebShop = null)
     {
@@ -288,7 +275,7 @@ class LabelService implements LabelServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getExistingPdfLabels(array $labelTypes, $printer = null, $includeMetaData = null)
     {
@@ -313,7 +300,7 @@ class LabelService implements LabelServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getExistingImageLabel($orderReference, $barCode, $includeMetaData = null, $targetWebShop = null)
     {
@@ -329,7 +316,7 @@ class LabelService implements LabelServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getExistingImageLabels(array $labelTypes, $includeMetaData = null)
     {

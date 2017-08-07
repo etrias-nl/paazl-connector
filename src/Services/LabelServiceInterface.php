@@ -1,9 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: cprinse
- * Date: 7-8-17
- * Time: 16:37
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */
 
 namespace Etrias\PaazlConnector\Services;
@@ -26,10 +30,10 @@ interface LabelServiceInterface
 {
     /**
      * @param string[] $orderReferences
-     * @param null $printer
-     * @param null $includeMetaData
-     * @param null $batch
-     * @param null $targetWebShop
+     * @param null     $printer
+     * @param null     $includeMetaData
+     * @param null     $batch
+     * @param null     $targetWebShop
      *
      * @return GeneratePdfLabelsResponse
      */
@@ -90,9 +94,9 @@ interface LabelServiceInterface
 
     /**
      * @param array $orderReferences
-     * @param null $includeMetaData
-     * @param null $batch
-     * @param null $targetWebShop
+     * @param null  $includeMetaData
+     * @param null  $batch
+     * @param null  $targetWebShop
      *
      * @return GenerateImageLabelsResponse
      */
@@ -144,10 +148,10 @@ interface LabelServiceInterface
 
     /**
      * @param array $orderReferences
-     * @param null $printer
-     * @param null $includeMetaData
-     * @param null $batch
-     * @param null $targetWebShop
+     * @param null  $printer
+     * @param null  $includeMetaData
+     * @param null  $batch
+     * @param null  $targetWebShop
      *
      * @return GenerateZplLabelsResponse
      */
@@ -178,8 +182,8 @@ interface LabelServiceInterface
 
     /**
      * @param LabelType[] $labelTypes
-     * @param null $printer
-     * @param null $includeMetaData
+     * @param null        $printer
+     * @param null        $includeMetaData
      *
      * @return GetExistingPdfLabelsResponse
      */
@@ -197,7 +201,7 @@ interface LabelServiceInterface
 
     /**
      * @param LabelType[] $labelTypes
-     * @param null $includeMetaData
+     * @param null        $includeMetaData
      *
      * @return GetExistingPdfLabelsResponse
      */

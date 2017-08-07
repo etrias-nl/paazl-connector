@@ -159,7 +159,6 @@ use Phpro\SoapClient\Type\RequestInterface;
  * @method ChangeStoresResponseType updateStores (ChangeStoresRequestType $request)
  * @method DeleteStoresResponse deleteStores (DeleteStoresRequest $request)
  * @method ListStoresResponse listStores (ListStoresRequest $request)
- *
  */
 class GuzzleSoapClient extends Client implements PaazlClientInterface
 {
@@ -221,7 +220,7 @@ class GuzzleSoapClient extends Client implements PaazlClientInterface
     }
 
     /**
-     * @param RequestInterface $request
+     * @param RequestInterface     $request
      * @param PaazlResultInterface $response
      *
      * @throws PaazlException

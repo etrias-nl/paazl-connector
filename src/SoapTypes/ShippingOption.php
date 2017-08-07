@@ -114,6 +114,7 @@ class ShippingOption extends ShippingOptionDetailsType
      * @param $option
      * @param $description
      * @param mixed $servicePoint
+     * @param mixed $servicePoints
      */
     public function __construct($distributor, $shippingOption, $servicePoints, $contract, $option, $description)
     {

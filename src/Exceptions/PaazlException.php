@@ -18,10 +18,10 @@ use Phpro\SoapClient\Type\ResultInterface;
 
 class PaazlException extends Exception
 {
-    /** @var RequestInterface|null  */
+    /** @var RequestInterface|null */
     protected $request = null;
 
-    /** @var ResultInterface|null  */
+    /** @var ResultInterface|null */
     protected $response = null;
 
     /**
@@ -34,6 +34,7 @@ class PaazlException extends Exception
 
     /**
      * @param null|RequestInterface $request
+     *
      * @return PaazlException
      */
     public function setRequest($request)
@@ -53,6 +54,7 @@ class PaazlException extends Exception
 
     /**
      * @param null|ResultInterface $response
+     *
      * @return PaazlException
      */
     public function setResponse($response)
@@ -61,6 +63,4 @@ class PaazlException extends Exception
 
         return $this;
     }
-
-
 }

@@ -1,9 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: cprinse
- * Date: 7-8-17
- * Time: 16:41
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */
 
 namespace Etrias\PaazlConnector\Services;
@@ -17,7 +21,7 @@ interface StoresServiceInterface
 {
     /**
      * @param StoreDetailsType[] $stores
-     * @param null $targetWebShop
+     * @param null               $targetWebShop
      *
      * @return ChangeStoresResponseType
      */
@@ -25,7 +29,7 @@ interface StoresServiceInterface
 
     /**
      * @param StoreDetailsType[] $stores
-     * @param null $targetWebShop
+     * @param null               $targetWebShop
      *
      * @return ChangeStoresResponseType
      */
@@ -33,7 +37,7 @@ interface StoresServiceInterface
 
     /**
      * @param array $storeCodes
-     * @param null $targetWebShop
+     * @param null  $targetWebShop
      *
      * @return DeleteStoresResponse
      */

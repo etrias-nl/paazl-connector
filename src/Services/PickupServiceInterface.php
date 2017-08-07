@@ -1,9 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: cprinse
- * Date: 7-8-17
- * Time: 16:40
+
+/*
+ * This file is part of PHP CS Fixer.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */
 
 namespace Etrias\PaazlConnector\Services;
@@ -43,13 +47,13 @@ interface PickupServiceInterface
      * @param $pickupName
      * @param AddressType $pickupAddress
      * @param $pickupPhoneNumber
-     * @param null $pickupEmailAddress
+     * @param null             $pickupEmailAddress
      * @param AddressType|null $deliveryAddress
-     * @param null $deliveryEmailAddress
-     * @param null $additionalInstruction
-     * @param null $orderReference
-     * @param null $contract
-     * @param null $targetWebShop
+     * @param null             $deliveryEmailAddress
+     * @param null             $additionalInstruction
+     * @param null             $orderReference
+     * @param null             $contract
+     * @param null             $targetWebShop
      *
      * @return CreatePickupRequestResponse
      */

@@ -132,288 +132,336 @@ interface PaazlClientInterface
 
     /**
      * @param OpenBatchRequest $request
+     *
      * @return OpenBatchResponse
      */
     public function openBatch(OpenBatchRequest $request);
 
     /**
      * @param CloseBatchRequest $request
+     *
      * @return CloseBatchResponse
      */
     public function closeBatch(CloseBatchRequest $request);
 
     /**
      * @param BatchStatusRequest $request
+     *
      * @return BatchStatusResponse
      */
     public function batchStatus(BatchStatusRequest $request);
 
     /**
      * @param ListOpenBatchesRequest $request
+     *
      * @return ListOpenBatchesResponse
      */
     public function listOpenBatches(ListOpenBatchesRequest $request);
 
     /**
      * @param BaseCheckoutRequestType $request
+     *
      * @return CheckoutResponse
      */
     public function checkout(BaseCheckoutRequestType $request);
 
     /**
      * @param BaseCheckoutRequestType $requestType
+     *
      * @return CheckoutResponse
      */
     public function checkoutStatus(BaseCheckoutRequestType $requestType);
 
     /**
      * @param GenerateAdditionalPdfDocumentRequest $request
+     *
      * @return GenerateAdditionalPdfDocumentResponse
      */
     public function generateAdditionalPdfDocument(GenerateAdditionalPdfDocumentRequest $request);
 
     /**
      * @param GenerateAdditionalDocumentType $request
+     *
      * @return GenerateAdditionalImageDocumentResponse
      */
     public function generateAdditionalImageDocument(GenerateAdditionalDocumentType $request);
 
     /**
      * @param GeneratePdfCustomsDocumentsRequest $request
+     *
      * @return GeneratePdfCustomsDocumentsResponse
      */
     public function generatePdfCustomsDocuments(GeneratePdfCustomsDocumentsRequest $request);
 
     /**
      * @param ProofOfDeliveryRequest $request
+     *
      * @return ProofOfDeliveryResponse
      */
     public function proofOfDelivery(ProofOfDeliveryRequest $request);
 
     /**
      * @param GeneratePdfLabelsRequest $request
+     *
      * @return GeneratePdfLabelsResponse
      */
     public function generatePdfLabels(GeneratePdfLabelsRequest $request);
 
     /**
      * @param GenerateExtraPdfLabelRequest $request
+     *
      * @return GenerateExtraPdfLabelResponse
      */
     public function generateExtraPdfLabel(GenerateExtraPdfLabelRequest $request);
 
     /**
      * @param GeneratePdfReturnLabelsRequest $request
+     *
      * @return GeneratePdfReturnLabelsResponse
      */
     public function generatePdfReturnLabels(GeneratePdfReturnLabelsRequest $request);
 
     /**
      * @param GenerateExtraPdfReturnLabelRequest $request
+     *
      * @return GenerateExtraPdfReturnLabelResponse
      */
     public function generateExtraPdfReturnLabel(GenerateExtraPdfReturnLabelRequest $request);
 
     /**
      * @param GenerateImageLabelsRequest $request
+     *
      * @return GenerateImageLabelsResponse
      */
     public function generateImageLabels(GenerateImageLabelsRequest $request);
 
     /**
      * @param GenerateImageReturnLabelsRequest $request
+     *
      * @return GenerateImageReturnLabelsResponse
      */
     public function generateImageReturnLabels(GenerateImageReturnLabelsRequest $request);
 
     /**
      * @param GenerateExtraImageReturnLabelRequest $request
+     *
      * @return GenerateExtraImageReturnLabelResponse
      */
     public function generateExtraImageReturnLabel(GenerateExtraImageReturnLabelRequest $request);
 
     /**
      * @param GenerateExtraImageLabelRequest $request
+     *
      * @return GenerateExtraImageLabelResponse
      */
     public function generateExtraImageLabel(GenerateExtraImageLabelRequest $request);
 
     /**
      * @param GenerateZplLabelsRequest $request
+     *
      * @return GenerateZplLabelsResponse
      */
     public function generateZplLabels(GenerateZplLabelsRequest $request);
 
     /**
      * @param GetExistingPdfLabelRequest $request
+     *
      * @return GetExistingPdfLabelResponse
      */
     public function getExistingPdfLabel(GetExistingPdfLabelRequest $request);
 
     /**
      * @param GetExistingPdfLabelsRequest $request
+     *
      * @return GetExistingPdfLabelsResponse
      */
     public function getExistingPdfLabels(GetExistingPdfLabelsRequest $request);
 
     /**
      * @param GetExistingImageLabelRequest $request
+     *
      * @return GetExistingImageLabelResponse
      */
     public function getExistingImageLabel(GetExistingImageLabelRequest $request);
 
     /**
      * @param GetExistingImageLabelsRequest $request
+     *
      * @return GetExistingPdfLabelsResponse
      */
     public function getExistingImageLabels(GetExistingImageLabelsRequest $request);
 
     /**
      * @param AddressRequest $request
+     *
      * @return AddressResponse
      */
     public function address(AddressRequest $request);
 
     /**
      * @param DeliveryEstimateRequest $request
+     *
      * @return DeliveryEstimateResponse
      */
     public function deliveryEstimate(DeliveryEstimateRequest $request);
 
     /**
      * @param RateRequest $request
+     *
      * @return RateResponse
      */
     public function rate(RateRequest $request);
 
     /**
      * @param ServicePointsRequest $request
+     *
      * @return ServicePointsResponse
      */
     public function servicePoints(ServicePointsRequest $request);
 
     /**
      * @param OrderDetailsRequest $request
+     *
      * @return OrderDetailsResponse
      */
     public function orderDetails(OrderDetailsRequest $request);
 
     /**
      * @param OrderRequest $request
+     *
      * @return OrderSaveResponseType
      */
     public function createOrder(OrderRequest $request);
 
     /**
      * @param UpdateOrderRequest $request
+     *
      * @return OrderSaveResponseType
      */
     public function updateOrder(UpdateOrderRequest $request);
 
     /**
      * @param ChangeOrderRequest $request
+     *
      * @return OrderSaveResponseType
      */
     public function changeOrder(ChangeOrderRequest $request);
 
     /**
      * @param ValidateOrderRequest $request
+     *
      * @return ValidateOrderResponseType
      */
     public function validateOrder(ValidateOrderRequest $request);
 
     /**
      * @param CommitOrderRequest $request
+     *
      * @return OrderSaveResponseType
      */
     public function commitOrder(CommitOrderRequest $request);
 
     /**
      * @param DeleteOrderRequest $request
+     *
      * @return DeleteOrderResponse
      */
     public function deleteOrder(DeleteOrderRequest $request);
 
     /**
      * @param OrderStatusRequest $request
+     *
      * @return OrderStatusResponse
      */
     public function orderStatus(OrderStatusRequest $request);
 
     /**
      * @param ListOrdersRequest $request
+     *
      * @return ListOrdersResponse
      */
     public function listOrders(ListOrdersRequest $request);
 
     /**
      * @param PickupRequestOptionsRequest $request
+     *
      * @return PickupRequestDetailsResponse
      */
     public function pickupRequestOptions(PickupRequestOptionsRequest $request);
 
     /**
      * @param CreatePickupRequestRequest $request
+     *
      * @return CreatePickupRequestResponse
      */
     public function createPickupRequest(CreatePickupRequestRequest $request);
 
     /**
      * @param PickupRequestQueryType $request
+     *
      * @return PickupRequestDetailsResponse
      */
     public function pickupRequestDetails(PickupRequestQueryType $request);
 
     /**
      * @param PickupRequestQueryType $request
+     *
      * @return PickupRequestStatusResponse
      */
     public function pickupRequestStatus(PickupRequestQueryType $request);
 
     /**
      * @param PickupRequestQueryType $request
+     *
      * @return CancelPickupRequestResponse
      */
     public function cancelPickupRequest(PickupRequestQueryType $request);
 
     /**
      * @param OrdersToShipRequest $request
+     *
      * @return OrdersToShipResponse
      */
     public function ordersToShip(OrdersToShipRequest $request);
 
     /**
      * @param CancelShipmentsRequest $request
+     *
      * @return CancelShipmentsResponse
      */
     public function cancelShipments(CancelShipmentsRequest $request);
 
     /**
      * @param ShippingOptionRequest $request
+     *
      * @return ShippingOptionResponse
      */
     public function shippingOption(ShippingOptionRequest $request);
 
     /**
      * @param ChangeStoresRequestType $request
+     *
      * @return ChangeStoresResponseType
      */
     public function createStores(ChangeStoresRequestType $request);
 
     /**
      * @param ChangeStoresRequestType $request
+     *
      * @return ChangeStoresResponseType
      */
     public function updateStores(ChangeStoresRequestType $request);
 
     /**
      * @param DeleteStoresRequest $request
+     *
      * @return DeleteStoresResponse
      */
     public function deleteStores(DeleteStoresRequest $request);
 
     /**
      * @param ListStoresRequest $request
+     *
      * @return ListStoresResponse
      */
     public function listStores(ListStoresRequest $request);

@@ -228,8 +228,7 @@ class ChangeShippingMethod
         $preferredDeliveryDate = null,
         $preferredDateChosen = null,
         $description = null
-    )
-    {
+    ) {
         $this->type = $type;
         $this->contract = $contract;
         $this->identifier = $identifier;

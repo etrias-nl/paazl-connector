@@ -23,21 +23,14 @@ use Etrias\PaazlConnector\SoapTypes\ChangeShippingMethod;
 use Etrias\PaazlConnector\SoapTypes\CommitOrderRequest;
 use Etrias\PaazlConnector\SoapTypes\DeleteOrderRequest;
 use Etrias\PaazlConnector\SoapTypes\ListOrdersRequest;
-use Etrias\PaazlConnector\SoapTypes\ListOrdersResponse;
 use Etrias\PaazlConnector\SoapTypes\OrderDetailsRequest;
-use Etrias\PaazlConnector\SoapTypes\OrderDetailsResponse;
 use Etrias\PaazlConnector\SoapTypes\OrderRequest;
-use Etrias\PaazlConnector\SoapTypes\OrderSaveResponseType;
 use Etrias\PaazlConnector\SoapTypes\OrderStatusRequest;
-use Etrias\PaazlConnector\SoapTypes\OrderStatusResponse;
-use Etrias\PaazlConnector\SoapTypes\Product;
-use Etrias\PaazlConnector\SoapTypes\Products;
 use Etrias\PaazlConnector\SoapTypes\SenderAddress;
 use Etrias\PaazlConnector\SoapTypes\ShippingAddress;
 use Etrias\PaazlConnector\SoapTypes\ShippingMethod;
 use Etrias\PaazlConnector\SoapTypes\UpdateOrderRequest;
 use Etrias\PaazlConnector\SoapTypes\ValidateOrderRequest;
-use Etrias\PaazlConnector\SoapTypes\ValidateOrderResponseType;
 
 class OrderService implements OrderServiceInterface
 {
@@ -63,7 +56,7 @@ class OrderService implements OrderServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getOrderDetails($orderReference, $targetWebShop = null, $extendedDetails = null)
     {
@@ -79,7 +72,7 @@ class OrderService implements OrderServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function createOrder($orderReference, array $products, $override = false, $targetWebShop = null)
     {
@@ -100,11 +93,10 @@ class OrderService implements OrderServiceInterface
         } else {
             return $this->client->order($request);
         }
-
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function updateOrder($orderReference, array $products, $targetWebShop = null)
     {
@@ -120,7 +112,7 @@ class OrderService implements OrderServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function changeOrder(
         $orderReference,
@@ -159,7 +151,7 @@ class OrderService implements OrderServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function validateOrder(
         $orderReference,
@@ -196,7 +188,7 @@ class OrderService implements OrderServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function commitOrder(
         $orderReference,
@@ -237,7 +229,7 @@ class OrderService implements OrderServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function deleteOrder($orderReference, $targetWebShop = null)
     {
@@ -252,7 +244,7 @@ class OrderService implements OrderServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getOrderStatus(
         $orderReference,
@@ -273,7 +265,7 @@ class OrderService implements OrderServiceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function listOrders(DateTime $changedSince, $page = null, $carrierStatus = null, $targetWebShop = null)
     {
