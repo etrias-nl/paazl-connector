@@ -17,13 +17,14 @@ use Etrias\PaazlConnector\SoapTypes\AddressRequest;
 use Etrias\PaazlConnector\SoapTypes\AddressResponse;
 use Etrias\PaazlConnector\SoapTypes\CoordinatesType;
 use Etrias\PaazlConnector\SoapTypes\DeliveryEstimateRequest;
+use Etrias\PaazlConnector\SoapTypes\DeliveryEstimateResponse;
 use Etrias\PaazlConnector\SoapTypes\RateRequest;
 use Etrias\PaazlConnector\SoapTypes\RateResponse;
 use Etrias\PaazlConnector\SoapTypes\ServicePointsRequest;
 use Etrias\PaazlConnector\SoapTypes\ServicePointsResponse;
 use RuntimeException;
 
-class ListService
+class ListService implements ListServiceInterface
 {
     /**
      * @var PaazlClientInterface
@@ -47,13 +48,7 @@ class ListService
     }
 
     /**
-     * @param $orderReference
-     * @param $zipCode
-     * @param $houseNumber
-     * @param null $addition
-     * @param null $targetWebShop
-     *
-     * @return AddressResponse
+     * @inheritdoc
      */
     public function getAddress($orderReference, $zipCode, $houseNumber, $addition = null, $targetWebShop = null)
     {
@@ -71,20 +66,7 @@ class ListService
     }
 
     /**
-     * @param $orderReference
-     * @param $weight
-     * @param $value
-     * @param $valueCurrency
-     * @param $consigneeCountry
-     * @param $consigneeCity
-     * @param $consigneePostcode
-     * @param null $shippingOption
-     * @param null $senderCountry
-     * @param null $senderCity
-     * @param null $senderPostcode
-     * @param null $targetWebShop
-     *
-     * @return DeliveryEstimateResponse
+     * @inheritdoc
      */
     public function getDeliveryEstimate(
         $orderReference,
@@ -121,13 +103,7 @@ class ListService
     }
 
     /**
-     * @param $orderReference
-     * @param null $country
-     * @param null $postalCode
-     * @param null $shippingOption
-     * @param null $targetWebShop
-     *
-     * @return RateResponse
+     * @inheritdoc
      */
     public function getRates($orderReference, $country = null, $postalCode = null, $shippingOption = null, $targetWebShop = null)
     {
@@ -145,17 +121,7 @@ class ListService
     }
 
     /**
-     * @param null                 $country
-     * @param null                 $postcode
-     * @param CoordinatesType|null $southWest
-     * @param CoordinatesType|null $northEast
-     * @param null                 $limit
-     * @param null                 $shippingOption
-     * @param null                 $evening
-     * @param null                 $weekend
-     * @param null                 $targetWebShop
-     *
-     * @return ServicePointsResponse
+     * @inheritdoc
      */
     public function getServicePoints(
         $country = null,

@@ -14,6 +14,7 @@ namespace Tests\Etrias\PaazlConnector\Functional\Services;
 
 use Etrias\PaazlConnector\Exceptions\NoSuchBarcodeException;
 use Etrias\PaazlConnector\Services\ShippingService;
+use Etrias\PaazlConnector\Services\ShippingServiceInterface;
 use Etrias\PaazlConnector\SoapTypes\CancelShipmentsResponse;
 use Etrias\PaazlConnector\SoapTypes\CancelShipmentType;
 use Etrias\PaazlConnector\SoapTypes\DateRangeType;
@@ -26,7 +27,7 @@ use Etrias\PaazlConnector\SoapTypes\ShippingOptionResponse;
 class ShippingServiceTest extends AbstractServiceTest
 {
     /**
-     * @var ShippingService
+     * @var ShippingServiceInterface
      */
     protected $shippingService;
 

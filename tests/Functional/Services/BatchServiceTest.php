@@ -13,6 +13,7 @@
 namespace Tests\Etrias\PaazlConnector\Functional\Services;
 
 use Etrias\PaazlConnector\Services\BatchService;
+use Etrias\PaazlConnector\Services\BatchServiceInterface;
 use Etrias\PaazlConnector\SoapTypes\BatchStatusResponse;
 use Etrias\PaazlConnector\SoapTypes\CloseBatchResponse;
 use Etrias\PaazlConnector\SoapTypes\ListOpenBatchesResponse;
@@ -24,7 +25,7 @@ use Etrias\PaazlConnector\SoapTypes\OpenBatchResponse;
 class BatchServiceTest extends AbstractServiceTest
 {
     /**
-     * @var BatchService
+     * @var BatchServiceInterface
      */
     protected $batchService;
 

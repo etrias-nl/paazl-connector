@@ -14,14 +14,16 @@ namespace Etrias\PaazlConnector\Services;
 
 use Etrias\PaazlConnector\Client\PaazlClientInterface;
 use Etrias\PaazlConnector\SoapTypes\GenerateAdditionalDocumentType;
+use Etrias\PaazlConnector\SoapTypes\GenerateAdditionalImageDocumentResponse;
 use Etrias\PaazlConnector\SoapTypes\GenerateAdditionalPdfDocumentRequest;
 use Etrias\PaazlConnector\SoapTypes\GenerateAdditionalPdfDocumentResponse;
 use Etrias\PaazlConnector\SoapTypes\GeneratePdfCustomsDocumentsRequest;
 use Etrias\PaazlConnector\SoapTypes\GeneratePdfCustomsDocumentsResponse;
 use Etrias\PaazlConnector\SoapTypes\OrderType;
 use Etrias\PaazlConnector\SoapTypes\ProofOfDeliveryRequest;
+use Etrias\PaazlConnector\SoapTypes\ProofOfDeliveryResponse;
 
-class DocumentService
+class DocumentService implements DocumentServiceInterface
 {
     /**
      * @var PaazlClientInterface
@@ -45,13 +47,7 @@ class DocumentService
     }
 
     /**
-     * @param $orderReference
-     * @param $barcode
-     * @param $documentType
-     * @param null $printer
-     * @param null $targetWebShop
-     *
-     * @return GenerateAdditionalPdfDocumentResponse
+     * @inheritdoc
      */
     public function generateAdditionalPdfDocument($orderReference, $barcode, $documentType, $printer = null, $targetWebShop = null)
     {
@@ -69,12 +65,7 @@ class DocumentService
     }
 
     /**
-     * @param $orderReference
-     * @param $barcode
-     * @param $documentType
-     * @param null $targetWebShop
-     *
-     * @return GenerateAdditionalImageDocumentResponse
+     * @inheritdoc
      */
     public function generateAdditionalImageDocument($orderReference, $barcode, $documentType, $targetWebShop = null)
     {
@@ -91,10 +82,7 @@ class DocumentService
     }
 
     /**
-     * @param array $orderReferences
-     * @param $targetWebShop
-     *
-     * @return GeneratePdfCustomsDocumentsResponse
+     * @inheritdoc
      */
     public function generatePdfCustomsDocuments(array $orderReferences, $targetWebShop = null)
     {
@@ -117,10 +105,7 @@ class DocumentService
     }
 
     /**
-     * @param $barcode
-     * @param null $targetWebShop
-     *
-     * @return ProofOfDeliveryResponse
+     * @inheritdoc
      */
     public function getProofOfDelivery($barcode, $targetWebShop = null)
     {

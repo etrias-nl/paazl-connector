@@ -13,6 +13,7 @@
 namespace Tests\Etrias\PaazlConnector\Functional\Services;
 
 use Etrias\PaazlConnector\Services\ListService;
+use Etrias\PaazlConnector\Services\ListServiceInterface;
 use Etrias\PaazlConnector\SoapTypes\AddressResponse;
 use Etrias\PaazlConnector\SoapTypes\CoordinatesType;
 use Etrias\PaazlConnector\SoapTypes\DeliveryEstimateResponse;
@@ -25,7 +26,7 @@ use Etrias\PaazlConnector\SoapTypes\ServicePointsResponse;
 class ListServiceTest extends AbstractServiceTest
 {
     /**
-     * @var ListService
+     * @var ListServiceInterface
      */
     protected $listService;
 

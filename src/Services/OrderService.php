@@ -39,7 +39,7 @@ use Etrias\PaazlConnector\SoapTypes\UpdateOrderRequest;
 use Etrias\PaazlConnector\SoapTypes\ValidateOrderRequest;
 use Etrias\PaazlConnector\SoapTypes\ValidateOrderResponseType;
 
-class OrderService
+class OrderService implements OrderServiceInterface
 {
     /**
      * @var PaazlClientInterface
@@ -63,13 +63,7 @@ class OrderService
     }
 
     /**
-     * Constructor method for orderDetailsRequest.
-     *
-     * @param string $orderReference
-     * @param int    $targetWebShop
-     * @param bool   $extendedDetails
-     *
-     * @return OrderDetailsResponse
+     * @inheritdoc
      */
     public function getOrderDetails($orderReference, $targetWebShop = null, $extendedDetails = null)
     {
@@ -85,12 +79,7 @@ class OrderService
     }
 
     /**
-     * @param $orderReference
-     * @param Product[] $products
-     * @param bool $override
-     * @param null      $targetWebShop
-     *
-     * @return OrderSaveResponseType
+     * @inheritdoc
      */
     public function createOrder($orderReference, array $products, $override = false, $targetWebShop = null)
     {
@@ -115,11 +104,7 @@ class OrderService
     }
 
     /**
-     * @param $orderReference
-     * @param Products[] $products
-     * @param null       $targetWebShop
-     *
-     * @return OrderSaveResponseType
+     * @inheritdoc
      */
     public function updateOrder($orderReference, array $products, $targetWebShop = null)
     {
@@ -135,21 +120,7 @@ class OrderService
     }
 
     /**
-     * @param $orderReference
-     * @param null                       $newOrderReference
-     * @param ChangeShippingMethod|null  $shippingMethod
-     * @param ChangeShippingAddress|null $shippingAddress
-     * @param ChangeSenderAddress|null   $returnAddress
-     * @param ChangeSenderAddress|null   $shipperAddress
-     * @param ChangeProducts|null        $products
-     * @param null                       $totalAmount
-     * @param null                       $totalAmountCurrency
-     * @param null                       $language
-     * @param null                       $customerEmail
-     * @param null                       $customerPhoneNumber
-     * @param null                       $targetWebShop
-     *
-     * @return OrderSaveResponseType
+     * @inheritdoc
      */
     public function changeOrder(
         $orderReference,
@@ -188,20 +159,7 @@ class OrderService
     }
 
     /**
-     * @param $orderReference
-     * @param $pendingOrderReference
-     * @param $totalAmount
-     * @param $totalAmountCurrency
-     * @param ShippingMethod     $shippingMethod
-     * @param ShippingAddress    $shippingAddress
-     * @param null               $customerEmail
-     * @param null               $language
-     * @param null               $customerPhoneNumber
-     * @param SenderAddress|null $shipperAddress
-     * @param SenderAddress|null $returnAddress
-     * @param null               $targetWebShop
-     *
-     * @return ValidateOrderResponseType
+     * @inheritdoc
      */
     public function validateOrder(
         $orderReference,
@@ -238,20 +196,7 @@ class OrderService
     }
 
     /**
-     * @param $orderReference
-     * @param ShippingMethod     $shippingMethod
-     * @param ShippingAddress    $shippingAddress
-     * @param null               $totalAmount
-     * @param null               $totalAmountCurrency
-     * @param null               $language
-     * @param null               $customerEmail
-     * @param null               $customerPhoneNumber
-     * @param SenderAddress|null $returnAddress
-     * @param SenderAddress|null $shipperAddress
-     * @param null               $pendingOrderReference
-     * @param null               $targetWebShop
-     *
-     * @return OrderSaveResponseType
+     * @inheritdoc
      */
     public function commitOrder(
         $orderReference,
@@ -292,10 +237,7 @@ class OrderService
     }
 
     /**
-     * @param $orderReference
-     * @param null $targetWebShop
-     *
-     * @return DeleteOrderResponse
+     * @inheritdoc
      */
     public function deleteOrder($orderReference, $targetWebShop = null)
     {
@@ -310,12 +252,7 @@ class OrderService
     }
 
     /**
-     * @param $orderReference
-     * @param bool|null $includeLabels
-     * @param bool|null $getCarrierStatus
-     * @param null      $targetWebShop
-     *
-     * @return OrderStatusResponse
+     * @inheritdoc
      */
     public function getOrderStatus(
         $orderReference,
@@ -336,12 +273,7 @@ class OrderService
     }
 
     /**
-     * @param DateTime $changedSince
-     * @param null     $page
-     * @param null     $carrierStatus
-     * @param null     $targetWebShop
-     *
-     * @return ListOrdersResponse
+     * @inheritdoc
      */
     public function listOrders(DateTime $changedSince, $page = null, $carrierStatus = null, $targetWebShop = null)
     {

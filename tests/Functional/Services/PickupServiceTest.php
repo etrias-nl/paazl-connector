@@ -16,6 +16,7 @@ use Etrias\PaazlConnector\Exceptions\NoPickupRequestOptionsAvailableException;
 use Etrias\PaazlConnector\Exceptions\NoSuchPickupRequestException;
 use Etrias\PaazlConnector\Exceptions\NoSuchPickupRequestOptionException;
 use Etrias\PaazlConnector\Services\PickupService;
+use Etrias\PaazlConnector\Services\PickupServiceInterface;
 use Etrias\PaazlConnector\SoapTypes\AddressType;
 
 /**
@@ -24,7 +25,7 @@ use Etrias\PaazlConnector\SoapTypes\AddressType;
 class PickupServiceTest extends AbstractServiceTest
 {
     /**
-     * @var PickupService
+     * @var PickupServiceInterface
      */
     protected $pickupService;
 

@@ -24,7 +24,7 @@ use Etrias\PaazlConnector\SoapTypes\PickupRequestQueryType;
 use Etrias\PaazlConnector\SoapTypes\PickupRequestStatusResponse;
 use InvalidArgumentException;
 
-class PickupService
+class PickupService implements PickupServiceInterface
 {
     /**
      * @var PaazlClientInterface
@@ -48,12 +48,7 @@ class PickupService
     }
 
     /**
-     * @param $internalReference
-     * @param null $pickupCountry
-     * @param null $deliveryCountry
-     * @param null $targetWebShop
-     *
-     * @return PickupRequestDetailsResponse
+     * @inheritdoc
      */
     public function getPickupRequestOptions($internalReference, $pickupCountry = null, $deliveryCountry = null, $targetWebShop = null)
     {
@@ -70,25 +65,7 @@ class PickupService
     }
 
     /**
-     * @param $internalReference
-     * @param $pickupRequestOption
-     * @param $pieceCount
-     * @param DateTime $pickupWindowStart
-     * @param DateTime $pickupWindowEnd
-     * @param $pickupCompanyName
-     * @param $pickupContactName
-     * @param $pickupName
-     * @param AddressType $pickupAddress
-     * @param $pickupPhoneNumber
-     * @param null             $pickupEmailAddress
-     * @param AddressType|null $deliveryAddress
-     * @param null             $deliveryEmailAddress
-     * @param null             $additionalInstruction
-     * @param null             $orderReference
-     * @param null             $contract
-     * @param null             $targetWebShop
-     *
-     * @return CreatePickupRequestResponse
+     * @inheritdoc
      */
     public function createPickupRequest(
         $internalReference,
@@ -140,12 +117,7 @@ class PickupService
     }
 
     /**
-     * @param $internalReference
-     * @param $distributor
-     * @param $externalReference
-     * @param null $targetWebShop
-     *
-     * @return PickupRequestDetailsResponse
+     * @inheritdoc
      */
     public function getPickupRequestDetails($internalReference, $distributor, $externalReference, $targetWebShop = null)
     {
@@ -162,12 +134,7 @@ class PickupService
     }
 
     /**
-     * @param $internalReference
-     * @param $distributor
-     * @param $externalReference
-     * @param null $targetWebShop
-     *
-     * @return PickupRequestStatusResponse
+     * @inheritdoc
      */
     public function getPickupRequestStatus($internalReference, $distributor, $externalReference, $targetWebShop = null)
     {
@@ -184,12 +151,7 @@ class PickupService
     }
 
     /**
-     * @param $internalReference
-     * @param $distributor
-     * @param $externalReference
-     * @param null $targetWebShop
-     *
-     * @return CancelPickupRequestResponse
+     * @inheritdoc
      */
     public function cancelPickupRequest($internalReference, $distributor, $externalReference, $targetWebShop = null)
     {

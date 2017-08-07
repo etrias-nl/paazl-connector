@@ -13,7 +13,9 @@
 namespace Tests\Etrias\PaazlConnector\Functional\Services;
 
 use Etrias\PaazlConnector\Services\OrderService;
+use Etrias\PaazlConnector\Services\OrderServiceInterface;
 use Etrias\PaazlConnector\Services\ShippingService;
+use Etrias\PaazlConnector\Services\ShippingServiceInterface;
 use Etrias\PaazlConnector\SoapTypes\DeleteOrderResponse;
 use Etrias\PaazlConnector\SoapTypes\DeliveryTypeType;
 use Etrias\PaazlConnector\SoapTypes\ListOrdersResponse;
@@ -38,12 +40,12 @@ class OrderServiceTest extends AbstractServiceTest
     protected static $newReference;
 
     /**
-     * @var OrderService
+     * @var OrderServiceInterface
      */
     protected $orderService;
 
     /**
-     * @var ShippingService
+     * @var ShippingServiceInterface
      */
     protected $shippingService;
 

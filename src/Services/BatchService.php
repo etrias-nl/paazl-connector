@@ -23,7 +23,7 @@ use Etrias\PaazlConnector\SoapTypes\ListOpenBatchesResponse;
 use Etrias\PaazlConnector\SoapTypes\OpenBatchRequest;
 use Etrias\PaazlConnector\SoapTypes\OpenBatchResponse;
 
-class BatchService
+class BatchService implements BatchServiceInterface
 {
     /**
      * @var PaazlClientInterface
@@ -47,12 +47,7 @@ class BatchService
     }
 
     /**
-     * @param null $distributor
-     * @param null $shippingOption
-     * @param null $country
-     * @param null $targetWebShop
-     *
-     * @return OpenBatchResponse
+     * @inheritdoc
      */
     public function openBatch(
         $distributor = null,
@@ -81,10 +76,7 @@ class BatchService
     }
 
     /**
-     * @param $batchId
-     * @param null $targetWebShop
-     *
-     * @return CloseBatchResponse
+     * @inheritdoc
      */
     public function closeBatch($batchId, $targetWebShop = null)
     {
@@ -99,10 +91,7 @@ class BatchService
     }
 
     /**
-     * @param $batchId
-     * @param null $targetWebShop
-     *
-     * @return BatchStatusResponse
+     * @inheritdoc
      */
     public function getBatchStatus($batchId, $targetWebShop = null)
     {
@@ -117,9 +106,7 @@ class BatchService
     }
 
     /**
-     * @param null $targetWebShop
-     *
-     * @return ListOpenBatchesResponse
+     * @inheritdoc
      */
     public function listOpenBatches($targetWebShop = null)
     {

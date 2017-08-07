@@ -17,7 +17,7 @@ use Etrias\PaazlConnector\SoapTypes\BaseCheckoutRequestType;
 use Etrias\PaazlConnector\SoapTypes\CheckoutResponse;
 use Etrias\PaazlConnector\SoapTypes\CheckoutStatusResponse;
 
-class CheckoutService
+class CheckoutService implements CheckoutServiceInterface
 {
     /**
      * @var PaazlClientInterface
@@ -41,10 +41,7 @@ class CheckoutService
     }
 
     /**
-     * @param $orderReference
-     * @param null $targetWebShop
-     *
-     * @return CheckoutResponse
+     * @inheritdoc
      */
     public function getCheckoutUrl($orderReference, $targetWebShop = null)
     {
@@ -59,10 +56,7 @@ class CheckoutService
     }
 
     /**
-     * @param $orderReference
-     * @param null $targetWebShop
-     *
-     * @return CheckoutStatusResponse
+     * @inheritdoc
      */
     public function getCheckoutStatus($orderReference, $targetWebShop = null)
     {

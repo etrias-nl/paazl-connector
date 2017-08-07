@@ -29,7 +29,7 @@ use Etrias\PaazlConnector\SoapTypes\Source;
 use Etrias\PaazlConnector\SoapTypes\Sources;
 use RuntimeException;
 
-class ShippingService
+class ShippingService implements ShippingServiceInterface
 {
     /**
      * @var PaazlClientInterface
@@ -53,7 +53,7 @@ class ShippingService
     }
 
     /**
-     * @throws RuntimeException
+     * @inheritdoc
      */
     public function generateShippingManifest()
     {
@@ -61,10 +61,7 @@ class ShippingService
     }
 
     /**
-     * @param DateTime $date
-     * @param null     $targetWebShop
-     *
-     * @return OrdersToShipResponse
+     * @inheritdoc
      */
     public function getOrdersToShip(DateTime $date = null, $targetWebShop = null)
     {
@@ -83,10 +80,7 @@ class ShippingService
     }
 
     /**
-     * @param CancelShipmentType[] $barCodes
-     * @param null                 $targetWebShop
-     *
-     * @return CancelShipmentsResponse
+     * @inheritdoc
      */
     public function cancelShipments(array $barCodes, $targetWebShop = null)
     {
@@ -110,16 +104,7 @@ class ShippingService
     }
 
     /**
-     * @param $orderReference
-     * @param string             $country
-     * @param DateRangeType|null $deliveryDateRange
-     * @param null               $postcode
-     * @param bool               $extendedDeliveryDateDetails
-     * @param null               $shippingOption
-     * @param Source[]           $sources
-     * @param $targetWebShop
-     *
-     * @return ShippingOptionResponse
+     * @inheritdoc
      */
     public function getShippingOptions(
         $orderReference,

@@ -16,6 +16,7 @@ use Etrias\PaazlConnector\Exceptions\DistributorException;
 use Etrias\PaazlConnector\Exceptions\NotAvailableProofOfDeliveryDocumentException;
 use Etrias\PaazlConnector\Exceptions\UnsupportedOperationException;
 use Etrias\PaazlConnector\Services\DocumentService;
+use Etrias\PaazlConnector\Services\DocumentServiceInterface;
 use Etrias\PaazlConnector\SoapTypes\AdditionalDocumentType;
 use Etrias\PaazlConnector\SoapTypes\GeneratePdfCustomsDocumentsResponse;
 
@@ -25,7 +26,7 @@ use Etrias\PaazlConnector\SoapTypes\GeneratePdfCustomsDocumentsResponse;
 class DocumentServiceTest extends AbstractServiceTest
 {
     /**
-     * @var DocumentService
+     * @var DocumentServiceInterface
      */
     protected $documentService;
 

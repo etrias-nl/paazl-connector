@@ -15,7 +15,9 @@ namespace Tests\Etrias\PaazlConnector\Functional\Services;
 use Etrias\PaazlConnector\Exceptions\DistributorException;
 use Etrias\PaazlConnector\Exceptions\NoSuchBarcodeException;
 use Etrias\PaazlConnector\Services\LabelService;
+use Etrias\PaazlConnector\Services\LabelServiceInterface;
 use Etrias\PaazlConnector\Services\ShippingService;
+use Etrias\PaazlConnector\Services\ShippingServiceInterface;
 use Etrias\PaazlConnector\SoapTypes\ExistingLabel;
 use Etrias\PaazlConnector\SoapTypes\GenerateExtraImageLabelResponse;
 use Etrias\PaazlConnector\SoapTypes\GenerateExtraImageReturnLabelResponse;
@@ -36,12 +38,12 @@ use Etrias\PaazlConnector\SoapTypes\PrinterType;
 class LabelServiceTest extends AbstractServiceTest
 {
     /**
-     * @var LabelService
+     * @var LabelServiceInterface
      */
     protected $labelService;
 
     /**
-     * @var ShippingService
+     * @var ShippingServiceInterface
      */
     protected $shippingService;
 

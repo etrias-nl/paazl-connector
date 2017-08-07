@@ -24,7 +24,7 @@ use Etrias\PaazlConnector\SoapTypes\ListStoresRequest;
 use Etrias\PaazlConnector\SoapTypes\ListStoresResponse;
 use Etrias\PaazlConnector\SoapTypes\StoreDetailsType;
 
-class StoresService
+class StoresService implements StoresServiceInterface
 {
     /**
      * @var PaazlClientInterface
@@ -48,10 +48,7 @@ class StoresService
     }
 
     /**
-     * @param StoreDetailsType[] $stores
-     * @param null               $targetWebShop
-     *
-     * @return ChangeStoresResponseType
+     * @inheritdoc
      */
     public function createStores(array $stores, $targetWebShop = null)
     {
@@ -78,10 +75,7 @@ class StoresService
     }
 
     /**
-     * @param StoreDetailsType[] $stores
-     * @param null               $targetWebShop
-     *
-     * @return ChangeStoresResponseType
+     * @inheritdoc
      */
     public function updateStores(array $stores, $targetWebShop = null)
     {
@@ -108,10 +102,7 @@ class StoresService
     }
 
     /**
-     * @param array $storeCodes
-     * @param null  $targetWebShop
-     *
-     * @return DeleteStoresResponse
+     * @inheritdoc
      */
     public function deleteStores(array $storeCodes, $targetWebShop = null)
     {
@@ -131,9 +122,7 @@ class StoresService
     }
 
     /**
-     * @param null $targetWebShop
-     *
-     * @return ListStoresResponse
+     * @inheritdoc
      */
     public function listStores($targetWebShop = null)
     {

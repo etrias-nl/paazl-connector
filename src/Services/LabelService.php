@@ -19,6 +19,7 @@ use Etrias\PaazlConnector\SoapTypes\GenerateExtraImageLabelResponse;
 use Etrias\PaazlConnector\SoapTypes\GenerateExtraImageReturnLabelRequest;
 use Etrias\PaazlConnector\SoapTypes\GenerateExtraImageReturnLabelResponse;
 use Etrias\PaazlConnector\SoapTypes\GenerateExtraPdfLabelRequest;
+use Etrias\PaazlConnector\SoapTypes\GenerateExtraPdfLabelResponse;
 use Etrias\PaazlConnector\SoapTypes\GenerateExtraPdfReturnLabelRequest;
 use Etrias\PaazlConnector\SoapTypes\GenerateExtraPdfReturnLabelResponse;
 use Etrias\PaazlConnector\SoapTypes\GenerateImageLabelsRequest;
@@ -42,7 +43,7 @@ use Etrias\PaazlConnector\SoapTypes\LabelType;
 use Etrias\PaazlConnector\SoapTypes\OrderType;
 use Etrias\PaazlConnector\SoapTypes\ReturnLabelsOrderType;
 
-class LabelService
+class LabelService implements LabelServiceInterface
 {
     /**
      * @var PaazlClientInterface
@@ -66,13 +67,7 @@ class LabelService
     }
 
     /**
-     * @param string[] $orderReferences
-     * @param null  $printer
-     * @param null  $includeMetaData
-     * @param null  $batch
-     * @param null  $targetWebShop
-     *
-     * @return GeneratePdfLabelsResponse
+     * @inheritdoc
      */
     public function generatePdfLabels(array $orderReferences, $printer = null, $includeMetaData = null, $batch = null, $targetWebShop = null)
     {
@@ -99,13 +94,7 @@ class LabelService
     }
 
     /**
-     * @param $orderReference
-     * @param null $printer
-     * @param null $includeMetaData
-     * @param null $batch
-     * @param null $targetWebShop
-     *
-     * @return GenerateExtraPdfLabelResponse
+     * @inheritdoc
      */
     public function generateExtraPdfLabel($orderReference, $printer = null, $includeMetaData = null, $batch = null, $targetWebShop = null)
     {
@@ -124,12 +113,7 @@ class LabelService
     }
 
     /**
-     * @param array $orderReferences
-     * @param $shippingOption
-     * @param null $printer
-     * @param null $targetWebShop
-     *
-     * @return GeneratePdfReturnLabelsResponse
+     * @inheritdoc
      */
     public function generatePdfReturnLabels(array $orderReferences, $shippingOption = null, $printer = null, $targetWebShop = null)
     {
@@ -155,12 +139,7 @@ class LabelService
     }
 
     /**
-     * @param $orderReference
-     * @param $shippingOption
-     * @param null $printer
-     * @param null $targetWebShop
-     *
-     * @return GenerateExtraPdfReturnLabelResponse
+     * @inheritdoc
      */
     public function generateExtraPdfReturnLabel($orderReference, $shippingOption, $printer = null, $targetWebShop = null)
     {
@@ -178,12 +157,7 @@ class LabelService
     }
 
     /**
-     * @param array $orderReferences
-     * @param null  $includeMetaData
-     * @param null  $batch
-     * @param null  $targetWebShop
-     *
-     * @return GenerateImageLabelsResponse
+     * @inheritdoc
      */
     public function generateImageLabels(array $orderReferences, $includeMetaData = null, $batch = null, $targetWebShop = null)
     {
@@ -209,12 +183,7 @@ class LabelService
     }
 
     /**
-     * @param array $orderReferences
-     * @param $shippingOption
-     * @param null $printer
-     * @param null $targetWebShop
-     *
-     * @return GenerateImageReturnLabelsResponse
+     * @inheritdoc
      */
     public function generateImageReturnLabels(array $orderReferences, $shippingOption, $printer = null, $targetWebShop = null)
     {
@@ -239,12 +208,7 @@ class LabelService
     }
 
     /**
-     * @param $orderReference
-     * @param $shippingOption
-     * @param null $printer
-     * @param null $targetWebShop
-     *
-     * @return GenerateExtraImageReturnLabelResponse
+     * @inheritdoc
      */
     public function generateExtraImageReturnLabel($orderReference, $shippingOption, $targetWebShop = null)
     {
@@ -261,12 +225,7 @@ class LabelService
     }
 
     /**
-     * @param $orderReference
-     * @param null $includeMetaData
-     * @param null $batch
-     * @param null $targetWebShop
-     *
-     * @return GenerateExtraImageLabelResponse
+     * @inheritdoc
      */
     public function generateExtraImageLabel($orderReference, $includeMetaData = null, $batch = null, $targetWebShop = null)
     {
@@ -284,13 +243,7 @@ class LabelService
     }
 
     /**
-     * @param array $orderReferences
-     * @param null  $printer
-     * @param null  $includeMetaData
-     * @param null  $batch
-     * @param null  $targetWebShop
-     *
-     * @return GenerateZplLabelsResponse
+     * @inheritdoc
      */
     public function generateZplLabels(array $orderReferences, $printer = null, $includeMetaData = null, $batch = null, $targetWebShop = null)
     {
@@ -317,13 +270,7 @@ class LabelService
     }
 
     /**
-     * @param $orderReference
-     * @param $barCode
-     * @param null $printer
-     * @param null $includeMetaData
-     * @param null $targetWebShop
-     *
-     * @return GetExistingPdfLabelResponse
+     * @inheritdoc
      */
     public function getExistingPdfLabel($orderReference, $barCode, $printer = null, $includeMetaData = null, $targetWebShop = null)
     {
@@ -341,11 +288,7 @@ class LabelService
     }
 
     /**
-     * @param LabelType[] $labelTypes
-     * @param null        $printer
-     * @param null        $includeMetaData
-     *
-     * @return GetExistingPdfLabelsResponse
+     * @inheritdoc
      */
     public function getExistingPdfLabels(array $labelTypes, $printer = null, $includeMetaData = null)
     {
@@ -370,12 +313,7 @@ class LabelService
     }
 
     /**
-     * @param $orderReference
-     * @param $barCode
-     * @param null $includeMetaData
-     * @param null $targetWebShop
-     *
-     * @return GetExistingImageLabelResponse
+     * @inheritdoc
      */
     public function getExistingImageLabel($orderReference, $barCode, $includeMetaData = null, $targetWebShop = null)
     {
@@ -391,10 +329,7 @@ class LabelService
     }
 
     /**
-     * @param LabelType[] $labelTypes
-     * @param null        $includeMetaData
-     *
-     * @return GetExistingPdfLabelsResponse
+     * @inheritdoc
      */
     public function getExistingImageLabels(array $labelTypes, $includeMetaData = null)
     {

@@ -13,6 +13,7 @@
 namespace Tests\Etrias\PaazlConnector\Functional\Services;
 
 use Etrias\PaazlConnector\Services\StoresService;
+use Etrias\PaazlConnector\Services\StoresServiceInterface;
 use Etrias\PaazlConnector\SoapTypes\AddressType;
 use Etrias\PaazlConnector\SoapTypes\ChangeStoresResponseType;
 use Etrias\PaazlConnector\SoapTypes\CoordinatesType;
@@ -26,7 +27,7 @@ use Etrias\PaazlConnector\SoapTypes\StoreDetailsType;
 class StoresServiceTest extends AbstractServiceTest
 {
     /**
-     * @var StoresService
+     * @var StoresServiceInterface
      */
     protected $storesService;
 
