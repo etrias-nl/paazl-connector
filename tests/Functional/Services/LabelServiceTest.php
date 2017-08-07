@@ -76,7 +76,7 @@ class LabelServiceTest extends AbstractServiceTest
 
     public function testGeneratePdfReturnLabels()
     {
-        $shippingOptions = $this->shippingService->getShippingOptions('ET171', 'NL')->getShippingOptions()->getShippingOption();
+        $shippingOptions = $this->shippingService->getShippingOptions('ET171', 'NL')->getShippingOptions()->getShippingOptions();
         $shippingOption = reset($shippingOptions);
 
         $response = $this->labelService->generatePdfReturnLabels(
@@ -89,7 +89,7 @@ class LabelServiceTest extends AbstractServiceTest
 
     public function testGenerateExtraPdfReturnLabel()
     {
-        $shippingOptions = $this->shippingService->getShippingOptions('ET171', 'NL')->getShippingOptions()->getShippingOption();
+        $shippingOptions = $this->shippingService->getShippingOptions('ET171', 'NL')->getShippingOptions()->getShippingOptions();
         $shippingOption = reset($shippingOptions);
 
         $response = $this->labelService->generateExtraPdfReturnLabel(
@@ -111,7 +111,7 @@ class LabelServiceTest extends AbstractServiceTest
 
     public function testGenerateImageReturnLabels()
     {
-        $shippingOptions = $this->shippingService->getShippingOptions('ET171', 'NL')->getShippingOptions()->getShippingOption();
+        $shippingOptions = $this->shippingService->getShippingOptions('ET171', 'NL')->getShippingOptions()->getShippingOptions();
         $shippingOption = reset($shippingOptions);
 
         $response = $this->labelService->generateImageReturnLabels(
@@ -124,7 +124,7 @@ class LabelServiceTest extends AbstractServiceTest
 
     public function testGenerateExtraImageReturnLabel()
     {
-        $shippingOptions = $this->shippingService->getShippingOptions('ET171', 'NL')->getShippingOptions()->getShippingOption();
+        $shippingOptions = $this->shippingService->getShippingOptions('ET171', 'NL')->getShippingOptions()->getShippingOptions();
         $shippingOption = reset($shippingOptions);
 
         $response = $this->labelService->generateExtraImageReturnLabel(

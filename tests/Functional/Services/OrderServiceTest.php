@@ -116,7 +116,7 @@ class OrderServiceTest extends AbstractServiceTest
             'NL'
         )->getShippingOptions();
 
-        $shippingOptions = $shippingOptions->getShippingOption();
+        $shippingOptions = $shippingOptions->getShippingOptions();
         /** @var ShippingOption $shippingOption */
         $shippingOption = reset($shippingOptions);
         $this->assertGreaterThan(0, count($shippingOptions));
@@ -157,7 +157,7 @@ class OrderServiceTest extends AbstractServiceTest
             'NL'
         )->getShippingOptions();
 
-        $shippingOptions = $shippingOptions->getShippingOption();
+        $shippingOptions = $shippingOptions->getShippingOptions();
         /** @var ShippingOption $shippingOption */
         $shippingOption = reset($shippingOptions);
         $this->assertGreaterThan(0, count($shippingOptions));

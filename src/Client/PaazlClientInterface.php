@@ -331,7 +331,7 @@ interface PaazlClientInterface
      *
      * @return OrderSaveResponseType
      */
-    public function createOrder(OrderRequest $request);
+    public function order(OrderRequest $request);
 
     /**
      * @param UpdateOrderRequest $request

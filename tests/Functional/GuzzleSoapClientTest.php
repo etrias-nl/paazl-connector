@@ -29,10 +29,11 @@ class GuzzleSoapClientTest extends TestCase
 {
     public function testMagicCall()
     {
+        /** @var GuzzleSoapClient|\PHPUnit_Framework_MockObject_MockObject  $client */
         $client = $this->getMockBuilder(GuzzleSoapClient::class)
             ->setMethods(['call', 'processResponse'])
             ->disableOriginalConstructor()
-            ->getMock();
+            ->getMockForAbstractClass();
 
         $resultMock = $this->getMockForAbstractClass(PaazlResultInterface::class);
         $client->expects($this->once())
@@ -44,16 +45,17 @@ class GuzzleSoapClientTest extends TestCase
 
         $requestMock = $this->getMockForAbstractClass(RequestInterface::class);
 
-        $response = $client->__call('functionName', [$requestMock]);
+        $response = $client->processRequest('functionName', $requestMock);
         $this->assertSame($resultMock, $response);
     }
 
     public function testMagicCallWithMixedResult()
     {
+        /** @var GuzzleSoapClient|\PHPUnit_Framework_MockObject_MockObject  $client */
         $client = $this->getMockBuilder(GuzzleSoapClient::class)
             ->setMethods(['call', 'processResponse'])
             ->disableOriginalConstructor()
-            ->getMock();
+            ->getMockForAbstractClass();
 
         $innerResultMock = $this->getMockForAbstractClass(PaazlResultInterface::class);
 
@@ -74,7 +76,7 @@ class GuzzleSoapClientTest extends TestCase
 
         $requestMock = $this->getMockForAbstractClass(RequestInterface::class);
 
-        $response = $client->__call('functionName', [$requestMock]);
+        $response = $client->processRequest('functionName', $requestMock);
         $this->assertSame($resultMock, $response);
     }
 
@@ -115,9 +117,13 @@ class GuzzleSoapClientTest extends TestCase
 
         $client = new GuzzleSoapClient($soapclient, $dispatcher);
 
+        /** @var RequestInterface|\PHPUnit_Framework_MockObject_MockObject $response */
+        $request = $this->getMockForAbstractClass(RequestInterface::class);
+
+        /** @var PaazlResultInterface|\PHPUnit_Framework_MockObject_MockObject $response */
         $response = $this->getMockForAbstractClass(PaazlResultInterface::class);
 
-        $this->assertSame($response, $client->processResponse($response));
+        $this->assertSame($response, $client->processResponse($request, $response));
     }
 
     public function testProcessResponseWithError()
@@ -132,6 +138,9 @@ class GuzzleSoapClientTest extends TestCase
 
         $client = new GuzzleSoapClient($soapclient, $dispatcher);
 
+        /** @var RequestInterface|\PHPUnit_Framework_MockObject_MockObject $response */
+        $request = $this->getMockForAbstractClass(RequestInterface::class);
+
         /** @var PaazlResultInterface|\PHPUnit_Framework_MockObject_MockObject $response */
         $response = $this->getMockForAbstractClass(PaazlResultInterface::class);
 
@@ -140,7 +149,7 @@ class GuzzleSoapClientTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $error->expects($this->once())
+        $error->expects($this->exactly(2))
             ->method('getCode')
             ->willReturn(1000);
 
@@ -149,6 +158,6 @@ class GuzzleSoapClientTest extends TestCase
             ->willReturn($error);
 
         $this->expectException(PaazlException::class);
-        $client->processResponse($response);
+        $client->processResponse($request, $response);
     }
 }
