@@ -35,9 +35,9 @@ class OrdersType
     protected $webshopName = null;
 
     /**
-     * @var order
+     * @var Order[]
      */
-    protected $order = null;
+    protected $order = [];
 
     /**
      * Constructor.
@@ -54,13 +54,18 @@ class OrdersType
      * @param mixed $webshopName
      * @param mixed $order
      */
-    public function __construct($page, $hasNextPage, $webshop, $webshopName, $order)
+    public function __construct(
+        $page = null,
+        $hasNextPage = null,
+        $webshop = null,
+        $webshopName = null,
+        $orders = null)
     {
         $this->page = $page;
         $this->hasNextPage = $hasNextPage;
         $this->webshop = $webshop;
         $this->webshopName = $webshopName;
-        $this->order = $order;
+        $this->order = $orders;
     }
 
     /**
@@ -144,21 +149,21 @@ class OrdersType
     }
 
     /**
-     * @return order
+     * @return Order[]
      */
-    public function getOrder()
+    public function getOrders()
     {
         return $this->order;
     }
 
     /**
-     * @param order $order
+     * @param Order[] $order
      *
      * @return $this
      */
-    public function setOrder($order)
+    public function setOrders(array $orders)
     {
-        $this->order = $order;
+        $this->order = $orders;
 
         return $this;
     }
