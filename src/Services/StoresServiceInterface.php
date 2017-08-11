@@ -21,7 +21,7 @@ interface StoresServiceInterface
 {
     /**
      * @param StoreDetailsType[] $stores
-     * @param null               $targetWebShop
+     * @param int|null               $targetWebShop
      *
      * @return ChangeStoresResponseType
      */
@@ -29,22 +29,22 @@ interface StoresServiceInterface
 
     /**
      * @param StoreDetailsType[] $stores
-     * @param null               $targetWebShop
+     * @param int|null               $targetWebShop
      *
      * @return ChangeStoresResponseType
      */
     public function updateStores(array $stores, $targetWebShop = null);
 
     /**
-     * @param array $storeCodes
-     * @param null  $targetWebShop
+     * @param string[] $storeCodes
+     * @param int|null  $targetWebShop
      *
      * @return DeleteStoresResponse
      */
     public function deleteStores(array $storeCodes, $targetWebShop = null);
 
     /**
-     * @param null $targetWebShop
+     * @param int|null $targetWebShop
      *
      * @return ListStoresResponse
      */

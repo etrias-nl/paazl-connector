@@ -20,33 +20,33 @@ use Etrias\PaazlConnector\SoapTypes\OpenBatchResponse;
 interface BatchServiceInterface
 {
     /**
-     * @param null $distributor
-     * @param null $shippingOption
-     * @param null $country
-     * @param null $targetWebShop
+     * @param string|null $distributor
+     * @param string|null $shippingOption
+     * @param string|null $country
+     * @param int|null $targetWebShop
      *
      * @return OpenBatchResponse
      */
     public function openBatch($distributor = null, $shippingOption = null, $country = null, $targetWebShop = null);
 
     /**
-     * @param $batchId
-     * @param null $targetWebShop
+     * @param int $batchId
+     * @param int|null $targetWebShop
      *
      * @return CloseBatchResponse
      */
     public function closeBatch($batchId, $targetWebShop = null);
 
     /**
-     * @param $batchId
-     * @param null $targetWebShop
+     * @param int $batchId
+     * @param int $targetWebShop
      *
      * @return BatchStatusResponse
      */
     public function getBatchStatus($batchId, $targetWebShop = null);
 
     /**
-     * @param null $targetWebShop
+     * @param int|null $targetWebShop
      *
      * @return ListOpenBatchesResponse
      */

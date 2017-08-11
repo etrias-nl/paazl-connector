@@ -17,6 +17,7 @@ use Etrias\PaazlConnector\SoapTypes\ChangeProducts;
 use Etrias\PaazlConnector\SoapTypes\ChangeSenderAddress;
 use Etrias\PaazlConnector\SoapTypes\ChangeShippingAddress;
 use Etrias\PaazlConnector\SoapTypes\ChangeShippingMethod;
+use Etrias\PaazlConnector\SoapTypes\DeleteOrderResponse;
 use Etrias\PaazlConnector\SoapTypes\ListOrdersResponse;
 use Etrias\PaazlConnector\SoapTypes\OrderDetailsResponse;
 use Etrias\PaazlConnector\SoapTypes\OrderSaveResponseType;
@@ -45,7 +46,7 @@ interface OrderServiceInterface
      * @param $orderReference
      * @param Product[] $products
      * @param bool      $override
-     * @param null      $targetWebShop
+     * @param int|null      $targetWebShop
      *
      * @return OrderSaveResponseType
      */
@@ -54,26 +55,26 @@ interface OrderServiceInterface
     /**
      * @param $orderReference
      * @param Products[] $products
-     * @param null       $targetWebShop
+     * @param int|null       $targetWebShop
      *
      * @return OrderSaveResponseType
      */
     public function updateOrder($orderReference, array $products, $targetWebShop = null);
 
     /**
-     * @param $orderReference
-     * @param null                       $newOrderReference
+     * @param string $orderReference
+     * @param string|null                       $newOrderReference
      * @param ChangeShippingMethod|null  $shippingMethod
      * @param ChangeShippingAddress|null $shippingAddress
      * @param ChangeSenderAddress|null   $returnAddress
      * @param ChangeSenderAddress|null   $shipperAddress
      * @param ChangeProducts|null        $products
-     * @param null                       $totalAmount
-     * @param null                       $totalAmountCurrency
-     * @param null                       $language
-     * @param null                       $customerEmail
-     * @param null                       $customerPhoneNumber
-     * @param null                       $targetWebShop
+     * @param string|null                       $totalAmount
+     * @param string|null                       $totalAmountCurrency
+     * @param string|null                       $language
+     * @param string|null                       $customerEmail
+     * @param string|null                       $customerPhoneNumber
+     * @param int|null                       $targetWebShop
      *
      * @return OrderSaveResponseType
      */
@@ -94,18 +95,18 @@ interface OrderServiceInterface
     );
 
     /**
-     * @param $orderReference
-     * @param $pendingOrderReference
-     * @param $totalAmount
-     * @param $totalAmountCurrency
+     * @param string $orderReference
+     * @param string $pendingOrderReference
+     * @param float $totalAmount
+     * @param string $totalAmountCurrency
      * @param ShippingMethod     $shippingMethod
      * @param ShippingAddress    $shippingAddress
-     * @param null               $customerEmail
-     * @param null               $language
-     * @param null               $customerPhoneNumber
+     * @param string|null               $customerEmail
+     * @param string|null               $language
+     * @param string|null               $customerPhoneNumber
      * @param SenderAddress|null $shipperAddress
      * @param SenderAddress|null $returnAddress
-     * @param null               $targetWebShop
+     * @param int|null               $targetWebShop
      *
      * @return ValidateOrderResponseType
      */
@@ -125,18 +126,18 @@ interface OrderServiceInterface
     );
 
     /**
-     * @param $orderReference
+     * @param string $orderReference
      * @param ShippingMethod     $shippingMethod
      * @param ShippingAddress    $shippingAddress
-     * @param null               $totalAmount
-     * @param null               $totalAmountCurrency
-     * @param null               $language
-     * @param null               $customerEmail
-     * @param null               $customerPhoneNumber
+     * @param float|null               $totalAmount
+     * @param string|null               $totalAmountCurrency
+     * @param string|null               $language
+     * @param string|null               $customerEmail
+     * @param string|null               $customerPhoneNumber
      * @param SenderAddress|null $returnAddress
      * @param SenderAddress|null $shipperAddress
-     * @param null               $pendingOrderReference
-     * @param null               $targetWebShop
+     * @param string|null               $pendingOrderReference
+     * @param int|null               $targetWebShop
      *
      * @return OrderSaveResponseType
      */
@@ -156,7 +157,7 @@ interface OrderServiceInterface
     );
 
     /**
-     * @param $orderReference
+     * @param string $orderReference
      * @param null $targetWebShop
      *
      * @return DeleteOrderResponse
@@ -164,10 +165,10 @@ interface OrderServiceInterface
     public function deleteOrder($orderReference, $targetWebShop = null);
 
     /**
-     * @param $orderReference
+     * @param string $orderReference
      * @param bool|null $includeLabels
      * @param bool|null $getCarrierStatus
-     * @param null      $targetWebShop
+     * @param int|null      $targetWebShop
      *
      * @return OrderStatusResponse
      */
@@ -180,8 +181,8 @@ interface OrderServiceInterface
 
     /**
      * @param DateTime $changedSince
-     * @param null     $page
-     * @param null     $carrierStatus
+     * @param int|null     $page
+     * @param string|null     $carrierStatus
      * @param null     $targetWebShop
      *
      * @return ListOrdersResponse

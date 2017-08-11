@@ -30,10 +30,10 @@ interface LabelServiceInterface
 {
     /**
      * @param string[] $orderReferences
-     * @param null     $printer
-     * @param null     $includeMetaData
-     * @param null     $batch
-     * @param null     $targetWebShop
+     * @param string|null     $printer
+     * @param bool|null     $includeMetaData
+     * @param string|null     $batch
+     * @param int|null     $targetWebShop
      *
      * @return GeneratePdfLabelsResponse
      */
@@ -46,11 +46,11 @@ interface LabelServiceInterface
     );
 
     /**
-     * @param $orderReference
-     * @param null $printer
-     * @param null $includeMetaData
-     * @param null $batch
-     * @param null $targetWebShop
+     * @param string $orderReference
+     * @param string|null $printer
+     * @param bool|null $includeMetaData
+     * @param string|null $batch
+     * @param int|null $targetWebShop
      *
      * @return GenerateExtraPdfLabelResponse
      */
@@ -63,10 +63,10 @@ interface LabelServiceInterface
     );
 
     /**
-     * @param array $orderReferences
-     * @param $shippingOption
-     * @param null $printer
-     * @param null $targetWebShop
+     * @param string[] $orderReferences
+     * @param string $shippingOption
+     * @param string|null $printer
+     * @param int|null $targetWebShop
      *
      * @return GeneratePdfReturnLabelsResponse
      */
@@ -78,10 +78,10 @@ interface LabelServiceInterface
     );
 
     /**
-     * @param $orderReference
-     * @param $shippingOption
-     * @param null $printer
-     * @param null $targetWebShop
+     * @param string $orderReference
+     * @param string $shippingOption
+     * @param string|null $printer
+     * @param int|null $targetWebShop
      *
      * @return GenerateExtraPdfReturnLabelResponse
      */
@@ -93,10 +93,10 @@ interface LabelServiceInterface
     );
 
     /**
-     * @param array $orderReferences
-     * @param null  $includeMetaData
-     * @param null  $batch
-     * @param null  $targetWebShop
+     * @param string[] $orderReferences
+     * @param bool|null  $includeMetaData
+     * @param string|null  $batch
+     * @param int|null  $targetWebShop
      *
      * @return GenerateImageLabelsResponse
      */
@@ -108,10 +108,10 @@ interface LabelServiceInterface
     );
 
     /**
-     * @param array $orderReferences
-     * @param $shippingOption
-     * @param null $printer
-     * @param null $targetWebShop
+     * @param string[] $orderReferences
+     * @param string $shippingOption
+     * @param string|null $printer
+     * @param int|null $targetWebShop
      *
      * @return GenerateImageReturnLabelsResponse
      */
@@ -123,19 +123,19 @@ interface LabelServiceInterface
     );
 
     /**
-     * @param $orderReference
-     * @param $shippingOption
-     * @param null $targetWebShop
+     * @param string $orderReference
+     * @param string $shippingOption
+     * @param int|null $targetWebShop
      *
      * @return GenerateExtraImageReturnLabelResponse
      */
     public function generateExtraImageReturnLabel($orderReference, $shippingOption, $targetWebShop = null);
 
     /**
-     * @param $orderReference
-     * @param null $includeMetaData
-     * @param null $batch
-     * @param null $targetWebShop
+     * @param string $orderReference
+     * @param bool|null $includeMetaData
+     * @param string|null $batch
+     * @param int|null $targetWebShop
      *
      * @return GenerateExtraImageLabelResponse
      */
@@ -147,11 +147,11 @@ interface LabelServiceInterface
     );
 
     /**
-     * @param array $orderReferences
-     * @param null  $printer
-     * @param null  $includeMetaData
-     * @param null  $batch
-     * @param null  $targetWebShop
+     * @param string[] $orderReferences
+     * @param string|null  $printer
+     * @param bool|null  $includeMetaData
+     * @param string|null  $batch
+     * @param int|null  $targetWebShop
      *
      * @return GenerateZplLabelsResponse
      */
@@ -164,11 +164,11 @@ interface LabelServiceInterface
     );
 
     /**
-     * @param $orderReference
-     * @param $barCode
-     * @param null $printer
-     * @param null $includeMetaData
-     * @param null $targetWebShop
+     * @param string $orderReference
+     * @param string $barCode
+     * @param string|null $printer
+     * @param bool|null $includeMetaData
+     * @param int|null $targetWebShop
      *
      * @return GetExistingPdfLabelResponse
      */
@@ -182,18 +182,18 @@ interface LabelServiceInterface
 
     /**
      * @param LabelType[] $labelTypes
-     * @param null        $printer
-     * @param null        $includeMetaData
+     * @param string|null        $printer
+     * @param bool|null        $includeMetaData
      *
      * @return GetExistingPdfLabelsResponse
      */
     public function getExistingPdfLabels(array $labelTypes, $printer = null, $includeMetaData = null);
 
     /**
-     * @param $orderReference
-     * @param $barCode
-     * @param null $includeMetaData
-     * @param null $targetWebShop
+     * @param string $orderReference
+     * @param string $barCode
+     * @param bool|null $includeMetaData
+     * @param int|null $targetWebShop
      *
      * @return GetExistingImageLabelResponse
      */
@@ -201,7 +201,7 @@ interface LabelServiceInterface
 
     /**
      * @param LabelType[] $labelTypes
-     * @param null        $includeMetaData
+     * @param bool|null        $includeMetaData
      *
      * @return GetExistingPdfLabelsResponse
      */
