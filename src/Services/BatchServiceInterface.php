@@ -23,14 +23,14 @@ interface BatchServiceInterface
      * @param string|null $distributor
      * @param string|null $shippingOption
      * @param string|null $country
-     * @param int|null $targetWebShop
+     * @param int|null    $targetWebShop
      *
      * @return OpenBatchResponse
      */
     public function openBatch($distributor = null, $shippingOption = null, $country = null, $targetWebShop = null);
 
     /**
-     * @param int $batchId
+     * @param int      $batchId
      * @param int|null $targetWebShop
      *
      * @return CloseBatchResponse

@@ -46,7 +46,7 @@ interface OrderServiceInterface
      * @param $orderReference
      * @param Product[] $products
      * @param bool      $override
-     * @param int|null      $targetWebShop
+     * @param int|null  $targetWebShop
      *
      * @return OrderSaveResponseType
      */
@@ -55,26 +55,26 @@ interface OrderServiceInterface
     /**
      * @param $orderReference
      * @param Products[] $products
-     * @param int|null       $targetWebShop
+     * @param int|null   $targetWebShop
      *
      * @return OrderSaveResponseType
      */
     public function updateOrder($orderReference, array $products, $targetWebShop = null);
 
     /**
-     * @param string $orderReference
-     * @param string|null                       $newOrderReference
+     * @param string                     $orderReference
+     * @param string|null                $newOrderReference
      * @param ChangeShippingMethod|null  $shippingMethod
      * @param ChangeShippingAddress|null $shippingAddress
      * @param ChangeSenderAddress|null   $returnAddress
      * @param ChangeSenderAddress|null   $shipperAddress
      * @param ChangeProducts|null        $products
-     * @param string|null                       $totalAmount
-     * @param string|null                       $totalAmountCurrency
-     * @param string|null                       $language
-     * @param string|null                       $customerEmail
-     * @param string|null                       $customerPhoneNumber
-     * @param int|null                       $targetWebShop
+     * @param string|null                $totalAmount
+     * @param string|null                $totalAmountCurrency
+     * @param string|null                $language
+     * @param string|null                $customerEmail
+     * @param string|null                $customerPhoneNumber
+     * @param int|null                   $targetWebShop
      *
      * @return OrderSaveResponseType
      */
@@ -95,18 +95,18 @@ interface OrderServiceInterface
     );
 
     /**
-     * @param string $orderReference
-     * @param string $pendingOrderReference
-     * @param float $totalAmount
-     * @param string $totalAmountCurrency
+     * @param string             $orderReference
+     * @param string             $pendingOrderReference
+     * @param float              $totalAmount
+     * @param string             $totalAmountCurrency
      * @param ShippingMethod     $shippingMethod
      * @param ShippingAddress    $shippingAddress
-     * @param string|null               $customerEmail
-     * @param string|null               $language
-     * @param string|null               $customerPhoneNumber
+     * @param string|null        $customerEmail
+     * @param string|null        $language
+     * @param string|null        $customerPhoneNumber
      * @param SenderAddress|null $shipperAddress
      * @param SenderAddress|null $returnAddress
-     * @param int|null               $targetWebShop
+     * @param int|null           $targetWebShop
      *
      * @return ValidateOrderResponseType
      */
@@ -126,18 +126,18 @@ interface OrderServiceInterface
     );
 
     /**
-     * @param string $orderReference
+     * @param string             $orderReference
      * @param ShippingMethod     $shippingMethod
      * @param ShippingAddress    $shippingAddress
-     * @param float|null               $totalAmount
-     * @param string|null               $totalAmountCurrency
-     * @param string|null               $language
-     * @param string|null               $customerEmail
-     * @param string|null               $customerPhoneNumber
+     * @param float|null         $totalAmount
+     * @param string|null        $totalAmountCurrency
+     * @param string|null        $language
+     * @param string|null        $customerEmail
+     * @param string|null        $customerPhoneNumber
      * @param SenderAddress|null $returnAddress
      * @param SenderAddress|null $shipperAddress
-     * @param string|null               $pendingOrderReference
-     * @param int|null               $targetWebShop
+     * @param string|null        $pendingOrderReference
+     * @param int|null           $targetWebShop
      *
      * @return OrderSaveResponseType
      */
@@ -158,17 +158,17 @@ interface OrderServiceInterface
 
     /**
      * @param string $orderReference
-     * @param null $targetWebShop
+     * @param null   $targetWebShop
      *
      * @return DeleteOrderResponse
      */
     public function deleteOrder($orderReference, $targetWebShop = null);
 
     /**
-     * @param string $orderReference
+     * @param string    $orderReference
      * @param bool|null $includeLabels
      * @param bool|null $getCarrierStatus
-     * @param int|null      $targetWebShop
+     * @param int|null  $targetWebShop
      *
      * @return OrderStatusResponse
      */
@@ -180,10 +180,10 @@ interface OrderServiceInterface
     );
 
     /**
-     * @param DateTime $changedSince
-     * @param int|null     $page
-     * @param string|null     $carrierStatus
-     * @param null     $targetWebShop
+     * @param DateTime    $changedSince
+     * @param int|null    $page
+     * @param string|null $carrierStatus
+     * @param null        $targetWebShop
      *
      * @return ListOrdersResponse
      */

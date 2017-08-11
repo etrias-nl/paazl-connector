@@ -25,7 +25,7 @@ interface PickupServiceInterface
      * @param $internalReference
      * @param string|null $pickupCountry
      * @param string|null $deliveryCountry
-     * @param int|null $targetWebShop
+     * @param int|null    $targetWebShop
      *
      * @return PickupRequestDetailsResponse
      */
@@ -37,23 +37,23 @@ interface PickupServiceInterface
     );
 
     /**
-     * @param string $internalReference
-     * @param string $pickupRequestOption
-     * @param int $pieceCount
-     * @param DateTime $pickupWindowStart
-     * @param DateTime $pickupWindowEnd
-     * @param string $pickupCompanyName
-     * @param string $pickupContactName
-     * @param string $pickupName
-     * @param AddressType $pickupAddress
-     * @param string $pickupPhoneNumber
-     * @param string|null             $pickupEmailAddress
+     * @param string           $internalReference
+     * @param string           $pickupRequestOption
+     * @param int              $pieceCount
+     * @param DateTime         $pickupWindowStart
+     * @param DateTime         $pickupWindowEnd
+     * @param string           $pickupCompanyName
+     * @param string           $pickupContactName
+     * @param string           $pickupName
+     * @param AddressType      $pickupAddress
+     * @param string           $pickupPhoneNumber
+     * @param string|null      $pickupEmailAddress
      * @param AddressType|null $deliveryAddress
-     * @param string|null             $deliveryEmailAddress
-     * @param string|null             $additionalInstruction
-     * @param string|null             $orderReference
-     * @param string|null             $contract
-     * @param int|null             $targetWebShop
+     * @param string|null      $deliveryEmailAddress
+     * @param string|null      $additionalInstruction
+     * @param string|null      $orderReference
+     * @param string|null      $contract
+     * @param int|null         $targetWebShop
      *
      * @return CreatePickupRequestResponse
      */
@@ -78,9 +78,9 @@ interface PickupServiceInterface
     );
 
     /**
-     * @param string $internalReference
-     * @param string $distributor
-     * @param string $externalReference
+     * @param string   $internalReference
+     * @param string   $distributor
+     * @param string   $externalReference
      * @param int|null $targetWebShop
      *
      * @return PickupRequestDetailsResponse
@@ -93,9 +93,9 @@ interface PickupServiceInterface
     );
 
     /**
-     * @param string $internalReference
-     * @param string $distributor
-     * @param string $externalReference
+     * @param string   $internalReference
+     * @param string   $distributor
+     * @param string   $externalReference
      * @param int|null $targetWebShop
      *
      * @return PickupRequestStatusResponse
@@ -103,9 +103,9 @@ interface PickupServiceInterface
     public function getPickupRequestStatus($internalReference, $distributor, $externalReference, $targetWebShop = null);
 
     /**
-     * @param string $internalReference
-     * @param string $distributor
-     * @param string $externalReference
+     * @param string   $internalReference
+     * @param string   $distributor
+     * @param string   $externalReference
      * @param int|null $targetWebShop
      *
      * @return CancelPickupRequestResponse

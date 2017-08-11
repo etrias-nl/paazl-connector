@@ -153,6 +153,7 @@ class GuzzleSoapClient extends Client implements PaazlClientInterface
     /**
      * @param $functionName
      * @param RequestInterface $request
+     *
      * @return mixed
      */
     public function processRequest($functionName, RequestInterface $request)

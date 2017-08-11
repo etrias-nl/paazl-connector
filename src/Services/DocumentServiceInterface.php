@@ -20,11 +20,11 @@ use Etrias\PaazlConnector\SoapTypes\ProofOfDeliveryResponse;
 interface DocumentServiceInterface
 {
     /**
-     * @param string $orderReference
-     * @param string $barcode
-     * @param string $documentType
+     * @param string      $orderReference
+     * @param string      $barcode
+     * @param string      $documentType
      * @param string|null $printer
-     * @param int|null $targetWebShop
+     * @param int|null    $targetWebShop
      *
      * @return GenerateAdditionalPdfDocumentResponse
      */
@@ -37,9 +37,9 @@ interface DocumentServiceInterface
     );
 
     /**
-     * @param string $orderReference
-     * @param string $barcode
-     * @param string $documentType
+     * @param string   $orderReference
+     * @param string   $barcode
+     * @param string   $documentType
      * @param int|null $targetWebShop
      *
      * @return GenerateAdditionalImageDocumentResponse
@@ -55,7 +55,7 @@ interface DocumentServiceInterface
     public function generatePdfCustomsDocuments(array $orderReferences, $targetWebShop = null);
 
     /**
-     * @param string $barcode
+     * @param string   $barcode
      * @param int|null $targetWebShop
      *
      * @return ProofOfDeliveryResponse

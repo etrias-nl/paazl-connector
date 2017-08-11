@@ -30,7 +30,7 @@ interface ShippingServiceInterface
 
     /**
      * @param DateTime $date
-     * @param int|null     $targetWebShop
+     * @param int|null $targetWebShop
      *
      * @return OrdersToShipResponse
      */
@@ -38,21 +38,21 @@ interface ShippingServiceInterface
 
     /**
      * @param CancelShipmentType[] $barCodes
-     * @param int|null                 $targetWebShop
+     * @param int|null             $targetWebShop
      *
      * @return CancelShipmentsResponse
      */
     public function cancelShipments(array $barCodes, $targetWebShop = null);
 
     /**
-     * @param string $orderReference
+     * @param string             $orderReference
      * @param string             $country
      * @param DateRangeType|null $deliveryDateRange
-     * @param string|null               $postcode
+     * @param string|null        $postcode
      * @param bool               $extendedDeliveryDateDetails
-     * @param string|null               $shippingOption
+     * @param string|null        $shippingOption
      * @param Source[]           $sources
-     * @param int|null $targetWebShop
+     * @param int|null           $targetWebShop
      *
      * @return ShippingOptionResponse
      */

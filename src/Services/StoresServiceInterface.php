@@ -21,7 +21,7 @@ interface StoresServiceInterface
 {
     /**
      * @param StoreDetailsType[] $stores
-     * @param int|null               $targetWebShop
+     * @param int|null           $targetWebShop
      *
      * @return ChangeStoresResponseType
      */
@@ -29,7 +29,7 @@ interface StoresServiceInterface
 
     /**
      * @param StoreDetailsType[] $stores
-     * @param int|null               $targetWebShop
+     * @param int|null           $targetWebShop
      *
      * @return ChangeStoresResponseType
      */
@@ -37,7 +37,7 @@ interface StoresServiceInterface
 
     /**
      * @param string[] $storeCodes
-     * @param int|null  $targetWebShop
+     * @param int|null $targetWebShop
      *
      * @return DeleteStoresResponse
      */

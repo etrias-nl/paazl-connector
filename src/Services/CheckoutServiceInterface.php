@@ -18,7 +18,7 @@ use Etrias\PaazlConnector\SoapTypes\CheckoutStatusResponse;
 interface CheckoutServiceInterface
 {
     /**
-     * @param string $orderReference
+     * @param string   $orderReference
      * @param int|null $targetWebShop
      *
      * @return CheckoutResponse
@@ -26,7 +26,7 @@ interface CheckoutServiceInterface
     public function getCheckoutUrl($orderReference, $targetWebShop = null);
 
     /**
-     * @param string $orderReference
+     * @param string   $orderReference
      * @param int|null $targetWebShop
      *
      * @return CheckoutStatusResponse

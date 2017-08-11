@@ -29,7 +29,7 @@ class GuzzleSoapClientTest extends TestCase
 {
     public function testMagicCall()
     {
-        /** @var GuzzleSoapClient|\PHPUnit_Framework_MockObject_MockObject  $client */
+        /** @var GuzzleSoapClient|\PHPUnit_Framework_MockObject_MockObject $client */
         $client = $this->getMockBuilder(GuzzleSoapClient::class)
             ->setMethods(['call', 'processResponse'])
             ->disableOriginalConstructor()
@@ -51,7 +51,7 @@ class GuzzleSoapClientTest extends TestCase
 
     public function testMagicCallWithMixedResult()
     {
-        /** @var GuzzleSoapClient|\PHPUnit_Framework_MockObject_MockObject  $client */
+        /** @var GuzzleSoapClient|\PHPUnit_Framework_MockObject_MockObject $client */
         $client = $this->getMockBuilder(GuzzleSoapClient::class)
             ->setMethods(['call', 'processResponse'])
             ->disableOriginalConstructor()
