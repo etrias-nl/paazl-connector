@@ -14,6 +14,6 @@ namespace Etrias\PaazlConnector\SoapTypes;
 
 class DeliveryTypeType
 {
-    const DELIVERY = 'DELIVERY';
-    const SERVICEPOINT = 'SERVICEPOINT';
+    const DELIVERY = 'delivery';
+    const SERVICEPOINT = 'servicepoint';
 }
