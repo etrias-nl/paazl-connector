@@ -115,6 +115,8 @@ class ShippingService implements ShippingServiceInterface
     ) {
         $sources = new Sources($sources);
 
+        $postcode =  preg_replace('/\s+/', '', $postcode);
+
         $request = new ShippingOptionRequest(
             $this->security->getHash($orderReference),
             $this->client->getWebShopId(),
