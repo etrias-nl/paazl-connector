@@ -27,7 +27,10 @@ use Etrias\PaazlConnector\SoapTypes\GetExistingImageLabelRequest;
 use Etrias\PaazlConnector\SoapTypes\GetExistingImageLabelsRequest;
 use Etrias\PaazlConnector\SoapTypes\GetExistingPdfLabelRequest;
 use Etrias\PaazlConnector\SoapTypes\GetExistingPdfLabelsRequest;
+use Etrias\PaazlConnector\SoapTypes\LabelProduct;
+use Etrias\PaazlConnector\SoapTypes\OrderDetailsRequest;
 use Etrias\PaazlConnector\SoapTypes\OrderType;
+use Etrias\PaazlConnector\SoapTypes\Product;
 use Etrias\PaazlConnector\SoapTypes\ReturnLabelsOrderType;
 
 class LabelService implements LabelServiceInterface
@@ -61,11 +64,37 @@ class LabelService implements LabelServiceInterface
         $orders = [];
 
         foreach ($orderReferences as $orderReference) {
+
+            $labelProducts = [];
+
+            $request = new OrderDetailsRequest(
+                $this->security->getHash($orderReference),
+                $this->client->getWebShopId(),
+                $targetWebShop,
+                $orderReference,
+                true
+            );
+            $orderDetails = $this->client->orderDetails($request);
+
+            /** @var Product $product */
+            foreach ($orderDetails->getProducts() as $product) {
+                $labelProducts[] = new LabelProduct(
+                    $product->getQuantity(),
+                    $product->getWeight(),
+                    $product->getWidth(),
+                    $product->getHeight(),
+                    $product->getLength(),
+                    $product->getVolume(),
+                    $product->getCode(),
+                    $product->getDescription()
+                );
+            }
+
             $orders[] = new OrderType(
                 $this->security->getHash($orderReference),
                 $targetWebShop,
                 $orderReference,
-                [],
+                $labelProducts,
                 $batch
             );
         }
