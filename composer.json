@@ -4,10 +4,10 @@
     "require": {
         "php": ">=5.3.3",
         "ext-soap": "*",
-        "phpro/soap-client": "^0.5",
-        "http-interop/http-factory": "^0.2.0",
-        "guzzlehttp/guzzle": "^6.2",
-        "http-interop/http-factory-guzzle": "^0.1.0"
+        "phpro/soap-client": "~0.5",
+        "http-interop/http-factory": "~0.2",
+        "guzzlehttp/guzzle": "~6.2",
+        "http-interop/http-factory-guzzle": "~0.1"
     },
     "autoload": {
         "psr-4": {
